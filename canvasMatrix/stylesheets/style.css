@@ -1,0 +1,24 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+#container {
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+}
+
+#canvas {
+	background-color: black;
+	cursor:crosshair;
+}
+
+#timerToogle {
+	position: fixed;
+	top:5;
+	left:5;
+	z-index:4;
+}
