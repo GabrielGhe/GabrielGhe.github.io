@@ -2,6 +2,7 @@
   "name": "rippleClick",
   "version": "0.0.1",
   "dependencies": {
-    "react": "~0.11.2"
+    "react": "~0.11.2",
+    "jquery": "~2.1.1"
   }
 }
