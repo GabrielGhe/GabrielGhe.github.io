@@ -1,18 +1,18 @@
 /** @jsx React.DOM */
 
-var RippleInner = React.createClass({
+var RippleInner = React.createClass({displayName: 'RippleInner',
   render: function(){
     if (this.props.cls) {
       this.props.cls += " ripple-button";
     }
 
     return (
-      <button className={this.props.cls} onClick={this.props.ripple}>{this.props.text}</button>     
+      React.DOM.button({className: this.props.cls, onClick: this.props.ripple}, this.props.text)     
     )
   } // END render
 });// END RippleButton
 
-var RippleButton = React.createClass({
+var RippleButton = React.createClass({displayName: 'RippleButton',
   clickHandler: function(e) {
     var parent = $(this.getDOMNode());
 
@@ -43,23 +43,23 @@ var RippleButton = React.createClass({
 
   render: function() {
     return (
-      <div className="ripple-container">
-        <RippleInner text="First" ripple={this.clickHandler} cls="btn btn-primary" />    
-      </div>
+      React.DOM.div({className: "ripple-container"}, 
+        RippleInner({text: "First", ripple: this.clickHandler, cls: "btn btn-primary"})
+      )
     );
   }
 });
 
 
-var RippleApp = React.createClass({
+var RippleApp = React.createClass({displayName: 'RippleApp',
   render: function(){
     return (
-      <div>
-        <h1>Ripple Click Effect</h1>
-        <RippleButton />
-      </div>
+      React.DOM.div(null, 
+        React.DOM.h1(null, "Ripple Click Effect"), 
+        RippleButton(null)
+      )
     );
   }
 });// End RippleApp
 
-React.renderComponent(<RippleApp />, document.getElementById('content'));
+React.renderComponent(RippleApp(null), document.getElementById('content'));
