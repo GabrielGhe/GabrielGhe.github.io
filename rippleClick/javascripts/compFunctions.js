@@ -44,7 +44,7 @@ var RippleButton = React.createClass({displayName: 'RippleButton',
   render: function() {
     return (
       React.DOM.div({className: "ripple-container"}, 
-        RippleInner({t: this.props.text, ripple: this.clickHandler, c: this.props.cls})
+        RippleInner({t: this.props.text, ripple: this.clickHandler, c: this.props.class})
       )
     );
   }
@@ -56,7 +56,8 @@ var RippleApp = React.createClass({displayName: 'RippleApp',
     return (
       React.DOM.div(null, 
         React.DOM.h1(null, "Ripple Click Effect"), 
-        RippleButton({text: "First", cls: "btn btn-primary"})
+        RippleButton({text: "First", class: "btn btn-primary"}), 
+        RippleButton({text: "Second", class: "btn btn-default"})
       )
     );
   }
