@@ -18,8 +18,6 @@ body {
   color: hsl(180, 40%, 40%);
   user-select: none;
   position relative;
-  width:200px;
-  height:100px;
 }
 
 .ripple {
