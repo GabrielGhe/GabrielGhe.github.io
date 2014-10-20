@@ -2,8 +2,12 @@
 
 var RippleInner = React.createClass({
   render: function(){
+    if (this.props.cls) {
+      this.props.cls += " ripple-button";
+    }
+
     return (
-      <button className="ripple-button btn btn-primary" onClick={this.props.ripple}>{this.props.text}</button>     
+      <button className={this.props.cls} onClick={this.props.ripple}>{this.props.text}</button>     
     )
   } // END render
 });// END RippleButton
@@ -40,7 +44,7 @@ var RippleButton = React.createClass({
   render: function() {
     return (
       <div className="ripple-container">
-        <RippleInner text="First" ripple={this.clickHandler} />    
+        <RippleInner text="First" ripple={this.clickHandler} cls="btn btn-primary" />    
       </div>
     );
   }
