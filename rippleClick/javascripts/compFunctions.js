@@ -1,14 +1,14 @@
 /** @jsx React.DOM */
 
-var RippleInner = React.createClass({
+var RippleInner = React.createClass({displayName: 'RippleInner',
   render: function(){
     return (
-      <button class="ripple-button btn btn-primary" onClick={this.props.onRipple}>{this.props.text}</button>     
+      React.DOM.button({class: "ripple-button btn btn-primary", onClick: this.props.onRipple}, this.props.text)     
     )
   } // END render
 });// END RippleButton
 
-var RippleButton = React.createClass({
+var RippleButton = React.createClass({displayName: 'RippleButton',
   clickHandler: function(e) {
     var parent = $(this).parent();
 
@@ -39,11 +39,11 @@ var RippleButton = React.createClass({
 
   render: function() {
     return (
-      <div class="ripple-container">
-        <RippleInner text="First" ripple={this.clickHandler} />    
-      </div>
+      React.DOM.div({class: "ripple-container"}, 
+        RippleInner({text: "First", ripple: this.clickHandler})
+      )
     );
   }
 });
 
-React.renderComponent(<RippleButton />, document.getElementById('content'));
+React.renderComponent(RippleButton(null), document.getElementById('content'));
