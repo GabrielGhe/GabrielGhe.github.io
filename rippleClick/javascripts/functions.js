@@ -3,14 +3,14 @@
 var RippleInner = React.createClass({
   render: function(){
     return (
-      <button class="ripple-button btn btn-primary" onClick={this.props.onRipple}>{this.props.text}</button>     
+      <button className="ripple-button btn btn-primary" onClick={this.props.ripple}>{this.props.text}</button>     
     )
   } // END render
 });// END RippleButton
 
 var RippleButton = React.createClass({
   clickHandler: function(e) {
-    var parent = $(this).parent();
+    var parent = $(this.getDOMNode());
 
     //create ripple if it doesnt exist
     if (parent.find('.ripple').length == 0) {
@@ -39,11 +39,23 @@ var RippleButton = React.createClass({
 
   render: function() {
     return (
-      <div class="ripple-container">
+      <div className="ripple-container">
         <RippleInner text="First" ripple={this.clickHandler} />    
       </div>
     );
   }
 });
 
-React.renderComponent(<RippleButton />, document.getElementById('content'));
+
+var RippleApp = React.createClass({
+  render: function(){
+    return (
+      <div>
+        <h1>Ripple Click Effect</h1>
+        <RippleButton />
+      </div>
+    );
+  }
+});// End RippleApp
+
+React.renderComponent(<RippleApp />, document.getElementById('content'));
