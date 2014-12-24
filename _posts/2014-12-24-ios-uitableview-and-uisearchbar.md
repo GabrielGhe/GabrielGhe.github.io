@@ -8,13 +8,13 @@ tags: ["swift", "ios"]
 {% include JB/setup %}
 
 <!-- Overview -->
-#### Overview
+<h3>Overview</h3>
 
 While working on an iOS app, I needed to have a TableView that was searchable. After looking it up, I found out that
 I could use a Table View and add a Search Bar and Search Display.
 
 <!-- Controls -->
-#### Controls
+<h3>Controls</h3>
 
 TableView will display the data, we just have to supply the functions that tell the table view what to show.
 
@@ -27,7 +27,7 @@ in the search bar.
 ![Search Display]({{ ASSET_PATH }}images/2.png)
 
 <!-- Directions -->
-#### Directions
+<h3>Directions</h3>
 
 First we drag and drop a UIViewController to our storyboard.
 Then we drag and drop a Table View inside that ViewController and a Search Bar and Search Display above the TableView.
@@ -65,7 +65,7 @@ func searchDisplayController(controller: UISearchDisplayController!, shouldReloa
 
 <!-- TableView functions -->
 <br/><br/>
-#### TableView functions
+<h3>TableView functions</h3>
 
 <!-- Code -->
 {% highlight swift linenos %}
@@ -105,7 +105,7 @@ the one from our main tableView.
 
 <!-- SearchBar functions -->
 <br/><br/>
-#### SearchBar functions
+<h3>SearchBar functions</h3>
 
 <!-- Code -->
 {% highlight swift linenos %}
