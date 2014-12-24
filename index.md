@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Programming Blog
-tagline: Must remember everything
+title: Gab's Blog
 ---
 {% include JB/setup %}
 
