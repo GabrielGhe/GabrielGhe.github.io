@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Blog
-tagline: Too much to remember
+title: Programming Blog
+tagline: Must remember everything
 ---
 {% include JB/setup %}
 

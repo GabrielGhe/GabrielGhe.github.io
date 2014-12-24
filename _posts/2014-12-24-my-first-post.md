@@ -2,8 +2,8 @@
 layout: post
 title: "My first post"
 description: "Setting up Jekyll"
-category: me
-tags: ["programming", "swift", "javascript", "java", "python", "csharp"]
+category: programming
+tags: []
 ---
 {% include JB/setup %}
 

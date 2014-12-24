@@ -5,16 +5,13 @@ permalink: /:categories/:year/:month/:day/:title
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 markdown: redcarpet
 highlighter: pygments
-tags:
-  highlight:
-    linenos: true
 
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
 title : GabrielGhe
-tagline: Too much to remember
+tagline: Must remember everything
 author : 
   name : Gabriel G
   github : GabrielGhe
