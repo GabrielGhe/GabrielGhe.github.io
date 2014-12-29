@@ -1,31 +1,34 @@
 ---
 ---
-var docs = 
-[ 
+var data = {};
+var temp;
 {% for post in site.posts %}
-  {% include custom/post.json %},
+temp = {% include custom/post.json %};
+data[temp.id] = temp;
 {% endfor %}
-];
+
 // init lunr
 var idx = lunr(function () {
   this.field('title', 10);
   this.field('tags');
   this.field('category');
-  //this.field('content');
+  this.field('content');
 })
 // add each document to be index
-for(var index in docs) {
-  idx.add(docs[index]);
+for(var index in data) {
+  idx.add(data[index]);
+  delete data[index].content;
 }
 
 function search() {
   var result = idx.search($("#search input").val());
-
+  var list = [];
   if(result && result.length > 0) {
     for(var i=0; i < result.length; ++i){
-      console.log(result[i].ref);
+      list.push(data[result[i].ref]);
     }
   }
+  searchList = list;
 }
 
 $(function() {
