@@ -108,11 +108,58 @@
     </div>
     <div class="content">
       
-<p>Javascript’s new version (EcmaScript 6) has some amazing new features. The one discussed in this post is the arrow symbol <code>=&gt;</code>.</p>
+<!-- Overview -->
+<h3>Overview</h3>
 
-<p>```javascript</p>
+<p>Javascript’s new version (EcmaScript 6) has some amazing new features. The one discussed in this post is the arrow symbol <code>=&gt;</code>.
+The arrow symbol is used to create shorter functions and to fix the scoped <code>this</code>. More information can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">here</a></p>
 
-<p>```</p>
+<!-- Details -->
+<h3>Details</h3>
+
+<!-- Shorter functions -->
+<p>The arrow symbol can help shorten functions.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">dogs</span> <span class="o">=</span> <span class="p">[</span>
+<span class="lineno"> 2</span>   <span class="s2">&quot;Jake&quot;</span><span class="p">,</span>
+<span class="lineno"> 3</span>   <span class="s2">&quot;Daisy&quot;</span><span class="p">,</span>
+<span class="lineno"> 4</span>   <span class="s2">&quot;Honey&quot;</span>
+<span class="lineno"> 5</span> <span class="p">];</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> <span class="kd">var</span> <span class="nx">length1</span> <span class="o">=</span> <span class="nx">dogs</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">){</span> <span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span> <span class="p">});</span>
+<span class="lineno"> 8</span> <span class="c1">// [4, 5, 5]</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="kd">var</span> <span class="nx">length2</span> <span class="o">=</span> <span class="nx">dogs</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="nx">s</span> <span class="o">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span> <span class="p">);</span>
+<span class="lineno">11</span> <span class="c1">// [4, 5, 5]</span></code></pre></div>
+
+<!-- Scoped this -->
+<p>It can also help with the scoped <code>this</code> variable.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// Before 1</span>
+<span class="lineno"> 2</span> <span class="kd">function</span> <span class="nx">Dog1</span><span class="p">(){</span>
+<span class="lineno"> 3</span>   <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span> <span class="c1">// We have to cache &#39;this&#39;</span>
+<span class="lineno"> 4</span>   <span class="nx">that</span><span class="p">.</span><span class="nx">treats</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno"> 5</span>   <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span> <span class="nx">eatTreat</span><span class="p">(){</span>
+<span class="lineno"> 6</span>     <span class="nx">that</span><span class="p">.</span><span class="nx">treats</span><span class="o">++</span><span class="p">;</span>
+<span class="lineno"> 7</span>   <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="lineno"> 8</span> <span class="p">}</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="c1">// Before 2</span>
+<span class="lineno">11</span> <span class="kd">function</span> <span class="nx">Dog2</span><span class="p">(){</span>
+<span class="lineno">12</span>   <span class="k">this</span><span class="p">.</span><span class="nx">treats</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">13</span>   <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span> <span class="nx">eatTreat</span><span class="p">(){</span>
+<span class="lineno">14</span>     <span class="k">this</span><span class="p">.</span><span class="nx">treats</span><span class="o">++</span><span class="p">;</span>
+<span class="lineno">15</span>   <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">// We have to bind &#39;this&#39; to the function</span>
+<span class="lineno">16</span> <span class="p">}</span>
+<span class="lineno">17</span> 
+<span class="lineno">18</span> <span class="c1">// Now</span>
+<span class="lineno">19</span> <span class="kd">function</span> <span class="nx">Dog3</span><span class="p">(){</span>
+<span class="lineno">20</span>   <span class="k">this</span><span class="p">.</span><span class="nx">treats</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">21</span>   <span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">// &#39;this&#39; refers to Dog3&#39;s &#39;this&#39;</span>
+<span class="lineno">22</span>     <span class="k">this</span><span class="p">.</span><span class="nx">treats</span><span class="o">++</span><span class="p">;</span>
+<span class="lineno">23</span>   <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="lineno">24</span> <span class="p">}</span></code></pre></div>
+
 
     </div>
 

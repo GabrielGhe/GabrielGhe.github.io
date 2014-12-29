@@ -3,7 +3,7 @@ layout: post
 title: "iOS: UITableView and UISearchBar"
 description: ""
 category: swift
-tags: ["swift", "ios"]
+tags: ["ios", "ui"]
 ---
 {% include JB/setup %}
 
