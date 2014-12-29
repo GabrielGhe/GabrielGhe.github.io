@@ -117,8 +117,64 @@ More information can be found <a href="http://code.tutsplus.com/articles/use-ecm
 <!-- Details -->
 <h3>Details</h3>
 
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// OLD CLASS</span>
+<span class="lineno"> 2</span> <span class="kd">var</span> <span class="nx">MyObject</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">){</span>
+<span class="lineno"> 3</span>   <span class="k">this</span><span class="p">.</span><span class="nx">p1</span> <span class="o">=</span> <span class="nx">params</span><span class="p">.</span><span class="nx">p1</span><span class="p">;</span>
+<span class="lineno"> 4</span>   <span class="k">this</span><span class="p">.</span><span class="nx">p2</span> <span class="o">=</span> <span class="nx">params</span><span class="p">.</span><span class="nx">p2</span><span class="p">;</span>
+<span class="lineno"> 5</span> <span class="p">};</span>
+<span class="lineno"> 6</span> <span class="c1">// I will go over the new string interpolation in another post</span>
+<span class="lineno"> 7</span> <span class="nx">MyObject</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">summary</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno"> 8</span>   <span class="k">return</span> <span class="s2">&quot;p1:&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">p1</span> <span class="o">+</span> <span class="s2">&quot; p2:&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">p2</span><span class="p">;</span>
+<span class="lineno"> 9</span> <span class="p">};</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> 
+<span class="lineno">12</span> <span class="c1">// NEW CLASS</span>
+<span class="lineno">13</span> <span class="kr">class</span> <span class="nx">MyObject</span> <span class="p">{</span>
+<span class="lineno">14</span>   <span class="nx">constructor</span><span class="p">(</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">){</span>
+<span class="lineno">15</span>     <span class="k">this</span><span class="p">.</span><span class="nx">p1</span> <span class="o">=</span> <span class="nx">p1</span><span class="p">;</span>
+<span class="lineno">16</span>     <span class="k">this</span><span class="p">.</span><span class="nx">p2</span> <span class="o">=</span> <span class="nx">p2</span><span class="p">;</span>
+<span class="lineno">17</span>   <span class="p">}</span>
+<span class="lineno">18</span>   <span class="nx">summary</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">19</span>     <span class="k">return</span> <span class="s2">&quot;p1:&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">p1</span> <span class="o">+</span> <span class="s2">&quot; p2:&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">p2</span><span class="p">;</span>
+<span class="lineno">20</span>   <span class="p">}</span>
+<span class="lineno">21</span> <span class="p">}</span></code></pre></div>
+
 <!-- Examples -->
 <h3>Examples</h3>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// Getters and Setters</span>
+<span class="lineno"> 2</span> <span class="kr">class</span> <span class="nx">Person</span> <span class="p">{</span>
+<span class="lineno"> 3</span>   <span class="nx">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+<span class="lineno"> 4</span>     <span class="k">this</span><span class="p">.</span><span class="nx">_name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="lineno"> 5</span>   <span class="p">}</span>
+<span class="lineno"> 6</span>   <span class="nx">get</span> <span class="nx">name</span><span class="p">(){</span>
+<span class="lineno"> 7</span>     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_name</span><span class="p">;</span>
+<span class="lineno"> 8</span>   <span class="p">}</span>
+<span class="lineno"> 9</span>   <span class="nx">set</span> <span class="nx">name</span><span class="p">(</span><span class="nx">newName</span><span class="p">){</span>
+<span class="lineno">10</span>     <span class="k">if</span> <span class="p">(</span><span class="nx">newName</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">11</span>       <span class="k">this</span><span class="p">.</span><span class="nx">_name</span> <span class="o">=</span> <span class="nx">newName</span><span class="p">;</span>
+<span class="lineno">12</span>     <span class="p">}</span>
+<span class="lineno">13</span>   <span class="p">}</span>
+<span class="lineno">14</span> <span class="p">}</span>
+<span class="lineno">15</span> 
+<span class="lineno">16</span> <span class="kd">let</span> <span class="nx">guy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">&quot;Tom&quot;</span><span class="p">);</span>
+<span class="lineno">17</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">guy</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// Tom</span>
+<span class="lineno">18</span> <span class="nx">guy</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Steve&quot;</span><span class="p">;</span>
+<span class="lineno">19</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">guy</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// Steve</span>
+<span class="lineno">20</span> 
+<span class="lineno">21</span> 
+<span class="lineno">22</span> <span class="c1">// Inheritance</span>
+<span class="lineno">23</span> <span class="kr">class</span> <span class="nx">Dev</span> <span class="kr">extends</span> <span class="nx">Person</span> <span class="p">{</span>
+<span class="lineno">24</span>   <span class="kr">static</span> <span class="nx">allDevs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="lineno">25</span>   <span class="nx">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">preferredLang</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">26</span>     <span class="kr">super</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+<span class="lineno">27</span>     <span class="k">this</span><span class="p">.</span><span class="nx">lang</span> <span class="o">=</span> <span class="nx">preferredLang</span><span class="p">;</span>
+<span class="lineno">28</span>     <span class="nx">Dev</span><span class="p">.</span><span class="nx">allDevs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+<span class="lineno">29</span>   <span class="p">}</span>
+<span class="lineno">30</span>   <span class="kr">static</span> <span class="nx">numDevs</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">31</span>     <span class="k">return</span> <span class="nx">Dev</span><span class="p">.</span><span class="nx">allDevs</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="lineno">32</span>   <span class="p">}</span>
+<span class="lineno">33</span> <span class="p">}</span></code></pre></div>
 
     </div>
 
