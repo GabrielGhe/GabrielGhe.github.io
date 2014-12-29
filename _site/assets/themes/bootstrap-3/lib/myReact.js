@@ -11,7 +11,6 @@ var SearchPost = React.createClass({
         <a href="{this.props.url}">{this.props.title}</a>
         &nbsp;
         <a href="/categories.html#{ this.props.category }-ref" className="label label-primary">
-          <i class="icon-{ this.props.category }"></i>
           { this.props.category }
         </a>
         &nbsp;
