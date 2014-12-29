@@ -61,5 +61,26 @@ function Dog3(){
     this.treats++;
   }, 1000);
 }
+{% endhighlight %}
+
+<!-- Examples -->
+<h3>Examples</h3>
+
+{% highlight javascript linenos %}
+var biggestNum = (a, b) => (a > b)? a : b;
+biggestNum(4, 5);   // 5
+biggestNum(10, 2);  // 10
+
+
+var myList = ["Nami", "Luffy", "Zoro"];
+var findIdx = (lst, val) => {
+  for(var i=0; i < lst.length; ++i){
+    if (lst[i] == val) return i;
+  }
+  return -1;
+}
+findIdx(myList, "Luffy"); // 1
+findIdx(myList, "Robin"); // -1
+
 
 {% endhighlight %}

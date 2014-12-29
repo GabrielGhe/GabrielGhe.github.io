@@ -160,6 +160,23 @@ The arrow symbol is used to create shorter functions and to fix the scoped <code
 <span class="lineno">23</span>   <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
 <span class="lineno">24</span> <span class="p">}</span></code></pre></div>
 
+<!-- Examples -->
+<h3>Examples</h3>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">biggestNum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span><span class="o">?</span> <span class="nx">a</span> <span class="o">:</span> <span class="nx">b</span><span class="p">;</span>
+<span class="lineno"> 2</span> <span class="nx">biggestNum</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>   <span class="c1">// 5</span>
+<span class="lineno"> 3</span> <span class="nx">biggestNum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>  <span class="c1">// 10</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="kd">var</span> <span class="nx">myList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Nami&quot;</span><span class="p">,</span> <span class="s2">&quot;Luffy&quot;</span><span class="p">,</span> <span class="s2">&quot;Zoro&quot;</span><span class="p">];</span>
+<span class="lineno"> 7</span> <span class="kd">var</span> <span class="nx">findIdx</span> <span class="o">=</span> <span class="p">(</span><span class="nx">lst</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="lineno"> 8</span>   <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">lst</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">){</span>
+<span class="lineno"> 9</span>     <span class="k">if</span> <span class="p">(</span><span class="nx">lst</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">val</span><span class="p">)</span> <span class="k">return</span> <span class="nx">i</span><span class="p">;</span>
+<span class="lineno">10</span>   <span class="p">}</span>
+<span class="lineno">11</span>   <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="lineno">12</span> <span class="p">}</span>
+<span class="lineno">13</span> <span class="nx">findIdx</span><span class="p">(</span><span class="nx">myList</span><span class="p">,</span> <span class="s2">&quot;Luffy&quot;</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="lineno">14</span> <span class="nx">findIdx</span><span class="p">(</span><span class="nx">myList</span><span class="p">,</span> <span class="s2">&quot;Robin&quot;</span><span class="p">);</span> <span class="c1">// -1</span></code></pre></div>
 
     </div>
 
