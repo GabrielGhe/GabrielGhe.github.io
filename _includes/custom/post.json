@@ -1,0 +1,7 @@
+{
+  "id"    : "{{ post.url }}",
+  "title"   : "{{ post.title }}",
+  "category": "{{ post.category}}",
+  "tags"    : "{{ post.tags | join }}",
+  "content" : "{{ post.content | strip_html | strip_newlines | remove:'"'  }}"
+}
