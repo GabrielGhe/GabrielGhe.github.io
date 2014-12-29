@@ -1,12 +1,21 @@
 /** @jsx React.DOM */
 
-var searchList = [];
-
 var SearchPost = React.createClass({
   render: function(){
+    var tags = this.props.tags.split().map(function(tag){
+      return <a href="/tags.html#{tag}-ref" className="label label-success">{ tag }</a>;
+    });
+
     return (
       <li>
-        Hi
+        <a href="{this.props.url}">{this.props.title}</a>
+        &nbsp;
+        <a href="/categories.html#{ this.props.category }-ref" className="label label-primary">
+          <i class="icon-{ this.props.category }"></i>
+          { this.props.category }
+        </a>
+        &nbsp;
+        {tags}
       </li>
     );
   } //END render
@@ -16,7 +25,7 @@ var SearchPost = React.createClass({
 var SearchPostList = React.createClass({
   render: function(){
     var searchR = this.props.data.map(function(post){
-      return <SearchPost title={post.title} url={post.id} />
+      return <SearchPost title={post.title} url={post.id} category={post.category} tags={post.tags} />
     });// End People
 
     return (
@@ -30,13 +39,16 @@ var SearchPostList = React.createClass({
 
 var SearchPostApp = React.createClass({
   render: function(){
+    var header = "";
+    if (this.props.data.length > 0) {
+      header = <h3>Search Results</h3>;
+    }
+
     return (
       <div>
-        <h3>Search Results</h3>
+        {header}
         <SearchPostList data={this.props.data} />
       </div>
     );
   }
 });// End PersonApp
-
-React.renderComponent(<SearchPostApp data={searchList} />,document.getElementById('searchResults'));

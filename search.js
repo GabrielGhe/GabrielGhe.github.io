@@ -1,5 +1,6 @@
 ---
 ---
+/** @jsx React.DOM */
 var data = {};
 var temp;
 {% for post in site.posts %}
@@ -28,7 +29,7 @@ function search() {
       list.push(data[result[i].ref]);
     }
   }
-  searchList = list;
+  React.renderComponent(<SearchPostApp data={list} />,document.getElementById('searchResults'));
 }
 
 $(function() {
