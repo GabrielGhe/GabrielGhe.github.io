@@ -13,7 +13,7 @@ title: Gab's Blog
       </h3>
       <!-- Category -->
       <p>
-        <b>Categoty</b>:
+        <b>Category</b>:
 
         <a href="{{ BASE_PATH }}/tags.html#{{ post.category }}-ref" class="label label-primary">
           <i class="icon-{{ post.category }}"></i>
