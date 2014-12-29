@@ -21,7 +21,13 @@ h1, h2, h3, h4 {
   background-color: #f8f8f8;
 }
 
+.posts h3 {
+  margin-bottom: 0 !important;
+}
 
+.posts p {
+  margin:0 !important;
+}
 
 /* posts index */
 .post > h3.title {

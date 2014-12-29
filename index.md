@@ -7,7 +7,36 @@ title: Gab's Blog
 
 <ul class="posts">
   {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    <li>
+      <h3>
+        <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+      </h3>
+      <!-- Category -->
+      <p>
+        <b>Categoty</b>:
+
+        <a href="{{ BASE_PATH }}/tags.html#{{ post.category }}-ref" class="label label-primary">
+          <i class="icon-{{ post.category }}"></i>
+            {{ post.category }}
+        </a>
+      </p>
+      <!-- END Category -->
+      <!-- Tags -->
+      <p>
+        {% if post.tags.size > 0 %}
+          <b>Tags</b>:
+          {% for tag in post.tags %}
+            <a href="{{ BASE_PATH }}/tags.html#{{tag}}-ref" class="label label-success">{{ tag }}</a>
+          {% endfor %}
+        {% endif %}
+      </p>
+      <!-- END Tags -->
+      <!-- Date -->
+      <p>
+        <small>{{ post.date | date: "%B %e, %Y" }}</small>
+      </p>
+      <!-- END Date -->
+    </li>
   {% endfor %}
 </ul>
 

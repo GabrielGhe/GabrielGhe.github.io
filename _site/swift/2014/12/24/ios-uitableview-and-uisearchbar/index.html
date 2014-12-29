@@ -20,6 +20,7 @@
     <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
     
     <!-- Custom styles -->
+    <link href="/assets/themes/bootstrap-3/css/font-mfizz.css" rel="stylesheet" type="text/css" media="all">
     <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
   </head>
 
@@ -106,29 +107,27 @@
       <span>24 December 2014</span>
     </div>
     <div class="content">
-      <!-- Overview -->
-
+      
+<!-- Overview -->
 <h3>Overview</h3>
 
 <p>While working on an iOS app, I needed to have a TableView that was searchable. After looking it up, I found out that
 I could use a Table View and add a Search Bar and Search Display.</p>
 
 <!-- Controls -->
-
 <h3>Controls</h3>
 
 <p>TableView will display the data, we just have to supply the functions that tell the table view what to show.</p>
 
-<p><img src="/assets/themes/images/1.png" alt="TableView"></p>
+<p><img src="/assets/themes/images/1.png" alt="TableView" /></p>
 
-<p>The Search Bar doesn&#39;t do anything except alert us when the search query was changed... We have to implement
+<p>The Search Bar doesn’t do anything except alert us when the search query was changed… We have to implement
 the search functionality ourselves. The search display is the dropdown that appears with suggestions once you type something
 in the search bar.</p>
 
-<p><img src="/assets/themes/images/2.png" alt="Search Display"></p>
+<p><img src="/assets/themes/images/2.png" alt="Search Display" /></p>
 
 <!-- Directions -->
-
 <h3>Directions</h3>
 
 <p>First we drag and drop a UIViewController to our storyboard.
@@ -166,9 +165,8 @@ Then we drag and drop a Table View inside that ViewController and a Search Bar a
 <!-- END Code -->
 
 <!-- TableView functions -->
-
-<p><br/><br/>
-<h3>TableView functions</h3></p>
+<p><br /><br /></p>
+<h3>TableView functions</h3>
 
 <!-- Code -->
 
@@ -200,16 +198,19 @@ Then we drag and drop a Table View inside that ViewController and a Search Bar a
 <p>There are 2 important things to note. </p>
 
 <ol>
-<li><p>On line <strong>2</strong> and <strong>12</strong>, we&#39;re checking if the tableView that is calling
-this function is the searchDisplay tableView or not. We need to check to be able to return the right data.</p></li>
-<li><p>On line <strong>10</strong>, we&#39;re using myTableView. The searchDisplay TableView doesn&#39;t actually have a prototype cell so we&#39;re using
-the one from our main tableView.</p></li>
+  <li>
+    <p>On line <strong>2</strong> and <strong>12</strong>, we’re checking if the tableView that is calling
+this function is the searchDisplay tableView or not. We need to check to be able to return the right data.</p>
+  </li>
+  <li>
+    <p>On line <strong>10</strong>, we’re using myTableView. The searchDisplay TableView doesn’t actually have a prototype cell so we’re using
+the one from our main tableView.</p>
+  </li>
 </ol>
 
 <!-- SearchBar functions -->
-
-<p><br/><br/>
-<h3>SearchBar functions</h3></p>
+<p><br /><br /></p>
+<h3>SearchBar functions</h3>
 
 <!-- Code -->
 
