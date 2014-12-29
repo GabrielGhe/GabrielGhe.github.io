@@ -15,7 +15,7 @@ title: Gab's Blog
       <p>
         <b>Category</b>:
 
-        <a href="{{ BASE_PATH }}/tags.html#{{ post.category }}-ref" class="label label-primary">
+        <a href="{{ BASE_PATH }}/categories.html#{{ post.category }}-ref" class="label label-primary">
           <i class="icon-{{ post.category }}"></i>
             {{ post.category }}
         </a>
