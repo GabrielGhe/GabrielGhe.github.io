@@ -22,7 +22,7 @@ var SearchPost = React.createClass({
 
 var SearchPostList = React.createClass({
   render: function(){
-    var searchR = this.props.data.map(function(post){
+    var searchR = this.props.data.slice(0, 10).map(function(post){
       return <SearchPost title={post.title} url={post.id} category={post.category} tags={post.tags} />
     });// End People
 
