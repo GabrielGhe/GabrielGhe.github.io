@@ -11,8 +11,8 @@ data[temp.id] = temp;
 // init lunr
 var idx = lunr(function () {
   this.field('title', 10);
-  this.field('tags');
-  this.field('category');
+  this.field('category', 8);
+  this.field('tags', 5);  
   this.field('content');
 })
 // add each document to be index

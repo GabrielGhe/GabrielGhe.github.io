@@ -6,7 +6,7 @@ temp = {
   "id"    : "/javascript/2014/12/29/ecmascript-6-feature-template-strings",
   "title"   : "EcmaScript 6 feature: template strings",
   "category": "javascript",
-  "tags"    : "es6",
+  "tags"    : "es6 string",
   "content" : "OverviewJavascript’s new version (EcmaScript 6) has some amazing new features. The one discussed in this post is template strings.Template strings are similar to string interpolation in swift and python. It uses backticks instead of double or single quotes.More information can be found here.Examples 1 var first = &quot;Jake&quot; 2   , last = &quot;Daisy&quot;; 3  4 var name1 = &quot;My name is &quot; + first + &quot; &quot; + last; 5 var name2 = `My name is ${first} ${second}`; 6 // &quot;My name is Jake Daisy&quot; 7  8 var test1 = `Hello`; 9 // &#39;&quot;Hello&quot;&#39;10 11 var test2 = 512   , test3 = 6;13 14 `test2 + test3 = ${ test2 + test3 }`15 // &quot;test2 + test3 = 11&quot;"
 };
 data[temp.id] = temp;
@@ -51,8 +51,8 @@ data[temp.id] = temp;
 // init lunr
 var idx = lunr(function () {
   this.field('title', 10);
-  this.field('tags');
-  this.field('category');
+  this.field('category', 8);
+  this.field('tags', 5);  
   this.field('content');
 })
 // add each document to be index

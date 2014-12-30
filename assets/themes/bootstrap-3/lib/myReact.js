@@ -2,18 +2,17 @@
 
 var SearchPost = React.createClass({
   render: function(){
-    var tags = this.props.tags.split().map(function(tag){
-      return <a href="/tags.html#{tag}-ref" className="label label-success">{ tag }</a>;
+    var tags = this.props.tags.split(" ").map(function(tag){
+      return (<a href={'/tags.html#'+ tag +'-ref'} className="label label-success">{ tag }</a>);
     });
 
     return (
       <li>
-        <a href="{this.props.url}">{this.props.title}</a>
+        <a href={this.props.url}>{this.props.title}</a>
         &nbsp;
-        <a href="/categories.html#{ this.props.category }-ref" className="label label-primary">
+        <a href={'/categories.html#' + this.props.category + '-ref'} className="label label-primary">
           { this.props.category }
         </a>
-        &nbsp;
         {tags}
       </li>
     );

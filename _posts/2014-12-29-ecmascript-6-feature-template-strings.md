@@ -3,7 +3,7 @@ layout: post
 title: "EcmaScript 6 feature: template strings"
 description: ""
 category: javascript
-tags: [es6]
+tags: [es6, string]
 ---
 {% include JB/setup %}
 

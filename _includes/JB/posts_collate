@@ -37,7 +37,6 @@ Usage:
         <i class="icon-{{ post.category }}"></i>
         {{ post.category }}
       </a>
-      &nbsp;
       {% if post.tags.size > 0 %}
         {% for tag in post.tags %}
           <a href="{{ BASE_PATH }}/tags.html#{{tag}}-ref" class="label label-success">{{ tag }}</a>

@@ -21,6 +21,10 @@ h1, h2, h3, h4 {
   background-color: #f8f8f8;
 }
 
+a.label {
+  margin-left:3px;
+}
+
 .posts h3, .posts p {
   margin-bottom: 0 !important;
 }
