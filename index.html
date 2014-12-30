@@ -43,7 +43,7 @@ title: Gab's Blog
 <hr>
 <ul class="pagination">
 {% if paginator.next_page %}
-  <li class="next"><a href="/page{{paginator.next_page}}" title="Next page">Older</a></li>
+  <li class="next"><a href="/page{{paginator.next_page}}" title="Older">Older</a></li>
 {% endif %}
 
 <li class="disabled">
@@ -52,9 +52,9 @@ title: Gab's Blog
 
 {% if paginator.previous_page %}
   {% if paginator.previous_page == 1 %}
-    <li class="prev"><a href="/" title="Previous page">Newer</a></li>
+    <li class="prev"><a href="/" title="Newer">Newer</a></li>
   {% else %}
-    <li class="prev"><a href="/page{{paginator.previous_page}}" title="Previous page">Newer</a></li>
+    <li class="prev"><a href="/page{{paginator.previous_page}}" title="Newer">Newer</a></li>
   {% endif %}
 {% endif %}
 
