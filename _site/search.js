@@ -12,6 +12,15 @@ temp = {
 data[temp.id] = temp;
 
 temp = {
+  "id"    : "/javascript/2015/01/02/ecmascript-6-feature-generators-and-iterators",
+  "title"   : "EcmaScript 6 feature: generators and iterators",
+  "category": "javascript",
+  "tags"    : "es6",
+  "content" : "OverviewJavascript’s new version (EcmaScript 6) has some amazing new features. The ones discussed in this post is iterators and generators.More information can be found here.DetailsIterators allow you to go through every element inside an abstract data type the same way without having to know how it’s been implemented. Java has the Iterable interface which forces you to implement the next() and hasNext() methods. ES6 has only 1method, next() that has 2 return values.1 // Not at the end2 return { done:false, value:&quot;returnValue&quot; };3 4 // After last element5 return { done:true, value:&quot;optionalEndValue&quot; };To iterate over an object, you need the next() method"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2014/12/29/ecmascript-6-feature-template-strings",
   "title"   : "EcmaScript 6 feature: template strings",
   "category": "javascript",

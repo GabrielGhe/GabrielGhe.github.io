@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>My first post</title>
-    <meta name="description" content="Setting up Jekyll">
+    <title>EcmaScript 6 feature: generators and iterators</title>
+    <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
     <!-- Enable responsive viewport -->
@@ -107,20 +107,35 @@
         <div id="searchResults"></div>
         
 <div class="page-header">
-  <h1>My first post </h1>
+  <h1>EcmaScript 6 feature: generators and iterators </h1>
 </div>
 
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>24 December 2014</span>
+      <span>02 January 2015</span>
     </div>
     <div class="content">
       
-<p>It took me a while to get this blog up because I was trying to understand how Jekyll works.
-The site built fine locally but it didn’t seem to want to build on github. 
-The reason was that I was trying to make a blog folder and put all the Jekyll files in there.
-Long story short, put your jekyll files in the root of the repo so that github doesn’t spam you with build fail emails.</p>
+<!-- Overview -->
+<h3>Overview</h3>
+
+<p>Javascript’s new version (EcmaScript 6) has some amazing new features. The ones discussed in this post is iterators and generators.
+More information can be found <a href="http://www.2ality.com/2014/12/es6-oop.html">here</a>.</p>
+
+<!-- Details -->
+<h3>Details</h3>
+
+<p>Iterators allow you to go through every element inside an abstract data type the same way without having to know how it’s been implemented. Java has the Iterable interface which forces you to implement the <code>next()</code> and <code>hasNext()</code> methods. ES6 has only 1
+method, <code>next()</code> that has 2 return values.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="c1">// Not at the end</span>
+<span class="lineno">2</span> <span class="k">return</span> <span class="p">{</span> <span class="nx">done</span><span class="o">:</span><span class="kc">false</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span><span class="s2">&quot;returnValue&quot;</span> <span class="p">};</span>
+<span class="lineno">3</span> 
+<span class="lineno">4</span> <span class="c1">// After last element</span>
+<span class="lineno">5</span> <span class="k">return</span> <span class="p">{</span> <span class="nx">done</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span><span class="s2">&quot;optionalEndValue&quot;</span> <span class="p">};</span></code></pre></div>
+
+<p>To iterate over an object, you need the <code>next()</code> method</p>
 
     </div>
 
@@ -133,8 +148,8 @@ Long story short, put your jekyll files in the root of the repo so that github d
 
   
      
-    	<li><a href="/categories.html#other-ref">
-    		other <span>1</span>
+    	<li><a href="/categories.html#javascript-ref">
+    		javascript <span>5</span>
     	</a></li>
     
   
@@ -143,16 +158,32 @@ Long story short, put your jekyll files in the root of the repo so that github d
     </ul>
     
 
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#es6-ref">es6 <span>5</span></a></li>
+    
+  
+
+
+
+    </ul>
     
   
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/swift/2014/12/24/ios-uitableview-and-uisearchbar" title="iOS: UITableView and UISearchBar">&laquo; Previous</a></li>
+      <li class="prev"><a href="/javascript/2014/12/29/ecmascript-6-feature-template-strings" title="EcmaScript 6 feature: template strings">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/javascript/2014/12/29/ecmascript-6-feature-arrow" title="EcmaScript 6 feature: arrow">Next &raquo;</a></li>
+      <li class="next"><a href="/javascript/2015/01/02/ecmascript-6-feature-properties" title="EcmaScript 6 feature: enhanced properties">Next &raquo;</a></li>
     
     </ul>
     <hr>

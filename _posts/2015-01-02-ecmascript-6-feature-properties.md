@@ -16,6 +16,7 @@ More information can be found [here](http://www.2ality.com/2014/12/es6-oop.html)
 <!-- Examples -->
 <h3>Examples</h3>
 
+<!-- Shorthands -->
 Property shorthands
 
 {% highlight javascript linenos %}
@@ -24,6 +25,7 @@ let age = 21;
 let person = { name, age }; // { name: "Jim", age: 21 }
 {% endhighlight %}
 
+<!-- Deconstructing -->
 Deconstructing
 
 {% highlight javascript linenos %}
@@ -33,6 +35,7 @@ console.log(name);  // Jim
 console.log(age);   // 21
 {% endhighlight %}
 
+<!-- Computed keys -->
 Computed Property Keys
 
 {% highlight javascript linenos %}
