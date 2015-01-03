@@ -11,10 +11,13 @@ tags: [es6]
 <h3>Overview</h3>
 
 Javascript's new version (EcmaScript 6) has some amazing new features. The ones discussed in this post is iterators and generators.
-More information can be found [here](http://www.2ality.com/2014/12/es6-oop.html).
+More information can be found [here](http://www.2ality.com/2013/06/iterators-generators.html).
 
 <!-- Details -->
 <h3>Details</h3>
+
+<!-- Iterator -->
+<h4>Iterator</h4>
 
 Iterators allow you to go through every element inside an abstract data type the same way without having to know how it's been implemented. Java has the Iterable interface which forces you to implement the `next()` and `hasNext()` methods. ES6 has only 1
 method, `next()` that has 2 return values.
@@ -27,4 +30,34 @@ return { done:false, value:"returnValue" };
 return { done:true, value:"optionalEndValue" };
 {% endhighlight %}
 
-To iterate over an object, you need the `next()` method
+To iterate over an object, you need the `next()` method and you need your object to be iterable. To make your object iterable you do the following.
+
+{% highlight javascript linenos %}
+class MyObject {
+  ...
+  [Symbol.iterator](){
+    ...
+    // this iterator has the next function mentioned above
+    return aIteratorYouCreated;
+  }
+}
+{% endhighlight %}
+
+Now that you have the iterator, you want to iterate over its elements. To do this, we use es6's new `for ... of` loop.
+
+{% highlight javascript linenos %}
+for (let value of iterable) {
+  console.log(value);
+}
+
+// for arrays, we can use entries which have both index and value
+for (let [index, value] of someArray.entries() ) {
+  console.log(`${index} - ${value}`);
+}
+{% endhighlight %}
+
+
+<!-- Generators -->
+<h4>Generators</h4>
+
+Generators are functions that allow you to pause and resume. They use the `yield` key instead of

@@ -121,10 +121,13 @@
 <h3>Overview</h3>
 
 <p>Javascript’s new version (EcmaScript 6) has some amazing new features. The ones discussed in this post is iterators and generators.
-More information can be found <a href="http://www.2ality.com/2014/12/es6-oop.html">here</a>.</p>
+More information can be found <a href="http://www.2ality.com/2013/06/iterators-generators.html">here</a>.</p>
 
 <!-- Details -->
 <h3>Details</h3>
+
+<!-- Iterator -->
+<h4>Iterator</h4>
 
 <p>Iterators allow you to go through every element inside an abstract data type the same way without having to know how it’s been implemented. Java has the Iterable interface which forces you to implement the <code>next()</code> and <code>hasNext()</code> methods. ES6 has only 1
 method, <code>next()</code> that has 2 return values.</p>
@@ -135,7 +138,32 @@ method, <code>next()</code> that has 2 return values.</p>
 <span class="lineno">4</span> <span class="c1">// After last element</span>
 <span class="lineno">5</span> <span class="k">return</span> <span class="p">{</span> <span class="nx">done</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span><span class="s2">&quot;optionalEndValue&quot;</span> <span class="p">};</span></code></pre></div>
 
-<p>To iterate over an object, you need the <code>next()</code> method</p>
+<p>To iterate over an object, you need the <code>next()</code> method and you need your object to be iterable. To make your object iterable you do the following.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="kr">class</span> <span class="nx">MyObject</span> <span class="p">{</span>
+<span class="lineno">2</span>   <span class="p">...</span>
+<span class="lineno">3</span>   <span class="p">[</span><span class="nx">Symbol</span><span class="p">.</span><span class="nx">iterator</span><span class="p">](){</span>
+<span class="lineno">4</span>     <span class="p">...</span>
+<span class="lineno">5</span>     <span class="c1">// this iterator has the next function mentioned above</span>
+<span class="lineno">6</span>     <span class="k">return</span> <span class="nx">aIteratorYouCreated</span><span class="p">;</span>
+<span class="lineno">7</span>   <span class="p">}</span>
+<span class="lineno">8</span> <span class="p">}</span></code></pre></div>
+
+<p>Now that you have the iterator, you want to iterate over its elements. To do this, we use es6’s new <code>for ... of</code> loop.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">value</span> <span class="nx">of</span> <span class="nx">iterable</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">2</span>   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="lineno">3</span> <span class="p">}</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="c1">// for arrays, we can use entries which have both index and value</span>
+<span class="lineno">6</span> <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="p">[</span><span class="nx">index</span><span class="p">,</span> <span class="nx">value</span><span class="p">]</span> <span class="nx">of</span> <span class="nx">someArray</span><span class="p">.</span><span class="nx">entries</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+<span class="lineno">7</span>   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">index</span><span class="p">}</span> <span class="o">-</span> <span class="nx">$</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+<span class="lineno">8</span> <span class="p">}</span></code></pre></div>
+
+<!-- Generators -->
+<h4>Generators</h4>
+
+<p>Generators are functions that allow you to pause and resume. They use the <code>yield</code> key instead of</p>
 
     </div>
 
