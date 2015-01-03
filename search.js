@@ -12,13 +12,15 @@ data[temp.id] = temp;
 var idx = lunr(function () {
   this.field('title', 10);
   this.field('category', 8);
-  this.field('tags', 5);  
+  this.field('tags', 5);
+  this.field('date', 4);  
   this.field('content');
 })
 // add each document to be index
 for(var index in data) {
   idx.add(data[index]);
   delete data[index].content;
+  delete data[index].date;
 }
 
 function search() {
