@@ -126,7 +126,8 @@ More information can be found <a href="http://www.2ality.com/2013/06/iterators-g
 <!-- Details -->
 <h3>Details</h3>
 
-<!-- Iterator -->
+<p><br />
+<!-- Iterator --></p>
 <h4>Iterator</h4>
 
 <p>Iterators allow you to go through every element inside an abstract data type the same way without having to know how it’s been implemented. Java has the Iterable interface which forces you to implement the <code>next()</code> and <code>hasNext()</code> methods. ES6 has only 1
@@ -160,10 +161,49 @@ method, <code>next()</code> that has 2 return values.</p>
 <span class="lineno">7</span>   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">index</span><span class="p">}</span> <span class="o">-</span> <span class="nx">$</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
 <span class="lineno">8</span> <span class="p">}</span></code></pre></div>
 
-<!-- Generators -->
+<p><br />
+<!-- Generators --></p>
 <h4>Generators</h4>
 
-<p>Generators are functions that allow you to pause and resume. They use the <code>yield</code> key instead of</p>
+<p>Generators are functions that allow you to pause and resume. They use the <code>yield</code> key instead of the <code>return</code> key.
+When the generator is called the first time, it runs until it hits the first <code>yield</code> and then stops. When called again, it will run until the next <code>yield</code>. It will continue this way until it finishes. Generators in python work the same way. That’s because ES6 got them from Python.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="kd">function</span><span class="o">*</span> <span class="nx">generatorFib</span><span class="p">(){</span>
+<span class="lineno"> 2</span>   <span class="nx">prev</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno"> 3</span>   <span class="nx">curr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="lineno"> 4</span>   
+<span class="lineno"> 5</span>   <span class="k">yield</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno"> 6</span>   <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span>   <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 9</span>     <span class="nx">temp</span> <span class="o">=</span> <span class="nx">curr</span><span class="p">;</span>
+<span class="lineno">10</span>     <span class="nx">curr</span> <span class="o">+=</span> <span class="nx">prev</span><span class="p">;</span>
+<span class="lineno">11</span>     <span class="nx">prev</span> <span class="o">=</span> <span class="nx">curr</span><span class="p">;</span>
+<span class="lineno">12</span>     <span class="k">yield</span> <span class="nx">curr</span><span class="p">;</span>
+<span class="lineno">13</span> 
+<span class="lineno">14</span>     <span class="k">if</span> <span class="p">(</span><span class="nx">curr</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">15</span>       <span class="k">break</span><span class="p">;</span>
+<span class="lineno">16</span>     <span class="p">}</span>
+<span class="lineno">17</span>   <span class="p">}</span>
+<span class="lineno">18</span> <span class="p">}</span>
+<span class="lineno">19</span> 
+<span class="lineno">20</span> <span class="c1">// first 5 fib numbers</span>
+<span class="lineno">21</span> <span class="kd">let</span> <span class="nx">fibs</span> <span class="o">=</span> <span class="nx">generatorFib</span><span class="p">();</span>
+<span class="lineno">22</span> <span class="nx">fibs</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { done:false, value: 0}</span>
+<span class="lineno">23</span> <span class="nx">fibs</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { done:false, value: 1}</span>
+<span class="lineno">24</span> <span class="nx">fibs</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { done:false, value: 1}</span>
+<span class="lineno">25</span> <span class="nx">fibs</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { done:false, value: 2}</span>
+<span class="lineno">26</span> <span class="nx">fibs</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { done:true }</span></code></pre></div>
+
+<p>We can also iterate through a generator</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">fib</span> <span class="nx">of</span> <span class="nx">fibs</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">2</span>   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fib</span><span class="p">);</span>
+<span class="lineno">3</span> <span class="p">}</span>
+<span class="lineno">4</span> <span class="c1">// 0</span>
+<span class="lineno">5</span> <span class="c1">// 1</span>
+<span class="lineno">6</span> <span class="c1">// 1</span>
+<span class="lineno">7</span> <span class="c1">// 2</span></code></pre></div>
 
     </div>
 

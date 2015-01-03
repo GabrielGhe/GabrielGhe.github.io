@@ -16,6 +16,7 @@ More information can be found [here](http://www.2ality.com/2013/06/iterators-gen
 <!-- Details -->
 <h3>Details</h3>
 
+<br />
 <!-- Iterator -->
 <h4>Iterator</h4>
 
@@ -56,8 +57,50 @@ for (let [index, value] of someArray.entries() ) {
 }
 {% endhighlight %}
 
-
+<br />
 <!-- Generators -->
 <h4>Generators</h4>
 
-Generators are functions that allow you to pause and resume. They use the `yield` key instead of
+Generators are functions that allow you to pause and resume. They use the `yield` key instead of the `return` key.
+When the generator is called the first time, it runs until it hits the first `yield` and then stops. When called again, it will run until the next `yield`. It will continue this way until it finishes. Generators in python work the same way. That's because ES6 got them from Python.
+
+{% highlight javascript linenos %}
+function* generatorFib(){
+  prev = 0;
+  curr = 1;
+  
+  yield 0;
+  yield 1;
+
+  while (true) {
+    temp = curr;
+    curr += prev;
+    prev = curr;
+    yield curr;
+
+    if (curr == 2) {
+      break;
+    }
+  }
+}
+
+// first 5 fib numbers
+let fibs = generatorFib();
+fibs.next(); // { done:false, value: 0}
+fibs.next(); // { done:false, value: 1}
+fibs.next(); // { done:false, value: 1}
+fibs.next(); // { done:false, value: 2}
+fibs.next(); // { done:true }
+{% endhighlight %}
+
+We can also iterate through a generator
+
+{% highlight javascript linenos %}
+for (let fib of fibs) {
+  console.log(fib);
+}
+// 0
+// 1
+// 1
+// 2
+{% endhighlight %}
