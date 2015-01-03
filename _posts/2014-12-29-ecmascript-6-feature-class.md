@@ -60,9 +60,9 @@ class Person {
 }
 
 let guy = new Person("Tom");
-console.log(guy.name); // Tom
-guy.name = "Steve";
-console.log(guy.name); // Steve
+console.log(guy.name);  // GET - Tom
+guy.name = "Steve";     // SET
+console.log(guy.name);  // GET - Steve
 
 
 // Inheritance

@@ -3,6 +3,15 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/javascript/2015/01/02/ecmascript-6-feature-properties",
+  "title"   : "EcmaScript 6 feature: enhanced properties",
+  "category": "javascript",
+  "tags"    : "es6",
+  "content" : "OverviewJavascript’s new version (EcmaScript 6) has some amazing new features. The one discussed in this post is enhanced properties.More information can be found here.ExamplesProperty shorthands1 let name = &quot;Jim&quot;;2 let age = 21;3 let person = { name, age }; // { name: &quot;Jim&quot;, age: 21 }Deconstructing1 let person = { name: &quot;Jim&quot;, age: 21 };2 let { name, age } = person;3 console.log(name);  // Jim4 console.log(age);   // 21Computed Property Keys 1 // Before 2 var key = &quot;myKey&quot;; 3 var obj = {}; 4 obj[key] = 5; 5  6 // Now 7 let key = &quot;myKey&quot;; 8 let keyNum = 1; 9 let obj = {10   [key] = 5;        // computed property name11   [key + keyNum](){ // computed method name12     return true;13   }14 };15 console.log( obj[&quot;myKey&quot;] );    // 516 console.log( obj[&quot;myKey1&quot;]() ); // true"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2014/12/29/ecmascript-6-feature-template-strings",
   "title"   : "EcmaScript 6 feature: template strings",
   "category": "javascript",
@@ -16,7 +25,7 @@ temp = {
   "title"   : "EcmaScript 6 feature: class",
   "category": "javascript",
   "tags"    : "es6",
-  "content" : "OverviewJavascript’s new version (EcmaScript 6) has some amazing new features. The one discussed in this post is the new class syntax.More information can be found here.Details 1 // OLD CLASS 2 var MyObject = function(params){ 3   this.p1 = params.p1; 4   this.p2 = params.p2; 5 }; 6 // I will go over the new string interpolation in another post 7 MyObject.prototype.summary = function(){ 8   return &quot;p1:&quot; + this.p1 + &quot; p2:&quot; + this.p2; 9 };10 11 12 // NEW CLASS13 class MyObject {14   constructor(p1, p2){15     this.p1 = p1;16     this.p2 = p2;17   }18   summary() {19     return &quot;p1:&quot; + this.p1 + &quot; p2:&quot; + this.p2;20   }21 }Examples 1 // Getters and Setters 2 class Person { 3   constructor(name){ 4     this._name = name; 5   } 6   get name(){ 7     return this._name; 8   } 9   set name(newName){10     if (newName) {11       this._name = newName;12     }13   }14 }15 16 let guy = new Person(&quot;Tom&quot;);17 console.log(guy.name); // Tom18 guy.name = &quot;Steve&quot;;19 console.log(guy.name); // Steve20 21 22 // Inheritance23 class Dev extends Person {24   static allDevs = []25   constructor(name, preferredLang) {26     super(name);27     this.lang = preferredLang;28     Dev.allDevs.push(name);29   }30   static numDevs() {31     return Dev.allDevs.length;32   }33 }"
+  "content" : "OverviewJavascript’s new version (EcmaScript 6) has some amazing new features. The one discussed in this post is the new class syntax.More information can be found here.Details 1 // OLD CLASS 2 var MyObject = function(params){ 3   this.p1 = params.p1; 4   this.p2 = params.p2; 5 }; 6 // I will go over the new string interpolation in another post 7 MyObject.prototype.summary = function(){ 8   return &quot;p1:&quot; + this.p1 + &quot; p2:&quot; + this.p2; 9 };10 11 12 // NEW CLASS13 class MyObject {14   constructor(p1, p2){15     this.p1 = p1;16     this.p2 = p2;17   }18   summary() {19     return &quot;p1:&quot; + this.p1 + &quot; p2:&quot; + this.p2;20   }21 }Examples 1 // Getters and Setters 2 class Person { 3   constructor(name){ 4     this._name = name; 5   } 6   get name(){ 7     return this._name; 8   } 9   set name(newName){10     if (newName) {11       this._name = newName;12     }13   }14 }15 16 let guy = new Person(&quot;Tom&quot;);17 console.log(guy.name);  // GET - Tom18 guy.name = &quot;Steve&quot;;     // SET19 console.log(guy.name);  // GET - Steve20 21 22 // Inheritance23 class Dev extends Person {24   static allDevs = []25   constructor(name, preferredLang) {26     super(name);27     this.lang = preferredLang;28     Dev.allDevs.push(name);29   }30   static numDevs() {31     return Dev.allDevs.length;32   }33 }"
 };
 data[temp.id] = temp;
 
