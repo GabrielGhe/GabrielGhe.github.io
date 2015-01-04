@@ -3,7 +3,7 @@ layout: post
 title: "EcmaScript 6 feature: arrow"
 description: ""
 category: javascript
-tags: [es6]
+tags: [es6, function]
 ---
 {% include JB/setup %}
 

@@ -3,7 +3,7 @@ layout: post
 title: "EcmaScript 6 feature: enhanced properties"
 description: ""
 category: javascript
-tags: [es6]
+tags: [es6, property, deconstruct]
 ---
 {% include JB/setup %}
 

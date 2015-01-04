@@ -3,7 +3,7 @@ layout: post
 title: "EcmaScript 6 feature: generators and iterators"
 description: ""
 category: javascript
-tags: [es6]
+tags: [es6, iterator, generator, loop]
 ---
 {% include JB/setup %}
 

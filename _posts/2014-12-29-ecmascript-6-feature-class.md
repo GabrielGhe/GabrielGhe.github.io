@@ -3,7 +3,7 @@ layout: post
 title: "EcmaScript 6 feature: class"
 description: ""
 category: javascript
-tags: [es6]
+tags: [es6, class, oop]
 ---
 {% include JB/setup %}
 
