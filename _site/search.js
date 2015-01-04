@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/csharp/2015/01/03/c-60-feature-null-propogation",
+  "title"   : "C# 6.0 feature: Null Propogation",
+  "category": "csharp",
+  "tags"    : "null propogation",
+  "content" : "OverviewC# 6.0 has some interesting new features. The feature discussed in this post is null propogation.Null propogation allows you to check if a property exists and if it does, execute code.More information can be found here.DetailsUsing the ? symbol, we can see if the preceding variable holds a null. If it does, the chain stops and the value returned is null.1 // Before2 if (obj != null &amp;&amp; obj.children != null) {3   obj.children.Add( new Child() );4 }5 6 // In 6.07 if (obj?.children != null) {8   obj.children.Add( new Child() );9 }",
+  "date"    : "January  3, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2015/01/02/ecmascript-6-feature-properties",
   "title"   : "EcmaScript 6 feature: enhanced properties",
   "category": "javascript",
