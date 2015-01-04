@@ -129,15 +129,18 @@ More information can be found <a href="http://www.volatileread.com/Wiki/Index?id
 
 <p>Using the <code>?</code> symbol, we can see if the preceding variable holds a null. If it does, the chain stops and the value returned is null.</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno">1</span> <span class="c1">// Before</span>
-<span class="lineno">2</span> <span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">obj</span><span class="p">.</span><span class="n">children</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">3</span>   <span class="n">obj</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Child</span><span class="p">()</span> <span class="p">);</span>
-<span class="lineno">4</span> <span class="p">}</span>
-<span class="lineno">5</span> 
-<span class="lineno">6</span> <span class="c1">// In 6.0</span>
-<span class="lineno">7</span> <span class="k">if</span> <span class="p">(</span><span class="n">obj</span><span class="p">?.</span><span class="n">children</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">8</span>   <span class="n">obj</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Child</span><span class="p">()</span> <span class="p">);</span>
-<span class="lineno">9</span> <span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="c1">// Before</span>
+<span class="lineno"> 2</span> <span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">obj</span><span class="p">.</span><span class="n">children</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 3</span>   <span class="n">obj</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Child</span><span class="p">()</span> <span class="p">);</span>
+<span class="lineno"> 4</span> <span class="p">}</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="c1">// In 6.0</span>
+<span class="lineno"> 7</span> <span class="k">if</span> <span class="p">(</span><span class="n">obj</span><span class="p">?.</span><span class="n">children</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 8</span>   <span class="n">obj</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Child</span><span class="p">()</span> <span class="p">);</span>
+<span class="lineno"> 9</span> <span class="p">}</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> <span class="c1">// 1. Is obj == null? If yes, stop and the chain == null</span>
+<span class="lineno">12</span> <span class="c1">// 2. Is children == null? If yes, stop and the chain == null</span></code></pre></div>
 
 
     </div>

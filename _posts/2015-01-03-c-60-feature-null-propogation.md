@@ -29,4 +29,7 @@ if (obj != null && obj.children != null) {
 if (obj?.children != null) {
   obj.children.Add( new Child() );
 }
+
+// 1. Is obj == null? If yes, stop and the chain == null
+// 2. Is children == null? If yes, stop and the chain == null
 {% endhighlight %}
