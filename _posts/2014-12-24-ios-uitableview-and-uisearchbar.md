@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "iOS: UITableView and UISearchBar"
+title: "UITableView and UISearchBar"
 description: ""
 category: swift
 tags: ["ios", "ui"]

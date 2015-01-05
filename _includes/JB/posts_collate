@@ -34,7 +34,6 @@ Usage:
     <li>
       <span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
       <a href="{{ BASE_PATH }}/categories.html#{{ post.category }}-ref" class="label label-primary">
-        <i class="icon-{{ post.category }}"></i>
         {{ post.category }}
       </a>
       {% if post.tags.size > 0 %}

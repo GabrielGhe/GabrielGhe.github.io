@@ -9,14 +9,13 @@ title: Gab's Blog
   {% for post in paginator.posts %}
     <li>
       <h3>
-        <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        <i class="icon-{{ post.category }}" style="font-size:2em"></i> <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
       </h3>
       <!-- Category -->
       <p>
         <b>Category</b>:
 
         <a href="{{ BASE_PATH }}/categories.html#{{ post.category }}-ref" class="label label-primary">
-          <i class="icon-{{ post.category }}"></i>
             {{ post.category }}
         </a>
       </p>

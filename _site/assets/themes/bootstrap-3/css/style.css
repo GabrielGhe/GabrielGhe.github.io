@@ -25,6 +25,10 @@ a.label {
   margin-left:3px;
 }
 
+.posts {
+  list-style: none;
+}
+
 .posts h3, .posts p {
   margin-bottom: 0 !important;
 }

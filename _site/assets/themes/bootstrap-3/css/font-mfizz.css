@@ -64,6 +64,7 @@
 .icon-mysql-alt:before,
 .icon-playframework-alt:before,
 .icon-osx:before,
+.icon-swift:before,
 .icon-database:before,
 .icon-database-alt:before,
 .icon-shell:before,
@@ -166,6 +167,7 @@
 .icon-mysql-alt:before { content: "\f121"; }
 .icon-playframework-alt:before { content: "\f122"; }
 .icon-osx:before { content: "\f123"; }
+.icon-swift:before { content: "\f12d"; }
 .icon-database:before { content: "\f124"; }
 .icon-database-alt:before { content: "\f125"; }
 .icon-shell:before { content: "\f126"; }
@@ -224,6 +226,7 @@
 
 /* These classes only added to fix FontFamily to display FontMfizz during debug/inspection */
 .icon-osx,
+.icon-swift,
 .icon-bomb,
 .icon-mobile-phone-broadcast,
 .icon-objc,

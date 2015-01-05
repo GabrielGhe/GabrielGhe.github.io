@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "C# 6.0 feature: Null Propogation"
+title: "6.0 feature: Null Propogation"
 description: ""
 category: csharp
 tags: [null propogation]
