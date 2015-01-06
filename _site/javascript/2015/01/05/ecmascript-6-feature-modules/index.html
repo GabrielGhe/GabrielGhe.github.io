@@ -117,6 +117,76 @@
     </div>
     <div class="content">
       
+<!-- Overview -->
+<h3>Overview</h3>
+
+<p>Javascript’s new version (EcmaScript 6) has some amazing new features. The feature discussed in this post is the modules feature.
+Modules allow you to load functions from other js files and use them. In NodeJS, we use <code>modules.exports</code> to make a function or variable available to other files. The other files can then use <code>require('moduleName')</code> to access them.
+More information can be found <a href="http://wiki.ecmascript.org/doku.php?id=harmony:modules">here</a>.</p>
+
+<!-- Details -->
+<h3>Details</h3>
+
+<p>Lets start out by creating a module <code>cat</code> that has 2 functions it exports: <code>bite(victim)</code> and <code>lookCute()</code></p>
+
+<p><b>cat.js</b></p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="kd">function</span> <span class="nx">bite</span><span class="p">(</span><span class="nx">victim</span><span class="p">){</span>
+<span class="lineno"> 2</span>   <span class="k">return</span> <span class="err">`</span><span class="o">*</span><span class="nx">cat</span> <span class="nx">bit</span> <span class="nx">$</span><span class="p">{</span><span class="nx">victim</span><span class="p">}</span><span class="o">*</span><span class="err">`</span><span class="p">;</span>
+<span class="lineno"> 3</span>   <span class="c1">// notice the use of backtick and ${} for string templating</span>
+<span class="lineno"> 4</span> <span class="p">}</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="kd">function</span> <span class="nx">distract</span><span class="p">(){</span>
+<span class="lineno"> 7</span>   <span class="k">return</span> <span class="s1">&#39;awww, that kitten is so cute&#39;</span><span class="p">;</span>
+<span class="lineno"> 8</span> <span class="p">}</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="c1">// you can expose the function as is, or change the name</span>
+<span class="lineno">11</span> <span class="kr">export</span> <span class="p">{</span> <span class="nx">bite</span><span class="p">,</span> <span class="nx">distract</span> <span class="nx">as</span> <span class="nx">lookCute</span> <span class="p">}</span></code></pre></div>
+
+<p><b>app1.js</b></p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="kr">import</span> <span class="p">{</span> <span class="nx">lookCute</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cat&#39;</span><span class="p">;</span>
+<span class="lineno">2</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">lookCute</span><span class="p">()</span> <span class="p">);</span></code></pre></div>
+
+<p><b>app2.js</b></p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="kr">import</span> <span class="p">{</span> <span class="nx">bite</span><span class="p">,</span> <span class="nx">lookCute</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cat&#39;</span><span class="p">;</span>
+<span class="lineno">2</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">lookCute</span><span class="p">()</span> <span class="p">);</span>  <span class="c1">// &quot;awww, that kitten is so cute&quot;</span>
+<span class="lineno">3</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">bite</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">)</span> <span class="p">);</span> <span class="c1">// &quot;*cat bit Tom*&quot;</span></code></pre></div>
+
+<h3>Examples</h3>
+
+<p><b>exporter1.js</b></p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="kr">export</span> <span class="kd">function</span> <span class="nx">blah</span><span class="p">(){</span>
+<span class="lineno">2</span>   <span class="k">return</span> <span class="s1">&#39;blah&#39;</span><span class="p">;</span>
+<span class="lineno">3</span> <span class="p">}</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="kd">var</span> <span class="nx">aFunc</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">6</span>   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;does nothing&#39;</span><span class="p">);</span>
+<span class="lineno">7</span> <span class="p">}</span>
+<span class="lineno">8</span> <span class="kr">export</span> <span class="p">{</span> <span class="nx">aFunc</span> <span class="p">}</span></code></pre></div>
+
+<p><b>importer1.js</b></p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="kr">import</span> <span class="p">{</span> <span class="nx">blah</span><span class="p">,</span> <span class="nx">aFunc</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;exporter1&#39;</span><span class="p">;</span>
+<span class="lineno">2</span> <span class="nx">aFunc</span><span class="p">();</span>
+<span class="lineno">3</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">blah</span><span class="p">()</span> <span class="p">);</span></code></pre></div>
+
+<p><br /><br /></p>
+
+<p><b>exporter2.js</b></p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">2</span>   <span class="k">return</span> <span class="s2">&quot;this is all I&#39;m exporting&quot;</span><span class="p">;</span>
+<span class="lineno">3</span> <span class="p">}</span></code></pre></div>
+
+<p><b>importer2.js</b></p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="kr">import</span> <span class="nx">randomName</span> <span class="nx">from</span> <span class="s1">&#39;exporter2&#39;</span><span class="p">;</span>
+<span class="lineno">2</span> <span class="nx">randomName</span><span class="p">();</span> <span class="c1">// when you import a default function, you choose the name</span></code></pre></div>
+
+<p>More examples of es6 modules can be found <a href="http://wiki.ecmascript.org/doku.php?id=harmony:modules_examples">here</a>.</p>
 
     </div>
 
