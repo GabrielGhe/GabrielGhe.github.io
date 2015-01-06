@@ -20,6 +20,9 @@ h1, h2, h3, h4 {
 #footer {
   background-color: #f8f8f8;
 }
+ul {
+  padding:0;
+}
 
 a.label {
   margin-left:3px;
