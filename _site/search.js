@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/javascript/2015/01/05/ecmascript-6-feature-modules",
+  "title"   : "EcmaScript 6 feature: modules",
+  "category": "javascript",
+  "tags"    : "es6 module export",
+  "content" : "",
+  "date"    : "January  5, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/csharp/2015/01/03/c-60-feature-null-propogation",
   "title"   : "6.0 feature: Null Propogation",
   "category": "csharp",
