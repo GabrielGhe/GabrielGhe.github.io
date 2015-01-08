@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>6.0 feature: Null Propogation</title>
+    <title>Windows 8 Development: xaml properties</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -106,42 +106,55 @@
         
 <div class="page-header">
   <h1>
-    <i class="icon-csharp" style="font-size:2em"></i> 6.0 feature: Null Propogation 
+    <i class="icon-csharp" style="font-size:2em"></i> Windows 8 Development: xaml properties 
 </h1>
 </div>
 
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>03 January 2015</span>
+      <span>07 January 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>C# 6.0 has some interesting new features. The feature discussed in this post is null propogation.
-Null propogation allows you to check if a property exists and if it does, execute code.
+<p>Windows 8.1 use the MVVM pattern for their apps. For their View, they use xaml, this post is about the different types of xaml properties.
 More information can be found <a href="http://www.volatileread.com/Wiki/Index?id=1075">here</a>.</p>
 
-<!-- Details -->
-<h3>Details</h3>
+<!-- Examples -->
+<h3>Examples</h3>
 
-<p>Using the <code>?</code> symbol, we can see if the preceding variable holds a null. If it does, the chain stops and the value returned is null.</p>
-
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="c1">// Before</span>
-<span class="lineno"> 2</span> <span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">obj</span><span class="p">.</span><span class="n">children</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 3</span>   <span class="n">obj</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Child</span><span class="p">()</span> <span class="p">);</span>
-<span class="lineno"> 4</span> <span class="p">}</span>
-<span class="lineno"> 5</span> 
-<span class="lineno"> 6</span> <span class="c1">// In 6.0</span>
-<span class="lineno"> 7</span> <span class="k">if</span> <span class="p">(</span><span class="n">obj</span><span class="p">?.</span><span class="n">children</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 8</span>   <span class="n">obj</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Child</span><span class="p">()</span> <span class="p">);</span>
-<span class="lineno"> 9</span> <span class="p">}</span>
-<span class="lineno">10</span> 
-<span class="lineno">11</span> <span class="c1">// 1. Is obj == null? If yes, stop and the chain == null</span>
-<span class="lineno">12</span> <span class="c1">// 2. Is children == null? If yes, stop and the chain == null</span></code></pre></div>
-
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="c">&lt;!-- variable name to be used in code --&gt;</span>
+<span class="lineno"> 2</span> <span class="nt">&lt;Button</span> <span class="na">x:Name=</span><span class="s">&quot;myButton&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno"> 3</span> 
+<span class="lineno"> 4</span> <span class="c">&lt;!-- background color --&gt;</span>
+<span class="lineno"> 5</span> <span class="nt">&lt;Button</span> <span class="na">Background=</span><span class="s">&quot;Blue&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> <span class="c">&lt;!-- text on the button --&gt;</span>
+<span class="lineno"> 8</span> <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;This is the text you&#39;ll see&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="c">&lt;!-- font size in pixels --&gt;</span>
+<span class="lineno">11</span> <span class="nt">&lt;Button</span> <span class="na">FontSize=</span><span class="s">&quot;42&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">12</span> 
+<span class="lineno">13</span> <span class="c">&lt;!-- align Left or Right --&gt;</span>
+<span class="lineno">14</span> <span class="nt">&lt;Button</span> <span class="na">HorizontalAlighment=</span><span class="s">&quot;Left&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">15</span> 
+<span class="lineno">16</span> <span class="c">&lt;!-- Margin &lt;left,top,right,bottom&gt; vs css&#39; &lt;top,right,bottom,left&gt; --&gt;</span>
+<span class="lineno">17</span> <span class="nt">&lt;Button</span> <span class="na">Margin=</span><span class="s">&quot;0,20,0,5&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">18</span> 
+<span class="lineno">19</span> <span class="c">&lt;!-- align Top or Down --&gt;</span>
+<span class="lineno">20</span> <span class="nt">&lt;Button</span> <span class="na">VerticalAlighment=</span><span class="s">&quot;Top&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">21</span> 
+<span class="lineno">22</span> <span class="c">&lt;!-- Height and Width in pixels --&gt;</span>
+<span class="lineno">23</span> <span class="nt">&lt;Button</span> <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">24</span> 
+<span class="lineno">25</span> <span class="c">&lt;!-- text to be displayed --&gt;</span>
+<span class="lineno">26</span> <span class="nt">&lt;Label</span> <span class="na">Text=</span><span class="s">&quot;Hello, XAML!&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">27</span> 
+<span class="lineno">28</span> <span class="c">&lt;!-- text color  --&gt;</span>
+<span class="lineno">29</span> <span class="nt">&lt;Label</span> <span class="na">TextColor=</span><span class="s">&quot;Aqua&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
 
     </div>
 
@@ -173,7 +186,11 @@ More information can be found <a href="http://www.volatileread.com/Wiki/Index?id
 
   
      
-    	<li><a href="/tags.html#null propogation-ref">null propogation <span>1</span></a></li>
+    	<li><a href="/tags.html#windows-ref">windows <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#windows phone-ref">windows phone <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#xaml-ref">xaml <span>1</span></a></li>
     
   
 
@@ -185,11 +202,11 @@ More information can be found <a href="http://www.volatileread.com/Wiki/Index?id
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/javascript/2015/01/02/ecmascript-6-feature-properties" title="EcmaScript 6 feature: enhanced properties">&laquo; Previous</a></li>
+      <li class="prev"><a href="/javascript/2015/01/05/ecmascript-6-feature-modules" title="EcmaScript 6 feature: modules">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/javascript/2015/01/05/ecmascript-6-feature-modules" title="EcmaScript 6 feature: modules">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     <hr>

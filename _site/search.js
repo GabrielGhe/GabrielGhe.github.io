@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/csharp/2015/01/07/windows-8-development-xaml-properties",
+  "title"   : "Windows 8 Development: xaml properties",
+  "category": "csharp",
+  "tags"    : "windows windows phone xaml",
+  "content" : "OverviewWindows 8.1 use the MVVM pattern for their apps. For their View, they use xaml, this post is about the different types of xaml properties.More information can be found here.Examples 1 &lt;!-- variable name to be used in code --&gt; 2 &lt;Button x:Name=&quot;myButton&quot; /&gt; 3  4 &lt;!-- background color --&gt; 5 &lt;Button Background=&quot;Blue&quot; /&gt; 6  7 &lt;!-- text on the button --&gt; 8 &lt;Button Content=&quot;This is the text you&#39;ll see&quot; /&gt; 9 10 &lt;!-- font size in pixels --&gt;11 &lt;Button FontSize=&quot;42&quot; /&gt;12 13 &lt;!-- align Left or Right --&gt;14 &lt;Button HorizontalAlighment=&quot;Left&quot; /&gt;15 16 &lt;!-- Margin &lt;left,top,right,bottom&gt; vs css&#39; &lt;top,right,bottom,left&gt; --&gt;17 &lt;Button Margin=&quot;0,20,0,5&quot; /&gt;18 19 &lt;!-- align Top or Down --&gt;20 &lt;Button VerticalAlighment=&quot;Top&quot; /&gt;21 22 &lt;!-- Height and Width in pixels --&gt;23 &lt;Button Height=&quot;100&quot; Width=&quot;100&quot; /&gt;24 25 &lt;!-- text to be displayed --&gt;26 &lt;Label Text=&quot;Hello, XAML!&quot; /&gt;27 28 &lt;!-- text color  --&gt;29 &lt;Label TextColor=&quot;Aqua&quot; /&gt;",
+  "date"    : "January  7, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2015/01/05/ecmascript-6-feature-modules",
   "title"   : "EcmaScript 6 feature: modules",
   "category": "javascript",
