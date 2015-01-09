@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/csharp/2015/01/08/windows-8-development-xaml-controls",
+  "title"   : "Windows 8 development: xaml controls",
+  "category": "csharp",
+  "tags"    : "windows windows phone xaml control",
+  "content" : "OverviewWindows 8.1 use the MVVM pattern for their apps. For their View, they use xaml, this post is about the different types of xaml properties.More information can be found here.Examples 1 &lt;!-- Button control with Click event --&gt; 2 &lt;Button x:Name=&quot;myButton&quot; Click=&quot;myButton_Click&quot; /&gt; 3  4 &lt;!-- Acts like an html table --&gt; 5 &lt;Grid /&gt; 6  7 &lt;!-- Holds &lt;ColumnDefinition&gt; controls, lives in Grid --&gt; 8 &lt;Grid.ColumnDefinitions&gt;&lt;/Grid.ColumnDefinitions&gt; 9 10 &lt;!-- Holds &lt;RowDefinition&gt; controls, lives in Grid --&gt;11 &lt;Grid.RowDefinitions&gt;&lt;/Grid.RowDefinitions&gt;12 13 &lt;!-- Rectangle --&gt;14 &lt;Rectangle Fill=&quot;Blue&quot; Height=&quot;100&quot; Width=&quot;100&quot; /&gt;15 16 &lt;!-- acts like a stack of controls (like floating left or top in case of Vertical orientation) --&gt;17 &lt;StackPanel Orientation=&quot;Horizontal&quot; /&gt;18 19 &lt;!-- holds text, if needs to be in Grid iff assigned grid properties --&gt;20 &lt;TextBlock Grid.Row=&quot;0&quot; /&gt;",
+  "date"    : "January  8, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/csharp/2015/01/07/windows-8-development-xaml-properties",
   "title"   : "Windows 8 Development: xaml properties",
   "category": "csharp",
