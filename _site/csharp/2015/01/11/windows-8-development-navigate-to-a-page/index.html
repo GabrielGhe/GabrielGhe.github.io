@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>6.0 feature: Null Propogation</title>
+    <title>Windows 8 development: navigate to a page</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -106,42 +106,44 @@
         
 <div class="page-header">
   <h1>
-    <i class="icon-csharp" style="font-size:2em"></i> 6.0 feature: Null Propogation 
+    <i class="icon-csharp" style="font-size:2em"></i> Windows 8 development: navigate to a page 
 </h1>
 </div>
 
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>03 January 2015</span>
+      <span>11 January 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>C# 6.0 has some interesting new features. The feature discussed in this post is null propogation.
-Null propogation allows you to check if a property exists and if it does, execute code.
-More information can be found <a href="http://www.volatileread.com/Wiki/Index?id=1075">here</a>.</p>
+<p>In mobile apps, we often navigate to different pages. In this post, we will see how to do that on the windows phone. More information can be found <a href="https://www.youtube.com/watch?v=kkUaC-sOJPQ">here</a>.</p>
 
 <!-- Details -->
 <h3>Details</h3>
 
-<p>Using the <code>?</code> symbol, we can see if the preceding variable holds a null. If it does, the chain stops and the value returned is null.</p>
+<p>We will have <code>MainPage</code> which will have a button whos click event takes us to a new page, <code>Page2</code>.</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="c1">// Before</span>
-<span class="lineno"> 2</span> <span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">obj</span><span class="p">.</span><span class="n">children</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 3</span>   <span class="n">obj</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Child</span><span class="p">()</span> <span class="p">);</span>
-<span class="lineno"> 4</span> <span class="p">}</span>
-<span class="lineno"> 5</span> 
-<span class="lineno"> 6</span> <span class="c1">// In 6.0</span>
-<span class="lineno"> 7</span> <span class="k">if</span> <span class="p">(</span><span class="n">obj</span><span class="p">?.</span><span class="n">children</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 8</span>   <span class="n">obj</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Child</span><span class="p">()</span> <span class="p">);</span>
-<span class="lineno"> 9</span> <span class="p">}</span>
-<span class="lineno">10</span> 
-<span class="lineno">11</span> <span class="c1">// 1. Is obj == null? If yes, stop and the chain == null</span>
-<span class="lineno">12</span> <span class="c1">// 2. Is children == null? If yes, stop and the chain == null</span></code></pre></div>
+<p>MainPage xaml will have a button that will take you to the next page.</p>
 
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Go to Page2&quot;</span> <span class="na">onClick=</span><span class="s">&quot;Button_Click&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
+
+<p>The click event for that button will look like this.</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno">1</span> <span class="c1">// MainPage</span>
+<span class="lineno">2</span> <span class="k">private</span> <span class="k">void</span> <span class="nf">Button_Click</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">3</span>   <span class="n">Frame</span><span class="p">.</span><span class="n">Navigate</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Page2</span><span class="p">),</span> <span class="s">&quot;This is extra data that I&#39;m sending to Page2&quot;</span><span class="p">);</span>
+<span class="lineno">4</span> <span class="p">}</span></code></pre></div>
+
+<p>On Page2, we can get the parameters passed when we changed pages in the <code>OnNavigatedTo</code> method.</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno">1</span> <span class="c1">// Page2</span>
+<span class="lineno">2</span> <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnNavigatedTo</span><span class="p">(</span><span class="n">NavigationEventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">3</span>   <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span> <span class="n">e</span><span class="p">.</span><span class="n">Parameter</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">);</span>
+<span class="lineno">4</span> <span class="p">}</span></code></pre></div>
 
     </div>
 
@@ -173,7 +175,11 @@ More information can be found <a href="http://www.volatileread.com/Wiki/Index?id
 
   
      
-    	<li><a href="/tags.html#null propogation-ref">null propogation <span>1</span></a></li>
+    	<li><a href="/tags.html#windows-ref">windows <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#windows phone-ref">windows phone <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#navigation-ref">navigation <span>1</span></a></li>
     
   
 
@@ -185,11 +191,11 @@ More information can be found <a href="http://www.volatileread.com/Wiki/Index?id
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/javascript/2015/01/02/ecmascript-6-feature-properties" title="EcmaScript 6 feature: enhanced properties">&laquo; Previous</a></li>
+      <li class="prev"><a href="/csharp/2015/01/08/windows-8-development-xaml-controls" title="Windows 8 development: xaml controls">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/javascript/2015/01/05/ecmascript-6-feature-modules" title="EcmaScript 6 feature: modules">Next &raquo;</a></li>
+      <li class="next"><a href="/csharp/2015/01/11/windows-8-development-styling-xaml" title="Windows 8 development: styling xaml">Next &raquo;</a></li>
     
     </ul>
     <hr>

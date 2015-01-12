@@ -13,6 +13,16 @@ temp = {
 data[temp.id] = temp;
 
 temp = {
+  "id"    : "/csharp/2015/01/11/windows-8-development-navigate-to-a-page",
+  "title"   : "Windows 8 development: navigate to a page",
+  "category": "csharp",
+  "tags"    : "windows windows phone navigation",
+  "content" : "OverviewIn mobile apps, we often navigate to different pages. In this post, we will see how to do that on the windows phone. More information can be found here.DetailsWe will have MainPage which will have a button whos click event takes us to a new page, Page2.MainPage xaml will have a button that will take you to the next page.1 &lt;Button Content=&quot;Go to Page2&quot; onClick=&quot;Button_Click&quot; /&gt;The click event for that button will look like this.1 // MainPage2 private void Button_Click(object sender, RoutedEventArgs e) {3   Frame.Navigate(typeof(Page2), &quot;This is extra data that I&#39;m sending to Page2&quot;);4 }On Page2, we can get the parameters passed when we changed pages in the OnNavigatedTo method.1 // Page22 protected override void OnNavigatedTo(NavigationEventArgs e) {3   Console.WriteLine( e.Parameter.ToString() );4 }",
+  "date"    : "January 11, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/csharp/2015/01/08/windows-8-development-xaml-controls",
   "title"   : "Windows 8 development: xaml controls",
   "category": "csharp",
