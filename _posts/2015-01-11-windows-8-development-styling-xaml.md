@@ -68,6 +68,8 @@ The code above (Local) works only on the page where the `<Style>` was declared. 
 </Application.Resources>
 {% endhighlight %}
 
+<br /><br /><br />
+
 <!-- Themes -->
 <h3>Themes</h3>
 
