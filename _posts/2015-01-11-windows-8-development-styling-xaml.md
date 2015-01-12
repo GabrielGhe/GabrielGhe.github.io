@@ -23,8 +23,6 @@ In this post, I will be talking about how to style xaml controls. Similar to css
 <StackPanel>
   <TextBlock Text="Some text" Foreground="{StaticResource MyBrush}" />
 
-  <TextBlock Text="Some text" Foreground="{}" />
-
   <Button Content="Some text" Background="{StaticResource MyBrush}" />
 </StackPanel>
 {% endhighlight %}
@@ -32,3 +30,23 @@ In this post, I will be talking about how to style xaml controls. Similar to css
 We first create a `<Page.Resources>` element. Inside we create a `<SolidColorBrush>` that we can reuse by using it's key, `MyBrush`. To use it, we have to use the following syntax: `"{StaticResource MyBrush}"`.
 
 ![Results]({{ ASSET_PATH }}images/2015-01-11-windows-8-development-styling-xaml-1.png)
+
+The style above can be applied to anything and it's simple. Let's create a more complicated style that can be applied only to buttons.
+
+{% highlight html linenos %}
+<Page.Resources>
+  <Style TargetType="Button" x:Key="MyButtonStyle">
+    <Setter Property="Background" Value="Blue" />
+    <Setter Property="FontFamily" Value="Arial Black" />
+    <Setter Property="FontSize" Value="36" />
+  </Style>
+</Page.Resources>
+
+<StackPanel>
+  <Button Content="My Brush Example" Style="{StaticResource MyButtonStyle}" />
+</StackPanel>
+{% endhighlight %}
+
+![Results]({{ ASSET_PATH }}images/2015-01-11-windows-8-development-styling-xaml-2.png)
+
+Keep in mind that if we now apply `Background="Green"` to the Button *directly*, it will take precedence over the style. Even if we bind a color to it.

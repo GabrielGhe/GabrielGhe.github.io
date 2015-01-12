@@ -125,21 +125,37 @@
 <!-- Details -->
 <h3>Details</h3>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;Page.Resources&gt;</span>
-<span class="lineno"> 2</span>   <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">&quot;MyBrush&quot;</span> <span class="na">Color=</span><span class="s">&quot;Brown&quot;</span> <span class="nt">/&gt;</span>
-<span class="lineno"> 3</span> <span class="nt">&lt;/Page.Resources&gt;</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span> <span class="nt">&lt;StackPanel&gt;</span>
-<span class="lineno"> 6</span>   <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;Some text&quot;</span> <span class="na">Foreground=</span><span class="s">&quot;{StaticResource MyBrush}&quot;</span> <span class="nt">/&gt;</span>
-<span class="lineno"> 7</span> 
-<span class="lineno"> 8</span>   <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;Some text&quot;</span> <span class="na">Foreground=</span><span class="s">&quot;{}&quot;</span> <span class="nt">/&gt;</span>
-<span class="lineno"> 9</span> 
-<span class="lineno">10</span>   <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Some text&quot;</span> <span class="na">Background=</span><span class="s">&quot;{StaticResource MyBrush}&quot;</span> <span class="nt">/&gt;</span>
-<span class="lineno">11</span> <span class="nt">&lt;/StackPanel&gt;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> <span class="nt">&lt;Page.Resources&gt;</span>
+<span class="lineno">2</span>   <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">&quot;MyBrush&quot;</span> <span class="na">Color=</span><span class="s">&quot;Brown&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">3</span> <span class="nt">&lt;/Page.Resources&gt;</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="nt">&lt;StackPanel&gt;</span>
+<span class="lineno">6</span>   <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;Some text&quot;</span> <span class="na">Foreground=</span><span class="s">&quot;{StaticResource MyBrush}&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">7</span> 
+<span class="lineno">8</span>   <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Some text&quot;</span> <span class="na">Background=</span><span class="s">&quot;{StaticResource MyBrush}&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">9</span> <span class="nt">&lt;/StackPanel&gt;</span></code></pre></div>
 
 <p>We first create a <code>&lt;Page.Resources&gt;</code> element. Inside we create a <code>&lt;SolidColorBrush&gt;</code> that we can reuse by using it’s key, <code>MyBrush</code>. To use it, we have to use the following syntax: <code>"{StaticResource MyBrush}"</code>.</p>
 
 <p><img src="/assets/themes/images/2015-01-11-windows-8-development-styling-xaml-1.png" alt="Results" /></p>
+
+<p>The style above can be applied to anything and it’s simple. Let’s create a more complicated style that can be applied only to buttons.</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;Page.Resources&gt;</span>
+<span class="lineno"> 2</span>   <span class="nt">&lt;Style </span><span class="na">TargetType=</span><span class="s">&quot;Button&quot;</span> <span class="na">x:Key=</span><span class="s">&quot;MyButtonStyle&quot;</span><span class="nt">&gt;</span>
+<span class="lineno"> 3</span>     <span class="o">&lt;</span><span class="nt">Setter</span> <span class="nt">Property</span><span class="o">=</span><span class="s2">&quot;Background&quot;</span> <span class="nt">Value</span><span class="o">=</span><span class="s2">&quot;Blue&quot;</span> <span class="o">/&gt;</span>
+<span class="lineno"> 4</span>     <span class="o">&lt;</span><span class="nt">Setter</span> <span class="nt">Property</span><span class="o">=</span><span class="s2">&quot;FontFamily&quot;</span> <span class="nt">Value</span><span class="o">=</span><span class="s2">&quot;Arial Black&quot;</span> <span class="o">/&gt;</span>
+<span class="lineno"> 5</span>     <span class="o">&lt;</span><span class="nt">Setter</span> <span class="nt">Property</span><span class="o">=</span><span class="s2">&quot;FontSize&quot;</span> <span class="nt">Value</span><span class="o">=</span><span class="s2">&quot;36&quot;</span> <span class="o">/&gt;</span>
+<span class="lineno"> 6</span>   <span class="nt">&lt;/Style&gt;</span>
+<span class="lineno"> 7</span> <span class="nt">&lt;/Page.Resources&gt;</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="nt">&lt;StackPanel&gt;</span>
+<span class="lineno">10</span>   <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;My Brush Example&quot;</span> <span class="na">Style=</span><span class="s">&quot;{StaticResource MyButtonStyle}&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">11</span> <span class="nt">&lt;/StackPanel&gt;</span></code></pre></div>
+
+<p><img src="/assets/themes/images/2015-01-11-windows-8-development-styling-xaml-2.png" alt="Results" /></p>
+
+<p>Keep in mind that if we now apply <code>Background="Green"</code> to the Button <em>directly</em>, it will take precedence over the style. Even if we bind a color to it.</p>
 
     </div>
 
