@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>6.0 feature: Null Propogation</title>
+    <title>Windows 8 development: styling xaml</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -106,42 +106,40 @@
         
 <div class="page-header">
   <h1>
-    <i class="icon-csharp" style="font-size:2em"></i> 6.0 feature: Null Propogation 
+    <i class="icon-csharp" style="font-size:2em"></i> Windows 8 development: styling xaml 
 </h1>
 </div>
 
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>03 January 2015</span>
+      <span>11 January 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>C# 6.0 has some interesting new features. The feature discussed in this post is null propogation.
-Null propogation allows you to check if a property exists and if it does, execute code.
-More information can be found <a href="http://www.volatileread.com/Wiki/Index?id=1075">here</a>.</p>
+<p>In this post, I will be talking about how to style xaml controls. Similar to css, we can create styles that can be reused for multiple controls throughout our solution. More information can be found here <a href="https://www.youtube.com/watch?v=97u6eB4X8yU&amp;t=5860">here</a>.</p>
 
 <!-- Details -->
 <h3>Details</h3>
 
-<p>Using the <code>?</code> symbol, we can see if the preceding variable holds a null. If it does, the chain stops and the value returned is null.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;Page.Resources&gt;</span>
+<span class="lineno"> 2</span>   <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">&quot;MyBrush&quot;</span> <span class="na">Color=</span><span class="s">&quot;Brown&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno"> 3</span> <span class="nt">&lt;/Page.Resources&gt;</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span> <span class="nt">&lt;StackPanel&gt;</span>
+<span class="lineno"> 6</span>   <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;Some text&quot;</span> <span class="na">Foreground=</span><span class="s">&quot;{StaticResource MyBrush}&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span>   <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;Some text&quot;</span> <span class="na">Foreground=</span><span class="s">&quot;{}&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span>   <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Some text&quot;</span> <span class="na">Background=</span><span class="s">&quot;{StaticResource MyBrush}&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">11</span> <span class="nt">&lt;/StackPanel&gt;</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="c1">// Before</span>
-<span class="lineno"> 2</span> <span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">obj</span><span class="p">.</span><span class="n">children</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 3</span>   <span class="n">obj</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Child</span><span class="p">()</span> <span class="p">);</span>
-<span class="lineno"> 4</span> <span class="p">}</span>
-<span class="lineno"> 5</span> 
-<span class="lineno"> 6</span> <span class="c1">// In 6.0</span>
-<span class="lineno"> 7</span> <span class="k">if</span> <span class="p">(</span><span class="n">obj</span><span class="p">?.</span><span class="n">children</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 8</span>   <span class="n">obj</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Child</span><span class="p">()</span> <span class="p">);</span>
-<span class="lineno"> 9</span> <span class="p">}</span>
-<span class="lineno">10</span> 
-<span class="lineno">11</span> <span class="c1">// 1. Is obj == null? If yes, stop and the chain == null</span>
-<span class="lineno">12</span> <span class="c1">// 2. Is children == null? If yes, stop and the chain == null</span></code></pre></div>
+<p>We first create a <code>&lt;Page.Resources&gt;</code> element. Inside we create a <code>&lt;SolidColorBrush&gt;</code> that we can reuse by using it’s key, <code>MyBrush</code>. To use it, we have to use the following syntax: <code>"{StaticResource MyBrush}"</code>.</p>
 
+<p><img src="/assets/themes/images/2015-01-11-windows-8-development-styling-xaml-1.png" alt="Results" /></p>
 
     </div>
 
@@ -173,7 +171,13 @@ More information can be found <a href="http://www.volatileread.com/Wiki/Index?id
 
   
      
-    	<li><a href="/tags.html#null propogation-ref">null propogation <span>1</span></a></li>
+    	<li><a href="/tags.html#windows-ref">windows <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#windows phone-ref">windows phone <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#xaml-ref">xaml <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#styling-ref">styling <span>1</span></a></li>
     
   
 
@@ -185,11 +189,11 @@ More information can be found <a href="http://www.volatileread.com/Wiki/Index?id
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/javascript/2015/01/02/ecmascript-6-feature-properties" title="EcmaScript 6 feature: enhanced properties">&laquo; Previous</a></li>
+      <li class="prev"><a href="/csharp/2015/01/08/windows-8-development-xaml-controls" title="Windows 8 development: xaml controls">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/javascript/2015/01/05/ecmascript-6-feature-modules" title="EcmaScript 6 feature: modules">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     <hr>

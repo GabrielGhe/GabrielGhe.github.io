@@ -10,7 +10,7 @@ tags: [windows, windows phone, xaml, control]
 <!-- Overview -->
 <h3>Overview</h3>
 
-Windows 8.1 use the MVVM pattern for their apps. For their View, they use xaml, this post is about the different types of xaml controls. More information can be found [here](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh465351.aspx).
+Windows 8.1 use the MVVM pattern for their apps. For their View, they use xaml. This post is about the different types of xaml controls. More information can be found [here](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh465351.aspx).
 
 <!-- Examples -->
 <h3>Examples</h3>

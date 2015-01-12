@@ -3,11 +3,21 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/csharp/2015/01/11/windows-8-development-styling-xaml",
+  "title"   : "Windows 8 development: styling xaml",
+  "category": "csharp",
+  "tags"    : "windows windows phone xaml styling",
+  "content" : "OverviewIn this post, I will be talking about how to style xaml controls. Similar to css, we can create styles that can be reused for multiple controls throughout our solution. More information can be found here here.Details 1 &lt;Page.Resources&gt; 2   &lt;SolidColorBrush x:Key=&quot;MyBrush&quot; Color=&quot;Brown&quot; /&gt; 3 &lt;/Page.Resources&gt; 4  5 &lt;StackPanel&gt; 6   &lt;TextBlock Text=&quot;Some text&quot; Foreground=&quot;{StaticResource MyBrush}&quot; /&gt; 7  8   &lt;TextBlock Text=&quot;Some text&quot; Foreground=&quot;{}&quot; /&gt; 9 10   &lt;Button Content=&quot;Some text&quot; Background=&quot;{StaticResource MyBrush}&quot; /&gt;11 &lt;/StackPanel&gt;We first create a &lt;Page.Resources&gt; element. Inside we create a &lt;SolidColorBrush&gt; that we can reuse by using it’s key, MyBrush. To use it, we have to use the following syntax: {StaticResource MyBrush}.",
+  "date"    : "January 11, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/csharp/2015/01/08/windows-8-development-xaml-controls",
   "title"   : "Windows 8 development: xaml controls",
   "category": "csharp",
   "tags"    : "windows windows phone xaml control",
-  "content" : "OverviewWindows 8.1 use the MVVM pattern for their apps. For their View, they use xaml, this post is about the different types of xaml controls. More information can be found here.Examples 1 &lt;!-- Button control with Click event --&gt; 2 &lt;Button x:Name=&quot;myButton&quot; Click=&quot;myButton_Click&quot; /&gt; 3  4 &lt;!-- Acts like an html table --&gt; 5 &lt;Grid /&gt; 6  7 &lt;!-- Holds &lt;ColumnDefinition&gt; controls, lives in Grid --&gt; 8 &lt;Grid.ColumnDefinitions&gt;&lt;/Grid.ColumnDefinitions&gt; 9 10 &lt;!-- Holds &lt;RowDefinition&gt; controls, lives in Grid --&gt;11 &lt;Grid.RowDefinitions&gt;&lt;/Grid.RowDefinitions&gt;12 13 &lt;!-- Rectangle --&gt;14 &lt;Rectangle Fill=&quot;Blue&quot; Height=&quot;100&quot; Width=&quot;100&quot; /&gt;15 16 &lt;!-- acts like a stack of controls (like floating left or top in case of Vertical orientation) --&gt;17 &lt;StackPanel Orientation=&quot;Horizontal&quot; /&gt;18 19 &lt;!-- holds text, if needs to be in Grid iff assigned grid properties --&gt;20 &lt;TextBlock Grid.Row=&quot;0&quot; /&gt;",
+  "content" : "OverviewWindows 8.1 use the MVVM pattern for their apps. For their View, they use xaml. This post is about the different types of xaml controls. More information can be found here.Examples 1 &lt;!-- Button control with Click event --&gt; 2 &lt;Button x:Name=&quot;myButton&quot; Click=&quot;myButton_Click&quot; /&gt; 3  4 &lt;!-- Acts like an html table --&gt; 5 &lt;Grid /&gt; 6  7 &lt;!-- Holds &lt;ColumnDefinition&gt; controls, lives in Grid --&gt; 8 &lt;Grid.ColumnDefinitions&gt;&lt;/Grid.ColumnDefinitions&gt; 9 10 &lt;!-- Holds &lt;RowDefinition&gt; controls, lives in Grid --&gt;11 &lt;Grid.RowDefinitions&gt;&lt;/Grid.RowDefinitions&gt;12 13 &lt;!-- Rectangle --&gt;14 &lt;Rectangle Fill=&quot;Blue&quot; Height=&quot;100&quot; Width=&quot;100&quot; /&gt;15 16 &lt;!-- acts like a stack of controls (like floating left or top in case of Vertical orientation) --&gt;17 &lt;StackPanel Orientation=&quot;Horizontal&quot; /&gt;18 19 &lt;!-- holds text, if needs to be in Grid iff assigned grid properties --&gt;20 &lt;TextBlock Grid.Row=&quot;0&quot; /&gt;",
   "date"    : "January  8, 2015"
 };
 data[temp.id] = temp;
