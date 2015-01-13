@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/csharp/2015/01/12/windows-8-development-managing-states",
+  "title"   : "Windows 8 development: Managing States",
+  "category": "csharp",
+  "tags"    : "windows windows phone state",
+  "content" : "OverviewA mobile app should aways keep track of the state. This means that if you write a message or complete a level it should be saved. The next time you go to that app, you should restart from where you left off. This feature is very easy to implement on the Windows Phone. More information can be found here.",
+  "date"    : "January 12, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/csharp/2015/01/11/windows-8-development-styling-xaml",
   "title"   : "Windows 8 development: styling xaml",
   "category": "csharp",
