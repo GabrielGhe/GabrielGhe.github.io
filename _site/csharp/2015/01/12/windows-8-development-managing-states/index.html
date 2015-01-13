@@ -172,6 +172,25 @@
 <span class="lineno">5</span>   <span class="n">myLocalVariable</span> <span class="p">=</span> <span class="n">localStorage</span><span class="p">.</span><span class="n">Values</span><span class="p">[</span><span class="s">&quot;someKey&quot;</span><span class="p">].</span><span class="n">toString</span><span class="p">();</span>
 <span class="lineno">6</span> <span class="p">}</span></code></pre></div>
 
+<p><br /><br /><br /></p>
+
+<p>The other way to save Application state (which is much easier) is with <code>NavigationHelper_SaveState</code> and <code>NavigationHelper_LoadState</code>.</p>
+
+<p>Save State.</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno">1</span> <span class="n">e</span><span class="p">.</span><span class="n">PageState</span><span class="p">[</span><span class="s">&quot;someKey&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;I&#39;m saving this text for later&quot;</span><span class="p">;</span></code></pre></div>
+
+<p><img src="/assets/themes/images/2015-01-12-windows-8-development-managing-states-5.png" alt="Results" /></p>
+
+<p>Load State.</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno">1</span> <span class="k">if</span> <span class="p">(</span> <span class="n">e</span><span class="p">.</span><span class="n">PageState</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">e</span><span class="p">.</span><span class="n">PageState</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="s">&quot;someKey&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+<span class="lineno">2</span>   <span class="n">myLocalVariable</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">PageState</span><span class="p">[</span><span class="s">&quot;someKey&quot;</span><span class="p">].</span><span class="n">toString</span><span class="p">();</span>
+<span class="lineno">3</span> <span class="p">}</span></code></pre></div>
+
+<p><img src="/assets/themes/images/2015-01-12-windows-8-development-managing-states-4.png" alt="Results" /></p>
+
+
     </div>
 
   

@@ -71,3 +71,24 @@ if ( localStorage.Values.ContainsKey("someKey") ) {
   myLocalVariable = localStorage.Values["someKey"].toString();
 }
 {% endhighlight %}
+
+<br /><br /><br />
+
+The other way to save Application state (which is much easier) is with `NavigationHelper_SaveState` and `NavigationHelper_LoadState`.
+
+Save State.
+{% highlight csharp linenos %}
+e.PageState["someKey"] = "I'm saving this text for later";
+{% endhighlight %}
+
+![Results]({{ ASSET_PATH }}images/2015-01-12-windows-8-development-managing-states-5.png)
+
+Load State.
+{% highlight csharp linenos %}
+if ( e.PageState != null && e.PageState.ContainsKey("someKey") ) {
+  myLocalVariable = e.PageState["someKey"].toString();
+}
+{% endhighlight %}
+![Results]({{ ASSET_PATH }}images/2015-01-12-windows-8-development-managing-states-4.png)
+
+
