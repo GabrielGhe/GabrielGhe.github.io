@@ -7,7 +7,7 @@ temp = {
   "title"   : "Windows 8 development: Managing States",
   "category": "csharp",
   "tags"    : "windows windows phone state",
-  "content" : "OverviewA mobile app should aways keep track of the state. This means that if you write a message or complete a level it should be saved. The next time you go to that app, you should restart from where you left off. This feature is very easy to implement on the Windows Phone. More information can be found here.DetailsThere are 2 very important methods to know about: OnLaunched and OnSuspending. We need to use SuspensionManager to save everything. If you used a BlankPage, you won’t have the SuspensionManager. Just create a BasicPage and it will prompt you to automatically create the some helped classes (including the SuspensionManager) for you.Inside OnLaunched, we will add the following line of code.1 ManagingState.Common.SuspensionManager.RegisterFrame(appFrame, &quot;appFrame&quot;);In OnSuspending, we have to save the state.1 // make sure you add async to the method signature2 await ManagingState.Common.SuspensionManager.SaveAsync();",
+  "content" : "OverviewA mobile app should aways keep track of the state. This means that if you write a message or complete a level it should be saved. The next time you go to that app, you should restart from where you left off. This feature is very easy to implement on the Windows Phone. More information can be found here.Frame StateThere are 2 very important methods to know about: OnLaunched and OnSuspending. We need to use SuspensionManager to save everything. If you used a BlankPage, you won’t have the SuspensionManager. Just create a BasicPage and it will prompt you to automatically create the some helped classes (including the SuspensionManager) for you.Inside OnLaunched, we will add the following line of code.1 ManagingState.Common.SuspensionManager.RegisterFrame(appFrame, &quot;appFrame&quot;);In OnSuspending, we have to save the state.1 // make sure you add async to the method signature2 await ManagingState.Common.SuspensionManager.SaveAsync();We also need to restore our state, we do this again in OnLaunched. A bit lower than the code we wrote to register the frame, we will check if the app was terminated and restore the state if it was.1 // make sure you add async to the method signature again2 await ManagingState.Common.SuspensionManager.RestoreAsync();Application StateAbove we saved what Frame or Page the user was on, but what if we want to store specific information that the user has entered? To accomplish this, we will use the local storage.Save the state.1 Windows.Storage.ApplicationDataContainer localStorage = Windows.Storage.ApplicationData.Current.LocalSettings;2 localStorage.Values[&quot;someKey&quot;] = &quot;I&#39;m saving this text for later&quot;;Restore the state in NavigationHelper_LoadState (it will be there if you chose BasicPage).1 // Again we get the storage2 Windows.Storage.ApplicationDataContainer localStorage = Windows.Storage.ApplicationData.Current.LocalSettings;3 4 if ( localStorage.Values.ContainsKey(&quot;someKey&quot;) ) {5   myLocalVariable = localStorage.Values[&quot;someKey&quot;].toString();6 }",
   "date"    : "January 12, 2015"
 };
 data[temp.id] = temp;
@@ -29,26 +29,6 @@ temp = {
   "tags"    : "windows windows phone navigation",
   "content" : "OverviewIn mobile apps, we often navigate to different pages. In this post, we will see how to do that on the windows phone. More information can be found here.DetailsWe will have MainPage which will have a button whos click event takes us to a new page, Page2.MainPage xaml will have a button that will take you to the next page.1 &lt;Button Content=&quot;Go to Page2&quot; onClick=&quot;Button_Click&quot; /&gt;The click event for that button will look like this.1 // MainPage2 private void Button_Click(object sender, RoutedEventArgs e) {3   Frame.Navigate(typeof(Page2), &quot;This is extra data that I&#39;m sending to Page2&quot;);4 }On Page2, we can get the parameters passed when we changed pages in the OnNavigatedTo method.1 // Page22 protected override void OnNavigatedTo(NavigationEventArgs e) {3   Console.WriteLine( e.Parameter.ToString() );4 }",
   "date"    : "January 11, 2015"
-};
-data[temp.id] = temp;
-
-temp = {
-  "id"    : "/csharp/2015/01/08/windows-8-development-xaml-controls",
-  "title"   : "Windows 8 development: xaml controls",
-  "category": "csharp",
-  "tags"    : "windows windows phone xaml control",
-  "content" : "OverviewWindows 8.1 use the MVVM pattern for their apps. For their View, they use xaml. This post is about the different types of xaml controls. More information can be found here.Examples 1 &lt;!-- Button control with Click event --&gt; 2 &lt;Button x:Name=&quot;myButton&quot; Click=&quot;myButton_Click&quot; /&gt; 3  4 &lt;!-- Acts like an html table --&gt; 5 &lt;Grid /&gt; 6  7 &lt;!-- Holds &lt;ColumnDefinition&gt; controls, lives in Grid --&gt; 8 &lt;Grid.ColumnDefinitions&gt;&lt;/Grid.ColumnDefinitions&gt; 9 10 &lt;!-- Holds &lt;RowDefinition&gt; controls, lives in Grid --&gt;11 &lt;Grid.RowDefinitions&gt;&lt;/Grid.RowDefinitions&gt;12 13 &lt;!-- Rectangle --&gt;14 &lt;Rectangle Fill=&quot;Blue&quot; Height=&quot;100&quot; Width=&quot;100&quot; /&gt;15 16 &lt;!-- acts like a stack of controls (like floating left or top in case of Vertical orientation) --&gt;17 &lt;StackPanel Orientation=&quot;Horizontal&quot; /&gt;18 19 &lt;!-- holds text, if needs to be in Grid iff assigned grid properties --&gt;20 &lt;TextBlock Grid.Row=&quot;0&quot; /&gt;",
-  "date"    : "January  8, 2015"
-};
-data[temp.id] = temp;
-
-temp = {
-  "id"    : "/csharp/2015/01/07/windows-8-development-xaml-properties",
-  "title"   : "Windows 8 Development: xaml properties",
-  "category": "csharp",
-  "tags"    : "windows windows phone xaml",
-  "content" : "OverviewWindows 8.1 use the MVVM pattern for their apps. For their View, they use xaml, this post is about the different types of xaml properties.More information can be found here.Examples 1 &lt;!-- variable name to be used in code --&gt; 2 &lt;Button x:Name=&quot;myButton&quot; /&gt; 3  4 &lt;!-- background color --&gt; 5 &lt;Button Background=&quot;Blue&quot; /&gt; 6  7 &lt;!-- text on the button --&gt; 8 &lt;Button Content=&quot;This is the text you&#39;ll see&quot; /&gt; 9 10 &lt;!-- font size in pixels --&gt;11 &lt;Button FontSize=&quot;42&quot; /&gt;12 13 &lt;!-- align Left or Right --&gt;14 &lt;Button HorizontalAlighment=&quot;Left&quot; /&gt;15 16 &lt;!-- Margin &lt;left,top,right,bottom&gt; vs css&#39; &lt;top,right,bottom,left&gt; --&gt;17 &lt;Button Margin=&quot;0,20,0,5&quot; /&gt;18 19 &lt;!-- align Top or Down --&gt;20 &lt;Button VerticalAlighment=&quot;Top&quot; /&gt;21 22 &lt;!-- Height and Width in pixels --&gt;23 &lt;Button Height=&quot;100&quot; Width=&quot;100&quot; /&gt;24 25 &lt;!-- text to be displayed --&gt;26 &lt;Label Text=&quot;Hello, XAML!&quot; /&gt;27 28 &lt;!-- text color  --&gt;29 &lt;Label TextColor=&quot;Aqua&quot; /&gt;",
-  "date"    : "January  7, 2015"
 };
 data[temp.id] = temp;
 

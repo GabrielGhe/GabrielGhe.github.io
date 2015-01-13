@@ -122,8 +122,8 @@
 
 <p>A mobile app should aways keep track of the state. This means that if you write a message or complete a level it should be saved. The next time you go to that app, you should restart from where you left off. This feature is very easy to implement on the Windows Phone. More information can be found <a href="https://www.youtube.com/watch?v=qH4X8RKOZLc">here</a>.</p>
 
-<!-- Details -->
-<h3>Details</h3>
+<!-- Frame State -->
+<h3>Frame State</h3>
 
 <p>There are 2 very important methods to know about: <code>OnLaunched</code> and <code>OnSuspending</code>. We need to use <code>SuspensionManager</code> to save everything. If you used a <code>BlankPage</code>, you won’t have the <code>SuspensionManager</code>. Just create a <code>BasicPage</code> and it will prompt you to automatically create the some helped classes (including the <code>SuspensionManager</code>) for you.</p>
 
@@ -133,12 +133,44 @@
 
 <p><img src="/assets/themes/images/2015-01-12-windows-8-development-managing-states-1.png" alt="Results" /></p>
 
+<p><br /><br /><br /></p>
+
 <p>In <code>OnSuspending</code>, we have to save the state.</p>
 
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno">1</span> <span class="c1">// make sure you add async to the method signature</span>
 <span class="lineno">2</span> <span class="k">await</span> <span class="n">ManagingState</span><span class="p">.</span><span class="n">Common</span><span class="p">.</span><span class="n">SuspensionManager</span><span class="p">.</span><span class="n">SaveAsync</span><span class="p">();</span></code></pre></div>
 
 <p><img src="/assets/themes/images/2015-01-12-windows-8-development-managing-states-2.png" alt="Results" /></p>
+
+<p><br /><br /><br /></p>
+
+<p>We also need to restore our state, we do this again in <code>OnLaunched</code>. A bit lower than the code we wrote to register the frame, we will check if the app was terminated and restore the state if it was.</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno">1</span> <span class="c1">// make sure you add async to the method signature again</span>
+<span class="lineno">2</span> <span class="k">await</span> <span class="n">ManagingState</span><span class="p">.</span><span class="n">Common</span><span class="p">.</span><span class="n">SuspensionManager</span><span class="p">.</span><span class="n">RestoreAsync</span><span class="p">();</span></code></pre></div>
+
+<p><img src="/assets/themes/images/2015-01-12-windows-8-development-managing-states-3.png" alt="Results" /></p>
+
+<p><br /><br /><br /></p>
+
+<!-- Application State -->
+<h3>Application State</h3>
+
+<p>Above we saved what Frame or Page the user was on, but what if we want to store specific information that the user has entered? To accomplish this, we will use the local storage.</p>
+
+<p>Save the state.</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno">1</span> <span class="n">Windows</span><span class="p">.</span><span class="n">Storage</span><span class="p">.</span><span class="n">ApplicationDataContainer</span> <span class="n">localStorage</span> <span class="p">=</span> <span class="n">Windows</span><span class="p">.</span><span class="n">Storage</span><span class="p">.</span><span class="n">ApplicationData</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">LocalSettings</span><span class="p">;</span>
+<span class="lineno">2</span> <span class="n">localStorage</span><span class="p">.</span><span class="n">Values</span><span class="p">[</span><span class="s">&quot;someKey&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;I&#39;m saving this text for later&quot;</span><span class="p">;</span></code></pre></div>
+
+<p>Restore the state in <code>NavigationHelper_LoadState</code> (it will be there if you chose <code>BasicPage</code>).</p>
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno">1</span> <span class="c1">// Again we get the storage</span>
+<span class="lineno">2</span> <span class="n">Windows</span><span class="p">.</span><span class="n">Storage</span><span class="p">.</span><span class="n">ApplicationDataContainer</span> <span class="n">localStorage</span> <span class="p">=</span> <span class="n">Windows</span><span class="p">.</span><span class="n">Storage</span><span class="p">.</span><span class="n">ApplicationData</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">LocalSettings</span><span class="p">;</span>
+<span class="lineno">3</span> 
+<span class="lineno">4</span> <span class="k">if</span> <span class="p">(</span> <span class="n">localStorage</span><span class="p">.</span><span class="n">Values</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="s">&quot;someKey&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+<span class="lineno">5</span>   <span class="n">myLocalVariable</span> <span class="p">=</span> <span class="n">localStorage</span><span class="p">.</span><span class="n">Values</span><span class="p">[</span><span class="s">&quot;someKey&quot;</span><span class="p">].</span><span class="n">toString</span><span class="p">();</span>
+<span class="lineno">6</span> <span class="p">}</span></code></pre></div>
 
     </div>
 
@@ -152,7 +184,7 @@
   
      
     	<li><a href="/categories.html#csharp-ref">
-    		csharp <span>6</span>
+    		csharp <span>4</span>
     	</a></li>
     
   
@@ -170,9 +202,9 @@
 
   
      
-    	<li><a href="/tags.html#windows-ref">windows <span>5</span></a></li>
+    	<li><a href="/tags.html#windows-ref">windows <span>3</span></a></li>
      
-    	<li><a href="/tags.html#windows phone-ref">windows phone <span>5</span></a></li>
+    	<li><a href="/tags.html#windows phone-ref">windows phone <span>3</span></a></li>
      
     	<li><a href="/tags.html#state-ref">state <span>1</span></a></li>
     
