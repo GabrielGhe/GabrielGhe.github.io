@@ -18,15 +18,15 @@ In this post, I will be talking about python's regular expression module called 
 {% highlight python linenos %}
 import re
 
-// look for 'thing' in the string 'that thing'
+# look for 'thing' in the string 'that thing'
 match = re.search(r'thing', 'that thing')
 # match.group() == 'thing'
 
-// look for 'thig' in the string 'that thing'
+# look for 'thig' in the string 'that thing'
 match = re.search(r'thig', 'that thing')
 # match == None
 
-// . = any character except \n
+# . = any character except \n
 match = re.search(r'..d+', 'abcdd')
 # match.group() == 'bcdd' 
 {% endhighlight %}
