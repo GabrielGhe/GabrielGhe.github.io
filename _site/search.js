@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/python/2015/01/16/regular-expressions",
+  "title"   : "Regular Expressions",
+  "category": "python",
+  "tags"    : "python regex",
+  "content" : "OverviewIn this post, I will be talking about python’s regular expression module called re. I’ll mainly give examples. More information can be found here here.Examples 1 import re 2  3 // look for &#39;thing&#39; in the string &#39;that thing&#39; 4 match = re.search(r&#39;thing&#39;, &#39;that thing&#39;) 5 # match.group() == &#39;thing&#39; 6  7 // look for &#39;thig&#39; in the string &#39;that thing&#39; 8 match = re.search(r&#39;thig&#39;, &#39;that thing&#39;) 9 # match == None10 11 // . = any character except \n12 match = re.search(r&#39;..d+&#39;, &#39;abcdd&#39;)13 # match.group() == &#39;bcdd&#39;",
+  "date"    : "January 16, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/csharp/2015/01/12/windows-8-development-managing-states",
   "title"   : "Windows 8 development: Managing States",
   "category": "csharp",
