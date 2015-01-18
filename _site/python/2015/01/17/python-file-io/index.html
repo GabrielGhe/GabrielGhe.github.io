@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Python: Input and Output</title>
+    <title>Python: File Input and Output</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -106,7 +106,7 @@
         
 <div class="page-header">
   <h1>
-    <i class="icon-python" style="font-size:2em"></i> Python: Input and Output 
+    <i class="icon-python" style="font-size:2em"></i> Python: File Input and Output 
 </h1>
 </div>
 
@@ -117,7 +117,7 @@
     </div>
     <div class="content">
       
-<p>This post is about file io in python. More information can be found <a href="https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files">here</a></p>
+<p>This post is about file io in python. More information can be found <a href="https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files">here</a>.</p>
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="c"># reading a file in 1 shot</span>
 <span class="lineno"> 2</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename.txt&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
@@ -132,7 +132,7 @@
 <span class="lineno">11</span>     <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;This is output&#39;</span><span class="p">)</span>
 <span class="lineno">12</span> 
 <span class="lineno">13</span> <span class="c"># appending to a file</span>
-<span class="lineno">14</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename.txt&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+<span class="lineno">14</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename.txt&#39;</span><span class="p">,</span> <span class="s">&#39;ag&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
 <span class="lineno">15</span>     <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;This is output&#39;</span><span class="p">)</span></code></pre></div>
 
     </div>

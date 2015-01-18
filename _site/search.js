@@ -4,10 +4,10 @@ var temp;
 
 temp = {
   "id"    : "/python/2015/01/17/python-file-io",
-  "title"   : "Python: Input and Output",
+  "title"   : "Python: File Input and Output",
   "category": "python",
   "tags"    : "io file",
-  "content" : "This post is about file io in python. More information can be found here 1 # reading a file in 1 shot 2 with open(&#39;filename.txt&#39;, &#39;r&#39;) as file: 3     content = file.read() 4  5 # reading a file, getting all the lines 6 with open(&#39;filename.txt&#39;, &#39;r&#39;) as file: 7     content = file.readlines() 8  9 # writing to a file/creating a file10 with open(&#39;filename.txt&#39;, &#39;w&#39;) as file:11     file.write(&#39;This is output&#39;)12 13 # appending to a file14 with open(&#39;filename.txt&#39;, &#39;a&#39;) as file:15     file.write(&#39;This is output&#39;)",
+  "content" : "This post is about file io in python. More information can be found here. 1 # reading a file in 1 shot 2 with open(&#39;filename.txt&#39;, &#39;r&#39;) as file: 3     content = file.read() 4  5 # reading a file, getting all the lines 6 with open(&#39;filename.txt&#39;, &#39;r&#39;) as file: 7     content = file.readlines() 8  9 # writing to a file/creating a file10 with open(&#39;filename.txt&#39;, &#39;w&#39;) as file:11     file.write(&#39;This is output&#39;)12 13 # appending to a file14 with open(&#39;filename.txt&#39;, &#39;ag&#39;) as file:15     file.write(&#39;This is output&#39;)",
   "date"    : "January 17, 2015"
 };
 data[temp.id] = temp;
