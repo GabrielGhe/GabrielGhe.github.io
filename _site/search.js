@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/swift/2015/01/18/move-to-another-viewcontroller-programmatically",
+  "title"   : "Move to another ViewController Programmatically",
+  "category": "swift",
+  "tags"    : "ios ui viewcontroller animation",
+  "content" : "OverviewSo you have a ViewController in your storyboard and you want to be able to display it from code but don’t know how. The answer is the presentViewController function. 1 // we have to get the controller 2 // Make sure you add an Identified to your controller 3 // in the storyboard 4 var newController = self.storyboard?.instantiateViewControllerWithIdentifier(&quot;NewViewController&quot;) as NewViewController 5  6 // If you want to fade out or animate your current viewcontroller 7 // you have to use a CATransition 8 var transition = CATransition() 9 transition.duration = 1;10 transition.type = kCATransitionFade;11 transition.subtype = kCATransitionFromBottom;12 self.view.window?.layer.addAnimation(transition, forKey: kCATransition)13 14 // Now we display our new controller15 // The animation is false because the default animation is bad16 self.presentViewController(newController, animated: false, completion: nil)",
+  "date"    : "January 18, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/python/2015/01/17/python-file-io",
   "title"   : "Python: File Input and Output",
   "category": "python",

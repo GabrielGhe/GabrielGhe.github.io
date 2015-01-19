@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Python: File Input and Output</title>
+    <title>Move to another ViewController Programmatically</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -110,34 +110,38 @@
         
 <div class="page-header">
   <h1>
-    <i class="icon-python" style="font-size:2em"></i> Python: File Input and Output 
+    <i class="icon-swift" style="font-size:2em"></i> Move to another ViewController Programmatically 
 </h1>
 </div>
 
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>17 January 2015</span>
+      <span>18 January 2015</span>
     </div>
     <div class="content">
       
-<p>This post is about file io in python. More information can be found <a href="https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files">here</a>.</p>
+<!-- Overview -->
+<h3>Overview</h3>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="c"># reading a file in 1 shot</span>
-<span class="lineno"> 2</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename.txt&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
-<span class="lineno"> 3</span>     <span class="n">content</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span> <span class="c"># reading a file, getting all the lines</span>
-<span class="lineno"> 6</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename.txt&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
-<span class="lineno"> 7</span>     <span class="n">content</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-<span class="lineno"> 8</span> 
-<span class="lineno"> 9</span> <span class="c"># writing to a file/creating a file</span>
-<span class="lineno">10</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename.txt&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
-<span class="lineno">11</span>     <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;This is output&#39;</span><span class="p">)</span>
-<span class="lineno">12</span> 
-<span class="lineno">13</span> <span class="c"># appending to a file</span>
-<span class="lineno">14</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename.txt&#39;</span><span class="p">,</span> <span class="s">&#39;ag&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
-<span class="lineno">15</span>     <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;This is output&#39;</span><span class="p">)</span></code></pre></div>
+<p>So you have a ViewController in your storyboard and you want to be able to display it from code but don’t know how. The answer is the <code>presentViewController</code> function.</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno"> 1</span> <span class="c1">// we have to get the controller</span>
+<span class="lineno"> 2</span> <span class="c1">// Make sure you add an Identified to your controller</span>
+<span class="lineno"> 3</span> <span class="c1">// in the storyboard</span>
+<span class="lineno"> 4</span> <span class="k">var</span> <span class="n">newController</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">storyboard</span><span class="o">?</span><span class="p">.</span><span class="n">instantiateViewControllerWithIdentifier</span><span class="p">(</span><span class="s">&quot;NewViewController&quot;</span><span class="p">)</span> <span class="kt">as</span> <span class="n">NewViewController</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="c1">// If you want to fade out or animate your current viewcontroller</span>
+<span class="lineno"> 7</span> <span class="c1">// you have to use a CATransition</span>
+<span class="lineno"> 8</span> <span class="k">var</span> <span class="n">transition</span> <span class="o">=</span> <span class="bp">CATransition</span><span class="p">()</span>
+<span class="lineno"> 9</span> <span class="n">transition</span><span class="p">.</span><span class="n">duration</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="lineno">10</span> <span class="n">transition</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">kCATransitionFade</span><span class="p">;</span>
+<span class="lineno">11</span> <span class="n">transition</span><span class="p">.</span><span class="n">subtype</span> <span class="o">=</span> <span class="n">kCATransitionFromBottom</span><span class="p">;</span>
+<span class="lineno">12</span> <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">window</span><span class="o">?</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">addAnimation</span><span class="p">(</span><span class="n">transition</span><span class="p">,</span> <span class="nl">forKey</span><span class="p">:</span> <span class="n">kCATransition</span><span class="p">)</span>
+<span class="lineno">13</span> 
+<span class="lineno">14</span> <span class="c1">// Now we display our new controller</span>
+<span class="lineno">15</span> <span class="c1">// The animation is false because the default animation is bad</span>
+<span class="lineno">16</span> <span class="nb">self</span><span class="p">.</span><span class="n">presentViewController</span><span class="p">(</span><span class="n">newController</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">false</span><span class="p">,</span> <span class="nl">completion</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span></code></pre></div>
 
     </div>
 
@@ -150,8 +154,8 @@
 
   
      
-    	<li><a href="/categories.html#python-ref">
-    		python <span>3</span>
+    	<li><a href="/categories.html#swift-ref">
+    		swift <span>2</span>
     	</a></li>
     
   
@@ -169,9 +173,13 @@
 
   
      
-    	<li><a href="/tags.html#io-ref">io <span>1</span></a></li>
+    	<li><a href="/tags.html#ios-ref">ios <span>2</span></a></li>
      
-    	<li><a href="/tags.html#file-ref">file <span>1</span></a></li>
+    	<li><a href="/tags.html#ui-ref">ui <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#viewcontroller-ref">viewcontroller <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#animation-ref">animation <span>1</span></a></li>
     
   
 
@@ -183,11 +191,11 @@
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/python/2015/01/17/generating-primes" title="Python Generating primes">&laquo; Previous</a></li>
+      <li class="prev"><a href="/python/2015/01/17/python-file-io" title="Python: File Input and Output">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/swift/2015/01/18/move-to-another-viewcontroller-programmatically" title="Move to another ViewController Programmatically">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     <hr>
