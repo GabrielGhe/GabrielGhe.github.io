@@ -3,6 +3,26 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/csharp/2015/01/19/operator-overloading",
+  "title"   : "Operator overloading",
+  "category": "csharp",
+  "tags"    : "c# csharp operator",
+  "content" : "OverviewThis is how you overload an operator. More info can be found here.Normal 1 public static Complex operator +(Complex c1, Complex c2)  2 { 3   return new Complex(c1.real + c2.real, c1.imaginary + c2.imaginary); 4 } 5  6 class Test { 7     static void Main(){ 8         Complex num1 = new Complex(2,3); 9         Complex num2 = new Complex(3,4);10 11         // Add two Complex objects (num1 and num2) through the12         // overloaded plus operator:13         Complex sum = num1 + num2;14     } 15 }16 17 /*18  *  First complex number:  2 + 3i19  *  Second complex number: 3 + 4i20  *  The sum of the two numbers: 5 + 7i21  */Implicit and Explicit 1 // Implicit conversion from MyObject to string. Maps true to  2 // &quot;MyObject.Truthy&quot; and false to &quot;MyObject.Falsy&quot; 3 public static implicit operator string(MyObject x) { 4   return MyObject.value.ToString(); 5 } 6  7 // Implicit conversion from MyObject to int. 8 public static explicit operator int(MyObject x) { 9   return MyObject.value;10 }11 12 class Test {13     static void Main(){14         MyObject obj = new MyObject(5);15         Console.WriteLine(obj);         // implicit conversion to string16         Console.WriteLine( (int)obj );  // explicit conversion to int17     } 18 }19 20 /*21  *  522  *  523  */",
+  "date"    : "January 19, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
+  "id"    : "/swift/2015/01/18/uiview-transitions",
+  "title"   : "UIView Transitions",
+  "category": "swift",
+  "tags"    : "ios ui transition",
+  "content" : "OverviewIn this post, I’ll show you how to transition between 2 views on click.  1 // ### in viewDidLoad ### 2  3 let container = UIView() 4 let redSquare = UIView() 5 let blueSquare = UIView() 6  7 // set container frame and add to the screen 8 self.container.frame = CGRect(x: 60, y: 60, width: 200, height: 200) 9 self.view.addSubview(container)10 11 // set red square frame up12 // we want the blue square to have the same position as redSquare13 // so lets just reuse blueSquare.frame14 self.redSquare.frame = CGRect(x: 0, y: 0, width: 200, height: 200)15 self.blueSquare.frame = redSquare.frame16 17 // set background colors18 self.redSquare.backgroundColor = UIColor.redColor()19 self.blueSquare.backgroundColor = UIColor.blueColor()20 21 // for now just add the redSquare22 // we&#39;ll add blueSquare as part of the transition animation23 self.container.addSubview(self.redSquare)Ok, now we need to animate on click for it to look like this.1 // ### in click event ###2 3 // create a tuple to hold the views4 var views = (frontView: self.redSquare, backView: self.blueSquare)5 if self.redSquare.superview ==  nil {6   views = (frontView: self.blueSquare, backView: self.redSquare)7 }8 let transitionOptions = UIViewAnimationOptions.TransitionCurlUp9 UIView.transitionFromView(views.frontView, toView: views.backView, duration: 1.0, options: transitionOptions, completion: nil)",
+  "date"    : "January 18, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/swift/2015/01/18/move-to-another-viewcontroller-programmatically",
   "title"   : "Move to another ViewController Programmatically",
   "category": "swift",
