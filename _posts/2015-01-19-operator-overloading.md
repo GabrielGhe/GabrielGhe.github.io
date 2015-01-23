@@ -16,9 +16,11 @@ This is how you overload an operator. More info can be found [here](http://msdn.
 <h3>Normal</h3> 
 
 {% highlight csharp linenos %}
-public static Complex operator +(Complex c1, Complex c2) 
-{
-  return new Complex(c1.real + c2.real, c1.imaginary + c2.imaginary);
+public class Complex {
+    public static Complex operator +(Complex c1, Complex c2) 
+    {
+      return new Complex(c1.real + c2.real, c1.imaginary + c2.imaginary);
+    }   
 }
 
 class Test {
