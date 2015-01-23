@@ -20,13 +20,16 @@ Given
 
 <!-- Code -->
 {% highlight csharp linenos %}
-public class Jake : ITest {
+public class BaseClass {
+    // ...
+}
+public class Jake : BaseClass, ITest {
     // ...
 }
 public class Tom : ITest {
     // ...
 }
-public class Random {
+public class Random : BaseClass {
     // ...
 }
 {% endhighlight %}
@@ -46,6 +49,18 @@ public class Instantiator {
         foreach(var instance in instances) {
             // do something with them
         }
+        // instances = [Jake, Tom]
+    }
+
+    public static void InstantiateBaseClasses() {
+        var instances = from t in Assembly.GetExecutingAssembly().GetTypes()  // Get every class
+                        where t.IsSubClassOf(typeof(BaseClass))               // That derives from BaseClass
+                              && t.GetConstructor(Type.EmptyTypes) != null    // and has a constructor
+                        select Activator.CreateInstance(t) as BaseClass       // create an instance
+        foreach(var instance in instances) {
+            // do something with them
+        }
+        // instances = [Jake, Random]
     }
 }
 {% endhighlight %}
