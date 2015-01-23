@@ -47,17 +47,26 @@ public class MongoDB {
 // Given the code above
 
 public class Program {
-    // Get the attributes for MongoDB class, can have more than 1
-    System.Attribute[] attrs = System.Attribute.GetCustomAttributes(typeof(MongoDB)); // System.Type
+    public static void Main(string[] args) {
+        // Get the attributes for MongoDB class, can have more than 1
+        System.Attribute[] attrs = System.Attribute.GetCustomAttributes(typeof(MongoDB)); // System.Type
 
-    // Display them
-    foreach (System.Attribute attr in attrs) {
-        if (attr is Database) {
-            Database a = (Database)attr;
-            System.Console.WriteLine("{0} - {1}", a.SayUrl(), a.comment);
+        // Display them
+        foreach (System.Attribute attr in attrs) {
+            if (attr is Database) {
+                Database a = (Database)attr;
+                System.Console.WriteLine("{0} - {1}", a.SayUrl(), a.comment);
+            }
         }
     }
 }
 
 // My url is https://.... - My mongo database class
+{% endhighlight %}
+
+<!-- Cool Applications of Attributes -->
+<h3>Cool Applications of Attributes</h3>
+
+{% highlight csharp linenos %}
+
 {% endhighlight %}
