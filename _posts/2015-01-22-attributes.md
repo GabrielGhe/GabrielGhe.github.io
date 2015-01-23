@@ -34,7 +34,7 @@ public class DatabaseAttribute : Attribute {
     }
 }
 
-[Database("https://....", 1, "My mongo database class")]
+[Database("https://....", 1, comment = "My mongo database class")]
 public class MongoDB {
     // ...
 }
@@ -46,8 +46,8 @@ public class MongoDB {
 {% highlight csharp linenos %}
 // Given the code above
 
-public class Program {
-    public static void Main(string[] args) {
+public class GetAttributeClass {
+    public static void GetAttributeData() {
         // Get the attributes for MongoDB class, can have more than 1
         System.Attribute[] attrs = System.Attribute.GetCustomAttributes(typeof(MongoDB)); // System.Type
 
@@ -61,6 +61,7 @@ public class Program {
     }
 }
 
+// Output:
 // My url is https://.... - My mongo database class
 {% endhighlight %}
 
@@ -68,5 +69,28 @@ public class Program {
 <h3>Cool Applications of Attributes</h3>
 
 {% highlight csharp linenos %}
+public class NoAttribute {
+  
+}
 
+[Database("https://something....", 2)]
+public class Sql {
+    
+}
+
+public class Program {
+    public static void Main(string[] args) {
+        // Retrieve all the classes that have a DatabaseAttribute
+        var databaseClasses = from t in Assembly.GetExecutingAssembly().GetTypes()
+                              where t.GetCustomAttributes<DatabaseAttribute>().Count() > 0
+                              select t;
+        foreach(var db in databaseClasses) {
+            Console.WriteLine(t.Name);
+        }
+    }
+}
+
+// Output:
+// MongoDB
+// Sql
 {% endhighlight %}
