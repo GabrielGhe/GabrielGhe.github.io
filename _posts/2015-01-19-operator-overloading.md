@@ -45,11 +45,9 @@ class Test {
 <h3>Implicit and Explicit</h3>
 
 {% highlight csharp linenos %}
-
-// Implicit conversion from MyObject to string. Maps true to 
-// "MyObject.Truthy" and false to "MyObject.Falsy"
-
 public class MyObject {
+    // Implicit conversion from MyObject to string. Maps true to 
+    // "MyObject.Truthy" and false to "MyObject.Falsy"
     public static implicit operator string(MyObject x) {
         return MyObject.value.ToString();
     }
