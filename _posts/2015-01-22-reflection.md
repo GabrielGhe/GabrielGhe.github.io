@@ -10,7 +10,7 @@ tags: [c#, reflection]
 <!-- Overview -->
 <h3>Overview</h3>
 
-Reflection allows you to get information about your Assembly (.dll, solution) and about classes. You could look for all the classes that implement a certain interface or look at all the methods of a class. More info can be found [here](https://msdn.microsoft.com/en-us/library/ms173183.aspx).
+Reflection is the ability to make modifications at runtime by making use of introspection. Type Introspection is the ability to inspect the code in the system and see object types. C#'s reflectin is beautiful. See the example below. More info can be found [here](https://msdn.microsoft.com/en-us/library/ms173183.aspx).
 
 <!-- Example -->
 <h3>Example</h3>
