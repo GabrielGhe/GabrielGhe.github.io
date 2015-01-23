@@ -132,7 +132,7 @@
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">Complex</span> <span class="p">{</span>
 <span class="lineno"> 2</span>     <span class="k">public</span> <span class="k">static</span> <span class="n">Complex</span> <span class="k">operator</span> <span class="p">+(</span><span class="n">Complex</span> <span class="n">c1</span><span class="p">,</span> <span class="n">Complex</span> <span class="n">c2</span><span class="p">)</span> 
 <span class="lineno"> 3</span>     <span class="p">{</span>
-<span class="lineno"> 4</span>       <span class="k">return</span> <span class="k">new</span> <span class="nf">Complex</span><span class="p">(</span><span class="n">c1</span><span class="p">.</span><span class="n">real</span> <span class="p">+</span> <span class="n">c2</span><span class="p">.</span><span class="n">real</span><span class="p">,</span> <span class="n">c1</span><span class="p">.</span><span class="n">imaginary</span> <span class="p">+</span> <span class="n">c2</span><span class="p">.</span><span class="n">imaginary</span><span class="p">);</span>
+<span class="lineno"> 4</span>         <span class="k">return</span> <span class="k">new</span> <span class="nf">Complex</span><span class="p">(</span><span class="n">c1</span><span class="p">.</span><span class="n">real</span> <span class="p">+</span> <span class="n">c2</span><span class="p">.</span><span class="n">real</span><span class="p">,</span> <span class="n">c1</span><span class="p">.</span><span class="n">imaginary</span> <span class="p">+</span> <span class="n">c2</span><span class="p">.</span><span class="n">imaginary</span><span class="p">);</span>
 <span class="lineno"> 5</span>     <span class="p">}</span>   
 <span class="lineno"> 6</span> <span class="p">}</span>
 <span class="lineno"> 7</span> 
@@ -163,7 +163,7 @@
 <span class="lineno"> 5</span>         <span class="k">return</span> <span class="n">MyObject</span><span class="p">.</span><span class="k">value</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
 <span class="lineno"> 6</span>     <span class="p">}</span>
 <span class="lineno"> 7</span> 
-<span class="lineno"> 8</span>     <span class="c1">// Implicit conversion from MyObject to int.</span>
+<span class="lineno"> 8</span>     <span class="c1">// Explicit conversion from MyObject to int.</span>
 <span class="lineno"> 9</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">explicit</span> <span class="k">operator</span> <span class="nf">int</span><span class="p">(</span><span class="n">MyObject</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
 <span class="lineno">10</span>         <span class="k">return</span> <span class="n">MyObject</span><span class="p">.</span><span class="k">value</span><span class="p">;</span>
 <span class="lineno">11</span>     <span class="p">}</span>   
