@@ -3,11 +3,21 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/csharp/2015/01/22/generics",
+  "title"   : "Generics",
+  "category": "csharp",
+  "tags"    : "c# generics",
+  "content" : "OverviewGenerics are amazing, here are some examples on how to use generics in C#. More info can be found here.Examples 1 public class Result&lt;T&gt; { 2     public bool Success { get; set; } 3     public T Data { get; set; } 4 } 5  6 public class Program { 7     public static void Main(string[] args) { 8         var result = new Result&lt;int&gt; { Success=true, Data=5 }; 9         var result2 = new Result&lt;string&gt; { Success=false, Data=&quot;thingy&quot; };10         11         Console.WriteLine(&quot;Success: {0} - Data: {1}&quot;, result.Success, result.Data);12         // Success: true - Data: 513         Console.WriteLine(&quot;Success: {0} - Data: {1}&quot;, result2.Success, result2.Data);14         // Success: false - Data: thingy15     }16 }",
+  "date"    : "January 22, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/csharp/2015/01/22/extension-methods",
   "title"   : "Extension Methods",
   "category": "csharp",
   "tags"    : "c# extension",
-  "content" : "OverviewThis is you extend a class that already exists and that you don’t have access to. More info can be found here.First declare a static class, then create a static method that has this in front of the first parameter… Done! 1 public class Program { 2     public static void Main(string[] args) { 3        var person = new Person { Name=&quot;Tom&quot;, Age=5 }; 4        person.SayHello(); // Hello, my name is Tom and I&#39;m 5 5     }   6 } 7  8  9 public class Extensions {10     public static void SayHello(this Person person) {11         Console.WriteLine(&quot;Hello, my name is {0} and I&#39;m {1}&quot;, person.Name, person.Age);12     }13 }",
+  "content" : "OverviewThis is how you extend a class that already exists and that you don’t have access to. More info can be found here.ExamplesFirst declare a static class, then create a static method that has this in front of the first parameter… Done! 1 public class Extensions { 2     public static void SayHello(this Person person) { 3         Console.WriteLine(&quot;Hello, my name is {0} and I&#39;m {1}&quot;, person.Name, person.Age); 4     } 5  6     public static void SayThing(this Person person, string thing) { 7         Console.WriteLine(&quot;Hello {0} said {1}&quot;, thing, person.Name); 8     } 9 }10 11 public class Program {12     public static void Main(string[] args) {13        var person = new Person { Name=&quot;Tom&quot;, Age=5 };14        person.SayHello();         // Hello, my name is Tom and I&#39;m 515        person.SayThing(&quot;Random&quot;); // Hello Random said Tom16     }17 }",
   "date"    : "January 22, 2015"
 };
 data[temp.id] = temp;

@@ -124,23 +124,30 @@
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>This is you extend a class that already exists and that you don’t have access to. More info can be found <a href="https://msdn.microsoft.com/en-us/library/bb311042.aspx">here</a>.</p>
+<p>This is how you extend a class that already exists and that you don’t have access to. More info can be found <a href="https://msdn.microsoft.com/en-us/library/bb311042.aspx">here</a>.</p>
+
+<!-- Examples -->
+<h3>Examples</h3>
 
 <p>First declare a static class, then create a static method that has <code>this</code> in front of the first parameter… Done!</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
-<span class="lineno"> 2</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 3</span>        <span class="kt">var</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Person</span> <span class="p">{</span> <span class="n">Name</span><span class="p">=</span><span class="s">&quot;Tom&quot;</span><span class="p">,</span> <span class="n">Age</span><span class="p">=</span><span class="m">5</span> <span class="p">};</span>
-<span class="lineno"> 4</span>        <span class="n">person</span><span class="p">.</span><span class="n">SayHello</span><span class="p">();</span> <span class="c1">// Hello, my name is Tom and I&#39;m 5</span>
-<span class="lineno"> 5</span>     <span class="p">}</span>  
-<span class="lineno"> 6</span> <span class="p">}</span>
-<span class="lineno"> 7</span> 
-<span class="lineno"> 8</span> 
-<span class="lineno"> 9</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">Extensions</span> <span class="p">{</span>
-<span class="lineno">10</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">SayHello</span><span class="p">(</span><span class="k">this</span> <span class="n">Person</span> <span class="n">person</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">11</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Hello, my name is {0} and I&#39;m {1}&quot;</span><span class="p">,</span> <span class="n">person</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">person</span><span class="p">.</span><span class="n">Age</span><span class="p">);</span>
-<span class="lineno">12</span>     <span class="p">}</span>
-<span class="lineno">13</span> <span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">Extensions</span> <span class="p">{</span>
+<span class="lineno"> 2</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">SayHello</span><span class="p">(</span><span class="k">this</span> <span class="n">Person</span> <span class="n">person</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 3</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Hello, my name is {0} and I&#39;m {1}&quot;</span><span class="p">,</span> <span class="n">person</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">person</span><span class="p">.</span><span class="n">Age</span><span class="p">);</span>
+<span class="lineno"> 4</span>     <span class="p">}</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">SayThing</span><span class="p">(</span><span class="k">this</span> <span class="n">Person</span> <span class="n">person</span><span class="p">,</span> <span class="kt">string</span> <span class="n">thing</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 7</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Hello {0} said {1}&quot;</span><span class="p">,</span> <span class="n">thing</span><span class="p">,</span> <span class="n">person</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
+<span class="lineno"> 8</span>     <span class="p">}</span>
+<span class="lineno"> 9</span> <span class="p">}</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
+<span class="lineno">12</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">13</span>        <span class="kt">var</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Person</span> <span class="p">{</span> <span class="n">Name</span><span class="p">=</span><span class="s">&quot;Tom&quot;</span><span class="p">,</span> <span class="n">Age</span><span class="p">=</span><span class="m">5</span> <span class="p">};</span>
+<span class="lineno">14</span>        <span class="n">person</span><span class="p">.</span><span class="n">SayHello</span><span class="p">();</span>         <span class="c1">// Hello, my name is Tom and I&#39;m 5</span>
+<span class="lineno">15</span>        <span class="n">person</span><span class="p">.</span><span class="n">SayThing</span><span class="p">(</span><span class="s">&quot;Random&quot;</span><span class="p">);</span> <span class="c1">// Hello Random said Tom</span>
+<span class="lineno">16</span>     <span class="p">}</span>
+<span class="lineno">17</span> <span class="p">}</span></code></pre></div>
 
     </div>
 
@@ -154,7 +161,7 @@
   
      
     	<li><a href="/categories.html#csharp-ref">
-    		csharp <span>6</span>
+    		csharp <span>7</span>
     	</a></li>
     
   
@@ -172,7 +179,7 @@
 
   
      
-    	<li><a href="/tags.html#c#-ref">c# <span>2</span></a></li>
+    	<li><a href="/tags.html#c#-ref">c# <span>3</span></a></li>
      
     	<li><a href="/tags.html#extension-ref">extension <span>1</span></a></li>
     
@@ -190,7 +197,7 @@
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next disabled"><a>Next &rarr;</a>
+      <li class="next"><a href="/csharp/2015/01/22/generics" title="Generics">Next &raquo;</a></li>
     
     </ul>
     <hr>
