@@ -129,54 +129,59 @@
 <!-- Normal -->
 <h3>Normal</h3>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="k">public</span> <span class="k">static</span> <span class="n">Complex</span> <span class="k">operator</span> <span class="p">+(</span><span class="n">Complex</span> <span class="n">c1</span><span class="p">,</span> <span class="n">Complex</span> <span class="n">c2</span><span class="p">)</span> 
-<span class="lineno"> 2</span> <span class="p">{</span>
-<span class="lineno"> 3</span>   <span class="k">return</span> <span class="k">new</span> <span class="nf">Complex</span><span class="p">(</span><span class="n">c1</span><span class="p">.</span><span class="n">real</span> <span class="p">+</span> <span class="n">c2</span><span class="p">.</span><span class="n">real</span><span class="p">,</span> <span class="n">c1</span><span class="p">.</span><span class="n">imaginary</span> <span class="p">+</span> <span class="n">c2</span><span class="p">.</span><span class="n">imaginary</span><span class="p">);</span>
-<span class="lineno"> 4</span> <span class="p">}</span>
-<span class="lineno"> 5</span> 
-<span class="lineno"> 6</span> <span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
-<span class="lineno"> 7</span>     <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
-<span class="lineno"> 8</span>         <span class="n">Complex</span> <span class="n">num1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Complex</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">);</span>
-<span class="lineno"> 9</span>         <span class="n">Complex</span> <span class="n">num2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Complex</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">);</span>
-<span class="lineno">10</span> 
-<span class="lineno">11</span>         <span class="c1">// Add two Complex objects (num1 and num2) through the</span>
-<span class="lineno">12</span>         <span class="c1">// overloaded plus operator:</span>
-<span class="lineno">13</span>         <span class="n">Complex</span> <span class="n">sum</span> <span class="p">=</span> <span class="n">num1</span> <span class="p">+</span> <span class="n">num2</span><span class="p">;</span>
-<span class="lineno">14</span>     <span class="p">}</span> 
-<span class="lineno">15</span> <span class="p">}</span>
-<span class="lineno">16</span> 
-<span class="lineno">17</span> <span class="cm">/*</span>
-<span class="lineno">18</span> <span class="cm"> *  First complex number:  2 + 3i</span>
-<span class="lineno">19</span> <span class="cm"> *  Second complex number: 3 + 4i</span>
-<span class="lineno">20</span> <span class="cm"> *  The sum of the two numbers: 5 + 7i</span>
-<span class="lineno">21</span> <span class="cm"> */</span></code></pre></div>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">Complex</span> <span class="p">{</span>
+<span class="lineno"> 2</span>     <span class="k">public</span> <span class="k">static</span> <span class="n">Complex</span> <span class="k">operator</span> <span class="p">+(</span><span class="n">Complex</span> <span class="n">c1</span><span class="p">,</span> <span class="n">Complex</span> <span class="n">c2</span><span class="p">)</span> 
+<span class="lineno"> 3</span>     <span class="p">{</span>
+<span class="lineno"> 4</span>       <span class="k">return</span> <span class="k">new</span> <span class="nf">Complex</span><span class="p">(</span><span class="n">c1</span><span class="p">.</span><span class="n">real</span> <span class="p">+</span> <span class="n">c2</span><span class="p">.</span><span class="n">real</span><span class="p">,</span> <span class="n">c1</span><span class="p">.</span><span class="n">imaginary</span> <span class="p">+</span> <span class="n">c2</span><span class="p">.</span><span class="n">imaginary</span><span class="p">);</span>
+<span class="lineno"> 5</span>     <span class="p">}</span>   
+<span class="lineno"> 6</span> <span class="p">}</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span> <span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
+<span class="lineno"> 9</span>     <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
+<span class="lineno">10</span>         <span class="n">Complex</span> <span class="n">num1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Complex</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">);</span>
+<span class="lineno">11</span>         <span class="n">Complex</span> <span class="n">num2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Complex</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">);</span>
+<span class="lineno">12</span> 
+<span class="lineno">13</span>         <span class="c1">// Add two Complex objects (num1 and num2) through the</span>
+<span class="lineno">14</span>         <span class="c1">// overloaded plus operator:</span>
+<span class="lineno">15</span>         <span class="n">Complex</span> <span class="n">sum</span> <span class="p">=</span> <span class="n">num1</span> <span class="p">+</span> <span class="n">num2</span><span class="p">;</span>
+<span class="lineno">16</span>     <span class="p">}</span> 
+<span class="lineno">17</span> <span class="p">}</span>
+<span class="lineno">18</span> 
+<span class="lineno">19</span> <span class="cm">/*</span>
+<span class="lineno">20</span> <span class="cm"> *  First complex number:  2 + 3i</span>
+<span class="lineno">21</span> <span class="cm"> *  Second complex number: 3 + 4i</span>
+<span class="lineno">22</span> <span class="cm"> *  The sum of the two numbers: 5 + 7i</span>
+<span class="lineno">23</span> <span class="cm"> */</span></code></pre></div>
 
 <!-- Implicit and Explicit -->
 <h3>Implicit and Explicit</h3>
 
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="c1">// Implicit conversion from MyObject to string. Maps true to </span>
 <span class="lineno"> 2</span> <span class="c1">// &quot;MyObject.Truthy&quot; and false to &quot;MyObject.Falsy&quot;</span>
-<span class="lineno"> 3</span> <span class="k">public</span> <span class="k">static</span> <span class="k">implicit</span> <span class="k">operator</span> <span class="nf">string</span><span class="p">(</span><span class="n">MyObject</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 4</span>   <span class="k">return</span> <span class="n">MyObject</span><span class="p">.</span><span class="k">value</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
-<span class="lineno"> 5</span> <span class="p">}</span>
-<span class="lineno"> 6</span> 
-<span class="lineno"> 7</span> <span class="c1">// Implicit conversion from MyObject to int.</span>
-<span class="lineno"> 8</span> <span class="k">public</span> <span class="k">static</span> <span class="k">explicit</span> <span class="k">operator</span> <span class="nf">int</span><span class="p">(</span><span class="n">MyObject</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 9</span>   <span class="k">return</span> <span class="n">MyObject</span><span class="p">.</span><span class="k">value</span><span class="p">;</span>
-<span class="lineno">10</span> <span class="p">}</span>
-<span class="lineno">11</span> 
-<span class="lineno">12</span> <span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
-<span class="lineno">13</span>     <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
-<span class="lineno">14</span>         <span class="n">MyObject</span> <span class="n">obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyObject</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
-<span class="lineno">15</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>         <span class="c1">// implicit conversion to string</span>
-<span class="lineno">16</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">obj</span> <span class="p">);</span>  <span class="c1">// explicit conversion to int</span>
-<span class="lineno">17</span>     <span class="p">}</span> 
-<span class="lineno">18</span> <span class="p">}</span>
-<span class="lineno">19</span> 
-<span class="lineno">20</span> <span class="cm">/*</span>
-<span class="lineno">21</span> <span class="cm"> *  5</span>
-<span class="lineno">22</span> <span class="cm"> *  5</span>
-<span class="lineno">23</span> <span class="cm"> */</span></code></pre></div>
+<span class="lineno"> 3</span> 
+<span class="lineno"> 4</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">MyObject</span> <span class="p">{</span>
+<span class="lineno"> 5</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">implicit</span> <span class="k">operator</span> <span class="nf">string</span><span class="p">(</span><span class="n">MyObject</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 6</span>         <span class="k">return</span> <span class="n">MyObject</span><span class="p">.</span><span class="k">value</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+<span class="lineno"> 7</span>     <span class="p">}</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span>     <span class="c1">// Implicit conversion from MyObject to int.</span>
+<span class="lineno">10</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">explicit</span> <span class="k">operator</span> <span class="nf">int</span><span class="p">(</span><span class="n">MyObject</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">11</span>         <span class="k">return</span> <span class="n">MyObject</span><span class="p">.</span><span class="k">value</span><span class="p">;</span>
+<span class="lineno">12</span>     <span class="p">}</span>   
+<span class="lineno">13</span> <span class="p">}</span>
+<span class="lineno">14</span> 
+<span class="lineno">15</span> <span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
+<span class="lineno">16</span>     <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(){</span>
+<span class="lineno">17</span>         <span class="n">MyObject</span> <span class="n">obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyObject</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+<span class="lineno">18</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>         <span class="c1">// implicit conversion to string</span>
+<span class="lineno">19</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">obj</span> <span class="p">);</span>  <span class="c1">// explicit conversion to int</span>
+<span class="lineno">20</span>     <span class="p">}</span> 
+<span class="lineno">21</span> <span class="p">}</span>
+<span class="lineno">22</span> 
+<span class="lineno">23</span> <span class="cm">/*</span>
+<span class="lineno">24</span> <span class="cm"> *  5</span>
+<span class="lineno">25</span> <span class="cm"> *  5</span>
+<span class="lineno">26</span> <span class="cm"> */</span></code></pre></div>
 
 
     </div>
