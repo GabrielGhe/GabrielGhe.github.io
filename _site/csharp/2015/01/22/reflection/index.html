@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Extension Methods</title>
+    <title>Reflection</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -110,7 +110,7 @@
         
 <div class="page-header">
   <h1>
-    <i class="icon-csharp" style="font-size:2em"></i> Extension Methods 
+    <i class="icon-csharp" style="font-size:2em"></i> Reflection 
 </h1>
 </div>
 
@@ -124,30 +124,44 @@
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>This is how you extend a class that already exists and that you don’t have access to. More info can be found <a href="https://msdn.microsoft.com/en-us/library/bb311042.aspx">here</a>.</p>
+<p>Reflection allows you to get information about your Assembly (.dll, solution) and about classes. You could look for all the classes that implement a certain interface or look at all the methods of a class. More info can be found <a href="https://msdn.microsoft.com/en-us/library/ms173183.aspx">here</a>.</p>
 
-<!-- Examples -->
-<h3>Examples</h3>
+<!-- Example -->
+<h3>Example</h3>
 
-<p>First declare a static class, then create a static method that has <code>this</code> in front of the first parameter… Done!</p>
+<p>Given</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">Extensions</span> <span class="p">{</span>
-<span class="lineno"> 2</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">SayHello</span><span class="p">(</span><span class="k">this</span> <span class="n">Person</span> <span class="n">person</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 3</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Hello, my name is {0} and I&#39;m {1}&quot;</span><span class="p">,</span> <span class="n">person</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">person</span><span class="p">.</span><span class="n">Age</span><span class="p">);</span>
-<span class="lineno"> 4</span>     <span class="p">}</span>
-<span class="lineno"> 5</span> 
-<span class="lineno"> 6</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">SayThing</span><span class="p">(</span><span class="k">this</span> <span class="n">Person</span> <span class="n">person</span><span class="p">,</span> <span class="kt">string</span> <span class="n">thing</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 7</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Hello {0} said {1}&quot;</span><span class="p">,</span> <span class="n">thing</span><span class="p">,</span> <span class="n">person</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
-<span class="lineno"> 8</span>     <span class="p">}</span>
-<span class="lineno"> 9</span> <span class="p">}</span>
-<span class="lineno">10</span> 
-<span class="lineno">11</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
-<span class="lineno">12</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">13</span>        <span class="kt">var</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Person</span> <span class="p">{</span> <span class="n">Name</span><span class="p">=</span><span class="s">&quot;Tom&quot;</span><span class="p">,</span> <span class="n">Age</span><span class="p">=</span><span class="m">5</span> <span class="p">};</span>
-<span class="lineno">14</span>        <span class="n">person</span><span class="p">.</span><span class="n">SayHello</span><span class="p">();</span>         <span class="c1">// Hello, my name is Tom and I&#39;m 5</span>
-<span class="lineno">15</span>        <span class="n">person</span><span class="p">.</span><span class="n">SayThing</span><span class="p">(</span><span class="s">&quot;Random&quot;</span><span class="p">);</span> <span class="c1">// Hello Random said Tom</span>
-<span class="lineno">16</span>     <span class="p">}</span>
-<span class="lineno">17</span> <span class="p">}</span></code></pre></div>
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno">1</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">Jake</span> <span class="p">:</span> <span class="n">ITest</span> <span class="p">{</span>
+<span class="lineno">2</span>     <span class="c1">// ...</span>
+<span class="lineno">3</span> <span class="p">}</span>
+<span class="lineno">4</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">Tom</span> <span class="p">:</span> <span class="n">ITest</span> <span class="p">{</span>
+<span class="lineno">5</span>     <span class="c1">// ...</span>
+<span class="lineno">6</span> <span class="p">}</span>
+<span class="lineno">7</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">Random</span> <span class="p">{</span>
+<span class="lineno">8</span>     <span class="c1">// ...</span>
+<span class="lineno">9</span> <span class="p">}</span></code></pre></div>
+
+<!-- END Code -->
+
+<p>You can do the following</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="k">public</span> <span class="k">class</span> <span class="nc">Instantiator</span> <span class="p">{</span>
+<span class="lineno"> 2</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">InstantiateITest</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno"> 3</span>         <span class="kt">var</span> <span class="n">instances</span> <span class="p">=</span> <span class="k">from</span> <span class="n">t</span> <span class="k">in</span> <span class="n">Assembly</span><span class="p">.</span><span class="n">GetExecutingAssembly</span><span class="p">().</span><span class="n">GetTypes</span><span class="p">()</span>  <span class="c1">// Get every class</span>
+<span class="lineno"> 4</span>                         <span class="k">where</span> <span class="n">t</span><span class="p">.</span><span class="n">GetInterfaces</span><span class="p">().</span><span class="n">Contains</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">ITest</span><span class="p">))</span>       <span class="c1">// That implements ITest interface</span>
+<span class="lineno"> 5</span>                               <span class="p">&amp;&amp;</span> <span class="n">t</span><span class="p">.</span><span class="n">GetConstructor</span><span class="p">(</span><span class="n">Type</span><span class="p">.</span><span class="n">EmptyTypes</span><span class="p">)</span> <span class="p">!=</span> <span class="k">null</span>    <span class="c1">// and has a constructor</span>
+<span class="lineno"> 6</span>                         <span class="k">select</span> <span class="n">Activator</span><span class="p">.</span><span class="n">CreateInstance</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">as</span> <span class="n">ITest</span><span class="p">;</span>          <span class="c1">// create an instance</span>
+<span class="lineno"> 7</span>         <span class="k">foreach</span><span class="p">(</span><span class="kt">var</span> <span class="n">instance</span> <span class="k">in</span> <span class="n">instances</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 8</span>             <span class="c1">// do something with them</span>
+<span class="lineno"> 9</span>         <span class="p">}</span>
+<span class="lineno">10</span>     <span class="p">}</span>
+<span class="lineno">11</span> <span class="p">}</span></code></pre></div>
+
+<!-- END Code -->
 
     </div>
 
@@ -181,7 +195,7 @@
      
     	<li><a href="/tags.html#c#-ref">c# <span>5</span></a></li>
      
-    	<li><a href="/tags.html#extension-ref">extension <span>1</span></a></li>
+    	<li><a href="/tags.html#reflection-ref">reflection <span>1</span></a></li>
     
   
 
@@ -193,11 +207,11 @@
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/csharp/2015/01/22/attributes" title="Attributes">&laquo; Previous</a></li>
+      <li class="prev"><a href="/csharp/2015/01/22/generics" title="Generics">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/csharp/2015/01/22/generics" title="Generics">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     <hr>

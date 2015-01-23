@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/csharp/2015/01/22/reflection",
+  "title"   : "Reflection",
+  "category": "csharp",
+  "tags"    : "c# reflection",
+  "content" : "OverviewReflection allows you to get information about your Assembly (.dll, solution) and about classes. You could look for all the classes that implement a certain interface or look at all the methods of a class. More info can be found here.ExampleGiven1 public class Jake : ITest {2     // ...3 }4 public class Tom : ITest {5     // ...6 }7 public class Random {8     // ...9 }You can do the following 1 public class Instantiator { 2     public static void InstantiateITest() { 3         var instances = from t in Assembly.GetExecutingAssembly().GetTypes()  // Get every class 4                         where t.GetInterfaces().Contains(typeof(ITest))       // That implements ITest interface 5                               &amp;&amp; t.GetConstructor(Type.EmptyTypes) != null    // and has a constructor 6                         select Activator.CreateInstance(t) as ITest;          // create an instance 7         foreach(var instance in instances) { 8             // do something with them 9         }10     }11 }",
+  "date"    : "January 22, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/csharp/2015/01/22/generics",
   "title"   : "Generics",
   "category": "csharp",
