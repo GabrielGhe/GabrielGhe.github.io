@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/csharp/2015/01/22/extension-methods",
+  "title"   : "Extension Methods",
+  "category": "csharp",
+  "tags"    : "c# extension",
+  "content" : "OverviewThis is you extend a class that already exists and that you don’t have access to. More info can be found here.First declare a static class, then create a static method that has this in front of the first parameter… Done! 1 public class Program { 2     public static void Main(string[] args) { 3        var person = new Person { Name=&quot;Tom&quot;, Age=5 }; 4        person.SayHello(); // Hello, my name is Tom and I&#39;m 5 5     }   6 } 7  8  9 public class Extensions {10     public static void SayHello(this Person person) {11         Console.WriteLine(&quot;Hello, my name is {0} and I&#39;m {1}&quot;, person.Name, person.Age);12     }13 }",
+  "date"    : "January 22, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/csharp/2015/01/19/operator-overloading",
   "title"   : "Operator overloading",
   "category": "csharp",
