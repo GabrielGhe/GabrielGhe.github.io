@@ -3,7 +3,7 @@ layout: post
 title: "Windows 8 development: Managing States"
 description: ""
 category: csharp
-tags: [windows, windows phone, state]
+tags: [c#, windows, windows phone, state]
 ---
 {% include JB/setup %}
 

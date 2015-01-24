@@ -3,7 +3,7 @@ layout: post
 title: "Windows 8 development: navigate to a page"
 description: ""
 category: csharp
-tags: [windows, windows phone, navigation]
+tags: [c#, windows, windows phone, navigation]
 ---
 {% include JB/setup %}
 

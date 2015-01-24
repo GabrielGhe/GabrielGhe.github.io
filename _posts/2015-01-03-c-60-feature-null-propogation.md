@@ -3,7 +3,7 @@ layout: post
 title: "6.0 feature: Null Propogation"
 description: ""
 category: csharp
-tags: [null propogation]
+tags: [c#, null propogation]
 ---
 {% include JB/setup %}
 

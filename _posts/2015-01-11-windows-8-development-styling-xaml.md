@@ -3,7 +3,7 @@ layout: post
 title: "Windows 8 development: styling xaml"
 description: ""
 category: csharp
-tags: [windows, windows phone, xaml, styling]
+tags: [c#, windows, windows phone, xaml, styling]
 ---
 {% include JB/setup %}
 
