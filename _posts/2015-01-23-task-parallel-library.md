@@ -15,44 +15,18 @@ Parallel programming is very important to know and C# does it so well. This post
 <!-- Example -->
 <h3>Example</h3>
 
-<h4>Creating new tasks with the constructor.</h4>
+How do we make a line of code execute in the background on a separate thread?
 
 {% highlight csharp linenos %}
 class Program {
     public static void Main(string[] args) {
         // Start task with the constructor
         var t1 = new Task( () => DoWork(1, 1000) );
+        t1.Start();
+
+        // Start task with a factory
         var t2 = Task.Factory.StartNew( () => DoWork(2, 1200) )
                              .ContinueWith( (prevTask) => DoOtherWork(2, 1200) );
-
-        t1.Start();
-    }
-
-    public static void DoWork(int id, int sleepTime) {
-        Console.WriteLine("Task {0} starting.", id);
-        Thread.sleep(sleepTime);
-        Console.WriteLine("Task {0} stopping.", id);
-    }
-}
-
-/*
-Task 2 starting.
-Task 1 starting.
-Task 3 starting.
-Task 1 stopping.
-Task 2 stopping.
-Task 3 stopping.
- */
-{% endhighlight %}
-
-<h4>Creating new tasks with a factory.</h4>
-
-{% highlight csharp linenos %}
-class Program {
-    public static void Main(string[] args) {
-        // The factory creates a task and starts it
-        var t1 = Task.Factory.StartNew( () => DoWork(1, 1000) );
-        
     }
 
     public static void DoWork(int id, int sleepTime) {
@@ -91,3 +65,4 @@ public static void Main(string[] args) {
     Console.WriteLine("Finished all tasks");
 }
 {% endhighlight %}
+

@@ -129,64 +129,40 @@
 <!-- Example -->
 <h3>Example</h3>
 
-<h4>Creating new tasks with the constructor.</h4>
+<p>How do we make a line of code execute in the background on a separate thread?</p>
 
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
 <span class="lineno"> 2</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
 <span class="lineno"> 3</span>         <span class="c1">// Start task with the constructor</span>
 <span class="lineno"> 4</span>         <span class="kt">var</span> <span class="n">t1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Task</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">DoWork</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1000</span><span class="p">)</span> <span class="p">);</span>
-<span class="lineno"> 5</span>         <span class="kt">var</span> <span class="n">t2</span> <span class="p">=</span> <span class="n">Task</span><span class="p">.</span><span class="n">Factory</span><span class="p">.</span><span class="n">StartNew</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">DoWork</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1200</span><span class="p">)</span> <span class="p">)</span>
-<span class="lineno"> 6</span>                              <span class="p">.</span><span class="n">ContinueWith</span><span class="p">(</span> <span class="p">(</span><span class="n">prevTask</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">DoOtherWork</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1200</span><span class="p">)</span> <span class="p">);</span>
-<span class="lineno"> 7</span> 
-<span class="lineno"> 8</span>         <span class="n">t1</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
-<span class="lineno"> 9</span>     <span class="p">}</span>
-<span class="lineno">10</span> 
-<span class="lineno">11</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">DoWork</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sleepTime</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">12</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Task {0} starting.&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
-<span class="lineno">13</span>         <span class="n">Thread</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleepTime</span><span class="p">);</span>
-<span class="lineno">14</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Task {0} stopping.&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
-<span class="lineno">15</span>     <span class="p">}</span>
-<span class="lineno">16</span> <span class="p">}</span>
+<span class="lineno"> 5</span>         <span class="n">t1</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span>         <span class="c1">// Start task with a factory</span>
+<span class="lineno"> 8</span>         <span class="kt">var</span> <span class="n">t2</span> <span class="p">=</span> <span class="n">Task</span><span class="p">.</span><span class="n">Factory</span><span class="p">.</span><span class="n">StartNew</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">DoWork</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1200</span><span class="p">)</span> <span class="p">)</span>
+<span class="lineno"> 9</span>                              <span class="p">.</span><span class="n">ContinueWith</span><span class="p">(</span> <span class="p">(</span><span class="n">prevTask</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">DoOtherWork</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1200</span><span class="p">)</span> <span class="p">);</span>
+<span class="lineno">10</span>     <span class="p">}</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">DoWork</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sleepTime</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">13</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Task {0} starting.&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
+<span class="lineno">14</span>         <span class="n">Thread</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleepTime</span><span class="p">);</span>
+<span class="lineno">15</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Task {0} stopping.&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
+<span class="lineno">16</span>     <span class="p">}</span>
 <span class="lineno">17</span> 
-<span class="lineno">18</span> <span class="cm">/*</span>
-<span class="lineno">19</span> <span class="cm">Task 2 starting.</span>
-<span class="lineno">20</span> <span class="cm">Task 1 starting.</span>
-<span class="lineno">21</span> <span class="cm">Task 3 starting.</span>
-<span class="lineno">22</span> <span class="cm">Task 1 stopping.</span>
-<span class="lineno">23</span> <span class="cm">Task 2 stopping.</span>
-<span class="lineno">24</span> <span class="cm">Task 3 stopping.</span>
-<span class="lineno">25</span> <span class="cm"> */</span></code></pre></div>
-
-<h4>Creating new tasks with a factory.</h4>
-
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
-<span class="lineno"> 2</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 3</span>         <span class="c1">// The factory creates a task and starts it</span>
-<span class="lineno"> 4</span>         <span class="kt">var</span> <span class="n">t1</span> <span class="p">=</span> <span class="n">Task</span><span class="p">.</span><span class="n">Factory</span><span class="p">.</span><span class="n">StartNew</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">DoWork</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1000</span><span class="p">)</span> <span class="p">);</span>
-<span class="lineno"> 5</span>         
-<span class="lineno"> 6</span>     <span class="p">}</span>
-<span class="lineno"> 7</span> 
-<span class="lineno"> 8</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">DoWork</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sleepTime</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 9</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Task {0} starting.&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
-<span class="lineno">10</span>         <span class="n">Thread</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleepTime</span><span class="p">);</span>
-<span class="lineno">11</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Task {0} stopping.&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
-<span class="lineno">12</span>     <span class="p">}</span>
-<span class="lineno">13</span> 
-<span class="lineno">14</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">DoOtherWork</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sleepTime</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">15</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Other Task {0} starting.&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
-<span class="lineno">16</span>         <span class="n">Thread</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleepTime</span><span class="p">);</span>
-<span class="lineno">17</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Other Task {0} stopping.&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
-<span class="lineno">18</span>     <span class="p">}</span>
-<span class="lineno">19</span> <span class="p">}</span>
-<span class="lineno">20</span> 
-<span class="lineno">21</span> <span class="cm">/*</span>
-<span class="lineno">22</span> <span class="cm">Task 2 starting.</span>
-<span class="lineno">23</span> <span class="cm">Task 1 starting.</span>
-<span class="lineno">24</span> <span class="cm">Task 1 stopping.</span>
-<span class="lineno">25</span> <span class="cm">Task 2 stopping.</span>
-<span class="lineno">26</span> <span class="cm">Other Task 2 starting.</span>
-<span class="lineno">27</span> <span class="cm">Other Task 2 stopping.</span>
-<span class="lineno">28</span> <span class="cm"> */</span></code></pre></div>
+<span class="lineno">18</span>     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">DoOtherWork</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sleepTime</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">19</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Other Task {0} starting.&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
+<span class="lineno">20</span>         <span class="n">Thread</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleepTime</span><span class="p">);</span>
+<span class="lineno">21</span>         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Other Task {0} stopping.&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
+<span class="lineno">22</span>     <span class="p">}</span>
+<span class="lineno">23</span> <span class="p">}</span>
+<span class="lineno">24</span> 
+<span class="lineno">25</span> <span class="cm">/*</span>
+<span class="lineno">26</span> <span class="cm">Task 2 starting.</span>
+<span class="lineno">27</span> <span class="cm">Task 1 starting.</span>
+<span class="lineno">28</span> <span class="cm">Task 1 stopping.</span>
+<span class="lineno">29</span> <span class="cm">Task 2 stopping.</span>
+<span class="lineno">30</span> <span class="cm">Other Task 2 starting.</span>
+<span class="lineno">31</span> <span class="cm">Other Task 2 stopping.</span>
+<span class="lineno">32</span> <span class="cm"> */</span></code></pre></div>
 
 <p>Given the code above, how do we wait on the main thread until all the tasks are done?</p>
 
@@ -199,6 +175,7 @@
 <span class="lineno">7</span>     <span class="n">Task</span><span class="p">.</span><span class="n">WaitAll</span><span class="p">(</span> <span class="n">taskList</span><span class="p">.</span><span class="n">ToArray</span><span class="p">()</span> <span class="p">);</span>
 <span class="lineno">8</span>     <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Finished all tasks&quot;</span><span class="p">);</span>
 <span class="lineno">9</span> <span class="p">}</span></code></pre></div>
+
 
     </div>
 
