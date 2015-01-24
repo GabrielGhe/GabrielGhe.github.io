@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/csharp/2015/01/23/task-parallel-library",
+  "title"   : "Task Parallel Library",
+  "category": "csharp",
+  "tags"    : "c# parallel task",
+  "content" : "OverviewParallel programming is very important to know and C# does it so well. This post is all about the System.Threading namespace. More information can be found here.ExampleCreating new tasks with the constructor. 1 class Program { 2     public static void Main(string[] args) { 3         // Start task with the constructor 4         var t1 = new Task( () =&gt; DoWork(1, 1000) ); 5         var t2 = Task.Factory.StartNew( () =&gt; DoWork(2, 1200) ) 6                              .ContinueWith( (prevTask) =&gt; DoOtherWork(2, 1200) ); 7  8         t1.Start(); 9     }10 11     public static void DoWork(int id, int sleepTime) {12         Console.WriteLine(&quot;Task {0} starting.&quot;, id);13         Thread.sleep(sleepTime);14         Console.WriteLine(&quot;Task {0} stopping.&quot;, id);15     }16 }17 18 /*19 Task 2 starting.20 Task 1 starting.21 Task 3 starting.22 Task 1 stopping.23 Task 2 stopping.24 Task 3 stopping.25  */Creating new tasks with a factory. 1 class Program { 2     public static void Main(string[] args) { 3         // The factory creates a task and starts it 4         var t1 = Task.Factory.StartNew( () =&gt; DoWork(1, 1000) ); 5          6     } 7  8     public static void DoWork(int id, int sleepTime) { 9         Console.WriteLine(&quot;Task {0} starting.&quot;, id);10         Thread.sleep(sleepTime);11         Console.WriteLine(&quot;Task {0} stopping.&quot;, id);12     }13 14     public static void DoOtherWork(int id, int sleepTime) {15         Console.WriteLine(&quot;Other Task {0} starting.&quot;, id);16         Thread.sleep(sleepTime);17         Console.WriteLine(&quot;Other Task {0} stopping.&quot;, id);18     }19 }20 21 /*22 Task 2 starting.23 Task 1 starting.24 Task 1 stopping.25 Task 2 stopping.26 Other Task 2 starting.27 Other Task 2 stopping.28  */Given the code above, how do we wait on the main thread until all the tasks are done?1 public static void Main(string[] args) {2     var t1 = Task.Factory.StartNew( () =&gt; DoWork(1, 1000) );3     var t2 = Task.Factory.StartNew( () =&gt; DoWork(2, 1200) );4     var taskList = new List&lt;Task&gt;{t1, t2};5 6     // or we could use Task.WaitAny7     Task.WaitAll( taskList.ToArray() );8     Console.WriteLine(&quot;Finished all tasks&quot;);9 }",
+  "date"    : "January 23, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/csharp/2015/01/22/sealed-vs-abstract-vs-static",
   "title"   : "Sealed vs Abstract vs Static",
   "category": "csharp",
