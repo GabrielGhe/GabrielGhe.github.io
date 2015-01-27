@@ -10,7 +10,7 @@ tags: [python, beautifulsoup, requests, crawler, scraper]
 <!-- Overview -->
 <h3>Overview</h3>
 
-This post is about web crawling and scraping in python. More information can be found [here for requests](http://docs.python-requests.org/en/latest/) and [here for BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/).
+This post is about web crawling and scraping in python. The modules we will need are `requests` and `BeautifulSoup`. More information can be found [here for requests](http://docs.python-requests.org/en/latest/) and [here for BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/).
 
 {% highlight python linenos %}
 # first we need the 2 modules
@@ -25,9 +25,11 @@ def crawl():
     plain_text = source.text
     soup = BeautifulSoup(plain_text)
 
+    # get every link on the page and print it
     for link in soup.findAll('a'):
         print( link.get('href').text )
 
-    for tableColumn in soup.findAll('table').findAll('td'):
+    # get the first table on the page and print all the table columns
+    for tableColumn in soup.findAll('table')[0].findAll('td'):
         print( tableColumn.text )
 {% endhighlight %}

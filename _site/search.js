@@ -7,7 +7,17 @@ temp = {
   "title"   : "Web Crawler",
   "category": "python",
   "tags"    : "python beautifulsoup requests crawler scraper",
-  "content" : "OverviewThis post is about web crawling and scraping in python. More information can be found here for requests and here for BeautifulSoup. 1 # first we need the 2 modules 2 import requests 3 from bs4 import BeautifulSoup 4  5 def crawl(): 6     # retrieve google page 7     source = requests.get(&quot;http://www.google.com&quot;); 8      9     # get the source in text format10     plain_text = source.text11     soup = BeautifulSoup(plain_text)12 13     for link in soup.findAll(&#39;a&#39;):14         print( link.get(&#39;href&#39;).text )15 16     for tableColumn in soup.findAll(&#39;table&#39;).findAll(&#39;td&#39;):17         print( tableColumn.text )",
+  "content" : "OverviewThis post is about web crawling and scraping in python. The modules we will need are requests and BeautifulSoup. More information can be found here for requests and here for BeautifulSoup. 1 # first we need the 2 modules 2 import requests 3 from bs4 import BeautifulSoup 4  5 def crawl(): 6     # retrieve google page 7     source = requests.get(&quot;http://www.google.com&quot;); 8      9     # get the source in text format10     plain_text = source.text11     soup = BeautifulSoup(plain_text)12 13     # get every link on the page and print it14     for link in soup.findAll(&#39;a&#39;):15         print( link.get(&#39;href&#39;).text )16 17     # get the first table on the page and print all the table columns18     for tableColumn in soup.findAll(&#39;table&#39;)[0].findAll(&#39;td&#39;):19         print( tableColumn.text )",
+  "date"    : "January 26, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
+  "id"    : "/csharp/2015/01/26/c-for-java-developers",
+  "title"   : "C# for Java developers",
+  "category": "csharp",
+  "tags"    : "java c# comparison guide",
+  "content" : "I recently came across a guide to C# for Java developers. It is very detailed and clear and I think anyone who knows java and wants to know how C# is different should read it. Here’s the link.",
   "date"    : "January 26, 2015"
 };
 data[temp.id] = temp;
