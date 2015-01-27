@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/python/2015/01/26/web-crawler",
+  "title"   : "Web Crawler",
+  "category": "python",
+  "tags"    : "python beautifulsoup requests crawler scraper",
+  "content" : "OverviewThis post is about web crawling and scraping in python. More information can be found here for requests and here for BeautifulSoup. 1 # first we need the 2 modules 2 import requests 3 from bs4 import BeautifulSoup 4  5 def crawl(): 6     # retrieve google page 7     source = requests.get(&quot;http://www.google.com&quot;); 8      9     # get the source in text format10     plain_text = source.text11     soup = BeautifulSoup(plain_text)12 13     for link in soup.findAll(&#39;a&#39;):14         print( link.get(&#39;href&#39;).text )15 16     for tableColumn in soup.findAll(&#39;table&#39;).findAll(&#39;td&#39;):17         print( tableColumn.text )",
+  "date"    : "January 26, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/csharp/2015/01/23/task-parallel-library",
   "title"   : "Task Parallel Library",
   "category": "csharp",
@@ -97,7 +107,7 @@ temp = {
   "title"   : "Python: File Input and Output",
   "category": "python",
   "tags"    : "io file",
-  "content" : "This post is about file io in python. More information can be found here. 1 # reading a file in 1 shot 2 with open(&#39;filename.txt&#39;, &#39;r&#39;) as file: 3     content = file.read() 4  5 # reading a file, getting all the lines 6 with open(&#39;filename.txt&#39;, &#39;r&#39;) as file: 7     content = file.readlines() 8  9 # writing to a file/creating a file10 with open(&#39;filename.txt&#39;, &#39;w&#39;) as file:11     file.write(&#39;This is output&#39;)12 13 # appending to a file14 with open(&#39;filename.txt&#39;, &#39;ag&#39;) as file:15     file.write(&#39;This is output&#39;)",
+  "content" : "OverviewThis post is about file io in python. More information can be found here. 1 # reading a file in 1 shot 2 with open(&#39;filename.txt&#39;, &#39;r&#39;) as file: 3     content = file.read() 4  5 # reading a file, getting all the lines 6 with open(&#39;filename.txt&#39;, &#39;r&#39;) as file: 7     content = file.readlines() 8  9 # writing to a file/creating a file10 with open(&#39;filename.txt&#39;, &#39;w&#39;) as file:11     file.write(&#39;This is output&#39;)12 13 # appending to a file14 with open(&#39;filename.txt&#39;, &#39;ag&#39;) as file:15     file.write(&#39;This is output&#39;)",
   "date"    : "January 17, 2015"
 };
 data[temp.id] = temp;

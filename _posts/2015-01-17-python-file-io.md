@@ -7,6 +7,9 @@ tags: [io, file]
 ---
 {% include JB/setup %}
 
+<!-- Overview -->
+<h3>Overview</h3>
+
 This post is about file io in python. More information can be found [here](https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files).
 
 {% highlight python linenos %}
