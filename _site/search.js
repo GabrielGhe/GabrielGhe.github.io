@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/python/2015/01/31/generators",
+  "title"   : "Generators",
+  "category": "python",
+  "tags"    : "generator",
+  "content" : "OverviewIn python, it’s common to see something like for _ in range(10). This says loop 10 but it also creates a list of 10 elements. If you replace the 10 with 1000000, it will create a very large list and take up all the memory for nothing. Instead, you could use a generator. A generator is like a pause and continue on a method and it improves the space complexity of your code. More information about generators can be found hereA generator comprehension is the lazy version of a list comprehension.It is just like a list comprehension except that it returns an iterator instead of the list ie an object with a next() method that will yield the next element.Imagine you want to sum up all the numbers from 0 to 1000000. It would look something like this.1 def firstn(n):2      num, nums = 0, []3      while num &lt; n:4          nums.append(num)5          num += 16      return nums7 8 sum_of_first_n = sum(firstn(1000000))The equivilant generator will look like this.1 def firstn(n):2     num = 03     while num &lt; n:4         yield num5         num += 16 7 sum_of_first_n = sum(firstn(1000000))You can also create generator comprehensions. 1 # normal list comprehension 2 my_list = [1, 3, 5, 9, 2, 6] 3 filtered_list = [item for item in my_list if item &gt; 3] 4 print(filtered_list) # [5, 9, 6] 5  6  7 # generator comprehension 8 filtered_gen = (item for item in my_list if item &gt; 3) 9 # you can use it in a `for in` loop10 # or you can pass it to the list constructor11 gen_to_list = list(filtered_gen)12 print(gen_to_list) # [5, 9, 6]",
+  "date"    : "January 31, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/python/2015/01/26/web-crawler",
   "title"   : "Web Crawler",
   "category": "python",
