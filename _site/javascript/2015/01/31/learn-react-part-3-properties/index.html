@@ -82,6 +82,10 @@
       
     
   
+    
+      
+    
+  
 
 
 
@@ -171,7 +175,7 @@
 <!-- Part 2 -->
 <h4>Part 2</h4>
 
-<p>You can also specify the props that you’re expecting using the <code>propTypes</code> property. By default, a propType is optional; however, if you add <code>cat: React.PropTypes.number.isRequired</code> then React will complain because it’s not one of the properties of App. If we add cat to the app initialization on <code>line 18</code>, it will work.</p>
+<p>You can also specify the props that you’re expecting using the <code>propTypes</code> property. By default, a propType is optional; however, if you add <code>cat: React.PropTypes.number.isRequired</code> then React will complain because it’s not one of the properties of App. If we add cat to the app initialization on <code>line 17</code>, it will work.</p>
 
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/jsx&quot;</span><span class="nt">&gt;</span>
 <span class="lineno"> 2</span>     <span class="cm">/*** @jsx React.DOM */</span>
@@ -184,14 +188,13 @@
 <span class="lineno"> 9</span>             <span class="k">return</span> <span class="p">(</span>
 <span class="lineno">10</span>                     <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
 <span class="lineno">11</span>                         <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">txt</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
-<span class="lineno">12</span>                         <span class="o">&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="nx">bold</span><span class="o">&lt;</span><span class="err">/b&gt;</span>
-<span class="lineno">13</span>                     <span class="o">&lt;</span><span class="err">/div&gt;</span>
-<span class="lineno">14</span>                     <span class="p">)</span>
-<span class="lineno">15</span>         <span class="p">}</span>
-<span class="lineno">16</span>     <span class="p">});</span>
-<span class="lineno">17</span> 
-<span class="lineno">18</span>     <span class="nx">React</span><span class="p">.</span><span class="nx">renderComponent</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="nx">cat</span><span class="o">=</span><span class="p">{</span><span class="mi">5</span><span class="p">}</span> <span class="nx">txt</span><span class="o">=</span><span class="s2">&quot;This is the txt prop&quot;</span> <span class="o">/&gt;</span><span class="p">,</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
-<span class="lineno">19</span> <span class="nt">&lt;/script&gt;</span></code></pre></div>
+<span class="lineno">12</span>                     <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="lineno">13</span>                     <span class="p">)</span>
+<span class="lineno">14</span>         <span class="p">}</span>
+<span class="lineno">15</span>     <span class="p">});</span>
+<span class="lineno">16</span> 
+<span class="lineno">17</span>     <span class="nx">React</span><span class="p">.</span><span class="nx">renderComponent</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="nx">cat</span><span class="o">=</span><span class="p">{</span><span class="mi">5</span><span class="p">}</span> <span class="nx">txt</span><span class="o">=</span><span class="s2">&quot;This is the txt prop&quot;</span> <span class="o">/&gt;</span><span class="p">,</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+<span class="lineno">18</span> <span class="nt">&lt;/script&gt;</span></code></pre></div>
 
 <p><br /></p>
 
@@ -199,7 +202,7 @@
 <h4>Part 3</h4>
 
 <p>You can define the default properties for any component using the <code>getDefaultProps</code> property on the component.
-Which means the code below will work even though we don’t have <code>cat</code> and <code>txt</code> on on App initialization on <code>line 24</code>.</p>
+Which means the code below will work even though we don’t have <code>cat</code> and <code>txt</code> on on App initialization on <code>line 23</code>.</p>
 
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/jsx&quot;</span><span class="nt">&gt;</span>
 <span class="lineno"> 2</span>     <span class="cm">/*** @jsx React.DOM */</span>
@@ -218,14 +221,13 @@ Which means the code below will work even though we don’t have <code>cat</code
 <span class="lineno">15</span>             <span class="k">return</span> <span class="p">(</span>
 <span class="lineno">16</span>                     <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
 <span class="lineno">17</span>                         <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">txt</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
-<span class="lineno">18</span>                         <span class="o">&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="nx">bold</span><span class="o">&lt;</span><span class="err">/b&gt;</span>
-<span class="lineno">19</span>                     <span class="o">&lt;</span><span class="err">/div&gt;</span>
-<span class="lineno">20</span>                     <span class="p">)</span>
-<span class="lineno">21</span>         <span class="p">}</span>
-<span class="lineno">22</span>     <span class="p">});</span>
-<span class="lineno">23</span> 
-<span class="lineno">24</span>     <span class="nx">React</span><span class="p">.</span><span class="nx">renderComponent</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">,</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
-<span class="lineno">25</span> <span class="nt">&lt;/script&gt;</span></code></pre></div>
+<span class="lineno">18</span>                     <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="lineno">19</span>                     <span class="p">)</span>
+<span class="lineno">20</span>         <span class="p">}</span>
+<span class="lineno">21</span>     <span class="p">});</span>
+<span class="lineno">22</span> 
+<span class="lineno">23</span>     <span class="nx">React</span><span class="p">.</span><span class="nx">renderComponent</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">,</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+<span class="lineno">24</span> <span class="nt">&lt;/script&gt;</span></code></pre></div>
 
     </div>
 
@@ -239,7 +241,7 @@ Which means the code below will work even though we don’t have <code>cat</code
   
      
     	<li><a href="/categories.html#javascript-ref">
-    		javascript <span>9</span>
+    		javascript <span>10</span>
     	</a></li>
     
   
@@ -257,7 +259,9 @@ Which means the code below will work even though we don’t have <code>cat</code
 
   
      
-    	<li><a href="/tags.html#reactjs-ref">reactjs <span>3</span></a></li>
+    	<li><a href="/tags.html#reactjs-ref">reactjs <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#property-ref">property <span>2</span></a></li>
     
   
 
@@ -273,7 +277,7 @@ Which means the code below will work even though we don’t have <code>cat</code
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next disabled"><a>Next &rarr;</a>
+      <li class="next"><a href="/javascript/2015/01/31/learn-react-part-4-states" title="Learn React Part 4: States">Next &raquo;</a></li>
     
     </ul>
     <hr>

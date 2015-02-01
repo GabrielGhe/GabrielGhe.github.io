@@ -3,7 +3,7 @@ layout: post
 title: "Learn React Part 1: First Component"
 description: ""
 category: javascript
-tags: [reactjs]
+tags: [reactjs, component]
 ---
 {% include JB/setup %}
 

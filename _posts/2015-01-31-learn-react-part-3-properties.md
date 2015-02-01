@@ -3,7 +3,7 @@ layout: post
 title: "Learn React Part 3: Properties"
 description: ""
 category: javascript
-tags: [reactjs]
+tags: [reactjs, property]
 ---
 {% include JB/setup %}
 
@@ -59,7 +59,7 @@ You can pass data to your component using properties. We added `txt` prop.
 <!-- Part 2 -->
 <h4>Part 2</h4>
 
-You can also specify the props that you're expecting using the `propTypes` property. By default, a propType is optional; however, if you add `cat: React.PropTypes.number.isRequired` then React will complain because it's not one of the properties of App. If we add cat to the app initialization on `line 18`, it will work.
+You can also specify the props that you're expecting using the `propTypes` property. By default, a propType is optional; however, if you add `cat: React.PropTypes.number.isRequired` then React will complain because it's not one of the properties of App. If we add cat to the app initialization on `line 17`, it will work.
 
 {% highlight html linenos %}
 <script type="text/jsx">
@@ -73,7 +73,6 @@ You can also specify the props that you're expecting using the `propTypes` prope
             return (
                     <div>
                         <h1>{this.props.txt}</h1>
-                        <b>bold</b>
                     </div>
                     )
         }
@@ -89,7 +88,7 @@ You can also specify the props that you're expecting using the `propTypes` prope
 <h4>Part 3</h4>
 
 You can define the default properties for any component using the `getDefaultProps` property on the component.
-Which means the code below will work even though we don't have `cat` and `txt` on on App initialization on `line 24`.
+Which means the code below will work even though we don't have `cat` and `txt` on on App initialization on `line 23`.
 
 {% highlight html linenos %}
 <script type="text/jsx">
@@ -109,7 +108,6 @@ Which means the code below will work even though we don't have `cat` and `txt` o
             return (
                     <div>
                         <h1>{this.props.txt}</h1>
-                        <b>bold</b>
                     </div>
                     )
         }

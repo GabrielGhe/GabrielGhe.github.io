@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>6.0 feature: Null Propogation</title>
+    <title>Learn React Part 4: States</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -114,42 +114,54 @@
         
 <div class="page-header">
   <h1>
-    <i class="icon-csharp" style="font-size:2em"></i> 6.0 feature: Null Propogation 
+    <i class="icon-javascript" style="font-size:2em"></i> Learn React Part 4: States 
 </h1>
 </div>
 
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>03 January 2015</span>
+      <span>31 January 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>C# 6.0 has some interesting new features. The feature discussed in this post is null propogation.
-Null propogation allows you to check if a property exists and if it does, execute code.
-More information can be found <a href="http://www.volatileread.com/Wiki/Index?id=1075">here</a>.</p>
+<p>Properties are for data that is passed to components but doesn’t change. If we want the component to change, we have to use states. <a href="https://egghead.io/lessons/react-state-basics">Egghead Video</a></p>
 
-<!-- Details -->
-<h3>Details</h3>
+<!-- Content -->
+<h3>Content</h3>
 
-<p>Using the <code>?</code> symbol, we can see if the preceding variable holds a null. If it does, the chain stops and the value returned is null.</p>
+<!-- Part 1 -->
+<h4>Part 1</h4>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="c1">// Before</span>
-<span class="lineno"> 2</span> <span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">obj</span><span class="p">.</span><span class="n">children</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 3</span>   <span class="n">obj</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Child</span><span class="p">()</span> <span class="p">);</span>
-<span class="lineno"> 4</span> <span class="p">}</span>
-<span class="lineno"> 5</span> 
-<span class="lineno"> 6</span> <span class="c1">// In 6.0</span>
-<span class="lineno"> 7</span> <span class="k">if</span> <span class="p">(</span><span class="n">obj</span><span class="p">?.</span><span class="n">children</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 8</span>   <span class="n">obj</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span> <span class="k">new</span> <span class="n">Child</span><span class="p">()</span> <span class="p">);</span>
-<span class="lineno"> 9</span> <span class="p">}</span>
-<span class="lineno">10</span> 
-<span class="lineno">11</span> <span class="c1">// 1. Is obj == null? If yes, stop and the chain == null</span>
-<span class="lineno">12</span> <span class="c1">// 2. Is children == null? If yes, stop and the chain == null</span></code></pre></div>
+<p>To use state we have to add the <code>getInitialState</code> function to our component on <code>line 5</code>. In the <code>render</code> function, we have to change <code>this.props.txt</code> to the state version <code>this.state.txt</code> on <code>line 10</code>.</p>
 
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/jsx&quot;</span><span class="nt">&gt;</span>
+<span class="lineno"> 2</span>     <span class="cm">/*** @jsx React.DOM */</span>
+<span class="lineno"> 3</span>     <span class="kd">var</span> <span class="nx">APP</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<span class="lineno"> 4</span>         <span class="nx">getInitialState</span><span class="o">:</span><span class="kd">function</span><span class="p">(){</span>
+<span class="lineno"> 5</span>             <span class="k">return</span> <span class="p">{</span> <span class="nx">txt</span><span class="o">:</span> <span class="s2">&quot;this is the txt prop&quot;</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span><span class="mi">0</span> <span class="p">};</span>
+<span class="lineno"> 6</span>         <span class="p">},</span>
+<span class="lineno"> 7</span>         <span class="nx">render</span><span class="o">:</span><span class="kd">function</span><span class="p">(){</span>
+<span class="lineno"> 8</span>             <span class="k">return</span> <span class="p">(</span>
+<span class="lineno"> 9</span>                     <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="lineno">10</span>                         <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">txt</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+<span class="lineno">11</span>                     <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="lineno">12</span>                     <span class="p">)</span>
+<span class="lineno">13</span>         <span class="p">}</span>
+<span class="lineno">14</span>     <span class="p">});</span>
+<span class="lineno">15</span> 
+<span class="lineno">16</span>     <span class="nx">React</span><span class="p">.</span><span class="nx">renderComponent</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">APP</span> <span class="o">/&gt;</span><span class="p">,</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+<span class="lineno">17</span> <span class="nt">&lt;/script&gt;</span></code></pre></div>
+
+<p><br /></p>
+
+<!-- Part 2 -->
+<h4>Part 2</h4>
+
+<p>We can now modify the state and have the component rerender.</p>
 
     </div>
 
@@ -162,8 +174,8 @@ More information can be found <a href="http://www.volatileread.com/Wiki/Index?id
 
   
      
-    	<li><a href="/categories.html#csharp-ref">
-    		csharp <span>12</span>
+    	<li><a href="/categories.html#javascript-ref">
+    		javascript <span>10</span>
     	</a></li>
     
   
@@ -181,9 +193,9 @@ More information can be found <a href="http://www.volatileread.com/Wiki/Index?id
 
   
      
-    	<li><a href="/tags.html#c#-ref">c# <span>12</span></a></li>
+    	<li><a href="/tags.html#reactjs-ref">reactjs <span>4</span></a></li>
      
-    	<li><a href="/tags.html#null propogation-ref">null propogation <span>1</span></a></li>
+    	<li><a href="/tags.html#state-ref">state <span>2</span></a></li>
     
   
 
@@ -195,11 +207,11 @@ More information can be found <a href="http://www.volatileread.com/Wiki/Index?id
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/javascript/2015/01/02/ecmascript-6-feature-properties" title="EcmaScript 6 feature: enhanced properties">&laquo; Previous</a></li>
+      <li class="prev"><a href="/javascript/2015/01/31/learn-react-part-3-properties" title="Learn React Part 3: Properties">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/javascript/2015/01/05/ecmascript-6-feature-modules" title="EcmaScript 6 feature: modules">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     <hr>
