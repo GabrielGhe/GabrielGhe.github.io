@@ -170,7 +170,8 @@ a.label {
   top:38px;
   left:0px;
   z-index: 3;
-  background-color: #e7e7e7;
+  background-color: white;
+  border-radius: 5px;
   -webkit-box-shadow: 7px 7px 30px 0px rgba(0,0,0,0.54);
   -moz-box-shadow: 7px 7px 30px 0px rgba(0,0,0,0.54);
   box-shadow: 7px 7px 30px 0px rgba(0,0,0,0.54);
@@ -182,5 +183,17 @@ a.label {
 
 #searchResults ul {
   list-style: none;
-  padding-left: 10px;
+  padding: 3px;
+}
+
+.searchElement {
+  padding: 10px 0 0 10px;
+}
+
+.searchElement.active {
+  background-color: #e7e7e7;
+}
+
+.searchElement a {
+  display:inline-block;
 }
