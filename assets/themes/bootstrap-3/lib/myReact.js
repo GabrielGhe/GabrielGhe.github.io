@@ -12,11 +12,12 @@ var SearchPost = React.createClass({
     return (
       <li className="searchElement">
         <a href={this.props.url}>{this.props.title}</a>
-        &nbsp;
-        <a href={'/categories.html#' + this.props.category + '-ref'} className="label label-primary">
-          { this.props.category }
-        </a>
-        {tags}
+        <div>
+          <a href={'/categories.html#' + this.props.category + '-ref'} className="label label-primary">
+            { this.props.category }
+          </a>
+          {tags}
+        </div>
       </li>
     );
   } //END render

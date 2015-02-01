@@ -187,7 +187,7 @@ a.label {
 }
 
 .searchElement {
-  padding: 7px 0 7px 10px;
+  padding: 5px 0 5px 10px;
 }
 
 .searchElement.active {
@@ -197,4 +197,9 @@ a.label {
 
 .searchElement a {
   display:inline-block;
+}
+
+.searchElement a.label {
+  margin-left: 0;
+  margin-right: 3px;
 }
