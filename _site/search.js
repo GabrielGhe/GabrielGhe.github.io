@@ -346,7 +346,7 @@ function search() {
       list.push(data[result[i].ref]);
     }
   }
-  React.renderComponent(<SearchPostApp data={list} />,document.getElementById('searchResults'));
+  React.renderComponent(<SearchPostResults data={list} />,document.getElementById('searchResults'));
 }
 
 $(function() {

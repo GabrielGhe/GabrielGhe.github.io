@@ -26,27 +26,25 @@ var SearchPostList = React.createClass({
       return <SearchPost title={post.title} url={post.id} category={post.category} tags={post.tags} />
     });// End Post Item
 
+    var myStyle = {
+      display: (this.props.data == 0)? "none" : "block"
+    }
+
     return (
-      <div>
+      <ul style={myStyle}>
         {searchR}
-      </div>
+      </ul>
     );
   }
 });// End PostList
 
 
-var SearchPostApp = React.createClass({
+var SearchPostResults = React.createClass({
   render: function(){
-    var header = "";
-    if (this.props.data.length > 0) {
-      header = <h3>Search Results</h3>;
-    }
-
     return (
       <div>
-        {header}
         <SearchPostList data={this.props.data} />
       </div>
     );
   }
-});// End SearchPostApp
+});// End SearchPostResults

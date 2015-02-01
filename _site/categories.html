@@ -98,9 +98,10 @@
 
           <form id="search" class="navbar-form" role="search" action="/search" method="get" onsubmit="return false;">
             <div class="form-group" style="display:inline;">
-              <div class="input-group">
+              <div id="searchbar" class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
                 <input type="search" class="form-control" name="q" id="q" placeholder="Search" autocomplete="off">
+                <div id="searchResults"></div>
               </div>
             </div>
           </form>
@@ -110,7 +111,6 @@
       </nav>
 
       <div class="container">
-        <div id="searchResults"></div>
         
 <div class="page-header">
   <h1>Categories </h1>
