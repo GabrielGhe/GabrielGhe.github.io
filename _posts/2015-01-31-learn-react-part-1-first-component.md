@@ -106,3 +106,9 @@ The `<h1>Hello World</h1>` is just plain html. The Transformer will turn it into
 {% endhighlight %}
 
 We now create a component called `App`. You create a component using `React.createClass` passing in an object which represents that component. Every component has a render function which represents what it will look like. Our `App` component will display `<h1>Hello World</h1>`.
+
+<br />
+
+OUTPUT:
+
+![Results]({{ ASSET_PATH }}images/2015-01-31-learn-react-part-1-first-component.png)
