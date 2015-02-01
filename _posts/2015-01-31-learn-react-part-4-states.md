@@ -70,3 +70,62 @@ We can now modify the state and have the component rerender by updating the `txt
     React.renderComponent(<App />,document.body);
 </script>
 {% endhighlight %}
+
+<br />
+
+<!-- Part 3 -->
+<h4>Part 3</h4>
+
+Here's an example of how to use states to display the color of a div based on the rgb.
+
+{% highlight html linenos %}
+<script>
+var App = React.createClass({
+    getInitialState:function(){
+        return {
+          red: 0,
+          green: 0,
+          blue: 0,
+        };
+    },
+    update:function(){
+        this.setState({
+          red: this.refs.red.refs.range.getDOMNode().value,
+          green: this.refs.green.refs.range.getDOMNode().value,
+          blue: this.refs.blue.refs.range.getDOMNode().value
+        });
+    },
+    render:function(){
+        var myStyle = {
+            height: "100px",
+            width: "100px",
+            backgroundColor: ("rgb(" + this.state.red
+                               + "," + this.state.green
+                               + "," + this.state.blue
+                               + ")")
+        };
+        return (
+                <div>
+                    <div style={myStyle} />
+                    <Slider ref="red" update={this.update} />
+                    <label>Red {this.state.red}</label>
+                    <Slider ref="green" update={this.update} />
+                    <label>Green {this.state.green}</label>
+                    <Slider ref="blue" update={this.update} />
+                    <label>Blue {this.state.blue}</label>
+                </div>
+                )
+    }
+});
+
+var Slider = React.createClass({
+  render:function(){
+      return (
+          <div>
+              <input ref="range" min="0" max="255" type="range" onChange={this.props.update} />
+          </div>
+        )
+  }
+});
+</script>
+{% endhighlight %}
