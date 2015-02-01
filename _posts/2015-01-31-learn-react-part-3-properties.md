@@ -59,7 +59,7 @@ You can pass data to your component using properties. We added `txt` prop.
 <!-- Part 2 -->
 <h4>Part 2</h4>
 
-You can also specify the props that you're expecting using the `propTypes` property. By default, a propType is optional; however, if you add the cat propType to `cat: React.PropTypes.number.isRequired` then React will complain because it's not one of the properties of App. If we add cat to the app initialization on `line 18`, it will work.
+You can also specify the props that you're expecting using the `propTypes` property. By default, a propType is optional; however, if you add `cat: React.PropTypes.number.isRequired` then React will complain because it's not one of the properties of App. If we add cat to the app initialization on `line 18`, it will work.
 
 {% highlight html linenos %}
 <script type="text/jsx">
