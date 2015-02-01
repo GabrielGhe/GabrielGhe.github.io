@@ -34,7 +34,7 @@ You can pass data to your component using properties. We added `txt` prop.
 <body>
 <script type="text/jsx">
     /*** @jsx React.DOM */
-    var APP = React.createClass({
+    var App = React.createClass({
         render:function(){
             console.log(this.props.txt)
             return (
@@ -46,7 +46,7 @@ You can pass data to your component using properties. We added `txt` prop.
         }
     });
 
-    React.renderComponent(<APP txt="This is the txt prop" />,document.body)
+    React.renderComponent(<App txt="This is the txt prop" />,document.body)
 </script>
 </body>
 </html>

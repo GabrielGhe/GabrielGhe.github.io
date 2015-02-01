@@ -23,7 +23,7 @@ To use state we have to add the `getInitialState` function to our component on `
 {% highlight html linenos %}
 <script type="text/jsx">
     /*** @jsx React.DOM */
-    var APP = React.createClass({
+    var App = React.createClass({
         getInitialState:function(){
             return { txt: "this is the txt prop", id:0 };
         },
@@ -36,7 +36,7 @@ To use state we have to add the `getInitialState` function to our component on `
         }
     });
 
-    React.renderComponent(<APP />,document.body)
+    React.renderComponent(<App />,document.body)
 </script>
 {% endhighlight %}
 
@@ -45,4 +45,28 @@ To use state we have to add the `getInitialState` function to our component on `
 <!-- Part 2 -->
 <h4>Part 2</h4>
 
-We can now modify the state and have the component rerender.
+We can now modify the state and have the component rerender by updating the `txt` property of the state.
+
+{% highlight html linenos %}
+<script type="text/jsx">
+    /*** @jsx React.DOM */
+    var App = React.createClass({
+        getInitialState:function(){
+            return { txt: "this is the txt prop", id:0 };
+        },
+        updateTxt:function(e){
+            this.setState({ txt: e.target.value });
+        },
+        render:function(){
+            return (
+                    <div>
+                        <input onChange={this.updateTxt} />
+                        <h1>{this.state.txt}</h1>
+                    </div>
+                    )
+        }
+    });
+
+    React.renderComponent(<App />,document.body);
+</script>
+{% endhighlight %}
