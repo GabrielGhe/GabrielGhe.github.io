@@ -1,6 +1,9 @@
 /** @jsx React.DOM */
 
 var SearchPost = React.createClass({
+  onMouseOver: function(e){
+
+  },
   render: function(){
     var tags = this.props.tags.split(" ").map(function(tag){
       return (<a href={'/tags.html#'+ tag +'-ref'} className="label label-success">{ tag }</a>);
