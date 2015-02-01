@@ -27,7 +27,7 @@ temp = {
   "title"   : "C# for Java developers",
   "category": "csharp",
   "tags"    : "java c# comparison guide",
-  "content" : "I recently came across a guide to C# for Java developers. It is very detailed and clear and I think anyone who knows java and wants to know how C# is different should read it. Here’s the link.",
+  "content" : "I recently came across a guide to C# for Java developers. It is very detailed and clear and I think anyone who knows java and wants to know how C# is different should read it. Here’s the original and here’s the link to a copy.",
   "date"    : "January 26, 2015"
 };
 data[temp.id] = temp;
