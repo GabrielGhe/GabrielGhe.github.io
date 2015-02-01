@@ -188,6 +188,7 @@ a.label {
 
 .searchElement {
   padding: 5px 0 5px 10px;
+  cursor: pointer;
 }
 
 .searchElement.active {

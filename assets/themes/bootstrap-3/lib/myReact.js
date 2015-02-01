@@ -9,15 +9,29 @@ var SearchPost = React.createClass({
       return (<a href={'/tags.html#'+ tag +'-ref'} className="label label-success">{ tag }</a>);
     });
 
+    var iconStyle = {
+      fontSize: "3em",
+      float: "left",
+      lineHeight: "40px",
+      marginRight: "5px"
+    };
+
     return (
       <li className="searchElement">
-        <a href={this.props.url}>{this.props.title}</a>
+        {/* Icon */}
+        <i className={"icon-" + this.props.category } style={iconStyle}></i>
+
+        {/* Content */}
         <div>
-          <a href={'/categories.html#' + this.props.category + '-ref'} className="label label-primary">
-            { this.props.category }
-          </a>
-          {tags}
+          <a href={this.props.url}>{this.props.title}</a>
+          <div>
+            <a href={'/categories.html#' + this.props.category + '-ref'} className="label label-primary">
+              { this.props.category }
+            </a>
+            {tags}
+          </div>
         </div>
+        {/* End Content */}
       </li>
     );
   } //END render
