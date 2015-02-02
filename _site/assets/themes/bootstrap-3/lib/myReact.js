@@ -1,68 +1,163 @@
 /** @jsx React.DOM */
 
 var SearchPost = React.createClass({
-  onMouseOver: function(e){
-
+  onMouseOver: function(){
+      this.props.hoverItem(this.props.index);
   },
   render: function(){
-    var tags = this.props.tags.split(" ").map(function(tag){
-      return (<a href={'/tags.html#'+ tag +'-ref'} className="label label-success">{ tag }</a>);
-    });
+      var tags = this.props.tags.split(" ").map(function(tag){
+          return (<a href={'/tags.html#'+ tag +'-ref'} className="label label-success">{ tag }</a>);
+      });
 
-    var iconStyle = {
-      fontSize: "3em",
-      float: "left",
-      lineHeight: "40px",
-      marginRight: "5px"
-    };
+      var iconStyle = {
+          fontSize: "3em",
+          float: "left",
+          lineHeight: "40px",
+          marginRight: "5px"
+      };
 
-    return (
-      <li className="searchElement">
-        {/* Icon */}
-        <i className={"icon-" + this.props.category } style={iconStyle}></i>
+      return (
+          <li onMouseOver={this.onMouseOver}
+              className={"searchElement" + this.props.isActive }>
 
-        {/* Content */}
-        <div>
-          <a href={this.props.url}>{this.props.title}</a>
-          <div>
-            <a href={'/categories.html#' + this.props.category + '-ref'} className="label label-primary">
-              { this.props.category }
-            </a>
-            {tags}
-          </div>
-        </div>
-        {/* End Content */}
-      </li>
-    );
-  } //END render
+              {/* Icon */}
+              <i className={"icon-" + this.props.category} style={iconStyle}></i>
+
+              {/* Content */}
+              <div>
+                  <a href={this.props.url}>{this.props.title}</a>
+                  <div>
+                      <a href={'/categories.html#' + this.props.category + '-ref'} className="label label-primary">
+                          { this.props.category }
+                      </a>
+                      {tags}
+                  </div>
+              </div>
+              {/* End Content */}
+          </li>
+      );
+    } //END render
 }); //END Post
 
 
 var SearchPostList = React.createClass({
   render: function(){
-    var searchR = this.props.data.slice(0, 7).map(function(post){
-      return <SearchPost title={post.title} url={post.id} category={post.category} tags={post.tags} />
+      var that = this;
+      var searchR = this.props.data.slice(0, 7).map(function(post, idx){
+          return <SearchPost  isActive={ (idx === that.props.activeItem)? " active" : "" }
+                              title={post.title}
+                              index={idx}
+                              url={post.id}
+                              tags={post.tags}
+                              hoverItem={that.props.hoverItem}
+                              category={post.category} />
     });// End Post Item
 
     var myStyle = {
-      display: (this.props.data == 0)? "none" : "block"
+      display: (this.props.focused && this.props.data.length > 0)? "block" : "none"
     }
 
     return (
-      <ul style={myStyle}>
-        {searchR}
-      </ul>
+      <div className="searchResults">
+        <ul style={myStyle}>
+          {searchR}
+        </ul>
+      </div>
     );
   }
 });// End PostList
 
 
-var SearchPostResults = React.createClass({
+var SearchBar = React.createClass({
+  getInitialState: function(){
+      return {
+          data: [],
+          activeItem: 0,
+          focused: false
+      };
+  },
+  search: function(value){
+      var myPosts = this.props.posts;
+      var result = this.props.lunr.search(value);
+      var list = [];
+      if(result && result.length > 0) {
+          for(var i=0; i < result.length; ++i){
+              list.push(myPosts[result[i].ref]);
+          }
+      }
+
+      this.setState({ data: list });
+  },
+  selectItem: function(path){
+      console.log("In selectItem",path)
+      document.location.href = path
+  },
+  hoverItem: function(index){
+      this.setState({ activeItem: index });
+  },
+  onFocus: function(e){
+      this.setState({ focused: true });
+  },
+  onBlur: function(e){
+      setTimeout(function(){
+          this.setState({ focused: false });
+      }.bind(this), 50);
+  },
+  onChange: function(e){
+      this.setState({ activeItem: 0 });
+      this.search(e.target.value);
+  },
+  onKeyUp: function(e){
+      var active = this.state.activeItem;
+      var keyCode = e.keyCode;
+      switch (keyCode) {
+          // down
+          case 40:
+              active < this.state.data.length - 2 && (active += 1);
+              break;
+          // up
+          case 38:
+              active > 0 && (active -= 1);
+              break;
+          // enter
+          case 13:
+              this.selectItem(this.state.data[active].id);
+              break;
+      }
+      if (keyCode === 40 || keyCode === 38 || keyCode === 13) {
+          e.preventDefault();
+          e.stopPropagation();
+      }
+      this.setState({
+          activeItem: active
+      });
+  },
+  componentDidMount: function(){
+      var shouldFocus = !/^(\/categories.html)|(\/tags.html)/g.test(document.location.pathname);
+      if (shouldFocus) {
+          this.refs.q.getDOMNode().focus();
+      }
+  },
   render: function(){
     return (
-      <div>
-        <SearchPostList data={this.props.data} />
-      </div>
-    );
+        <div className="input-group">
+          <span className="input-group-addon">
+              <span className="glyphicon glyphicon-search"></span>
+          </span>
+          <input  type="search"
+                  id="q"
+                  ref="q"
+                  className="form-control"
+                  placeholder="Search" autoComplete="off"
+                  onKeyUp={this.onKeyUp}
+                  onBlur={this.onBlur}
+                  onFocus={this.onFocus}
+                  onChange={this.onChange} />
+          <SearchPostList data={this.state.data}
+                          focused={this.state.focused}
+                          hoverItem={this.hoverItem}
+                          activeItem={this.state.activeItem} />
+        </div>
+    )
   }
-});// End SearchPostResults
+}); // End SearchBar

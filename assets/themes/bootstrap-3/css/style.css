@@ -164,7 +164,7 @@ a.label {
   position:relative;
 }
 
-#searchResults {
+.searchResults {
   width:100%;
   position:absolute;
   top:38px;
@@ -181,14 +181,13 @@ a.label {
   overflow-y:visible !important;
 }
 
-#searchResults ul {
+.searchResults ul {
   list-style: none;
   padding: 3px;
 }
 
 .searchElement {
   padding: 5px 0 5px 10px;
-  cursor: pointer;
 }
 
 .searchElement.active {

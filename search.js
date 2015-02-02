@@ -23,19 +23,6 @@ for(var index in data) {
   delete data[index].date;
 }
 
-function search() {
-  var result = idx.search($("#search input").val());
-  var list = [];
-  if(result && result.length > 0) {
-    for(var i=0; i < result.length; ++i){
-      list.push(data[result[i].ref]);
-    }
-  }
-  React.renderComponent(<SearchPostResults data={list} />,document.getElementById('searchResults'));
-}
-
 $(function() {
-  $("#search input").keyup(function(e) {
-    search();
-  });
+  React.renderComponent(<SearchBar lunr={idx} posts={data} />,document.getElementById('searchbar'));
 });

@@ -97,12 +97,15 @@
           </ul>
 
           <form id="search" class="navbar-form" role="search" action="/search" method="get" onsubmit="return false;">
-            <div class="form-group" style="display:inline;">
-              <div id="searchbar" class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                <input type="search" class="form-control" name="q" id="q" placeholder="Search" autofocus autocomplete="off">
-                <div id="searchResults"></div>
+            <div id="searchbar" class="form-group" style="display:inline;">
+              <!-- Will be removed by React, placeholder so that there's something there while react loads -->
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-search"></span>
+                </span>
+                <input type="search" placeholder="Search" class="form-control" autocomplete="off" />
               </div>
+              <!-- up to here -->
             </div>
           </form>
         </div>
