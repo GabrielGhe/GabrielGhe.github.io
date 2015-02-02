@@ -43,7 +43,7 @@ var SearchPost = React.createClass({
 var SearchPostList = React.createClass({
   render: function(){
       var that = this;
-      var searchR = this.props.data.slice(0, 7).map(function(post, idx){
+      var searchR = this.props.data.map(function(post, idx){
           return <SearchPost  isActive={ (idx === that.props.activeItem)? " active" : "" }
                               title={post.title}
                               index={idx}
@@ -81,7 +81,8 @@ var SearchBar = React.createClass({
       var result = this.props.lunr.search(value);
       var list = [];
       if(result && result.length > 0) {
-          for(var i=0; i < result.length; ++i){
+          var resultNumber = Math.min(result.length, 7);
+          for(var i=0; i < resultNumber; ++i){
               list.push(myPosts[result[i].ref]);
           }
       }
@@ -113,7 +114,7 @@ var SearchBar = React.createClass({
       switch (keyCode) {
           // down
           case 40:
-              active < this.state.data.length - 2 && (active += 1);
+              active < this.state.data.length - 1 && (active += 1);
               break;
           // up
           case 38:
