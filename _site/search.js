@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/swift/2015/02/02/sequences-and-generators",
+  "title"   : "Sequences and Generators",
+  "category": "swift",
+  "tags"    : "ios swift generators sequences",
+  "content" : "OverviewIn swift, when we want to iterate over a sequence, we use a generator. It’s not the same as a generator in python or in javascript. This post is all about how to create and use them. More information about them can be found here.ContentIn swift, like in all languages, we can iterate over a collection using a for each or better named for in in swift. 1 // array 2 for item in [&quot;first&quot;, &quot;second&quot;, &quot;third&quot;] { 3     println(item) 4 } 5 // first 6 // second 7 // third 8  9 10 // dictionary11 for (key, value) in [&quot;key1&quot;:1, &quot;key2&quot;:2, &quot;key3&quot;:3] {12     println(&quot;key:\(key) value:\(value)&quot;)13 }14 // key:key1 value:115 // key:key2 value:216 // key:key3 value:317 18 19 // range20 for i in 0..&lt;3 {21     println(i)22 }23 // 024 // 125 // 2This works for built in types but how can we use the for..in with our own classes? We have to add the SequenceType protocol to our class.1 // Initial attempt2 extension Cats : SequenceType {3     func generate() -&gt; Generator {4         5     }6 }We have to return a Generator. A Generator has to conform to the GeneratorType protocol which has only one method, next(). 1 struct List&lt;T&gt; : GeneratorType { 2   var currentNode : List&lt;T&gt; 3  4   init(head: List&lt;T&gt;) { 5     currentNode = head 6   } 7  8   mutating func next() -&gt; T? { 9     switch currentNode {10     case let cons as List&lt;T&gt;:11       currentNode = cons.next12       return cons.value13     default:14       return nil15     }16   }17 }",
+  "date"    : "February  2, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2015/02/01/learn-react-part-5-refs",
   "title"   : "Learn React Part 5: Refs",
   "category": "javascript",
