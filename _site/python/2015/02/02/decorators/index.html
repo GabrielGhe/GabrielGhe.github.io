@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Regular Expressions</title>
+    <title>Decorators</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -117,38 +117,39 @@
         
 <div class="page-header">
   <h1>
-    <i class="icon-python" style="font-size:2em"></i> Regular Expressions 
+    <i class="icon-python" style="font-size:2em"></i> Decorators 
 </h1>
 </div>
 
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>16 January 2015</span>
+      <span>02 February 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>In this post, I will be talking about python’s regular expression module called <code>re</code>. I’ll mainly give examples. More information can be found here <a href="https://developers.google.com/edu/python/regular-expressions">here</a>.</p>
+<p>Decorators allow you to modify a function when it gets called. It’s used for things like memoization that keeps track of return statements. You can find more information <a href="http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/">here</a>.</p>
 
-<!-- Examples -->
-<h3>Examples</h3>
-
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="kn">import</span> <span class="nn">re</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> <span class="c"># look for &#39;thing&#39; in the string &#39;that thing&#39;</span>
-<span class="lineno"> 4</span> <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r&#39;thing&#39;</span><span class="p">,</span> <span class="s">&#39;that thing&#39;</span><span class="p">)</span>
-<span class="lineno"> 5</span> <span class="c"># match.group() == &#39;thing&#39;</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="k">def</span> <span class="nf">makebold</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+<span class="lineno"> 2</span>     <span class="k">return</span> <span class="k">lambda</span><span class="p">:</span> <span class="s">&quot;&lt;b&gt;&quot;</span> <span class="o">+</span> <span class="n">fn</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;&lt;/b&gt;&quot;</span>
+<span class="lineno"> 3</span> 
+<span class="lineno"> 4</span> <span class="k">def</span> <span class="nf">makeitalic</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+<span class="lineno"> 5</span>     <span class="k">return</span> <span class="k">lambda</span><span class="p">:</span> <span class="s">&quot;&lt;i&gt;&quot;</span> <span class="o">+</span> <span class="n">fn</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;&lt;/i&gt;&quot;</span>
 <span class="lineno"> 6</span> 
-<span class="lineno"> 7</span> <span class="c"># look for &#39;thig&#39; in the string &#39;that thing&#39;</span>
-<span class="lineno"> 8</span> <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r&#39;thig&#39;</span><span class="p">,</span> <span class="s">&#39;that thing&#39;</span><span class="p">)</span>
-<span class="lineno"> 9</span> <span class="c"># match == None</span>
-<span class="lineno">10</span> 
-<span class="lineno">11</span> <span class="c"># . = any character except \n</span>
-<span class="lineno">12</span> <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r&#39;..d+&#39;</span><span class="p">,</span> <span class="s">&#39;abcdd&#39;</span><span class="p">)</span>
-<span class="lineno">13</span> <span class="c"># match.group() == &#39;bcdd&#39;</span></code></pre></div>
+<span class="lineno"> 7</span> <span class="nd">@makebold</span>
+<span class="lineno"> 8</span> <span class="nd">@makeitalic</span>
+<span class="lineno"> 9</span> <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+<span class="lineno">10</span>     <span class="k">return</span> <span class="s">&quot;hello world&quot;</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span> <span class="n">hello</span><span class="p">()</span>
+<span class="lineno">13</span> <span class="c"># &quot;&lt;b&gt;&lt;i&gt;hello world&lt;/i&gt;&lt;/b&gt;&quot;</span>
+<span class="lineno">14</span> <span class="c"># &quot;&lt;b&gt;&quot; + (&quot;&lt;i&gt;&quot; + fn() + &quot;&lt;/i&gt;&quot;) + &quot;&lt;/b&gt;&quot;</span>
+<span class="lineno">15</span> 
+<span class="lineno">16</span> 
+<span class="lineno">17</span> <span class="k">print</span> <span class="n">hello</span><span class="p">()</span> <span class="c">## returns &lt;b&gt;&lt;i&gt;hello world&lt;/i&gt;&lt;/b&gt;</span></code></pre></div>
 
     </div>
 
@@ -180,9 +181,7 @@
 
   
      
-    	<li><a href="/tags.html#python-ref">python <span>2</span></a></li>
-     
-    	<li><a href="/tags.html#regex-ref">regex <span>1</span></a></li>
+    	<li><a href="/tags.html#decorator-ref">decorator <span>1</span></a></li>
     
   
 
@@ -194,11 +193,11 @@
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/csharp/2015/01/12/windows-8-development-managing-states" title="Windows 8 development: Managing States">&laquo; Previous</a></li>
+      <li class="prev"><a href="/javascript/2015/02/01/learn-react-part-5-refs" title="Learn React Part 5: Refs">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/python/2015/01/17/generating-primes" title="Python Generating primes">Next &raquo;</a></li>
+      <li class="next"><a href="/python/2015/02/02/python2-vs-python3" title="Python2 vs Python3">Next &raquo;</a></li>
     
     </ul>
     <hr>

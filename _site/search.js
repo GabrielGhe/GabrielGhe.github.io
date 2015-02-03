@@ -13,6 +13,26 @@ temp = {
 data[temp.id] = temp;
 
 temp = {
+  "id"    : "/python/2015/02/02/python2-vs-python3",
+  "title"   : "Python2 vs Python3",
+  "category": "python",
+  "tags"    : "differences new version python3",
+  "content" : "OverviewThere is an amazing article that mentions the more important differences between the 2 versions of python. You can find it here.",
+  "date"    : "February  2, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
+  "id"    : "/python/2015/02/02/decorators",
+  "title"   : "Decorators",
+  "category": "python",
+  "tags"    : "decorator",
+  "content" : "OverviewDecorators allow you to modify a function when it gets called. It’s used for things like memoization that keeps track of return statements. You can find more information here. 1 def makebold(fn): 2     return lambda: &quot;&lt;b&gt;&quot; + fn() + &quot;&lt;/b&gt;&quot; 3  4 def makeitalic(fn): 5     return lambda: &quot;&lt;i&gt;&quot; + fn() + &quot;&lt;/i&gt;&quot; 6  7 @makebold 8 @makeitalic 9 def hello():10     return &quot;hello world&quot;11 12 hello()13 # &quot;&lt;b&gt;&lt;i&gt;hello world&lt;/i&gt;&lt;/b&gt;&quot;14 # &quot;&lt;b&gt;&quot; + (&quot;&lt;i&gt;&quot; + fn() + &quot;&lt;/i&gt;&quot;) + &quot;&lt;/b&gt;&quot;15 16 17 print hello() ## returns &lt;b&gt;&lt;i&gt;hello world&lt;/i&gt;&lt;/b&gt;",
+  "date"    : "February  2, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2015/02/01/learn-react-part-5-refs",
   "title"   : "Learn React Part 5: Refs",
   "category": "javascript",
