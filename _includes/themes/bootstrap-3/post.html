@@ -8,7 +8,7 @@
     </h1>
     </div>
     <div class="date">
-      <span>{{ page.date | date_to_long_string }}</span>
+      <span>{{ page.date | date: "%A, %B %e, %Y" }}</span>
     </div>
     <div class="content">
       {{ content }}

@@ -10,8 +10,8 @@ layout: page
         <i class="icon-{{ post.category }}" style="font-size:2em"></i> <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
       </h3>
       <!-- Date -->
-      <p>
-        {{ post.date | date: "%B %e, %Y" }}
+      <p class="date">
+        {{ post.date | date: "%A, %B %e, %Y" }}
       </p>
       <!-- END Date -->
       <!-- Category -->
