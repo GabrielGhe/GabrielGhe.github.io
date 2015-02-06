@@ -142,9 +142,6 @@ var SearchBar = React.createClass({
   render: function(){
     return (
         <div className="input-group">
-          <span className="input-group-addon">
-              <span className="glyphicon glyphicon-search"></span>
-          </span>
           <input  type="search"
                   id="q"
                   ref="q"
@@ -154,6 +151,9 @@ var SearchBar = React.createClass({
                   onBlur={this.onBlur}
                   onFocus={this.onFocus}
                   onChange={this.onChange} />
+          <span className="input-group-addon">
+              <span className="glyphicon glyphicon-search"></span>
+          </span>
           <SearchPostList data={this.state.data}
                           focused={this.state.focused}
                           hoverItem={this.hoverItem}
