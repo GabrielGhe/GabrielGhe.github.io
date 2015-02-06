@@ -1,5 +1,24 @@
 <div class="row">
-  <div class="col-xs-12">
+  <!-- Left Side -->
+  <div class="col-md-9">
     {{ content }}
   </div>
+  <!-- END Left Side -->
+
+  <!-- Right Side -->
+  <div class="col-md-3">
+    <h3>
+      Recent Posts
+    </h3>
+    <hr>
+    <ul class="posts">
+      {% for post in site.posts limit:5 %}
+      <li>
+         <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        <hr>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <!-- END Right Side -->
 </div>

@@ -1,12 +1,12 @@
-<div class="page-header">
-  <h1>
-    <i class="icon-{{ page.category }}" style="font-size:2em"></i> {{ page.title }} {% if page.tagline %}<small>{{page.tagline}}
-  </small>{% endif %}
-</h1>
-</div>
-
+<!-- Left Side -->
 <div class="row post-full">
-  <div class="col-xs-12">
+  <div class="col-md-9">
+    <div class="page-header">
+      <h1>
+        <i class="icon-{{ page.category }}" style="font-size:2em"></i> {{ page.title }} {% if page.tagline %}<small>{{page.tagline}}
+      </small>{% endif %}
+    </h1>
+    </div>
     <div class="date">
       <span>{{ page.date | date_to_long_string }}</span>
     </div>
@@ -44,7 +44,24 @@
       <li class="next disabled"><a>Next &rarr;</a>
     {% endif %}
     </ul>
-    <hr>
     {% include JB/comments %}
   </div>
+  <!-- END Left Side -->
+
+  <!-- Right Side -->
+  <div class="col-md-3">
+    <h3>
+      Recent Posts
+    </h3>
+    <hr>
+    <ul class="posts">
+      {% for post in site.posts limit:5 %}
+      <li>
+         <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        <hr>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <!-- END Right Side -->
 </div>

@@ -3,13 +3,17 @@ layout: page
 ---
 {% include JB/setup %}
 
-
 <ul class="posts">
   {% for post in paginator.posts %}
     <li>
       <h3>
         <i class="icon-{{ post.category }}" style="font-size:2em"></i> <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
       </h3>
+      <!-- Date -->
+      <p>
+        {{ post.date | date: "%B %e, %Y" }}
+      </p>
+      <!-- END Date -->
       <!-- Category -->
       <p>
         <b>Category</b>:
@@ -29,32 +33,25 @@ layout: page
         {% endif %}
       </p>
       <!-- END Tags -->
-      <!-- Date -->
-      <p>
-        <small>{{ post.date | date: "%B %e, %Y" }}</small>
-      </p>
       <hr>
-      <!-- END Date -->
     </li>
   {% endfor %}
 </ul>
+
 <ul class="pagination">
-{% if paginator.next_page %}
-  <li class="next"><a href="/page{{paginator.next_page}}" title="Older">Older</a></li>
-{% endif %}
-
-<li class="disabled">
-  <a>Page {{ paginator.page }}/{{ paginator.total_pages }}</a>
-</li>
-
-{% if paginator.previous_page %}
-  {% if paginator.previous_page == 1 %}
-    <li class="prev"><a href="/" title="Newer">Newer</a></li>
-  {% else %}
-    <li class="prev"><a href="/page{{paginator.previous_page}}" title="Newer">Newer</a></li>
+  {% if paginator.next_page %}
+    <li class="next"><a href="/page{{paginator.next_page}}" title="Older">Older</a></li>
   {% endif %}
-{% endif %}
 
+  <li class="disabled">
+    <a>Page {{ paginator.page }}/{{ paginator.total_pages }}</a>
+  </li>
+
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+      <li class="prev"><a href="/" title="Newer">Newer</a></li>
+    {% else %}
+      <li class="prev"><a href="/page{{paginator.previous_page}}" title="Newer">Newer</a></li>
+    {% endif %}
+  {% endif %}
 </ul>
-<hr>
-
