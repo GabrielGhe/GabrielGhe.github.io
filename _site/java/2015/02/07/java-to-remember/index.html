@@ -296,6 +296,90 @@
   <li>Complete Binary Tree: a binary tree with only last lvl possibly incomplete. We add to lowest lvl and right most</li>
 </ol>
 
+<!-- 
+#########################################
+#                   #
+#       Graph         #
+#                   #
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="graph"></a><a href="">4. Graph</a></h3>
+
+<p>Graphs are use for many things, such as Netorking and games for example.The 2 most famous algorithms for graphs are Depth First Search and Breath First Search</p>
+
+<p>GraphNode</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">class</span> <span class="nc">GraphNode</span><span class="o">{</span> 
+<span class="lineno"> 2</span>   <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
+<span class="lineno"> 3</span>   <span class="n">GraphNode</span> <span class="n">next</span><span class="o">;</span>
+<span class="lineno"> 4</span>   <span class="n">GraphNode</span><span class="o">[]</span> <span class="n">neighbors</span><span class="o">;</span>
+<span class="lineno"> 5</span>   <span class="kt">boolean</span> <span class="n">visited</span><span class="o">;</span>
+<span class="lineno"> 6</span>  
+<span class="lineno"> 7</span>   <span class="cm">/**</span>
+<span class="lineno"> 8</span> <span class="cm">   *  Constructor with value</span>
+<span class="lineno"> 9</span> <span class="cm">   */</span>
+<span class="lineno">10</span>   <span class="n">GraphNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">11</span>     <span class="n">val</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+<span class="lineno">12</span>   <span class="o">}</span>
+<span class="lineno">13</span>   
+<span class="lineno">14</span>   <span class="cm">/**</span>
+<span class="lineno">15</span> <span class="cm">   *  Constructor with value</span>
+<span class="lineno">16</span> <span class="cm">   *  and with neightbors</span>
+<span class="lineno">17</span> <span class="cm">   */</span>
+<span class="lineno">18</span>   <span class="n">GraphNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="n">GraphNode</span><span class="o">[]</span> <span class="n">n</span><span class="o">){</span>
+<span class="lineno">19</span>     <span class="n">val</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+<span class="lineno">20</span>     <span class="n">neighbors</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+<span class="lineno">21</span>   <span class="o">}</span>
+<span class="lineno">22</span>  
+<span class="lineno">23</span>   <span class="cm">/**</span>
+<span class="lineno">24</span> <span class="cm">   *  toString method</span>
+<span class="lineno">25</span> <span class="cm">   */</span>
+<span class="lineno">26</span>   <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
+<span class="lineno">27</span>     <span class="k">return</span> <span class="s">&quot;value: &quot;</span><span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">val</span><span class="o">;</span> 
+<span class="lineno">28</span>   <span class="o">}</span>
+<span class="lineno">29</span> <span class="o">}</span></code></pre></div>
+
+<p>Breath First Search (live implementation from MIT <a href="http://www.youtube.com/watch?v=s-CYnVz-uh4&amp;t=2055">here</a>)</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Node</span> <span class="nf">bfs</span><span class="o">(</span><span class="n">Node</span> <span class="n">root</span><span class="o">,</span> <span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 2</span>   <span class="c1">// Queue is abstract, use an implementation of queue</span>
+<span class="lineno"> 3</span>   <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;();</span>
+<span class="lineno"> 4</span>   <span class="n">Node</span> <span class="n">returnValue</span><span class="o">;</span>
+<span class="lineno"> 5</span>   <span class="n">q</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
+<span class="lineno"> 6</span>   
+<span class="lineno"> 7</span>   <span class="k">while</span> <span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+<span class="lineno"> 8</span>     <span class="n">Node</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">dequeue</span><span class="o">();</span>
+<span class="lineno"> 9</span>     <span class="k">if</span> <span class="o">(</span><span class="n">temp</span><span class="o">.</span><span class="na">value</span> <span class="o">==</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">10</span>       <span class="n">returnValue</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+<span class="lineno">11</span>       <span class="k">break</span><span class="o">;</span>
+<span class="lineno">12</span>     <span class="o">}</span>
+<span class="lineno">13</span>     <span class="k">for</span> <span class="o">(</span><span class="n">Node</span> <span class="n">adj</span> <span class="o">:</span> <span class="n">temp</span><span class="o">.</span><span class="na">adjecent</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">14</span>       <span class="n">q</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="n">adj</span><span class="o">);</span>
+<span class="lineno">15</span>     <span class="o">}</span>
+<span class="lineno">16</span>   <span class="o">}</span>
+<span class="lineno">17</span>   <span class="k">return</span> <span class="n">returnValue</span><span class="o">;</span>
+<span class="lineno">18</span> <span class="o">}</span></code></pre></div>
+
+<p>Depth First Search (live implementation from MIT <a href="http://www.youtube.com/watch?v=AfSk24UTFS8&amp;t=250">here</a>)</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Node</span> <span class="nf">dfs</span><span class="o">(</span><span class="n">Node</span> <span class="n">root</span><span class="o">,</span> <span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 2</span>   <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;();</span>
+<span class="lineno"> 3</span>   <span class="n">Node</span> <span class="n">returnValue</span><span class="o">;</span>
+<span class="lineno"> 4</span>   <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
+<span class="lineno"> 5</span>   
+<span class="lineno"> 6</span>   <span class="k">while</span> <span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+<span class="lineno"> 7</span>     <span class="n">Node</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+<span class="lineno"> 8</span>     <span class="k">if</span> <span class="o">(</span><span class="n">temp</span><span class="o">.</span><span class="na">value</span> <span class="o">==</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 9</span>       <span class="n">returnValue</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+<span class="lineno">10</span>       <span class="k">break</span><span class="o">;</span>
+<span class="lineno">11</span>     <span class="o">}</span>
+<span class="lineno">12</span>     <span class="k">for</span> <span class="o">(</span><span class="n">Node</span> <span class="n">adj</span> <span class="o">:</span> <span class="n">temp</span><span class="o">.</span><span class="na">adjecent</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">13</span>       <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">adj</span><span class="o">);</span>
+<span class="lineno">14</span>     <span class="o">}</span>
+<span class="lineno">15</span>   <span class="o">}</span>
+<span class="lineno">16</span>   <span class="k">return</span> <span class="n">returnValue</span><span class="o">;</span>
+<span class="lineno">17</span> <span class="o">}</span></code></pre></div>
 
     </div>
 

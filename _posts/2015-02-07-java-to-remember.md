@@ -187,3 +187,95 @@ class TreeNode {
 4. Perfect Binary Tree: a full binary tree + all leaves same depth + parents have 2 children
 5. Complete Binary Tree: a binary tree with only last lvl possibly incomplete. We add to lowest lvl and right most
 
+
+<!-- 
+#########################################
+#                   #
+#       Graph         #
+#                   #
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="graph"></a><a href="">4. Graph</a></h3>
+
+Graphs are use for many things, such as Netorking and games for example.The 2 most famous algorithms for graphs are Depth First Search and Breath First Search
+
+GraphNode
+
+{% highlight java linenos %}
+class GraphNode{ 
+  int val;
+  GraphNode next;
+  GraphNode[] neighbors;
+  boolean visited;
+ 
+  /**
+   *  Constructor with value
+   */
+  GraphNode(int x) {
+    val = x;
+  }
+  
+  /**
+   *  Constructor with value
+   *  and with neightbors
+   */
+  GraphNode(int x, GraphNode[] n){
+    val = x;
+    neighbors = n;
+  }
+ 
+  /**
+   *  toString method
+   */
+  public String toString(){
+    return "value: "+ this.val; 
+  }
+}
+{% endhighlight %}
+
+Breath First Search (live implementation from MIT [here](http://www.youtube.com/watch?v=s-CYnVz-uh4&t=2055))
+
+
+{% highlight java linenos %}
+public static Node bfs(Node root, int value) {
+  // Queue is abstract, use an implementation of queue
+  Queue<Node> q = new Queue<Node>();
+  Node returnValue;
+  q.enqueue(root);
+  
+  while (!q.isEmpty()) {
+    Node temp = q.dequeue();
+    if (temp.value == value) {
+      returnValue = temp;
+      break;
+    }
+    for (Node adj : temp.adjecent) {
+      q.enqueue(adj);
+    }
+  }
+  return returnValue;
+}
+{% endhighlight %}
+
+Depth First Search (live implementation from MIT [here](http://www.youtube.com/watch?v=AfSk24UTFS8&t=250))
+  
+{% highlight java linenos %}
+public static Node dfs(Node root, int value) {
+  Stack<Node> s = new Stack<Node>();
+  Node returnValue;
+  s.push(root);
+  
+  while (!q.isEmpty()) {
+    Node temp = s.pop();
+    if (temp.value == value) {
+      returnValue = temp;
+      break;
+    }
+    for (Node adj : temp.adjecent) {
+      s.push(adj);
+    }
+  }
+  return returnValue;
+}
+{% endhighlight %}
