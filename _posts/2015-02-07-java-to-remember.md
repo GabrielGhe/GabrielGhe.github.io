@@ -564,3 +564,473 @@ try(Scanner scan = new Scanner(new File("myText.txt") ) ){
 }
 {% endhighlight %}
 <!-- /Code -->
+
+<!-- 
+#########################################
+#
+#     Sockets
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="sockets"></a><a href="">12. Sockets</a></h3>
+
+Server that listens for a connection, writes the date and closes connection
+
+<!-- Code -->
+{% highlight java linenos %}
+//Server
+ServerSocket listener = new ServerSocket(9090);
+try {
+    while (true) {
+        Socket socket = listener.accept();
+        try {
+            ObjectOutputStream out =
+                new ObjectOutputStream(socket.getOutputStream());
+            out.writeObject("Hi there");
+        } finally {
+            socket.close();
+        }
+    }
+}
+finally {
+    listener.close();
+}
+
+
+//Client the data is sent through serialization
+//to send objects, they must be serializable
+Socket s = new Socket(serverAddress, 9090);
+try{
+  ObjectInputStream input = new ObjectInputStream(s.getInputStream());
+  String answer = (String)input.readObject();
+} catch(ClassCastException cce){
+  cce.printStackTrace();
+} finally {
+  s.close();
+}
+
+//On mac, you can open a terminal and write "nc localhost 9090" to connect to server socket
+{% endhighlight %}
+<!-- /Code -->
+
+<!-- 
+#########################################
+#
+#     Regex
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="regex"></a><a href="">13. Regex</a></h3>
+
+The full documentation can be found here [Docs](http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html)
+
+<!-- Code -->
+{% highlight java linenos %}
+//Long way, that can be reused
+Pattern p = Pattern.compile("a*b");
+Matcher m = p.matcher("aaaab");
+boolean b = m.matches();
+
+//shorthand
+boolean b = Pattern.matches("a*b", "aaaaab");
+{% endhighlight %}
+<!-- /Code -->
+
+**Regular-expression constructs**
+
+<table>
+  <tr>
+    <td>[abc]</td>
+    <td>a, b, or c (simple class)</td>
+  </tr>
+  
+  <!-- 2 -->
+  <tr>
+    <td>
+      [^abc]
+    </td>
+    <td>
+      Any character except a, b, or c (negation)
+    </td>
+  </tr>
+  
+  <!-- 3 -->
+  <tr>
+    <td>
+      [a-zA-Z]
+    </td>
+    <td>
+      a through z or A through Z, inclusive (range)
+    </td>
+  </tr>
+  
+  <!-- 4 -->
+  <tr>
+    <td>
+      [a-d[m-p]]
+    </td>
+    <td>
+      a through d, or m through p: [a-dm-p] (union)
+    </td>
+  </tr>
+  
+  <!-- 5 -->
+  <tr>
+    <td>
+      [a-z&&[def]]
+    </td>
+    <td>
+      d, e, or f (intersection)
+    </td>
+  </tr>
+  
+  <!-- 6 -->
+  <tr>
+    <td>
+      [a-z&&[^bc]]
+    </td>
+    <td>
+      a through z, except for b and c: [ad-z] (subtraction)
+    </td>
+  </tr>
+  
+  <!-- 7 -->
+  <tr>
+    <td>
+      [a-z&&[^m-p]]
+    </td>
+    <td>
+      a through z, and not m through p: [a-lq-z](subtraction)
+    </td>
+  </tr>
+</table>
+
+**Predefined character classes**
+
+<table>
+  <!-- 1 -->
+  <tr>
+    <td>
+      .
+    </td>
+    <td>
+      Any character (may or may not match line terminators)
+    </td>
+  </tr>
+  
+  <!-- 2 -->
+  <tr>
+    <td>
+      \d
+    </td>
+    <td>
+      A digit: [0-9]
+    </td>
+  </tr>
+  
+  <!-- 3 -->
+  <tr>
+    <td>
+      \D
+    </td>
+    <td>
+      A non-digit: [^0-9]
+    </td>
+  </tr>
+  
+  <!-- 4 -->
+  <tr>
+    <td>
+      \s
+    </td>
+    <td>
+      A whitespace character: [ \t\n\x0B\f\r]
+    </td>
+  </tr>
+  
+  <!-- 5 -->
+  <tr>
+    <td>
+      \S
+    </td>
+    <td>
+      A non-whitespace character: [^\s]
+    </td>
+  </tr>
+  
+  <!-- 6 -->
+  <tr>
+    <td>
+      \w
+    </td>
+    <td>
+      A word character: [a-zA-Z_0-9]
+    </td>
+  </tr>
+  
+  <!-- 7 -->
+  <tr>
+    <td>
+      \W
+    </td>
+    <td>
+      A non-word character: [^\w]
+    </td>
+  </tr>
+</table>
+
+
+<p><b>Greedy quantifiers</b></p>
+
+<table>
+  <!-- 1 -->
+  <tr>
+    <td>
+      X?
+    </td>
+    <td>
+      X, once or not at all
+    </td>
+  </tr>
+  
+  <!-- 2 -->
+  <tr>
+    <td>
+      X*
+    </td>
+    <td>
+      X, zero or more times
+    </td>
+  </tr>
+  
+  <!-- 3 -->
+  <tr>
+    <td>
+      X+
+    </td>
+    <td>
+      X, one or more times
+    </td>
+  </tr>
+  
+  <!-- 4 -->
+  <tr>
+    <td>
+      X{n}
+    </td>
+    <td>
+      X, exactly n times
+    </td>
+  </tr>
+  
+  <!-- 5 -->
+  <tr>
+    <td>
+      X{n,}
+    </td>
+    <td>
+      X, at least n times
+    </td>
+  </tr>
+  
+  <!-- 6 -->
+  <tr>
+    <td>
+      X{n,m}
+    </td>
+    <td>
+      X, at least n but not more than m times
+    </td>
+  </tr>
+</table>
+
+
+<!-- 
+#########################################
+#
+#     Formatting
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="formatting"></a><a href="">14. Formatting</a></h3>
+
+Full article can be found [here](http://examples.javacodegeeks.com/core-java/lang/string/java-string-format-example/).
+
+**Strings**
+
+<table>
+  <tr>
+    <td>Code</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>%s</td>
+    <td>will print the string as it is.</td>
+  </tr>
+  <tr>
+    <td>%15s</td>
+    <td>will print the string as it is. If the string has less than 15 characters, the output will be padded on the left.</td>
+  </tr>
+  <tr>
+    <td>%-6s</td>
+    <td>will print the string as it is. If the string has less than 6 characters, the output will be padded on the left.</td>
+  </tr>
+  <tr>
+    <td>%.8s</td>
+    <td>will print maximum 8 characters of the string.</td>
+  </tr>
+</table>
+
+<!-- Code -->
+{% highlight java linenos %}
+// Padding left
+System.out.printf("%10s %10s\n", "hello", "world");
+
+// Padding right
+System.out.printf("%-10s %-10s\n", "hello", "world");
+
+// As is
+System.out.printf("%s %s\n", "hello", "world");
+
+// Max 2 characters
+System.out.printf("%.2s %.2s\n", "hello", "world");
+
+/*
+     hello      world
+hello      world     
+hello world
+he wo    
+*/
+{% endhighlight %}
+<!-- /Code -->
+
+**Integers**
+
+<table>
+  <tr>
+    <td>Code</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>%d</td>
+    <td>will print the integer as it is.</td>
+  </tr>
+  <tr>
+    <td>%6d</td>
+    <td>will print the integer as it is. If the number of digits is less than 6, the output will be padded on the left.</td>
+  </tr>
+  <tr>
+    <td>%-6d</td>
+    <td>will print the integer as it is. If the number of digits is less than 6, the output will be padded on the right.</td>
+  </tr>
+  <tr>
+    <td>%06d</td>
+    <td>will print the integer as it is. If the number of digits is less than 6, the output will be padded on the left with zeroes.</td>
+  </tr>
+</table>
+
+<!-- Code -->
+{% highlight java linenos %}
+// Padding left
+System.out.printf("%10d %10d\n", 12345, 54321);
+
+// Padding right
+System.out.printf("%-10d %-10d\n", 12345, 54321);
+
+// As is
+System.out.printf("%d %d\n", 12345, 54321);
+
+// fill rest of 10 digits with 0s
+System.out.printf("%010d %010d\n", 12345, 54321);
+
+/*
+     12345      54321
+12345      54321     
+12345 54321
+0000012345 0000054321
+*/
+{% endhighlight %}
+<!-- /Code -->
+
+**Floats**
+
+<table>
+  <tr>
+    <td>Code</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>%f</td>
+    <td>will print the number as it is.</td>
+  </tr>
+  <tr>
+    <td>%15f</td>
+    <td>will print the number as it is. If the number has less than 15 digits, the output will be padded on the left.</td>
+  </tr>
+  <tr>
+    <td>%.8f</td>
+    <td>will print maximum 8 decimal digits of the number.</td>
+  </tr>
+  <tr>
+    <td>%9.4f</td>
+    <td>will print maximum 4 decimal digits of the number. The output will occupy 9 characters at least. If the number of digits is not enough, it will be padded</td>
+  </tr>
+</table>
+
+<!-- Code -->
+{% highlight java linenos %}
+// Padding left
+System.out.printf("%14f %14f\n", 123.456789, 987.654321);
+
+// Padding right
+System.out.printf("%-14f %-14f\n", 123.456789, 987.654321);
+
+// As is
+System.out.printf("%f %f\n", 123.456789, 987.654321);
+
+// 3 digit Precision + left padding 
+System.out.printf("%14.3f %14.3f\n", 123.456789, 987.654321);
+
+/*
+    123.456789     987.654321
+123.456789     987.654321    
+123.456789 987.654321
+       123.457        987.654
+*/
+{% endhighlight %}
+<!-- /Code -->
+
+
+<!-- 
+#########################################
+#
+#     HashMap
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="hashmap"></a><a href="">15. HashMap</a></h3>
+
+HashMaps & HashTables allow inserts, deletes and gets at O(1).
+HashTables are synchronized while HashMaps are not. HashTables do not allow null keys or values.
+HashMaps allows 1 null key and unlimited null values.
+Source: [here](http://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable)
+
+<!-- Code -->
+{% highlight java linenos %}
+HashMap<String, Integer> map = new HashMap<String, Integer>();
+map.put("a", 1); // { a:1 }
+map.put("b", 2); // { a:1, b:2 }
+map.put("c", 3); // { a:1, b:2, c:3 }
+
+map.get("a");    // 1
+map.containsKey("d"); // false
+map.values();    // [1, 2, 3]
+map.keySet();    // ["a", "b", "c"]
+map.remove("a"); // { b:2, c:3 }
+map.clear();     // {}
+{% endhighlight %}
+<!-- /Code -->
