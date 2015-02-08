@@ -429,3 +429,23 @@ public static int f3(int n) {
 }
 {% endhighlight %}
 <!-- /Code -->
+
+
+<!-- 
+#########################################
+#
+#     Bit Manipulation
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="bit-manipulation"></a><a href="">8. Bit Manipulation</a></h3>
+<p>Bit operators</p>
+
+| Operation name | Java symbol | Example | Result | Explanation                           |
+|----------------|-------------|---------|--------|---------------------------------------|
+| AND            | &           | 7 & 5   | 5      | 111 & 101 = 101                       |
+| OR             | \|          | 8 \| 3  | 11     | 1000 \| 0011 = 1011                   |
+| XOR            | ^           | 15 ^ 5  | 10     | 1111 ^ 0101 = 1010                    |
+| Right Shift    | >>          | 7 >> 1  | 3      | 111 >> 1 = 011                        |
+| Not            | ~           | ~0      | -1     | ~000 = 111 which is 2's complement -1 |
