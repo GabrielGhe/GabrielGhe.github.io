@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/javascript/2015/02/07/closures-and-the-context",
+  "title"   : "Closures and the Context",
+  "category": "javascript",
+  "tags"    : "js closures context function",
+  "content" : "OverviewClosures are a very interesting feature of JavaScript. To understand how they really work, you must read this amazing article by Gustavo Duarte. You can find it here. ",
+  "date"    : "February  7, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/swift/2015/02/02/sequences-and-generators",
   "title"   : "Sequences and Generators",
   "category": "swift",
