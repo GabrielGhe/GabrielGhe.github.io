@@ -421,10 +421,10 @@ public static int f3(int n) {
   if (n <= 2)
     A[n]= n;
  
-  if(A[n] > 0)
-    return A[n];
+  if (A[n] > 0)
+      return A[n];
   else
-    A[n] = f3(n-1) + f3(n-2); //store results so only calculate once!
+      A[n] = f3(n-1) + f3(n-2); //store results so only calculate once!
   return A[n];
 }
 {% endhighlight %}
@@ -449,3 +449,68 @@ public static int f3(int n) {
 | XOR            | ^           | 15 ^ 5  | 10     | 1111 ^ 0101 = 1010                    |
 | Right Shift    | >>          | 7 >> 1  | 3      | 111 >> 1 = 011                        |
 | Not            | ~           | ~0      | -1     | ~000 = 111 which is 2's complement -1 |
+
+<!-- 
+#########################################
+#
+#     Probability
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="probability"></a><a href="">9. Probability</a></h3>
+
+There are 50 people in a room, what’s the probability that two people have the same birthday? (Ignoring the fact of leap year, i.e., 365 day every year)
+
+<!-- Code -->
+{% highlight java linenos %}
+public static double caculateProbability(int n){
+  double x = 1; 
+ 
+  for (int i=0; i<n; i++) {
+    x *=  (365.0-i)/365.0;
+  }
+ 
+  double pro = Math.round((1-x) * 100);
+  return pro/100;
+}
+{% endhighlight %}
+<!-- /Code -->
+
+<!-- 
+#########################################
+#
+#     Combinations and Permutations
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="combinations-and-permutations"></a><a href="">10. Combinations and Permutations</a></h3>
+
+1. If the order doesn't matter, it is a Combination... 1234 same as 4321
+2. If the order matters, it is a Permutation... 1234 != 2134
+
+Permutation
+
+<!-- Code -->
+{% highlight java linenos %}
+public static void perm(int[] list, int pos){
+  if (pos == list.length) {
+    System.out.println( Arrays.toString(list) );
+  } else {
+    for(int i=pos; i < list.length; ++i){
+      swap(list, i, pos);
+      perm(list, pos + 1);
+      swap(list, i, pos);
+    }
+  }
+}
+
+public static final <T> void swap (T[] a, int i, int j) {
+  T t = a[i];
+  a[i] = a[j];
+  a[j] = t;
+}
+{% endhighlight %}
+<!-- /Code -->
+

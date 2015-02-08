@@ -602,10 +602,10 @@
 <span class="lineno"> 4</span>   <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="o">)</span>
 <span class="lineno"> 5</span>     <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">]=</span> <span class="n">n</span><span class="o">;</span>
 <span class="lineno"> 6</span>  
-<span class="lineno"> 7</span>   <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span>
-<span class="lineno"> 8</span>     <span class="k">return</span> <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+<span class="lineno"> 7</span>   <span class="k">if</span> <span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span>
+<span class="lineno"> 8</span>       <span class="k">return</span> <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
 <span class="lineno"> 9</span>   <span class="k">else</span>
-<span class="lineno">10</span>     <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">=</span> <span class="n">f3</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">f3</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="o">);</span> <span class="c1">//store results so only calculate once!</span>
+<span class="lineno">10</span>       <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">=</span> <span class="n">f3</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">f3</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="o">);</span> <span class="c1">//store results so only calculate once!</span>
 <span class="lineno">11</span>   <span class="k">return</span> <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
 <span class="lineno">12</span> <span class="o">}</span></code></pre></div>
 
@@ -670,6 +670,73 @@
     </tr>
   </tbody>
 </table>
+
+<!-- 
+#########################################
+#
+#     Probability
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="probability"></a><a href="">9. Probability</a></h3>
+
+<p>There are 50 people in a room, what’s the probability that two people have the same birthday? (Ignoring the fact of leap year, i.e., 365 day every year)</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">caculateProbability</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
+<span class="lineno"> 2</span>   <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> 
+<span class="lineno"> 3</span>  
+<span class="lineno"> 4</span>   <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+<span class="lineno"> 5</span>     <span class="n">x</span> <span class="o">*=</span>  <span class="o">(</span><span class="mf">365.0</span><span class="o">-</span><span class="n">i</span><span class="o">)/</span><span class="mf">365.0</span><span class="o">;</span>
+<span class="lineno"> 6</span>   <span class="o">}</span>
+<span class="lineno"> 7</span>  
+<span class="lineno"> 8</span>   <span class="kt">double</span> <span class="n">pro</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">round</span><span class="o">((</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">)</span> <span class="o">*</span> <span class="mi">100</span><span class="o">);</span>
+<span class="lineno"> 9</span>   <span class="k">return</span> <span class="n">pro</span><span class="o">/</span><span class="mi">100</span><span class="o">;</span>
+<span class="lineno">10</span> <span class="o">}</span></code></pre></div>
+
+<!-- /Code -->
+
+<!-- 
+#########################################
+#
+#     Combinations and Permutations
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="combinations-and-permutations"></a><a href="">10. Combinations and Permutations</a></h3>
+
+<ol>
+  <li>If the order doesn’t matter, it is a Combination… 1234 same as 4321</li>
+  <li>If the order matters, it is a Permutation… 1234 != 2134</li>
+</ol>
+
+<p>Permutation</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">perm</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="o">){</span>
+<span class="lineno"> 2</span>   <span class="k">if</span> <span class="o">(</span><span class="n">pos</span> <span class="o">==</span> <span class="n">list</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 3</span>     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">list</span><span class="o">)</span> <span class="o">);</span>
+<span class="lineno"> 4</span>   <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+<span class="lineno"> 5</span>     <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">pos</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">list</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">){</span>
+<span class="lineno"> 6</span>       <span class="n">swap</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">pos</span><span class="o">);</span>
+<span class="lineno"> 7</span>       <span class="n">perm</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+<span class="lineno"> 8</span>       <span class="n">swap</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">pos</span><span class="o">);</span>
+<span class="lineno"> 9</span>     <span class="o">}</span>
+<span class="lineno">10</span>   <span class="o">}</span>
+<span class="lineno">11</span> <span class="o">}</span>
+<span class="lineno">12</span> 
+<span class="lineno">13</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">swap</span> <span class="o">(</span><span class="n">T</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">14</span>   <span class="n">T</span> <span class="n">t</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+<span class="lineno">15</span>   <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+<span class="lineno">16</span>   <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">t</span><span class="o">;</span>
+<span class="lineno">17</span> <span class="o">}</span></code></pre></div>
+
+<!-- /Code -->
+
 
     </div>
 
