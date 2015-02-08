@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/java/2015/02/07/java-to-remember",
+  "title"   : "Java To Remember",
+  "category": "java",
+  "tags"    : "string tree graph sorting bit manipulation regex hashmap socket file",
+  "content" : "OverviewThis post is a little different. I’m going to be turning my JavaToRemember Repo into a post so that it’s easier to search. You can find more information here.Credits to source article here… http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/Table of content  String  Linked List  Tree  Graph  Sorting  Recursion and iteration  Dynamic Programming  Bit Manipulation  Probability  Combinations and Permutations  Files  Sockets  Regex  Formating  HashMap",
+  "date"    : "February  7, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2015/02/07/closures-and-the-context",
   "title"   : "Closures and the Context",
   "category": "javascript",
