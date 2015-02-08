@@ -221,3 +221,7 @@ a.label {
 .post-full tr:nth-child(even) {
   background-color: #eee;
 }
+
+.highlight {
+  margin:40px 0px;
+}
