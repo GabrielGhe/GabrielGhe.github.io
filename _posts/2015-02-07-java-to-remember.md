@@ -73,3 +73,88 @@ class Node {
   }
 }
 {% endhighlight %}
+
+Stack implementation using the Linked List data structure
+
+{% highlight java linenos %}
+class Stack{
+  Node top; 
+  
+  /**
+   *  Default constructor
+   */
+  public Stack(){}    
+  
+
+  /**
+   *  Method that returns top node
+   *  without removing it
+   */
+  public Node peek(){
+    if(top != null){
+      return top;
+    }
+    return null;
+  }
+  
+  /**
+   *  Method used to remove and
+   *  return top node
+   */
+  public Node pop(){
+    if(top == null){
+      return null;
+    } else {
+      Node temp = new Node(top.val);
+      top = top.next;
+      return temp;  
+    }
+  }
+  
+  /** 
+   *  Method to add Node
+   *  to the top of the Stack
+   */
+  public void push(Node n){
+    if(n != null){
+      n.next = top;
+      top = n;
+    }
+  }
+}
+{% endhighlight %}
+
+Queue implementation using the Linked List data structure
+
+{% highlight java linenos %}
+class Queue {
+  Node first, last;
+  
+  /**
+   *  Push an element to the back
+   *  of the queue
+   */
+  public void enqueue(Node n){
+    if(first == null){
+      first = n;
+      last = first;
+    } else {
+      last.next = n;
+      last = n;
+    }
+  }
+ 
+  /**
+   *  Remove element at the front
+   */
+  public Node dequeue(){
+    if(first == null){
+      return null;
+    } else {
+      Node temp = new Node(first.val);
+      first = first.next;
+      return temp;
+    } 
+  }
+}
+{% endhighlight %}
