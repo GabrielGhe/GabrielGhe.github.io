@@ -155,6 +155,7 @@
 #
 #########################################
 -->
+<p><br /><br /><br /></p>
 <h3><a name="string"></a><a href="">1. String</a></h3>
 
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">()</span>             <span class="c1">// [&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]</span>
@@ -173,6 +174,7 @@
 #
 #########################################
 -->
+<p><br /><br /><br /></p>
 <h3><a name="linked-list"></a><a href="">2. Linked List</a></h3>
 
 <p>The node class which is the “element” of a linked list</p>
@@ -267,6 +269,33 @@
 <span class="lineno">28</span>     <span class="o">}</span> 
 <span class="lineno">29</span>   <span class="o">}</span>
 <span class="lineno">30</span> <span class="o">}</span></code></pre></div>
+
+<!-- 
+#########################################
+#
+#       Tree
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="tree"></a><a href="">3. Tree</a></h3>
+<p>The tree class here is for the binary tree</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="kd">class</span> <span class="nc">TreeNode</span> <span class="o">{</span>
+<span class="lineno">2</span>   <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
+<span class="lineno">3</span>   <span class="n">TreeNode</span> <span class="n">parent</span><span class="o">;</span>
+<span class="lineno">4</span>   <span class="n">TreeNode</span> <span class="n">left</span><span class="o">;</span>
+<span class="lineno">5</span>   <span class="n">TreeNode</span> <span class="n">right</span><span class="o">;</span>
+<span class="lineno">6</span> <span class="o">}</span></code></pre></div>
+
+<ol>
+  <li>Binary Search Tree: for all nodes, left children &lt;= current node &lt;= right children</li>
+  <li>Balanced vs. Unbalanced: In a balanced tree, the depth of the sibling tree’s can differ max by 1</li>
+  <li>Full Binary Tree: every node other than the leaves has two children.</li>
+  <li>Perfect Binary Tree: a full binary tree + all leaves same depth + parents have 2 children</li>
+  <li>Complete Binary Tree: a binary tree with only last lvl possibly incomplete. We add to lowest lvl and right most</li>
+</ol>
+
 
     </div>
 

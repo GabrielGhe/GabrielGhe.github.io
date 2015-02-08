@@ -38,6 +38,7 @@ Credits to source article here... <a>http://www.programcreek.com/2012/11/top-10-
 #
 #########################################
 -->
+<br /><br /><br />
 <h3><a name="string"></a><a href="">1. String</a></h3>
 {% highlight java linenos %}
 "Hello".toCharArray()             // ['H', 'e', 'l', 'l', 'o']
@@ -58,6 +59,7 @@ Arrays.toString(char[] a)         // convert to string
 #
 #########################################
 -->
+<br /><br /><br />
 <h3><a name="linked-list"></a><a href="">2. Linked List</a></h3>
 
 The node class which is the "element" of a linked list
@@ -158,3 +160,30 @@ class Queue {
   }
 }
 {% endhighlight %}
+
+<!-- 
+#########################################
+#
+#       Tree
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="tree"></a><a href="">3. Tree</a></h3>
+<p>The tree class here is for the binary tree</p>
+
+{% highlight java linenos %}
+class TreeNode {
+  int value;
+  TreeNode parent;
+  TreeNode left;
+  TreeNode right;
+}
+{% endhighlight %}
+
+1. Binary Search Tree: for all nodes, left children <= current node <= right children
+2. Balanced vs. Unbalanced: In a balanced tree, the depth of the sibling tree's can differ max by 1
+3. Full Binary Tree: every node other than the leaves has two children.
+4. Perfect Binary Tree: a full binary tree + all leaves same depth + parents have 2 children
+5. Complete Binary Tree: a binary tree with only last lvl possibly incomplete. We add to lowest lvl and right most
+
