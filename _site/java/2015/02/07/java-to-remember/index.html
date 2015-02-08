@@ -573,6 +573,44 @@
 
 <!-- /Code -->
 
+<!-- 
+#########################################
+#
+#   DYNAMIC PROGRAMMING
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="dynamic-programming"></a><a href="">7. Dynamic programming</a></h3>
+
+<p>Dynamic programming is a technique for solving problems with the following properties:</p>
+
+<ol>
+  <li>An instance is solved using the solutions for smaller instances.</li>
+  <li>The solution for a smaller instance might be needed multiple times.</li>
+  <li>The solutions to smaller instances are stored in a table, so that each smaller instance is solved only once.</li>
+  <li>Additional space is used to save time.</li>
+</ol>
+
+<p>The problem of climbing steps perfectly fit those 4 properties. Therefore, it can be solve by using dynamic programming.</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">Steps</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
+<span class="lineno"> 2</span>  
+<span class="lineno"> 3</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">f3</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 4</span>   <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="o">)</span>
+<span class="lineno"> 5</span>     <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">]=</span> <span class="n">n</span><span class="o">;</span>
+<span class="lineno"> 6</span>  
+<span class="lineno"> 7</span>   <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span>
+<span class="lineno"> 8</span>     <span class="k">return</span> <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+<span class="lineno"> 9</span>   <span class="k">else</span>
+<span class="lineno">10</span>     <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">=</span> <span class="n">f3</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">f3</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="o">);</span> <span class="c1">//store results so only calculate once!</span>
+<span class="lineno">11</span>   <span class="k">return</span> <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+<span class="lineno">12</span> <span class="o">}</span></code></pre></div>
+
+<!-- /Code -->
+
     </div>
 
   

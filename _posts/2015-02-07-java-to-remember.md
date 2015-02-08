@@ -392,3 +392,40 @@ public static int fib(int n) {
 }
 {% endhighlight %}
 <!-- /Code -->
+
+
+<!-- 
+#########################################
+#
+#   DYNAMIC PROGRAMMING
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="dynamic-programming"></a><a href="">7. Dynamic programming</a></h3>
+
+Dynamic programming is a technique for solving problems with the following properties:
+
+1. An instance is solved using the solutions for smaller instances.
+2. The solution for a smaller instance might be needed multiple times.
+3. The solutions to smaller instances are stored in a table, so that each smaller instance is solved only once.
+4. Additional space is used to save time.
+
+The problem of climbing steps perfectly fit those 4 properties. Therefore, it can be solve by using dynamic programming.
+
+<!-- Code -->
+{% highlight java linenos %}
+public static int[] Steps = new int[100];
+ 
+public static int f3(int n) {
+  if (n <= 2)
+    A[n]= n;
+ 
+  if(A[n] > 0)
+    return A[n];
+  else
+    A[n] = f3(n-1) + f3(n-2); //store results so only calculate once!
+  return A[n];
+}
+{% endhighlight %}
+<!-- /Code -->
