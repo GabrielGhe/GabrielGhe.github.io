@@ -190,9 +190,9 @@ class TreeNode {
 
 <!-- 
 #########################################
-#                   #
-#       Graph         #
-#                   #
+#
+#       Graph
+#
 #########################################
 -->
 <br /><br /><br />
@@ -279,3 +279,33 @@ public static Node dfs(Node root, int value) {
   return returnValue;
 }
 {% endhighlight %}
+
+<!-- 
+#########################################
+#
+#       SORTING
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="sorting"></a><a href="">5. Sorting</a></h3>
+
+Here is a table of comparison sorting algorithms and their time complexity
+
+| Algorithm                 | Average Time | Worst Time | Space                  | Comments                |
+|---------------------------|--------------|------------|------------------------|-------------------------|
+| Bubble sort               | n^2          | n^2        | 1                      | It's easy to implement  |
+| Insertion sort            | m^2          | n^2        |                        |                         |
+| Selection sort            | n^2          | n^2        |                        |                         |
+| Heap sort                 | nlogn        | nlogn      |                        |                         |
+| Merge sort                | nlogn        | nlogn      | a lot                  |                         |
+| Quick sort                | nlogn        | n^2        |                        | In practice, is fastest |
+
+
+Here is a table of algorithms that do not use comparison
+
+| Algorithm   | Average Time | Worst Time | Space | Comments                                   |
+|-------------|--------------|------------|-------|--------------------------------------------|
+| Bucket sort | n            | n + N      |       | n is the range of keys, N is size of array |
+| Radix sort  | n            | m(n + N)   |       | m is the number of keys                    |
+
