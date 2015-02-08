@@ -514,3 +514,53 @@ public static final <T> void swap (T[] a, int i, int j) {
 {% endhighlight %}
 <!-- /Code -->
 
+
+<!-- 
+#########################################
+#
+#     Files
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="files"></a><a href="">11. Files</a></h3>
+
+Writing to a file.
+
+<!-- Code -->
+{% highlight java linenos %}
+//java7... appends to file
+try(Formatter f = new Formatter("myText.txt")) {
+  f.format("this is output text", null);
+} catch(IOException ioe){
+  ioe.printStackTrace();
+}
+
+//older java
+Formatter f;
+try {
+  f = new Formatter("myText.txt");
+  f.format("this is output text", null);
+} catch(IOException ioe){
+  ioe.printStackTrace();
+} finally {
+  f.close();
+}
+{% endhighlight %}
+<!-- /Code -->
+
+Reading from a file
+
+<!-- Code -->
+{% highlight java linenos %}
+//read all the lines in a file
+try(Scanner scan = new Scanner(new File("myText.txt") ) ){
+  ArrayList<String> x = new ArrayList<String>();
+  while(scan.hasNext()){
+    x.add(scan.nextLine());
+  }
+} catch (FileNotFoundException e) {
+  e.printStackTrace();
+}
+{% endhighlight %}
+<!-- /Code -->

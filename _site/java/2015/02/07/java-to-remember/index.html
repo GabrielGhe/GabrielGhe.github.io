@@ -737,6 +737,55 @@
 
 <!-- /Code -->
 
+<!-- 
+#########################################
+#
+#     Files
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="files"></a><a href="">11. Files</a></h3>
+
+<p>Writing to a file.</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="c1">//java7... appends to file</span>
+<span class="lineno"> 2</span> <span class="k">try</span><span class="o">(</span><span class="n">Formatter</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Formatter</span><span class="o">(</span><span class="s">&quot;myText.txt&quot;</span><span class="o">))</span> <span class="o">{</span>
+<span class="lineno"> 3</span>   <span class="n">f</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;this is output text&quot;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+<span class="lineno"> 4</span> <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">ioe</span><span class="o">){</span>
+<span class="lineno"> 5</span>   <span class="n">ioe</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="lineno"> 6</span> <span class="o">}</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span> <span class="c1">//older java</span>
+<span class="lineno"> 9</span> <span class="n">Formatter</span> <span class="n">f</span><span class="o">;</span>
+<span class="lineno">10</span> <span class="k">try</span> <span class="o">{</span>
+<span class="lineno">11</span>   <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Formatter</span><span class="o">(</span><span class="s">&quot;myText.txt&quot;</span><span class="o">);</span>
+<span class="lineno">12</span>   <span class="n">f</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;this is output text&quot;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+<span class="lineno">13</span> <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">ioe</span><span class="o">){</span>
+<span class="lineno">14</span>   <span class="n">ioe</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="lineno">15</span> <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+<span class="lineno">16</span>   <span class="n">f</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="lineno">17</span> <span class="o">}</span></code></pre></div>
+
+<!-- /Code -->
+
+<p>Reading from a file</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="c1">//read all the lines in a file</span>
+<span class="lineno">2</span> <span class="k">try</span><span class="o">(</span><span class="n">Scanner</span> <span class="n">scan</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Scanner</span><span class="o">(</span><span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">&quot;myText.txt&quot;</span><span class="o">)</span> <span class="o">)</span> <span class="o">){</span>
+<span class="lineno">3</span>   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+<span class="lineno">4</span>   <span class="k">while</span><span class="o">(</span><span class="n">scan</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
+<span class="lineno">5</span>     <span class="n">x</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">scan</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+<span class="lineno">6</span>   <span class="o">}</span>
+<span class="lineno">7</span> <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">8</span>   <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="lineno">9</span> <span class="o">}</span></code></pre></div>
+
+<!-- /Code -->
 
     </div>
 
