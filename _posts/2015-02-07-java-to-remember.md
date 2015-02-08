@@ -14,9 +14,23 @@ This post is a little different. I'm going to be turning my JavaToRemember Repo 
 
 Credits to source article here... <a>http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/</a>
 
-<h3 id="tableOfContent">Table of content</h3>
-<ol>
-  <li><a href="#1-string">String</a></li>
+### Table of content ###
+1.  [String](#string)
+2.  [Linked List](#linked-list)
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+11.
+12.
+13.
+14.
+15.
+
   <li><a href="#2-linked-list">Linked List</a></li>
   <li><a href="#3-tree">Tree</a></li>
   <li><a href="#4-graph">Graph</a></li>
@@ -31,4 +45,22 @@ Credits to source article here... <a>http://www.programcreek.com/2012/11/top-10-
   <li><a href="#13-regex">Regex</a></li>
   <li><a href="#14-formating">Formating</a></li>
   <li><a href="#15-hashmap">HashMap</a></li>
-</ol>
+
+<!-- 
+#########################################
+#         #
+#   String      #
+#         #
+#########################################
+-->
+<h3><a name="string">1. String</a></h3>
+{% highlight java linenos %}
+"Hello".toCharArray()             // ['H', 'e', 'l', 'l', 'o']
+Collections.sort(List lst)        // sorts a List in place
+Arrays.sort(T[] array)            // sort an array
+Collections.reverse(List lst)     // reverses a LIST
+Arrays.toString(char[] a)         // convert to string
+"Hello".charAt(int x)             // get a char at the specific index
+"Hello".length()                  // string length
+[1,2,3,4,5].length                // array size
+{% endhighlight %}

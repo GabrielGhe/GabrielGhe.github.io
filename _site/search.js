@@ -7,7 +7,7 @@ temp = {
   "title"   : "Java To Remember",
   "category": "java",
   "tags"    : "string tree graph sorting bit manipulation regex hashmap socket file",
-  "content" : "OverviewThis post is a little different. I’m going to be turning my JavaToRemember Repo into a post so that it’s easier to search. You can find more information here.Credits to source article here… http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/Table of content  String  Linked List  Tree  Graph  Sorting  Recursion and iteration  Dynamic Programming  Bit Manipulation  Probability  Combinations and Permutations  Files  Sockets  Regex  Formating  HashMap",
+  "content" : "OverviewThis post is a little different. I’m going to be turning my JavaToRemember Repo into a post so that it’s easier to search. You can find more information here.Credits to source article here… http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/Table of content  String  Linked List3.4.5.6.7.8.9.10.11.12.13.14.15.Linked ListTreeGraphSortingRecursion and iterationDynamic ProgrammingBit ManipulationProbabilityCombinations and PermutationsFilesSocketsRegexFormatingHashMap1. String1 &quot;Hello&quot;.toCharArray()             // [&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]2 Collections.sort(List lst)        // sorts a List in place3 Arrays.sort(T[] array)            // sort an array4 Collections.reverse(List lst)     // reverses a LIST5 Arrays.toString(char[] a)         // convert to string6 &quot;Hello&quot;.charAt(int x)             // get a char at the specific index7 &quot;Hello&quot;.length()                  // string length8 [1,2,3,4,5].length                // array size",
   "date"    : "February  7, 2015"
 };
 data[temp.id] = temp;
