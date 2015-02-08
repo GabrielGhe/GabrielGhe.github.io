@@ -158,6 +158,8 @@
 <p><br /><br /><br /></p>
 <h3><a name="string"></a><a href="">1. String</a></h3>
 
+<!-- Code -->
+
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">()</span>             <span class="c1">// [&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]</span>
 <span class="lineno">2</span> <span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">List</span> <span class="n">lst</span><span class="o">)</span>        <span class="c1">// sorts a List in place</span>
 <span class="lineno">3</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">T</span><span class="o">[]</span> <span class="n">array</span><span class="o">)</span>            <span class="c1">// sort an array</span>
@@ -166,6 +168,8 @@
 <span class="lineno">6</span> <span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span>             <span class="c1">// get a char at the specific index</span>
 <span class="lineno">7</span> <span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">length</span><span class="o">()</span>                  <span class="c1">// string length</span>
 <span class="lineno">8</span> <span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">].</span><span class="na">length</span>                <span class="c1">// array size</span></code></pre></div>
+
+<!-- /Code -->
 
 <!-- 
 #########################################
@@ -179,6 +183,8 @@
 
 <p>The node class which is the “element” of a linked list</p>
 
+<!-- Code -->
+
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
 <span class="lineno">2</span>   <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
 <span class="lineno">3</span>   <span class="n">Node</span> <span class="n">next</span><span class="o">;</span>
@@ -189,7 +195,11 @@
 <span class="lineno">8</span>   <span class="o">}</span>
 <span class="lineno">9</span> <span class="o">}</span></code></pre></div>
 
+<!-- /Code -->
+
 <p>Stack implementation using the Linked List data structure</p>
+
+<!-- Code -->
 
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">class</span> <span class="nc">Stack</span><span class="o">{</span>
 <span class="lineno"> 2</span>   <span class="n">Node</span> <span class="n">top</span><span class="o">;</span> 
@@ -237,7 +247,11 @@
 <span class="lineno">44</span>   <span class="o">}</span>
 <span class="lineno">45</span> <span class="o">}</span></code></pre></div>
 
+<!-- /Code -->
+
 <p>Queue implementation using the Linked List data structure</p>
+
+<!-- Code -->
 
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">class</span> <span class="nc">Queue</span> <span class="o">{</span>
 <span class="lineno"> 2</span>   <span class="n">Node</span> <span class="n">first</span><span class="o">,</span> <span class="n">last</span><span class="o">;</span>
@@ -270,6 +284,8 @@
 <span class="lineno">29</span>   <span class="o">}</span>
 <span class="lineno">30</span> <span class="o">}</span></code></pre></div>
 
+<!-- /Code -->
+
 <!-- 
 #########################################
 #
@@ -281,12 +297,16 @@
 <h3><a name="tree"></a><a href="">3. Tree</a></h3>
 <p>The tree class here is for the binary tree</p>
 
+<!-- Code -->
+
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="kd">class</span> <span class="nc">TreeNode</span> <span class="o">{</span>
 <span class="lineno">2</span>   <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
 <span class="lineno">3</span>   <span class="n">TreeNode</span> <span class="n">parent</span><span class="o">;</span>
 <span class="lineno">4</span>   <span class="n">TreeNode</span> <span class="n">left</span><span class="o">;</span>
 <span class="lineno">5</span>   <span class="n">TreeNode</span> <span class="n">right</span><span class="o">;</span>
 <span class="lineno">6</span> <span class="o">}</span></code></pre></div>
+
+<!-- /Code -->
 
 <ol>
   <li>Binary Search Tree: for all nodes, left children &lt;= current node &lt;= right children</li>
@@ -309,6 +329,8 @@
 <p>Graphs are use for many things, such as Netorking and games for example.The 2 most famous algorithms for graphs are Depth First Search and Breath First Search</p>
 
 <p>GraphNode</p>
+
+<!-- Code -->
 
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">class</span> <span class="nc">GraphNode</span><span class="o">{</span> 
 <span class="lineno"> 2</span>   <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
@@ -340,6 +362,8 @@
 <span class="lineno">28</span>   <span class="o">}</span>
 <span class="lineno">29</span> <span class="o">}</span></code></pre></div>
 
+<!-- /Code -->
+
 <p>Breath First Search (live implementation from MIT <a href="http://www.youtube.com/watch?v=s-CYnVz-uh4&amp;t=2055">here</a>)</p>
 
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Node</span> <span class="nf">bfs</span><span class="o">(</span><span class="n">Node</span> <span class="n">root</span><span class="o">,</span> <span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
@@ -363,6 +387,8 @@
 
 <p>Depth First Search (live implementation from MIT <a href="http://www.youtube.com/watch?v=AfSk24UTFS8&amp;t=250">here</a>)</p>
 
+<!-- Code -->
+
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Node</span> <span class="nf">dfs</span><span class="o">(</span><span class="n">Node</span> <span class="n">root</span><span class="o">,</span> <span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
 <span class="lineno"> 2</span>   <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;();</span>
 <span class="lineno"> 3</span>   <span class="n">Node</span> <span class="n">returnValue</span><span class="o">;</span>
@@ -380,6 +406,8 @@
 <span class="lineno">15</span>   <span class="o">}</span>
 <span class="lineno">16</span>   <span class="k">return</span> <span class="n">returnValue</span><span class="o">;</span>
 <span class="lineno">17</span> <span class="o">}</span></code></pre></div>
+
+<!-- /Code -->
 
 <!-- 
 #########################################
@@ -479,6 +507,71 @@
   </tbody>
 </table>
 
+<!-- 
+#########################################
+#
+#   Recursion and Iteration
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="recursion-and-iteration"></a><a href="">6. Recursion and Iteration</a></h3>
+<p>Recursion is easy to understand and implement. However, it's worse than iteration and can cause stackoverflows</p>
+
+<p>Fibonacci using bad recursion</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">fib</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
+<span class="lineno">2</span>   <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span>
+<span class="lineno">3</span>     <span class="k">return</span> <span class="n">n</span><span class="o">;</span>         <span class="c1">//base case</span>
+<span class="lineno">4</span>   <span class="k">else</span>
+<span class="lineno">5</span>     <span class="k">return</span> <span class="nf">fib</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">fib</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="o">);</span> <span class="c1">//recursive case</span>
+<span class="lineno">6</span> <span class="o">}</span></code></pre></div>
+
+<!-- /Code -->
+
+<p>Fibonacci using tail recursion</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">fibHelper</span><span class="o">(</span><span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">,</span> <span class="kt">int</span> <span class="n">prev</span><span class="o">,</span> <span class="kt">int</span> <span class="n">current</span><span class="o">){</span>
+<span class="lineno"> 2</span>   <span class="k">if</span><span class="o">(</span><span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="o">)</span>
+<span class="lineno"> 3</span>     <span class="k">return</span> <span class="n">current</span><span class="o">;</span>
+<span class="lineno"> 4</span>   <span class="k">else</span>
+<span class="lineno"> 5</span>     <span class="k">return</span> <span class="nf">fibHelper</span><span class="o">(++</span><span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">,</span> <span class="n">current</span><span class="o">,</span> <span class="n">current</span> <span class="o">+</span> <span class="n">prev</span><span class="o">);</span>
+<span class="lineno"> 6</span> <span class="o">}</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">fib</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
+<span class="lineno"> 9</span>   <span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span>
+<span class="lineno">10</span>     <span class="k">return</span> <span class="n">n</span><span class="o">;</span>
+<span class="lineno">11</span>   <span class="k">else</span> 
+<span class="lineno">12</span>     <span class="k">return</span> <span class="nf">fibHelper</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="n">n</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">);</span>
+<span class="lineno">13</span> <span class="o">}</span></code></pre></div>
+
+<!-- /Code -->
+
+<p>Fibonacci using iteration</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">fib</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 2</span>   <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">){</span>
+<span class="lineno"> 3</span>     <span class="k">return</span> <span class="n">n</span><span class="o">;</span>
+<span class="lineno"> 4</span>   <span class="o">}</span>
+<span class="lineno"> 5</span>   <span class="kt">int</span> <span class="n">current</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 6</span>   <span class="kt">int</span> <span class="n">prev</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno"> 7</span>   <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno"> 8</span>  
+<span class="lineno"> 9</span>   <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+<span class="lineno">10</span>     <span class="n">temp</span> <span class="o">=</span> <span class="n">current</span> <span class="o">+</span> <span class="n">prev</span><span class="o">;</span>  <span class="c1">//compute fib at pos n</span>
+<span class="lineno">11</span>     <span class="n">prev</span> <span class="o">=</span> <span class="n">current</span><span class="o">;</span>     <span class="c1">//old current is now prev</span>
+<span class="lineno">12</span>     <span class="n">current</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>     <span class="c1">//current is temp</span>
+<span class="lineno">13</span>   <span class="o">}</span>
+<span class="lineno">14</span>   <span class="k">return</span> <span class="n">current</span><span class="o">;</span>
+<span class="lineno">15</span> <span class="o">}</span></code></pre></div>
+
+<!-- /Code -->
 
     </div>
 

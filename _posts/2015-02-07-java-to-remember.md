@@ -40,6 +40,8 @@ Credits to source article here... <a>http://www.programcreek.com/2012/11/top-10-
 -->
 <br /><br /><br />
 <h3><a name="string"></a><a href="">1. String</a></h3>
+
+<!-- Code -->
 {% highlight java linenos %}
 "Hello".toCharArray()             // ['H', 'e', 'l', 'l', 'o']
 Collections.sort(List lst)        // sorts a List in place
@@ -50,7 +52,7 @@ Arrays.toString(char[] a)         // convert to string
 "Hello".length()                  // string length
 [1,2,3,4,5].length                // array size
 {% endhighlight %}
-
+<!-- /Code -->
 
 <!-- 
 #########################################
@@ -64,6 +66,7 @@ Arrays.toString(char[] a)         // convert to string
 
 The node class which is the "element" of a linked list
 
+<!-- Code -->
 {% highlight java linenos %}
 class Node {
   int val;
@@ -75,9 +78,11 @@ class Node {
   }
 }
 {% endhighlight %}
+<!-- /Code -->
 
 Stack implementation using the Linked List data structure
 
+<!-- Code -->
 {% highlight java linenos %}
 class Stack{
   Node top; 
@@ -126,8 +131,11 @@ class Stack{
 }
 {% endhighlight %}
 
+<!-- /Code -->
+
 Queue implementation using the Linked List data structure
 
+<!-- Code -->
 {% highlight java linenos %}
 class Queue {
   Node first, last;
@@ -161,6 +169,8 @@ class Queue {
 }
 {% endhighlight %}
 
+<!-- /Code -->
+
 <!-- 
 #########################################
 #
@@ -172,6 +182,7 @@ class Queue {
 <h3><a name="tree"></a><a href="">3. Tree</a></h3>
 <p>The tree class here is for the binary tree</p>
 
+<!-- Code -->
 {% highlight java linenos %}
 class TreeNode {
   int value;
@@ -180,6 +191,7 @@ class TreeNode {
   TreeNode right;
 }
 {% endhighlight %}
+<!-- /Code -->
 
 1. Binary Search Tree: for all nodes, left children <= current node <= right children
 2. Balanced vs. Unbalanced: In a balanced tree, the depth of the sibling tree's can differ max by 1
@@ -202,6 +214,7 @@ Graphs are use for many things, such as Netorking and games for example.The 2 mo
 
 GraphNode
 
+<!-- Code -->
 {% highlight java linenos %}
 class GraphNode{ 
   int val;
@@ -234,6 +247,8 @@ class GraphNode{
 }
 {% endhighlight %}
 
+<!-- /Code -->
+
 Breath First Search (live implementation from MIT [here](http://www.youtube.com/watch?v=s-CYnVz-uh4&t=2055))
 
 
@@ -260,6 +275,7 @@ public static Node bfs(Node root, int value) {
 
 Depth First Search (live implementation from MIT [here](http://www.youtube.com/watch?v=AfSk24UTFS8&t=250))
   
+<!-- Code -->
 {% highlight java linenos %}
 public static Node dfs(Node root, int value) {
   Stack<Node> s = new Stack<Node>();
@@ -279,6 +295,7 @@ public static Node dfs(Node root, int value) {
   return returnValue;
 }
 {% endhighlight %}
+<!-- /Code -->
 
 <!-- 
 #########################################
@@ -309,3 +326,69 @@ Here is a table of algorithms that do not use comparison
 | Bucket sort | n            | n + N      |       | n is the range of keys, N is size of array |
 | Radix sort  | n            | m(n + N)   |       | m is the number of keys                    |
 
+
+<!-- 
+#########################################
+#
+#   Recursion and Iteration
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="recursion-and-iteration"></a><a href="">6. Recursion and Iteration</a></h3>
+<p>Recursion is easy to understand and implement. However, it's worse than iteration and can cause stackoverflows</p>
+
+Fibonacci using bad recursion
+
+<!-- Code -->
+{% highlight java linenos %}
+public static int fib(int n){
+  if(n <= 1)
+    return n;         //base case
+  else
+    return fib(n-1) + fib(n-2); //recursive case
+}
+{% endhighlight %}
+<!-- /Code -->
+
+Fibonacci using tail recursion
+
+<!-- Code -->
+{% highlight java linenos %}
+public static int fibHelper(int start, int end, int prev, int current){
+  if(start == end)
+    return current;
+  else
+    return fibHelper(++start, end, current, current + prev);
+}
+
+public static int fib(int n){
+  if(n <= 1)
+    return n;
+  else 
+    return fibHelper(1,n,0,1);
+}
+{% endhighlight %}
+<!-- /Code -->
+
+Fibonacci using iteration
+
+<!-- Code -->
+{% highlight java linenos %}
+public static int fib(int n) {
+  if (n <= 1){
+    return n;
+  }
+  int current = 1;
+  int prev = 0;
+  int temp = 0;
+ 
+  for (int i = 2; i <= n; i++) {
+    temp = current + prev;  //compute fib at pos n
+    prev = current;     //old current is now prev
+    current = temp;     //current is temp
+  }
+  return current;
+}
+{% endhighlight %}
+<!-- /Code -->
