@@ -14,8 +14,6 @@ This post is a little different. I'm going to be turning my JavaToRemember Repo 
 
 Credits to source article [here](http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/)...
 
-Additional information [here](https://github.com/andreis/interview)
-
 ### Table of content ###
 1.  [String](#string)
 2.  [Linked List](#linked-list)
