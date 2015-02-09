@@ -10,7 +10,7 @@ tags: [string, tree, graph, sorting, bit manipulation, regex, hashmap, socket, f
 <!-- Overview -->
 <h3><a name="table-of-content"></a>Overview</h3>
 
-This post is a little different. I'm going to be turning my JavaToRemember Repo into a post so that it's easier to search. You can find more information [here](http://github.com/GabrielGhe/JavaToRemember).
+This post is a little different. I'm going to be turning my JavaToRemember Repo into a post so that it's easier to search. You can find more the old README.md [here](http://github.com/GabrielGhe/JavaToRemember).
 
 Credits to source article [here](http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/)...
 
