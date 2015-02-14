@@ -127,60 +127,62 @@
 
 <p>Css is awesome, but it has a lot of limitations. For example, lets say that you have 1 color that you place everywhere (brand color). If you wanted to change this color, you would either go through each css file looking for it with control+f/cmd+f or you would do a find and replace. That’s very inefficient. Less allows you to code css like a programming language. How does it work?</p>
 
-<p>```css
-@myColor: blue;
-body {
-  color:red;</p>
+<!-- Code -->
 
-<p>h2 {
-    color: @myColor;</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="lineno"> 1</span> <span class="k">@myColor</span><span class="o">:</span> <span class="nt">blue</span><span class="p">;</span>
+<span class="lineno"> 2</span> <span class="nt">body</span> <span class="p">{</span>
+<span class="lineno"> 3</span>   <span class="k">color</span><span class="o">:</span><span class="nb">red</span><span class="p">;</span>
+<span class="lineno"> 4</span>   <span class="n">h2</span> <span class="err">{</span>
+<span class="lineno"> 5</span>     <span class="k">color</span><span class="o">:</span> <span class="o">@</span><span class="n">myColor</span><span class="p">;</span>
+<span class="lineno"> 6</span>     
+<span class="lineno"> 7</span>     <span class="o">&amp;:</span><span class="n">hover</span> <span class="err">{</span>
+<span class="lineno"> 8</span>       <span class="k">text-align</span><span class="o">:</span><span class="k">center</span><span class="p">;</span>
+<span class="lineno"> 9</span>     <span class="p">}</span>
+<span class="lineno">10</span>   <span class="err">}</span>
+<span class="lineno">11</span>   <span class="nt">p</span> <span class="p">{</span>
+<span class="lineno">12</span>     <span class="k">background-color</span><span class="o">:</span> <span class="o">@</span><span class="n">myColor</span><span class="p">;</span>
+<span class="lineno">13</span>   <span class="p">}</span>
+<span class="lineno">14</span> <span class="err">}</span>
+<span class="lineno">15</span> 
+<span class="lineno">16</span> <span class="c">/* Compiles to */</span>
+<span class="lineno">17</span> 
+<span class="lineno">18</span> <span class="nt">body</span> <span class="p">{</span>
+<span class="lineno">19</span>   <span class="k">color</span><span class="o">:</span><span class="nb">red</span><span class="p">;</span>
+<span class="lineno">20</span> <span class="p">}</span>
+<span class="lineno">21</span> <span class="nt">body</span> <span class="nt">h2</span> <span class="p">{</span>
+<span class="lineno">22</span>   <span class="k">color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
+<span class="lineno">23</span> <span class="p">}</span>
+<span class="lineno">24</span> <span class="nt">body</span> <span class="nt">h2</span><span class="nd">:hover</span> <span class="p">{</span>
+<span class="lineno">25</span>   <span class="k">text-align</span><span class="o">:</span><span class="k">center</span><span class="p">;</span>
+<span class="lineno">26</span> <span class="p">}</span>
+<span class="lineno">27</span> <span class="nt">body</span> <span class="nt">p</span> <span class="p">{</span>
+<span class="lineno">28</span>   <span class="k">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
+<span class="lineno">29</span> <span class="p">}</span></code></pre></div>
 
-<pre><code>&amp;:hover {
-  text-align:center;
-}   }
-</code></pre>
-
-<p>p {
-    background-color: @myColor;
-  }
-}</p>
-
-<p>/* Compiles to */</p>
-
-<p>body {
-  color:red;
-}</p>
-
-<p>body h2 {
-  color: blue;
-}</p>
-
-<p>body h2:hover {
-  text-align:center;
-}</p>
-
-<p>body p {
-  background-color: blue;
-}</p>
-
-<p>```</p>
+<!-- /Code -->
 
 <h4>Installation</h4>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> // To install less in your express app
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> <span class="c"># To install less in your express app</span>
 <span class="lineno">2</span> npm install less-middleware</code></pre></div>
 
-<p>// inside your app.js
-var lessMiddleware = require(‘less-middleware’);
-app.use(lessMiddleware(__dirname + ‘/public’));
-// this order is important
-app.use(express.static(__dirname + ‘/public’));</p>
+<!-- /Code -->
 
-<p>// Now when you create .less files, a matching .css file gets created when you save
-// So you can add the link to that css file in your html like you normally would and voila
-// example in this project folder as usual.</p>
+<!-- Code -->
 
-<p>```</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="c1">// inside your app.js</span>
+<span class="lineno">2</span> <span class="kd">var</span> <span class="nx">lessMiddleware</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;less-middleware&#39;</span><span class="p">);</span>
+<span class="lineno">3</span> <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">lessMiddleware</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/public&#39;</span><span class="p">));</span>
+<span class="lineno">4</span> <span class="c1">// this order is important</span>
+<span class="lineno">5</span> <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/public&#39;</span><span class="p">));</span>
+<span class="lineno">6</span> 
+<span class="lineno">7</span> <span class="c1">// Now when you create .less files, a matching .css file gets created when you save</span>
+<span class="lineno">8</span> <span class="c1">// So you can add the link to that css file in your html like you normally would and voila</span>
+<span class="lineno">9</span> <span class="c1">// example in this project folder as usual.</span></code></pre></div>
+
+<!-- /Code -->
 
     </div>
 
