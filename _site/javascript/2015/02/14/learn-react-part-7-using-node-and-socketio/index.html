@@ -132,9 +132,77 @@
 
 <p>The first thing we need to do is add the <code>socket.io</code> library in our client.</p>
 
+<!-- Code -->
+
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> <span class="c">&lt;!-- in ./views/index.ejs --&gt;</span>
 <span class="lineno">2</span> <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://cdn.socket.io/socket.io-1.1.0.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
 
+<!-- /Code -->
+
+<p>In <code>./components/MyApp.react.js</code>, we’re going to add 2 methods: componentDidMount and getInitialState.</p>
+
+<p>componentDidMount - the component has finished rendering</p>
+
+<p>getInitialState - as the name implies, it returns the initial state</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="nx">getInitialState</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno"> 2</span>   <span class="k">return</span> <span class="p">{</span>
+<span class="lineno"> 3</span>     <span class="nx">messages</span><span class="o">:</span> <span class="p">[]</span>
+<span class="lineno"> 4</span>   <span class="p">};</span>
+<span class="lineno"> 5</span> <span class="p">},</span>
+<span class="lineno"> 6</span> <span class="nx">componentDidMount</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno"> 7</span>   <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+<span class="lineno"> 8</span>   <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+<span class="lineno"> 9</span>   <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">){</span>
+<span class="lineno">10</span>     <span class="kd">var</span> <span class="nx">messages</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
+<span class="lineno">11</span>     <span class="nx">messages</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+<span class="lineno">12</span>     <span class="nx">self</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="nx">messages</span><span class="p">);</span>
+<span class="lineno">13</span>   <span class="p">});</span>
+<span class="lineno">14</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code -->
+
+<p>Now on the server side we’re going to setup <code>socket.io</code>.</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="cm">/* in ./app.js */</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="c1">// at the end of the file</span>
+<span class="lineno">4</span> <span class="kd">var</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io&#39;</span><span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="nx">server</span><span class="p">);</span>
+<span class="lineno">5</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/socketHandler&#39;</span><span class="p">)(</span><span class="nx">io</span><span class="p">);</span></code></pre></div>
+
+<!-- /Code -->
+
+<p>Now we have to write how socket.io handles messages.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="cm">/* in ./routes/socketHandler.js */</span>
+<span class="lineno"> 2</span> <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+<span class="lineno"> 3</span> 
+<span class="lineno"> 4</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">io</span><span class="p">){</span>
+<span class="lineno"> 5</span>   <span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">socket</span><span class="p">){</span>
+<span class="lineno"> 6</span>     
+<span class="lineno"> 7</span>     <span class="c1">// send to everyone except for socket</span>
+<span class="lineno"> 8</span>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;user connected &#39;</span> <span class="o">+</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="lineno"> 9</span>     <span class="nx">socket</span><span class="p">.</span><span class="nx">broadcast</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;user connected &#39;</span> <span class="o">+</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span>     <span class="c1">// Disconnect</span>
+<span class="lineno">12</span>     <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;disconnect&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">13</span>       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;user disconnected &#39;</span> <span class="o">+</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="lineno">14</span>       <span class="nx">socket</span><span class="p">.</span><span class="nx">broadcast</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;user disconnected &#39;</span> <span class="o">+</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="lineno">15</span>       <span class="c1">// send to everone including socket</span>
+<span class="lineno">16</span>       <span class="c1">// socket.emit(&#39;message&#39;, &#39;user disconnected &#39; + socket.id);</span>
+<span class="lineno">17</span>     <span class="p">});</span>
+<span class="lineno">18</span> 
+<span class="lineno">19</span>     <span class="c1">// Message event</span>
+<span class="lineno">20</span>     <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">){</span>
+<span class="lineno">21</span>       <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span><span class="nx">msg</span><span class="p">);</span>
+<span class="lineno">22</span>     <span class="p">});</span>
+<span class="lineno">23</span> 
+<span class="lineno">24</span>   <span class="p">});</span><span class="c1">// end connection</span>
+<span class="lineno">25</span> <span class="p">};</span></code></pre></div>
 
     </div>
 
