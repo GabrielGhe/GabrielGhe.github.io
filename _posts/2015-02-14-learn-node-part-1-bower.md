@@ -13,7 +13,7 @@ tags: [nodejs, bowerjs, npm]
 NodeJS has the amazing npm, which is one of my favorite package managers. It handles all your modules
 neatly inside the package.json file. This is great for the server side, but what about the client side?
 
-That's where bower comes in handy. BowerJS manages your client side dependencies. Everything from jQuery, AngularJS and bootstrap can all be easily installed with bower.
+That's where bower comes in handy. BowerJS manages your client side dependencies. Everything from jQuery, AngularJS and bootstrap can all be easily installed with bower. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server8Bower).
 
 
 <!-- Code _______________________________________-->

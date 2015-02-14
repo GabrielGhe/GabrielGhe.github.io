@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title></title>
-    
+    <title>Learn Node Part 7: Browserify</title>
+    <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
     <!-- Enable responsive viewport -->
@@ -111,88 +111,173 @@
 
       <div class="container">
         
-<div class="row">
-  <!-- Left Side -->
+<!-- Left Side -->
+<div class="row post-full">
   <div class="col-md-9">
+    <div class="page-header">
+      <h1>
+        <i class="icon-" style="font-size:2em"></i> Learn Node Part 7: Browserify 
+    </h1>
+    </div>
+    <div class="date">
+      <span>Saturday, February 14, 2015</span>
+    </div>
+    <div class="content">
+      
+<!-- Overview -->
+<h3>Overview</h3>
+
+<p>NodeJS has the most amazing package manager, npm that allows you to install modules easily. After installing a module, you can simply require it by doing require(‘moduleName’). Wouldn’t it be great if you could do that on the client side too? Using browserify, you can.</p>
+
+<h3>Installation</h3>
+<p>Step 1</p>
+<p>```shell
+### Command Line ###</p>
+
+<h1 id="get-the-right-packages">Get the right packages</h1>
+<p>npm install -g grunt-cli</p>
+
+<p>npm install –save-dev bower
+npm install –save-dev debowerify</p>
+
+<p>npm install –save-dev load-grunt-tasks
+npm install –save-dev grunt
+npm install –save-dev grunt-contrib-clean
+npm install –save-dev grunt-browserify
+```</p>
+
+<p>Step 2</p>
+<p>```shell
+### Command Line ###</p>
+
+<h1 id="create-a-gruntfilejs">Create a Gruntfile.js</h1>
+<p>touch Gruntfile.js
+touch bower.json
+touch .bowerrc
+```</p>
+
+<p>Step 3</p>
+<p>```javascript
+// ### in bower.json ###
+{
+    “name”: “Server14Browserify”,
+    “version”: “0.0.1”,
+    “dependencies”: {}
+}</p>
+
+<p>// ### in .bowerrc ###
+{
+    “directory”: “public/bower_components”
+}
+```</p>
+
+<p>Step 4</p>
+<p>```javascript
+// ### in package.json ###</p>
+
+<p>// add the following
+“browserify” : {
+  “transform”: [“debowerify”]
+}
+```</p>
+
+<p>Step 5</p>
+<p>```javascript
+// ### in Gruntfile.js ###</p>
+
+<p>module.exports = function(grunt) {
+  require(‘load-grunt-tasks’)(grunt);
+  grunt.initConfig({
+    // will clean
+    clean: {
+        build: {
+            src: [‘public/javascripts/build.js’]
+        }
+    },</p>
+
+<pre><code>// will browserify all the js files
+browserify: {
+    client: {
+        src: ['public/javascripts/**/*.js'],
+        dest: 'public/javascripts/build.js'
+    }
+}   });
+</code></pre>
+
+<p>grunt.registerTask(‘default’, [‘clean’, ‘browserify:client’]);
+};
+```</p>
+
+<p>Step 6</p>
+<p>```javascript
+// ### in public/javascripts/index.js ###</p>
+
+<p>// you can now require node modules or bower modules, or even other js files
+var unique = require(‘uniq’);
+var $ = require(“jquery”);</p>
+
+<p>var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];</p>
+
+<p>console.log($(“body”).html());
+console.log(unique(data));
+```</p>
+
+<p>Step 7</p>
+<p>```shell
+### in Command Line ###</p>
+
+<h1 id="running-this-will-generate-a-buildjs-file">running this will generate a build.js file</h1>
+<p># that contains all the js you need (jquery + uniq + index.js)
+# to use it, simply make a script with that file as the src
+grunt
+```</p>
+
+<h3>How to use</h3>
+
+<p>After installing the modules you want to use (using bower or npm), you simply require them in your file</p>
+<p>```javascript</p>
+
+<p>// ### in public/javascripts/index.js ###</p>
+
+<p>var unique = require(‘uniq’);               // node module
+var $ = require(‘jquery’);                  // bower module
+var sayMyName = require(‘./sayMyName’);     // own module</p>
+
+<p>var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];</p>
+
+<p>console.log(“‘Uniq’ node module”, unique(data));
+console.log(“‘jQuery’ bower module”, $(‘body’).html());
+console.log(“‘sayMyName’, own module”, sayMyName());
+```</p>
+
+<p>To make your own file into a module, you use module.exports like you would in node</p>
+
+<p>```javascript</p>
+
+<p>// ### in public/javascripts/sayMyName.js ###</p>
+
+<p>module.exports = function(){
+    return “This is sparta”;
+};
+```</p>
+
+    </div>
+
     
 
-<ul class="posts">
-  
-    <li>
-      <h3>
-        <i class="icon-other" style="font-size:2em"></i> <a href="/other/2014/12/24/my-first-post">My first post</a>
-      </h3>
-      <!-- Date -->
-      <p class="date">
-        Wednesday, December 24, 2014
-      </p>
-      <!-- END Date -->
-      <!-- Category -->
-      <p>
-        <b>Category</b>:
-
-        <a href="/categories.html#other-ref" class="label label-primary">
-            other
-        </a>
-      </p>
-      <!-- END Category -->
-      <!-- Tags -->
-      <p>
-        
-      </p>
-      <!-- END Tags -->
-      <hr>
-    </li>
-  
-    <li>
-      <h3>
-        <i class="icon-swift" style="font-size:2em"></i> <a href="/swift/2014/12/24/ios-uitableview-and-uisearchbar">UITableView and UISearchBar</a>
-      </h3>
-      <!-- Date -->
-      <p class="date">
-        Wednesday, December 24, 2014
-      </p>
-      <!-- END Date -->
-      <!-- Category -->
-      <p>
-        <b>Category</b>:
-
-        <a href="/categories.html#swift-ref" class="label label-primary">
-            swift
-        </a>
-      </p>
-      <!-- END Category -->
-      <!-- Tags -->
-      <p>
-        
-          <b>Tags</b>:
-          
-            <a href="/tags.html#ios-ref" class="label label-success">ios</a>
-          
-            <a href="/tags.html#ui-ref" class="label label-success">ui</a>
-          
-        
-      </p>
-      <!-- END Tags -->
-      <hr>
-    </li>
-  
-</ul>
-
-<ul class="pagination">
-  
-
-  <li class="disabled">
-    <a>Page 4/4</a>
-  </li>
-
-  
-    
-      <li class="prev"><a href="/page3" title="Newer">Newer</a></li>
     
   
-</ul>
-
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/javascript/2015/02/14/learn-node-part-6-mocha-testing" title="Learn Node Part 6: Mocha Testing">&laquo; Previous</a></li>
+    
+      <li><a href="/archive.html">Archive</a></li>
+    
+      <li class="next"><a href="/javascript/2015/02/14/learn-react-part-7-using-node-and-socketio" title="Learn React Part 7: using Node and Socket.io">Next &raquo;</a></li>
+    
+    </ul>
+    
   </div>
   <!-- END Left Side -->
 

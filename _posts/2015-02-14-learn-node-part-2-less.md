@@ -12,6 +12,8 @@ tags: [nodejs, less, npm, express]
 
 Css is awesome, but it has a lot of limitations. For example, lets say that you have 1 color that you place everywhere (brand color). If you wanted to change this color, you would either go through each css file looking for it with control+f/cmd+f or you would do a find and replace. That's very inefficient. Less allows you to code css like a programming language. How does it work?
 
+You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server9Less).
+
 <!-- Code _______________________________________-->
 {% highlight css linenos %}
 @myColor: blue;
