@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>EcmaScript 6 feature: template strings</title>
+    <title>Learn Node Part 2: Less</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -114,39 +114,73 @@
   <div class="col-md-9">
     <div class="page-header">
       <h1>
-        <i class="icon-javascript" style="font-size:2em"></i> EcmaScript 6 feature: template strings 
+        <i class="icon-javascript" style="font-size:2em"></i> Learn Node Part 2: Less 
     </h1>
     </div>
     <div class="date">
-      <span>Monday, December 29, 2014</span>
+      <span>Saturday, February 14, 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>Javascript’s new version (EcmaScript 6) has some amazing new features. The one discussed in this post is template strings.
-Template strings are similar to string interpolation in swift and python. It uses backticks instead of double or single quotes.
-More information can be found <a href="http://tc39wiki.calculist.org/es6/template-strings/">here</a>.</p>
+<p>Css is awesome, but it has a lot of limitations. For example, lets say that you have 1 color that you place everywhere (brand color). If you wanted to change this color, you would either go through each css file looking for it with control+f/cmd+f or you would do a find and replace. That’s very inefficient. Less allows you to code css like a programming language. How does it work?</p>
 
-<!-- Examples -->
-<h3>Examples</h3>
+<p>```css
+@myColor: blue;
+body {
+  color:red;</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">first</span> <span class="o">=</span> <span class="s2">&quot;Jake&quot;</span>
-<span class="lineno"> 2</span>   <span class="p">,</span> <span class="nx">last</span> <span class="o">=</span> <span class="s2">&quot;Daisy&quot;</span><span class="p">;</span>
-<span class="lineno"> 3</span> 
-<span class="lineno"> 4</span> <span class="kd">var</span> <span class="nx">name1</span> <span class="o">=</span> <span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="nx">first</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nx">last</span><span class="p">;</span>
-<span class="lineno"> 5</span> <span class="kd">var</span> <span class="nx">name2</span> <span class="o">=</span> <span class="err">`</span><span class="nx">My</span> <span class="nx">name</span> <span class="nx">is</span> <span class="nx">$</span><span class="p">{</span><span class="nx">first</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">second</span><span class="p">}</span><span class="err">`</span><span class="p">;</span>
-<span class="lineno"> 6</span> <span class="c1">// &quot;My name is Jake Daisy&quot;</span>
-<span class="lineno"> 7</span> 
-<span class="lineno"> 8</span> <span class="kd">var</span> <span class="nx">test1</span> <span class="o">=</span> <span class="err">`</span><span class="nx">Hello</span><span class="err">`</span><span class="p">;</span>
-<span class="lineno"> 9</span> <span class="c1">// &#39;&quot;Hello&quot;&#39;</span>
-<span class="lineno">10</span> 
-<span class="lineno">11</span> <span class="kd">var</span> <span class="nx">test2</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="lineno">12</span>   <span class="p">,</span> <span class="nx">test3</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
-<span class="lineno">13</span> 
-<span class="lineno">14</span> <span class="err">`</span><span class="nx">test2</span> <span class="o">+</span> <span class="nx">test3</span> <span class="o">=</span> <span class="nx">$</span><span class="p">{</span> <span class="nx">test2</span> <span class="o">+</span> <span class="nx">test3</span> <span class="p">}</span><span class="err">`</span>
-<span class="lineno">15</span> <span class="c1">// &quot;test2 + test3 = 11&quot;</span></code></pre></div>
+<p>h2 {
+    color: @myColor;</p>
+
+<pre><code>&amp;:hover {
+  text-align:center;
+}   }
+</code></pre>
+
+<p>p {
+    background-color: @myColor;
+  }
+}</p>
+
+<p>/* Compiles to */</p>
+
+<p>body {
+  color:red;
+}</p>
+
+<p>body h2 {
+  color: blue;
+}</p>
+
+<p>body h2:hover {
+  text-align:center;
+}</p>
+
+<p>body p {
+  background-color: blue;
+}</p>
+
+<p>```</p>
+
+<h4>Installation</h4>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> // To install less in your express app
+<span class="lineno">2</span> npm install less-middleware</code></pre></div>
+
+<p>// inside your app.js
+var lessMiddleware = require(‘less-middleware’);
+app.use(lessMiddleware(__dirname + ‘/public’));
+// this order is important
+app.use(express.static(__dirname + ‘/public’));</p>
+
+<p>// Now when you create .less files, a matching .css file gets created when you save
+// So you can add the link to that css file in your html like you normally would and voila
+// example in this project folder as usual.</p>
+
+<p>```</p>
 
     </div>
 
@@ -178,9 +212,13 @@ More information can be found <a href="http://tc39wiki.calculist.org/es6/templat
 
   
      
-    	<li><a href="/tags.html#es6-ref">es6 <span>6</span></a></li>
+    	<li><a href="/tags.html#nodejs-ref">nodejs <span>5</span></a></li>
      
-    	<li><a href="/tags.html#string-ref">string <span>2</span></a></li>
+    	<li><a href="/tags.html#less-ref">less <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#npm-ref">npm <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#express-ref">express <span>3</span></a></li>
     
   
 
@@ -192,11 +230,11 @@ More information can be found <a href="http://tc39wiki.calculist.org/es6/templat
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/javascript/2014/12/29/ecmascript-6-feature-class" title="EcmaScript 6 feature: class">&laquo; Previous</a></li>
+      <li class="prev"><a href="/javascript/2015/02/14/learn-node-part-1-bower" title="Learn Node Part 1: Bower">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/javascript/2015/01/02/ecmascript-6-feature-generators-and-iterators" title="EcmaScript 6 feature: generators and iterators">Next &raquo;</a></li>
+      <li class="next"><a href="/javascript/2015/02/14/learn-react-part-7-using-node-and-socketio" title="Learn React Part 7: using Node and Socket.io">Next &raquo;</a></li>
     
     </ul>
     
