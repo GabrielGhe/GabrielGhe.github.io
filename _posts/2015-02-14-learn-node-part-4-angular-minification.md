@@ -12,6 +12,7 @@ tags: [nodejs, angularjs, minification]
 
 Angularjs is a great framework. The problem is that minification is a bit more complicated because of angular's dependency injection. This project shows how you can minify an angular app.
 
+You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server11AngularMin).
 
 <h4>Installation</h4>
 

@@ -2,8 +2,8 @@
 layout: post
 title: "Learn Node Part 7: Browserify"
 description: ""
-category: 
-tags: []
+category: javascript
+tags: [nodejs, grunt, bower, browserify]
 ---
 {% include JB/setup %}
 
@@ -12,10 +12,14 @@ tags: []
 
 NodeJS has the most amazing package manager, npm that allows you to install modules easily. After installing a module, you can simply require it by doing require('moduleName'). Wouldn't it be great if you could do that on the client side too? Using browserify, you can.
 
+You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server14Browserify).
 
 <h3>Installation</h3>
-<p>Step 1</p>
-```shell
+
+Step 1
+
+<!-- Code _______________________________________-->
+{% highlight bash linenos %}
 ### Command Line ###
 
 # Get the right packages
@@ -28,20 +32,26 @@ npm install --save-dev load-grunt-tasks
 npm install --save-dev grunt
 npm install --save-dev grunt-contrib-clean
 npm install --save-dev grunt-browserify
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<p>Step 2</p>
-```shell
+Step 2
+
+<!-- Code _______________________________________-->
+{% highlight bash linenos %}
 ### Command Line ###
 
 # Create a Gruntfile.js
 touch Gruntfile.js
 touch bower.json
 touch .bowerrc
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<p>Step 3</p>
-```javascript
+Step 3
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
 // ### in bower.json ###
 {
     "name": "Server14Browserify",
@@ -49,25 +59,30 @@ touch .bowerrc
     "dependencies": {}
 }
 
-
 // ### in .bowerrc ###
 {
     "directory": "public/bower_components"
 }
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<p>Step 4</p>
-```javascript
+Step 4
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
 // ### in package.json ###
 
 // add the following
 "browserify" : {
   "transform": ["debowerify"]
 }
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<p>Step 5</p>
-```javascript
+Step 5
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
 // ### in Gruntfile.js ###
 
 module.exports = function(grunt) {
@@ -91,10 +106,13 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['clean', 'browserify:client']);
 };
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<p>Step 6</p>
-```javascript
+Step 6
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
 // ### in public/javascripts/index.js ###
 
 // you can now require node modules or bower modules, or even other js files
@@ -105,24 +123,29 @@ var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];
 
 console.log($("body").html());
 console.log(unique(data));
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 
-<p>Step 7</p>
-```shell
+Step 7
+
+<!-- Code _______________________________________-->
+{% highlight bash linenos %}
 ### in Command Line ###
 
 # running this will generate a build.js file
 # that contains all the js you need (jquery + uniq + index.js)
 # to use it, simply make a script with that file as the src
 grunt
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <h3>How to use</h3>
 
-<p>After installing the modules you want to use (using bower or npm), you simply require them in your file</p>
-```javascript
+After installing the modules you want to use (using bower or npm), you simply require them in your file
 
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
 // ### in public/javascripts/index.js ###
 
 var unique = require('uniq');               // node module
@@ -134,15 +157,17 @@ var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];
 console.log("'Uniq' node module", unique(data));
 console.log("'jQuery' bower module", $('body').html());
 console.log("'sayMyName', own module", sayMyName());
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<p>To make your own file into a module, you use module.exports like you would in node</p>
+To make your own file into a module, you use module.exports like you would in node
 
-```javascript
-
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
 // ### in public/javascripts/sayMyName.js ###
 
 module.exports = function(){
     return "This is sparta";
 };
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
