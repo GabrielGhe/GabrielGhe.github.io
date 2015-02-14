@@ -13,6 +13,16 @@ temp = {
 data[temp.id] = temp;
 
 temp = {
+  "id"    : "/javascript/2015/02/14/learn-node-part-3-grunt",
+  "title"   : "Learn Node Part 3: Grunt",
+  "category": "javascript",
+  "tags"    : "nodejs npm grunt",
+  "content" : "Grunt is amazing! It automates tasks for you in the most amazing way. It allows you to run tests, minify css/js files, combine js files and much much more.In this project, I used 2 js files index.js and index2.js. I concatinated them and saved the result to built.js and then I uglified that file and saved the result to built.min.js. I also minimized the css using cssmin.InstallationStep 1 1 ### Terminal ### 2  3 # Get the right packages 4 npm install -g grunt-cli 5  6 npm install --save-dev load-grunt-tasks 7 npm install --save-dev grunt-contrib-uglify 8 npm install --save-dev grunt-contrib-clean 9 npm install --save-dev grunt-contrib-concat10 npm install --save-dev grunt-contrib-cssminStep 21 ### Command Line ###2 3 # Create a Gruntfile.js4 touch Gruntfile.jsStep 3 1 // ### in Gruntfile.js ### 2  3 module.exports = function(grunt) { 4  5   require(&#39;load-grunt-tasks&#39;)(grunt); 6   grunt.initConfig({ 7     // ########## your tasks go here ############## 8   }); 9   10   // now &quot;grunt taskname&quot; will run concat, uglify, some-other-task in that order11   grunt.registerTask(&#39;taskname&#39;, [&#39;concat&#39;, &#39;uglify&#39;, &#39;some-other-task&#39;]);12 };Step 4 1 // ### in Gruntfile.js ### 2  3 // The initConfig would look something like this 4 grunt.initConfig({ 5   concat: { 6       dist: { 7           src: [&#39;public/javascripts/*.js&#39;], 8           dest: &#39;public/javascripts/built.js&#39;, 9       },10   },// End concat11   clean: {12       build: {13           src: [&quot;public/javascripts/built.js&quot;, &quot;public/javascripts/built.min.js&quot;]14       }15   },// End clean16   uglify: {17       options: {18           mangle: {19               toplevel: true20           },21           compress: true22       },23       my_target: {24           files: {25               &#39;public/javascripts/built.min.js&#39;: [&quot;public/javascripts/built.js&quot;]26           }27       }28   },// End uglify29   cssmin: {30       options: {31         files: [{32             expand: true,33             cwd: &#39;public/stylesheets/&#39;,34             src: [&#39;style.css&#39;],35             dest: &#39;public/stylesheets/&#39;,36             ext: &#39;.min.css&#39;37         }]38       }39   }// End cssmin40 });",
+  "date"    : "February 14, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2015/02/14/learn-node-part-2-less",
   "title"   : "Learn Node Part 2: Less",
   "category": "javascript",
