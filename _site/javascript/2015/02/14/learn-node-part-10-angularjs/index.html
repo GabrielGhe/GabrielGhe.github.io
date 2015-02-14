@@ -141,90 +141,100 @@ You can find more information <a href="https://github.com/GabrielGhe/NodePractic
 
 <!-- Code _______________________________________-->
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="err">###</span> <span class="k">in</span> <span class="p">.</span><span class="nx">bowerrc</span> <span class="err">###</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// in .bowerrc</span>
 <span class="lineno"> 2</span> <span class="p">{</span>
 <span class="lineno"> 3</span>   <span class="c1">//where do you want the bower components to be stored</span>
 <span class="lineno"> 4</span>   <span class="s2">&quot;directory&quot;</span> <span class="o">:</span> <span class="s2">&quot;public/bower_components&quot;</span>
 <span class="lineno"> 5</span> <span class="p">}</span>
 <span class="lineno"> 6</span> 
-<span class="lineno"> 7</span> 
-<span class="lineno"> 8</span> <span class="err">###</span> <span class="k">in</span> <span class="nx">bower</span><span class="p">.</span><span class="nx">json</span> <span class="err">###</span>
-<span class="lineno"> 9</span> <span class="p">{</span>
-<span class="lineno">10</span>   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Server17Angular&quot;</span><span class="p">,</span>
-<span class="lineno">11</span>   <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
-<span class="lineno">12</span>   <span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
-<span class="lineno">13</span>   <span class="p">}</span>
-<span class="lineno">14</span> <span class="p">}</span></code></pre></div>
+<span class="lineno"> 7</span> <span class="c1">// in bower.json</span>
+<span class="lineno"> 8</span> <span class="p">{</span>
+<span class="lineno"> 9</span>   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Server17Angular&quot;</span><span class="p">,</span>
+<span class="lineno">10</span>   <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
+<span class="lineno">11</span>   <span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
+<span class="lineno">12</span>   <span class="p">}</span>
+<span class="lineno">13</span> <span class="p">}</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<p>Install angular and it's dependencies</p>
+<p>Install angular and it’s dependencies</p>
 
-<p><code>shell
-bower install --save angular
-bower install --save angular-route
-</code></p>
+<!-- Code _______________________________________-->
 
-<p>We add the files to the ejs view... add them in the head tag or at the end of the body tag. We also add the ng-app attribute to the body (or anywhere else) and the ng-view attribute to allow us to use partials.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> bower install --save angular
+<span class="lineno">2</span> bower install --save angular-route</code></pre></div>
 
-<p>```html
-<!-- ### in views/index.ejs ### --></p>
-<head>
-  <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
-  <script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
-  <script type="text/javascript" src="/javascripts/index.js"></script>
-</head>
-<body ng-app="MyApp">
-  <div ng-view=""></div>
-</body>
-<p>```</p>
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p>We add the files to the ejs view… add them in the head tag or at the end of the body tag. We also add the ng-app attribute to the body (or anywhere else) and the ng-view attribute to allow us to use partials.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> <span class="c">&lt;!-- ### in views/index.ejs ### --&gt;</span>
+<span class="lineno">2</span> <span class="nt">&lt;head&gt;</span>
+<span class="lineno">3</span>   <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/bower_components/angular/angular.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="lineno">4</span>   <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/bower_components/angular-route/angular-route.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="lineno">5</span>   <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/javascripts/index.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="lineno">6</span> <span class="nt">&lt;/head&gt;</span>
+<span class="lineno">7</span> <span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;MyApp&quot;</span><span class="nt">&gt;</span>
+<span class="lineno">8</span>   <span class="nt">&lt;div</span> <span class="na">ng-view=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="lineno">9</span> <span class="nt">&lt;/body&gt;</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <p>We now need to start our angular app in javascript.</p>
 
-<p>```javascript
-// ### in public/javascripts/index.js ###</p>
+<!-- Code _______________________________________-->
 
-<p>// create angular app
-var MyApp = angular.module(“MyApp”, [“ngRoute”]);</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// ### in public/javascripts/index.js ###</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="c1">// create angular app</span>
+<span class="lineno"> 4</span> <span class="kd">var</span> <span class="nx">MyApp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s2">&quot;MyApp&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;ngRoute&quot;</span><span class="p">]);</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="c1">// Add routes</span>
+<span class="lineno"> 7</span> <span class="nx">MyApp</span><span class="p">.</span><span class="nx">config</span><span class="p">([</span><span class="s2">&quot;$routeProvider&quot;</span><span class="p">,</span> <span class="s2">&quot;$locationProvider&quot;</span><span class="p">,</span>
+<span class="lineno"> 8</span>   <span class="kd">function</span><span class="p">(</span><span class="nx">$routeProvider</span><span class="p">,</span> <span class="nx">$locationProvider</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 9</span>     <span class="nx">$routeProvider</span>
+<span class="lineno">10</span>       
+<span class="lineno">11</span>       <span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="p">{</span>
+<span class="lineno">12</span>         <span class="nx">templateUrl</span><span class="o">:</span> <span class="s2">&quot;partials/home.html&quot;</span><span class="p">,</span>
+<span class="lineno">13</span>         <span class="nx">controller</span><span class="o">:</span> <span class="s2">&quot;homeCtrl&quot;</span>
+<span class="lineno">14</span>       <span class="p">})</span>
+<span class="lineno">15</span>       
+<span class="lineno">16</span>       <span class="p">.</span><span class="nx">otherwise</span><span class="p">({</span>
+<span class="lineno">17</span>         <span class="nx">redirectTo</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span>
+<span class="lineno">18</span>       <span class="p">});</span>
+<span class="lineno">19</span> 
+<span class="lineno">20</span>     <span class="nx">$locationProvider</span><span class="p">.</span><span class="nx">html5Mode</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="lineno">21</span>   <span class="p">}</span>
+<span class="lineno">22</span> <span class="p">]);</span>
+<span class="lineno">23</span> 
+<span class="lineno">24</span> <span class="c1">// add controllers</span></code></pre></div>
 
-<p>// Add routes
-MyApp.config([“$routeProvider”, “$locationProvider”,
-  function($routeProvider, $locationProvider) {
-    $routeProvider</p>
-
-<pre><code>  .when("/", {
-    templateUrl: "partials/home.html",
-    controller: "homeCtrl"
-  })
-  
-  .otherwise({
-    redirectTo: "/"
-  });
-
-$locationProvider.html5Mode(true);   } ]);
-</code></pre>
-
-<p>// add controllers
-```</p>
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <p>We now need to add controllers that will handle what happens when someone goes to one of those routes</p>
 
-<p>```javascript
-// ### in public/javascripts/index.js ###</p>
+<!-- Code _______________________________________-->
 
-<p>//at the bottom of the file add…
-MyApp.controller(“homeCtrl”, [“$scope”, function($scope) {
-  // do stuff
-}]);
-```</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="c1">// ### in public/javascripts/index.js ###</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="c1">//at the bottom of the file add...</span>
+<span class="lineno">4</span> <span class="nx">MyApp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s2">&quot;homeCtrl&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;$scope&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">5</span>   <span class="c1">// do stuff</span>
+<span class="lineno">6</span> <span class="p">}]);</span></code></pre></div>
 
-<p>Ok we have everything set up, but we don't have a partial to display, what's in home.html?</p>
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<p>```html
-<!-- ### in public/partials/home.html ### --></p>
+<p>Ok we have everything set up, but we don’t have a partial to display, what’s in home.html?</p>
 
-<p>This is the home partial that will display for the home route '/'</p>
-<p>```</p>
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> <span class="c">&lt;!-- ### in public/partials/home.html ### --&gt;</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="nt">&lt;p&gt;</span>This is the home partial that will display for the home route &#39;/&#39;<span class="nt">&lt;/p&gt;</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <p>Done!</p>
 
@@ -261,6 +271,8 @@ MyApp.controller(“homeCtrl”, [“$scope”, function($scope) {
     	<li><a href="/tags.html#nodejs-ref">nodejs <span>13</span></a></li>
      
     	<li><a href="/tags.html#angularjs-ref">angularjs <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#bower-ref">bower <span>2</span></a></li>
     
   
 
