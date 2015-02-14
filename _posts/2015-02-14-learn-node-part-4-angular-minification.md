@@ -7,9 +7,6 @@ tags: [nodejs, angularjs, minification]
 ---
 {% include JB/setup %}
 
-NodeJS with Angular Minification
-============
-
 <!-- Overview -->
 <h3>Overview</h3>
 
