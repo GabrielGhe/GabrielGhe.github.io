@@ -13,6 +13,16 @@ temp = {
 data[temp.id] = temp;
 
 temp = {
+  "id"    : "/javascript/2015/02/14/learn-node-part-8-passport",
+  "title"   : "Learn Node Part 8: Passport",
+  "category": "javascript",
+  "tags"    : "nodejs passportjs",
+  "content" : "If you ever wondered how people use the Sign in with Google way of logging in, here’s how. You can find more information here.InstallationStep 11 ### Command Line ###2 3 # Get the right packages4 npm install --save passport5 npm install --save passport-googleStep 21 // ### in app.js ###2 3 // At the top4 var passport = require(&#39;passport&#39;);5 6 // Add middleware7 app.use(passport.initialize());8 app.use(app.router);  // has to be before this lineStep 3 1 // ### in config/passport-config.js ### 2  3 var passport = require(&#39;passport&#39;) 4   , GoogleStrategy = require(&#39;passport-google&#39;).Strategy; 5  6  7 // For persistent login 8 passport.serializeUser(function(user, done) { 9   done(null, user);10 });11 passport.deserializeUser(function(obj, done) {12   done(null, obj);13 });14 15 16 passport.use(new GoogleStrategy({17     returnURL: &#39;http://localhost:3000/auth/google/return&#39;,18     // Where it&#39;s valid19     realm: &#39;http://localhost:3000/&#39;20   },21   function(identifier, profile, done) {22     process.nextTick(function () {23       profile.identifier = identifier;24       return done(null, profile);25     });26   }27 ));Step 4 1 // ### in app.js ### 2  3 // at the bottom 4 require(&#39;./config/passport-config&#39;); 5  6 app.get(&#39;/auth/google&#39;, passport.authenticate(&#39;google&#39;, { 7   scope: [&#39;email&#39;] 8 })); 9 10 app.get(&#39;/auth/google/return&#39;, passport.authenticate(&#39;google&#39;, {11   successRedirect: &quot;/good&quot;,12   failureRedirect: &quot;/bad&quot;13 }));",
+  "date"    : "February 14, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2015/02/14/learn-node-part-7-browserify",
   "title"   : "Learn Node Part 7: Browserify",
   "category": "javascript",
