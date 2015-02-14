@@ -16,16 +16,16 @@ neatly inside the package.json file. This is great for the server side, but what
 That's where bower comes in handy. BowerJS manages your client side dependencies. Everything from jQuery, AngularJS and bootstrap can all be easily installed with bower.
 
 
-<!-- Code -->
+<!-- Code _______________________________________-->
 {% highlight bash linenos %}
 # once you install npm ... first, in your command line
 $ npm install -g bower
 $ touch .bowerrc
 $ touch bower.json
 {% endhighlight %}
-<!-- /Code -->
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<!-- Code -->
+<!-- Code _______________________________________-->
 {% highlight javascript linenos %}
 // in .bowerrc
 {
@@ -41,13 +41,13 @@ $ touch bower.json
   }
 }
 {% endhighlight %}
-<!-- /Code -->
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 
 After that, you can simply add components by doing the following in your command line.
 
-<!-- Code -->
+<!-- Code _______________________________________-->
 {% highlight javascript linenos %}
 bower install jquery
 {% endhighlight %}
-<!-- /Code -->
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->

@@ -12,7 +12,7 @@ tags: [nodejs, less, npm, express]
 
 Css is awesome, but it has a lot of limitations. For example, lets say that you have 1 color that you place everywhere (brand color). If you wanted to change this color, you would either go through each css file looking for it with control+f/cmd+f or you would do a find and replace. That's very inefficient. Less allows you to code css like a programming language. How does it work?
 
-<!-- Code -->
+<!-- Code _______________________________________-->
 {% highlight css linenos %}
 @myColor: blue;
 body {
@@ -44,18 +44,18 @@ body p {
   background-color: blue;
 }
 {% endhighlight %}
-<!-- /Code -->
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <h4>Installation</h4>
 
-<!-- Code -->
+<!-- Code _______________________________________-->
 {% highlight bash linenos %}
 # To install less in your express app
 npm install less-middleware
 {% endhighlight %}
-<!-- /Code -->
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<!-- Code -->
+<!-- Code _______________________________________-->
 {% highlight javascript linenos %}
 // inside your app.js
 var lessMiddleware = require('less-middleware');
@@ -67,4 +67,4 @@ app.use(express.static(__dirname + '/public'));
 // So you can add the link to that css file in your html like you normally would and voila
 // example in this project folder as usual.
 {% endhighlight %}
-<!-- /Code -->
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
