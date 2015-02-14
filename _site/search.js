@@ -13,6 +13,16 @@ temp = {
 data[temp.id] = temp;
 
 temp = {
+  "id"    : "/javascript/2015/02/14/learn-node-part-6-mocha-testing",
+  "title"   : "Learn Node Part 6: Mocha Testing",
+  "category": "javascript",
+  "tags"    : "nodejs mochajs chai supertest grunt",
+  "content" : "On the client side, you have Karma for unit testing. On the server side, there’s Mocha. This example project will demonstrate how to use mocha efficiently.InstallationStep 1 1 ### Command Line ### 2  3 # Get the right packages 4 npm install -g grunt-cli 5  6 # Grunt modules 7 npm install --save-dev grunt 8 npm install --save-dev load-grunt-tasks 9 npm install --save-dev grunt-mocha-test10 11 # Testing modules12 npm install --save-dev chai13 npm install --save-dev chai-as-promised14 npm install --save-dev mocha15 npm install --save-dev supertest16 npm install --save-dev supertest-as-promisedStep 21 ### Command Line ###2 3 # Create a Gruntfile.js4 touch Gruntfile.jsStep 3 1 // ### in Gruntfile.js ### 2  3 module.exports = function(grunt) { 4  5   require(&#39;load-grunt-tasks&#39;)(grunt); 6   grunt.initConfig({ 7       mochaTest: { 8             test: { 9                 options: {10                     reporter: &#39;spec&#39;11                 },12                 src: [&#39;test/**/*.js&#39;]13             }14         }15   });16   17   // now &quot;grunt&quot; will run our tests18   grunt.registerTask(&#39;default&#39;, [&#39;mochaTest&#39;]);19 };Step 41 // ### in app.js ###2 3 // At the end of the file add this line4 module.exports = app;5 // This will allow you to require the app to use with supertestStep 5 1 // ### in test/myTest.js ### 2  3 // Get the app and create a new supertest 4 var app = require(&#39;../app&#39;); 5 var agent = require(&#39;supertest-as-promised&#39;)(app); 6  7 // Require chai and if you want to test promises you can 8 // make it use &#39;chai-as-promised&#39; or if you want to use chai&#39;s &#39;should&#39; 9 var chai = require(&#39;chai&#39;);10 var chaiAsPromised = require(&#39;chai-as-promised&#39;);11 12 chai.should();13 chai.use(chaiAsPromised);14 15 describe(&#39;This is a test suite&#39;, function(){16     17     // has similar &#39;after&#39; method18     before(function(done){19         // happens before the test suite runs20     });21     22     // has similar &#39;afterEach&#39; method23     beforeEach(function(done){24         // happens before each test25     });26 27     it(&#39;should be a test&#39;, function(done){28         // use chai/supertest here29     });30 31     it(&#39;should be another test&#39;, function(done){32         // use chai/supertest here33     });34 });Step 6 1 // ### in test/myTest.js ### 2  3 // A test would look like this 4 it(&#39;should not find the page (using supertest-as-promised)&#39;, function(done){ 5     agent 6         .get(&#39;/gbeqwigbq&#39;) 7         .expect(404) 8         .then(function(res){ 9             &quot;works&quot;.should.equal(&quot;works&quot;);10             &quot;not works&quot;.should.not.equal(&quot;works&quot;);11         })12         .done(done);  // remember to call done13 });",
+  "date"    : "February 14, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2015/02/14/learn-node-part-5-mongoose",
   "title"   : "Learn Node Part 5: Mongoose",
   "category": "javascript",

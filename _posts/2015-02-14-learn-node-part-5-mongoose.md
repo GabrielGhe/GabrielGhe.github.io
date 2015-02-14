@@ -35,7 +35,7 @@ npm install --save mongoose
 
 Step 2
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight javascript linenos %}
 // ### in app.js ###
 ...
 

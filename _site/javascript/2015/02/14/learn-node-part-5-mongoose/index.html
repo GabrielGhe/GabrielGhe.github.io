@@ -80,6 +80,8 @@
   
     
   
+    
+  
 
 
 
@@ -151,21 +153,21 @@
 <p>Step 2
 <!-- Code _______________________________________--></p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1</span> // <span class="c">### in app.js ###</span>
-<span class="lineno"> 2</span> ...
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// ### in app.js ###</span>
+<span class="lineno"> 2</span> <span class="p">...</span>
 <span class="lineno"> 3</span> 
-<span class="lineno"> 4</span> // Mongoose connecting
-<span class="lineno"> 5</span> //---------------------------------------------
-<span class="lineno"> 6</span> var <span class="nv">mongoose</span> <span class="o">=</span> require<span class="o">(</span><span class="s1">&#39;mongoose&#39;</span><span class="o">)</span><span class="p">;</span>
-<span class="lineno"> 7</span> mongoose.connect<span class="o">(</span><span class="s1">&#39;mongodb://localhost/test&#39;</span><span class="o">)</span><span class="p">;</span>// <span class="s2">&quot;test&quot;</span> is the db name
-<span class="lineno"> 8</span> mongoose.connection.on<span class="o">(</span><span class="s1">&#39;error&#39;</span>, <span class="k">function</span><span class="o">()</span> <span class="o">{</span>
-<span class="lineno"> 9</span>   console.error<span class="o">(</span><span class="s1">&#39;✗ MongoDB Connection Error. Please make sure MongoDB is running.&#39;</span><span class="o">)</span><span class="p">;</span>
-<span class="lineno">10</span> <span class="o">})</span><span class="p">;</span>
+<span class="lineno"> 4</span> <span class="c1">// Mongoose connecting</span>
+<span class="lineno"> 5</span> <span class="c1">//---------------------------------------------</span>
+<span class="lineno"> 6</span> <span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">);</span>
+<span class="lineno"> 7</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;mongodb://localhost/test&#39;</span><span class="p">);</span><span class="c1">// &quot;test&quot; is the db name</span>
+<span class="lineno"> 8</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno"> 9</span>   <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;✗ MongoDB Connection Error. Please make sure MongoDB is running.&#39;</span><span class="p">);</span>
+<span class="lineno">10</span> <span class="p">});</span>
 <span class="lineno">11</span> 
-<span class="lineno">12</span> // add ^ before this line
-<span class="lineno">13</span> var <span class="nv">app</span> <span class="o">=</span> express<span class="o">()</span><span class="p">;</span>
+<span class="lineno">12</span> <span class="c1">// add ^ before this line</span>
+<span class="lineno">13</span> <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
 <span class="lineno">14</span> 
-<span class="lineno">15</span> ...</code></pre></div>
+<span class="lineno">15</span> <span class="p">...</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
@@ -220,7 +222,7 @@
   
      
     	<li><a href="/categories.html#javascript-ref">
-    		javascript <span>20</span>
+    		javascript <span>21</span>
     	</a></li>
     
   
@@ -238,7 +240,7 @@
 
   
      
-    	<li><a href="/tags.html#nodejs-ref">nodejs <span>8</span></a></li>
+    	<li><a href="/tags.html#nodejs-ref">nodejs <span>9</span></a></li>
      
     	<li><a href="/tags.html#mongodb-ref">mongodb <span>1</span></a></li>
      
@@ -258,7 +260,7 @@
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/javascript/2015/02/14/learn-react-part-7-using-node-and-socketio" title="Learn React Part 7: using Node and Socket.io">Next &raquo;</a></li>
+      <li class="next"><a href="/javascript/2015/02/14/learn-node-part-6-mocha-testing" title="Learn Node Part 6: Mocha Testing">Next &raquo;</a></li>
     
     </ul>
     
@@ -279,6 +281,11 @@
       </li>
       
       <li>
+         <a href="/javascript/2015/02/14/learn-node-part-6-mocha-testing">Learn Node Part 6: Mocha Testing</a>
+        <hr>
+      </li>
+      
+      <li>
          <a href="/javascript/2015/02/14/learn-node-part-5-mongoose">Learn Node Part 5: Mongoose</a>
         <hr>
       </li>
@@ -290,11 +297,6 @@
       
       <li>
          <a href="/javascript/2015/02/14/learn-node-part-3-grunt">Learn Node Part 3: Grunt</a>
-        <hr>
-      </li>
-      
-      <li>
-         <a href="/javascript/2015/02/14/learn-node-part-2-less">Learn Node Part 2: Less</a>
         <hr>
       </li>
       
