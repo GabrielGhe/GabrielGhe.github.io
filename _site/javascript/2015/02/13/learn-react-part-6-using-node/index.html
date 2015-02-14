@@ -122,6 +122,129 @@
     </div>
     <div class="content">
       
+<!-- Overview -->
+<h3>Overview</h3>
+
+<p>We’re going to set up a React server using browserify, EJS, Express and Less.</p>
+
+<!-- Part 1: Install -->
+<p><br /><br /></p>
+<h4>Install</h4>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> <span class="c">### in terminal ###</span>
+<span class="lineno">2</span> npm install -g express@3.4.8
+<span class="lineno">3</span> express -e -c less
+<span class="lineno">4</span> npm install</code></pre></div>
+
+<!-- /Code -->
+
+<p>On <code>line 2</code>, we set the express version to 3.4.8. This is because the express generator for later versions is horrible. On <code>line 3</code>, we set the template engine to EJS using <code>-e</code> and the css engine to less using <code>-c less</code>.</p>
+
+<p>Next, we’re going to install all our fun modules.</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> <span class="c">### in terminal ###</span>
+<span class="lineno">2</span> npm install --save browserify reactify socket.io uglify-js</code></pre></div>
+
+<!-- /Code -->
+
+<p>You can find out more about each module or try to look it up on this site. This is what your <code>package.json</code> should look like.</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="p">{</span>
+<span class="lineno"> 2</span>   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;application-name&quot;</span><span class="p">,</span>
+<span class="lineno"> 3</span>   <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
+<span class="lineno"> 4</span>   <span class="s2">&quot;private&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="lineno"> 5</span>   <span class="s2">&quot;scripts&quot;</span><span class="o">:</span> <span class="p">{</span>
+<span class="lineno"> 6</span>     <span class="s2">&quot;watch&quot;</span><span class="o">:</span> <span class="s2">&quot;watchify client.js -o public/javascripts/build.min.js -v&quot;</span><span class="p">,</span>
+<span class="lineno"> 7</span>     <span class="s2">&quot;browserify&quot;</span><span class="o">:</span> <span class="s2">&quot;browserify client.js | uglifyjs &gt; public/javascripts/build.min.js&quot;</span><span class="p">,</span>
+<span class="lineno"> 8</span>     <span class="s2">&quot;build&quot;</span><span class="o">:</span> <span class="s2">&quot;npm run browserify&quot;</span><span class="p">,</span>
+<span class="lineno"> 9</span>     <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="s2">&quot;npm run watch &amp; nodemon app.js&quot;</span>
+<span class="lineno">10</span>   <span class="p">},</span>
+<span class="lineno">11</span>   <span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
+<span class="lineno">12</span>     <span class="s2">&quot;express&quot;</span><span class="o">:</span> <span class="s2">&quot;3.4.8&quot;</span><span class="p">,</span>
+<span class="lineno">13</span>     <span class="s2">&quot;ejs&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<span class="lineno">14</span>     <span class="s2">&quot;less-middleware&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<span class="lineno">15</span>     <span class="s2">&quot;browserify&quot;</span><span class="o">:</span> <span class="s2">&quot;~8.1.3&quot;</span><span class="p">,</span>
+<span class="lineno">16</span>     <span class="s2">&quot;reactify&quot;</span><span class="o">:</span> <span class="s2">&quot;~1.0.0&quot;</span><span class="p">,</span>
+<span class="lineno">17</span>     <span class="s2">&quot;socket.io&quot;</span><span class="o">:</span> <span class="s2">&quot;~1.3.4&quot;</span><span class="p">,</span>
+<span class="lineno">18</span>     <span class="s2">&quot;uglify-js&quot;</span><span class="o">:</span> <span class="s2">&quot;~2.4.16&quot;</span><span class="p">,</span>
+<span class="lineno">19</span>     <span class="s2">&quot;watchify&quot;</span><span class="o">:</span> <span class="s2">&quot;~2.3.0&quot;</span><span class="p">,</span>
+<span class="lineno">20</span>     <span class="s2">&quot;react&quot;</span><span class="o">:</span> <span class="s2">&quot;~0.12.2&quot;</span>
+<span class="lineno">21</span>   <span class="p">},</span>
+<span class="lineno">22</span>   <span class="s2">&quot;browserify&quot;</span><span class="o">:</span> <span class="p">{</span>
+<span class="lineno">23</span>     <span class="s2">&quot;transform&quot;</span><span class="o">:</span> <span class="p">[</span>
+<span class="lineno">24</span>       <span class="p">[</span>
+<span class="lineno">25</span>         <span class="s2">&quot;reactify&quot;</span>
+<span class="lineno">26</span>       <span class="p">]</span>
+<span class="lineno">27</span>     <span class="p">]</span>
+<span class="lineno">28</span>   <span class="p">}</span>
+<span class="lineno">29</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code -->
+
+<p><code>npm run watch</code> – Running this command starts a watchify watch, so when we edit our js files, they get browserified on save.</p>
+
+<p><code>npm run build</code> – Running this command builds our build.min.js and minifies it for production</p>
+
+<p><code>npm start</code> – Running this command sets up a watch and runs our app via nodemon</p>
+
+<p><br /><br /></p>
+
+<!-- Part 2: Setup -->
+<h4>Setup</h4>
+
+<p>Now that we have everything we need, we have to set up react. Lets set up <code>./views/index.ejs</code>.</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="lineno"> 2</span> <span class="nt">&lt;html&gt;</span>
+<span class="lineno"> 3</span>   <span class="nt">&lt;head&gt;</span>
+<span class="lineno"> 4</span>     <span class="nt">&lt;title&gt;</span>MyApp<span class="nt">&lt;/title&gt;</span>
+<span class="lineno"> 5</span>     <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#39;stylesheet&#39;</span> <span class="na">href=</span><span class="s">&#39;/stylesheets/style.css&#39;</span> <span class="nt">/&gt;</span>
+<span class="lineno"> 6</span>   <span class="nt">&lt;/head&gt;</span>
+<span class="lineno"> 7</span>   <span class="nt">&lt;body&gt;</span>
+<span class="lineno"> 8</span>     <span class="nt">&lt;h1&gt;</span>MyApp<span class="nt">&lt;/h1&gt;</span>
+<span class="lineno"> 9</span>     <span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">&quot;my-app&quot;</span><span class="nt">&gt;&lt;/section&gt;</span>
+<span class="lineno">10</span>     <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/javascripts/build.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="lineno">11</span>   <span class="nt">&lt;/body&gt;</span>
+<span class="lineno">12</span> <span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<!-- Code -->
+
+<p>Next we have to setup <code>./client.js</code> that will be transformed into <code>build.min.js</code>.</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="cm">/** @jsx React.DOM */</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react&#39;</span><span class="p">);</span>
+<span class="lineno">4</span> <span class="kd">var</span> <span class="nx">MyApp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./components/MyApp.react&#39;</span><span class="p">);</span>
+<span class="lineno">5</span> <span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">MyApp</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;my-app&#39;</span><span class="p">));</span></code></pre></div>
+
+<!-- /Code -->
+
+<p>We’re still missing our <code>MyApp</code> component. Let’s build it.</p>
+
+<!-- Code -->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="cm">/** @jsx React.DOM */</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react&#39;</span><span class="p">);</span>
+<span class="lineno"> 4</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">MyApp</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<span class="lineno"> 5</span>   <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno"> 6</span>     <span class="k">return</span> <span class="p">(</span>
+<span class="lineno"> 7</span>       <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">from</span> <span class="nx">the</span> <span class="nx">MyApp</span> <span class="nx">component</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+<span class="lineno"> 8</span>     <span class="p">)</span>
+<span class="lineno"> 9</span>   <span class="p">}</span>
+<span class="lineno">10</span> <span class="p">});</span></code></pre></div>
+
+<!-- /Code -->
 
     </div>
 
@@ -135,7 +258,7 @@
   
      
     	<li><a href="/categories.html#javascript-ref">
-    		javascript <span>14</span>
+    		javascript <span>15</span>
     	</a></li>
     
   
@@ -153,13 +276,19 @@
 
   
      
-    	<li><a href="/tags.html#react-ref">react <span>1</span></a></li>
+    	<li><a href="/tags.html#react-ref">react <span>2</span></a></li>
      
-    	<li><a href="/tags.html#node-ref">node <span>1</span></a></li>
+    	<li><a href="/tags.html#nodejs-ref">nodejs <span>3</span></a></li>
      
-    	<li><a href="/tags.html#stream-ref">stream <span>1</span></a></li>
+    	<li><a href="/tags.html#browserify-ref">browserify <span>2</span></a></li>
      
-    	<li><a href="/tags.html#isomorphic-ref">isomorphic <span>1</span></a></li>
+    	<li><a href="/tags.html#reactify-ref">reactify <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#watchify-ref">watchify <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#less-ref">less <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#express-ref">express <span>2</span></a></li>
     
   
 
@@ -191,6 +320,11 @@
     <ul class="posts">
       
       <li>
+         <a href="/javascript/2015/02/14/learn-react-part-7-using-node-and-socketio">Learn React Part 7: using Node and Socket.io</a>
+        <hr>
+      </li>
+      
+      <li>
          <a href="/javascript/2015/02/14/express-3-vs-express-4">Express 3 vs Express 4</a>
         <hr>
       </li>
@@ -207,11 +341,6 @@
       
       <li>
          <a href="/javascript/2015/02/07/closures-and-the-context">Closures and the Context</a>
-        <hr>
-      </li>
-      
-      <li>
-         <a href="/swift/2015/02/02/sequences-and-generators">Sequences and Generators</a>
         <hr>
       </li>
       

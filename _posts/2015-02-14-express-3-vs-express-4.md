@@ -3,14 +3,14 @@ layout: post
 title: "Express 3 vs Express 4"
 description: ""
 category: javascript
-tags: [express, nodejs, web]
+tags: [expressjs, nodejs, web]
 ---
 {% include JB/setup %}
 
 <!-- Overview -->
 <h3>Overview</h3>
 
-This post is all about the differences between Express v3 and v4. You can find more information [here](https://scotch.io/bar-talk/expressjs-4-0-new-features-and-upgrading-from-3-0)
+This post is all about the differences between Express v3 and v4. You can find more information [here](http://expressjs.com/guide/migrating-4.html)
 
 
 
@@ -115,6 +115,8 @@ console.log('Server started on port 3000');         // shoutout to the user
 <!-- Routes -->
 <h3>Routes</h3>
 
+<!-- Express 3-->
+<h4>Express 3</h4>
 <!-- Code -->
 {% highlight javascript linenos %}
 // (Express 3.0)
@@ -128,6 +130,8 @@ app.post('/dogs', function(req, res, next) {
 {% endhighlight %}
 <!-- /Code -->
 
+<!-- Express 4-->
+<h4>Express 4</h4>
 <!-- Code -->
 {% highlight javascript linenos %}
 // (Express 4.0)
