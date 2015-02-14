@@ -7,6 +7,9 @@ tags: [nodejs, passportjs]
 ---
 {% include JB/setup %}
 
+<!-- Overview -->
+<h3>Overview</h3>
+
 If you ever wondered how people use the <b>Sign in with Google</b> way of logging in, here's how. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server15Passport).
 
 <h3>Installation</h3>

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Learn Node Part 2: Less</title>
+    <title>Learn Node Part 11: Basic React</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -116,7 +116,7 @@
   <div class="col-md-9">
     <div class="page-header">
       <h1>
-        <i class="icon-javascript" style="font-size:2em"></i> Learn Node Part 2: Less 
+        <i class="icon-javascript" style="font-size:2em"></i> Learn Node Part 11: Basic React 
     </h1>
     </div>
     <div class="date">
@@ -127,64 +127,61 @@
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>Css is awesome, but it has a lot of limitations. For example, lets say that you have 1 color that you place everywhere (brand color). If you wanted to change this color, you would either go through each css file looking for it with control+f/cmd+f or you would do a find and replace. That’s very inefficient. Less allows you to code css like a programming language. How does it work?</p>
-
-<p>You can find more information <a href="https://github.com/GabrielGhe/NodePractice/tree/master/Server9Less">here</a>.</p>
+<p>I’ve heard some nice things about Facebook’s ReactJS Framework. So here’s how to setup React with Node. You can find more information <a href="https://github.com/GabrielGhe/NodePractice/tree/master/Server18React">here</a></p>
 
 <!-- Code _______________________________________-->
 
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="lineno"> 1</span> <span class="k">@myColor</span><span class="o">:</span> <span class="nt">blue</span><span class="p">;</span>
-<span class="lineno"> 2</span> <span class="nt">body</span> <span class="p">{</span>
-<span class="lineno"> 3</span>   <span class="k">color</span><span class="o">:</span><span class="nb">red</span><span class="p">;</span>
-<span class="lineno"> 4</span>   <span class="n">h2</span> <span class="err">{</span>
-<span class="lineno"> 5</span>     <span class="k">color</span><span class="o">:</span> <span class="o">@</span><span class="n">myColor</span><span class="p">;</span>
-<span class="lineno"> 6</span>     
-<span class="lineno"> 7</span>     <span class="o">&amp;:</span><span class="n">hover</span> <span class="err">{</span>
-<span class="lineno"> 8</span>       <span class="k">text-align</span><span class="o">:</span><span class="k">center</span><span class="p">;</span>
-<span class="lineno"> 9</span>     <span class="p">}</span>
-<span class="lineno">10</span>   <span class="err">}</span>
-<span class="lineno">11</span>   <span class="nt">p</span> <span class="p">{</span>
-<span class="lineno">12</span>     <span class="k">background-color</span><span class="o">:</span> <span class="o">@</span><span class="n">myColor</span><span class="p">;</span>
-<span class="lineno">13</span>   <span class="p">}</span>
-<span class="lineno">14</span> <span class="err">}</span>
-<span class="lineno">15</span> 
-<span class="lineno">16</span> <span class="c">/* Compiles to */</span>
-<span class="lineno">17</span> 
-<span class="lineno">18</span> <span class="nt">body</span> <span class="p">{</span>
-<span class="lineno">19</span>   <span class="k">color</span><span class="o">:</span><span class="nb">red</span><span class="p">;</span>
-<span class="lineno">20</span> <span class="p">}</span>
-<span class="lineno">21</span> <span class="nt">body</span> <span class="nt">h2</span> <span class="p">{</span>
-<span class="lineno">22</span>   <span class="k">color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
-<span class="lineno">23</span> <span class="p">}</span>
-<span class="lineno">24</span> <span class="nt">body</span> <span class="nt">h2</span><span class="nd">:hover</span> <span class="p">{</span>
-<span class="lineno">25</span>   <span class="k">text-align</span><span class="o">:</span><span class="k">center</span><span class="p">;</span>
-<span class="lineno">26</span> <span class="p">}</span>
-<span class="lineno">27</span> <span class="nt">body</span> <span class="nt">p</span> <span class="p">{</span>
-<span class="lineno">28</span>   <span class="k">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
-<span class="lineno">29</span> <span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> <span class="c">### in shell ###</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="c"># look at my bower tutorial on how to setup bower</span>
+<span class="lineno">4</span> <span class="nv">$ </span>npm install --save bower
+<span class="lineno">5</span> 
+<span class="lineno">6</span> <span class="nv">$ </span>npm install --save express-jsx
+<span class="lineno">7</span> <span class="nv">$ </span>bower install --save react</code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<h4>Installation</h4>
+<p>React’s syntax is really verbose, so they use <a href="http://facebook.github.io/react/docs/jsx-in-depth.html">JSX</a>. Manually compiling jsx is a pain so we’re going to use express-jsx which compiles the jsx in real time. Lets start.</p>
 
 <!-- Code _______________________________________-->
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> <span class="c"># To install less in your express app</span>
-<span class="lineno">2</span> npm install less-middleware</code></pre></div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="c1">// ### in app.js ###</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="c1">// add near the top</span>
+<span class="lineno">4</span> <span class="kd">var</span> <span class="nx">jsxCompile</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express-jsx&#39;</span><span class="p">);</span>
+<span class="lineno">5</span> 
+<span class="lineno">6</span> <span class="c1">// order is important</span>
+<span class="lineno">7</span> <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">jsxCompile</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;public&#39;</span><span class="p">)));</span>
+<span class="lineno">8</span> <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;public&#39;</span><span class="p">)));</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+<p>Now we’re going to modify the ejs file and make it use react.</p>
+
 <!-- Code _______________________________________-->
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="c1">// inside your app.js</span>
-<span class="lineno">2</span> <span class="kd">var</span> <span class="nx">lessMiddleware</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;less-middleware&#39;</span><span class="p">);</span>
-<span class="lineno">3</span> <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">lessMiddleware</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/public&#39;</span><span class="p">));</span>
-<span class="lineno">4</span> <span class="c1">// this order is important</span>
-<span class="lineno">5</span> <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/public&#39;</span><span class="p">));</span>
-<span class="lineno">6</span> 
-<span class="lineno">7</span> <span class="c1">// Now when you create .less files, a matching .css file gets created when you save</span>
-<span class="lineno">8</span> <span class="c1">// So you can add the link to that css file in your html like you normally would and voila</span>
-<span class="lineno">9</span> <span class="c1">// example in this project folder as usual.</span></code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> <span class="c">&lt;!-- ### in index.ejs ### --&gt;</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;test&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;bower_components/react/react.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="lineno">6</span> <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;javascripts/test.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p>Remember that when test.js is requested, express-jsx middleware will look for a matching .jsx file. This means we need a test.jsx file.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="c1">// ### in test.jsx ###</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="cm">/** @jsx React.DOM */</span>
+<span class="lineno">4</span> <span class="s2">&quot;use strict&quot;</span>
+<span class="lineno">5</span> 
+<span class="lineno">6</span> <span class="nx">React</span><span class="p">.</span><span class="nx">renderComponent</span><span class="p">(</span>
+<span class="lineno">7</span>   <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">I</span> <span class="nx">am</span> <span class="nx">printing</span> <span class="nx">the</span> <span class="nx">title</span> <span class="nx">from</span> <span class="nx">react</span><span class="p">,</span> <span class="nx">works</span><span class="o">!&lt;</span><span class="err">/h1&gt;,</span>
+<span class="lineno">8</span>   <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<span class="lineno">9</span> <span class="p">);</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
@@ -220,11 +217,11 @@
      
     	<li><a href="/tags.html#nodejs-ref">nodejs <span>14</span></a></li>
      
-    	<li><a href="/tags.html#less-ref">less <span>3</span></a></li>
-     
-    	<li><a href="/tags.html#npm-ref">npm <span>3</span></a></li>
-     
     	<li><a href="/tags.html#express-ref">express <span>5</span></a></li>
+     
+    	<li><a href="/tags.html#react-ref">react <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#bower-ref">bower <span>3</span></a></li>
     
   
 
@@ -236,11 +233,11 @@
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/javascript/2015/02/14/learn-node-part-11-basic-react" title="Learn Node Part 11: Basic React">&laquo; Previous</a></li>
+      <li class="prev"><a href="/javascript/2015/02/14/learn-node-part-10-angularjs" title="Learn Node Part 10: AngularJS">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/javascript/2015/02/14/learn-node-part-3-grunt" title="Learn Node Part 3: Grunt">Next &raquo;</a></li>
+      <li class="next"><a href="/javascript/2015/02/14/learn-node-part-2-less" title="Learn Node Part 2: Less">Next &raquo;</a></li>
     
     </ul>
     

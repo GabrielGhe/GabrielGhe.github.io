@@ -7,6 +7,9 @@ tags: [nodejs, angularjs, bower]
 ---
 {% include JB/setup %}
 
+<!-- Overview -->
+<h3>Overview</h3>
+
 AngularJS is amazing but I realized that I don't actually have a guide on how to use it from scratch... So here we go.
 You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server17Angular)
 

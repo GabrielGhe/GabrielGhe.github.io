@@ -7,6 +7,9 @@ tags: [nodejs, express, mocha, mocha-webdriver]
 ---
 {% include JB/setup %}
 
+<!-- Overview -->
+<h3>Overview</h3>
+
 Initially I wanted to scrape a school site for class schedules using the node modules cheerio and request. It turns out that the site I wanted to scrape uses an iframe for the data... and request doesn't like those. So I decided to switch to selenium and grunt-mocha-webdriver.
 You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server16WebScraper).
 
