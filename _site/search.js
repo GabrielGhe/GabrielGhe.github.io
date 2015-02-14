@@ -13,6 +13,16 @@ temp = {
 data[temp.id] = temp;
 
 temp = {
+  "id"    : "/javascript/2015/02/14/learn-node-part-9-webscraper",
+  "title"   : "Learn Node Part 9: WebScraper",
+  "category": "javascript",
+  "tags"    : "nodejs express mocha mocha-webdriver",
+  "content" : "Initially I wanted to scrape a school site for class schedules using the node modules cheerio and request. It turns out that the site I wanted to scrape uses an iframe for the data… and request doesn’t like those. So I decided to switch to selenium and grunt-mocha-webdriver.You can find more information here.InstallationStep 11 ### Command Line ###2 3 # Get the right packages4 npm install --save-dev grunt5 npm install --save-dev load-grunt-tasks6 npm install --save-dev grunt-mocha-webdriverStep 2 1 // ### in Gruntfile.js ### 2  3 module.exports = function(grunt) { 4  5   require(&#39;load-grunt-tasks&#39;)(grunt); 6   grunt.initConfig({ 7     mochaWebdriver: { 8       options: { 9         timeout: 1000 * 60 * 3,10         reporter: &#39;spec&#39;11       },12       chrome: {13         src: [&#39;scrape/index.js&#39;],14         options: {15           testName: &#39;scrapping&#39;,16           hostname: &#39;localhost&#39;,17           port:   &#39;4444&#39;,18           usePromises: true,19           autoInstall: true,20           browsers: [21             {browserName: &#39;chrome&#39;}22           ]23         }24       }25     }// end mochaWebdriver26   });27 28   grunt.registerTask(&#39;default&#39;, [&quot;mochaWebdriver:chrome&quot;]);29 };Step 31 // ### in scrape/index.js ###2 3 // declare a simple mocha test4 describe(&quot;Scraping&quot;, function() {5   it(&quot;should just go to the url and wait&quot;, function() {6     // instructions go here7   });8 });Step 4 1 // ### in scrape/index.js ### 2  3 var jsCode = &quot;console.log(&#39;this will execute in the browser&#39;)&quot;; 4 var page = { 5   url: &quot;url&quot;, 6   body: &quot;#body-id&quot;, 7   submit: &quot;#submit-btn-id&quot; 8 }; 9 10 it(&quot;should just go to the url&quot;, function() {11   this.browser12       .get(page.url)13       .waitForElementByCss(page.body, this.wd.asserters.isDisplayed)14       .execute(jsCode)15       .elementByCss(page.submit)16       .click()17       .sleep(4000);18 });",
+  "date"    : "February 14, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2015/02/14/learn-node-part-8-passport",
   "title"   : "Learn Node Part 8: Passport",
   "category": "javascript",
