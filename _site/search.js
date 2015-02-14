@@ -93,6 +93,16 @@ temp = {
 data[temp.id] = temp;
 
 temp = {
+  "id"    : "/javascript/2015/02/14/learn-node-part-10-angularjs",
+  "title"   : "Learn Node Part 10: AngularJS",
+  "category": "javascript",
+  "tags"    : "nodejs angularjs",
+  "content" : "AngularJS is amazing but I realized that I don’t actually have a guide on how to use it from scratch… So here we go.You can find more information hereInstallation1 ### in shell ###2 express -e 3 npm install -g bower4 touch .bowerrc5 touch bower.json 1 ### in .bowerrc ### 2 { 3   //where do you want the bower components to be stored 4   &quot;directory&quot; : &quot;public/bower_components&quot; 5 } 6  7  8 ### in bower.json ### 9 {10   &quot;name&quot;: &quot;Server17Angular&quot;,11   &quot;version&quot;: &quot;0.0.1&quot;,12   &quot;dependencies&quot;: {13   }14 }Install angular and it's dependenciesshellbower install --save angularbower install --save angular-routeWe add the files to the ejs view... add them in the head tag or at the end of the body tag. We also add the ng-app attribute to the body (or anywhere else) and the ng-view attribute to allow us to use partials.```html        ```We now need to start our angular app in javascript.```javascript// ### in public/javascripts/index.js ###// create angular appvar MyApp = angular.module(“MyApp”, [“ngRoute”]);// Add routesMyApp.config([“$routeProvider”, “$locationProvider”,  function($routeProvider, $locationProvider) {    $routeProvider  .when(/, {    templateUrl: partials/home.html,    controller: homeCtrl  })    .otherwise({    redirectTo: /  });$locationProvider.html5Mode(true);   } ]);// add controllers```We now need to add controllers that will handle what happens when someone goes to one of those routes```javascript// ### in public/javascripts/index.js ###//at the bottom of the file add…MyApp.controller(“homeCtrl”, [“$scope”, function($scope) {  // do stuff}]);```Ok we have everything set up, but we don't have a partial to display, what's in home.html?```htmlThis is the home partial that will display for the home route '/'```Done!",
+  "date"    : "February 14, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2015/02/14/learn-node-part-1-bower",
   "title"   : "Learn Node Part 1: Bower",
   "category": "javascript",

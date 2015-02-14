@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>EcmaScript 6 feature: enhanced properties</title>
+    <title>Learn Node Part 10: AngularJS</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -116,57 +116,117 @@
   <div class="col-md-9">
     <div class="page-header">
       <h1>
-        <i class="icon-javascript" style="font-size:2em"></i> EcmaScript 6 feature: enhanced properties 
+        <i class="icon-javascript" style="font-size:2em"></i> Learn Node Part 10: AngularJS 
     </h1>
     </div>
     <div class="date">
-      <span>Friday, January  2, 2015</span>
+      <span>Saturday, February 14, 2015</span>
     </div>
     <div class="content">
       
-<!-- Overview -->
-<h3>Overview</h3>
+<p>AngularJS is amazing but I realized that I don’t actually have a guide on how to use it from scratch… So here we go.
+You can find more information <a href="https://github.com/GabrielGhe/NodePractice/tree/master/Server17Angular">here</a></p>
 
-<p>Javascript’s new version (EcmaScript 6) has some amazing new features. The one discussed in this post is enhanced properties.
-More information can be found <a href="http://www.2ality.com/2014/12/es6-oop.html">here</a>.</p>
+<h3>Installation</h3>
 
-<!-- Examples -->
-<h3>Examples</h3>
+<!-- Code _______________________________________-->
 
-<!-- Shorthands -->
-<p>Property shorthands</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> <span class="c">### in shell ###</span>
+<span class="lineno">2</span> express -e 
+<span class="lineno">3</span> npm install -g bower
+<span class="lineno">4</span> touch .bowerrc
+<span class="lineno">5</span> touch bower.json</code></pre></div>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Jim&quot;</span><span class="p">;</span>
-<span class="lineno">2</span> <span class="kd">let</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
-<span class="lineno">3</span> <span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">age</span> <span class="p">};</span> <span class="c1">// { name: &quot;Jim&quot;, age: 21 }</span></code></pre></div>
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<!-- Deconstructing -->
-<p>Deconstructing</p>
+<!-- Code _______________________________________-->
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Jim&quot;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">21</span> <span class="p">};</span>
-<span class="lineno">2</span> <span class="kd">let</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">age</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">person</span><span class="p">;</span>
-<span class="lineno">3</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>  <span class="c1">// Jim</span>
-<span class="lineno">4</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>   <span class="c1">// 21</span></code></pre></div>
-
-<!-- Computed keys -->
-<p>Computed Property Keys</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// Before</span>
-<span class="lineno"> 2</span> <span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="s2">&quot;myKey&quot;</span><span class="p">;</span>
-<span class="lineno"> 3</span> <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
-<span class="lineno"> 4</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="lineno"> 5</span> 
-<span class="lineno"> 6</span> <span class="c1">// Now</span>
-<span class="lineno"> 7</span> <span class="kd">let</span> <span class="nx">key</span> <span class="o">=</span> <span class="s2">&quot;myKey&quot;</span><span class="p">;</span>
-<span class="lineno"> 8</span> <span class="kd">let</span> <span class="nx">keyNum</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="lineno"> 9</span> <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-<span class="lineno">10</span>   <span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>        <span class="c1">// computed property name</span>
-<span class="lineno">11</span>   <span class="p">[</span><span class="nx">key</span> <span class="o">+</span> <span class="nx">keyNum</span><span class="p">](){</span> <span class="c1">// computed method name</span>
-<span class="lineno">12</span>     <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="err">###</span> <span class="k">in</span> <span class="p">.</span><span class="nx">bowerrc</span> <span class="err">###</span>
+<span class="lineno"> 2</span> <span class="p">{</span>
+<span class="lineno"> 3</span>   <span class="c1">//where do you want the bower components to be stored</span>
+<span class="lineno"> 4</span>   <span class="s2">&quot;directory&quot;</span> <span class="o">:</span> <span class="s2">&quot;public/bower_components&quot;</span>
+<span class="lineno"> 5</span> <span class="p">}</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span> <span class="err">###</span> <span class="k">in</span> <span class="nx">bower</span><span class="p">.</span><span class="nx">json</span> <span class="err">###</span>
+<span class="lineno"> 9</span> <span class="p">{</span>
+<span class="lineno">10</span>   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Server17Angular&quot;</span><span class="p">,</span>
+<span class="lineno">11</span>   <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
+<span class="lineno">12</span>   <span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
 <span class="lineno">13</span>   <span class="p">}</span>
-<span class="lineno">14</span> <span class="p">};</span>
-<span class="lineno">15</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">obj</span><span class="p">[</span><span class="s2">&quot;myKey&quot;</span><span class="p">]</span> <span class="p">);</span>    <span class="c1">// 5</span>
-<span class="lineno">16</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">obj</span><span class="p">[</span><span class="s2">&quot;myKey1&quot;</span><span class="p">]()</span> <span class="p">);</span> <span class="c1">// true</span></code></pre></div>
+<span class="lineno">14</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p>Install angular and it's dependencies</p>
+
+<p><code>shell
+bower install --save angular
+bower install --save angular-route
+</code></p>
+
+<p>We add the files to the ejs view... add them in the head tag or at the end of the body tag. We also add the ng-app attribute to the body (or anywhere else) and the ng-view attribute to allow us to use partials.</p>
+
+<p>```html
+<!-- ### in views/index.ejs ### --></p>
+<head>
+  <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
+  <script type="text/javascript" src="/javascripts/index.js"></script>
+</head>
+<body ng-app="MyApp">
+  <div ng-view=""></div>
+</body>
+<p>```</p>
+
+<p>We now need to start our angular app in javascript.</p>
+
+<p>```javascript
+// ### in public/javascripts/index.js ###</p>
+
+<p>// create angular app
+var MyApp = angular.module(“MyApp”, [“ngRoute”]);</p>
+
+<p>// Add routes
+MyApp.config([“$routeProvider”, “$locationProvider”,
+  function($routeProvider, $locationProvider) {
+    $routeProvider</p>
+
+<pre><code>  .when("/", {
+    templateUrl: "partials/home.html",
+    controller: "homeCtrl"
+  })
+  
+  .otherwise({
+    redirectTo: "/"
+  });
+
+$locationProvider.html5Mode(true);   } ]);
+</code></pre>
+
+<p>// add controllers
+```</p>
+
+<p>We now need to add controllers that will handle what happens when someone goes to one of those routes</p>
+
+<p>```javascript
+// ### in public/javascripts/index.js ###</p>
+
+<p>//at the bottom of the file add…
+MyApp.controller(“homeCtrl”, [“$scope”, function($scope) {
+  // do stuff
+}]);
+```</p>
+
+<p>Ok we have everything set up, but we don't have a partial to display, what's in home.html?</p>
+
+<p>```html
+<!-- ### in public/partials/home.html ### --></p>
+
+<p>This is the home partial that will display for the home route '/'</p>
+<p>```</p>
+
+<p>Done!</p>
 
     </div>
 
@@ -198,11 +258,9 @@ More information can be found <a href="http://www.2ality.com/2014/12/es6-oop.htm
 
   
      
-    	<li><a href="/tags.html#es6-ref">es6 <span>6</span></a></li>
+    	<li><a href="/tags.html#nodejs-ref">nodejs <span>13</span></a></li>
      
-    	<li><a href="/tags.html#property-ref">property <span>2</span></a></li>
-     
-    	<li><a href="/tags.html#deconstruct-ref">deconstruct <span>1</span></a></li>
+    	<li><a href="/tags.html#angularjs-ref">angularjs <span>2</span></a></li>
     
   
 
@@ -214,11 +272,11 @@ More information can be found <a href="http://www.2ality.com/2014/12/es6-oop.htm
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/javascript/2015/01/02/ecmascript-6-feature-generators-and-iterators" title="EcmaScript 6 feature: generators and iterators">&laquo; Previous</a></li>
+      <li class="prev"><a href="/javascript/2015/02/14/learn-node-part-1-bower" title="Learn Node Part 1: Bower">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/csharp/2015/01/03/c-60-feature-null-propogation" title="6.0 feature: Null Propogation">Next &raquo;</a></li>
+      <li class="next"><a href="/javascript/2015/02/14/learn-node-part-2-less" title="Learn Node Part 2: Less">Next &raquo;</a></li>
     
     </ul>
     
