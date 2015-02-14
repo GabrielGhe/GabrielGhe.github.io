@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Learn Node Part 12: React More</title>
+    <meta name="description" content="">
+    <meta name="author" content="Gabriel G">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/bootstrap-3/css/font-mfizz.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">GabrielGhe</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+            <li>
+              <a href="http://github.com/GabrielGhe">
+                Github
+              </a>
+            </li>
+          </ul>
+
+          <form id="search" class="navbar-form" role="search" action="/search" method="get" onsubmit="return false;">
+            <div id="searchbar" class="form-group" style="display:inline;">
+              <!-- Will be removed by React, placeholder so that there's something there while react loads -->
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-search"></span>
+                </span>
+                <input type="search" placeholder="Search" class="form-control" autocomplete="off" />
+              </div>
+              <!-- up to here -->
+            </div>
+          </form>
+        </div>
+
+        <!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container">
+        
+<!-- Left Side -->
+<div class="row post-full">
+  <div class="col-md-9">
+    <div class="page-header">
+      <h1>
+        <i class="icon-javascript" style="font-size:2em"></i> Learn Node Part 12: React More 
+    </h1>
+    </div>
+    <div class="date">
+      <span>Saturday, February 14, 2015</span>
+    </div>
+    <div class="content">
+      
+<!-- Overview -->
+<h3>Overview</h3>
+
+<p>If you haven’t already, look at how to initialize React <a href="/javascript/2015/02/14/learn-node-part-11-basic-react/">here</a>. You can find more information <a href="https://github.com/GabrielGhe/NodePractice/tree/master/Server19ReactMore">here</a>.</p>
+
+<p>React works with reusable components. They are similar to AngularJS directives in a way. We’re going to be creating a person list.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// ### in first.jsx ###</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="cm">/** @jsx React.DOM */</span>
+<span class="lineno"> 4</span> <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span>
+<span class="lineno"> 7</span>   <span class="p">{</span><span class="nx">first</span><span class="o">:</span><span class="s2">&quot;Vush&quot;</span><span class="p">,</span> <span class="nx">last</span><span class="o">:</span> <span class="s2">&quot;Ky&quot;</span><span class="p">},</span>
+<span class="lineno"> 8</span>   <span class="p">{</span><span class="nx">first</span><span class="o">:</span><span class="s2">&quot;Dai&quot;</span><span class="p">,</span> <span class="nx">last</span><span class="o">:</span> <span class="s2">&quot;Sy&quot;</span><span class="p">},</span>
+<span class="lineno"> 9</span>   <span class="p">{</span><span class="nx">first</span><span class="o">:</span><span class="s2">&quot;Ja&quot;</span><span class="p">,</span> <span class="nx">last</span><span class="o">:</span> <span class="s2">&quot;Ky&quot;</span><span class="p">}</span>
+<span class="lineno">10</span> <span class="p">];</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span> <span class="kd">var</span> <span class="nx">Person</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<span class="lineno">13</span>   <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">14</span>     <span class="k">return</span> <span class="p">(</span>
+<span class="lineno">15</span>       <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="lineno">16</span>         <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">last</span><span class="p">},</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">first</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h2&gt;</span>
+<span class="lineno">17</span>       <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="lineno">18</span>     <span class="p">)</span>
+<span class="lineno">19</span>   <span class="p">}</span>
+<span class="lineno">20</span> <span class="p">});</span><span class="c1">// End Person</span>
+<span class="lineno">21</span> 
+<span class="lineno">22</span> 
+<span class="lineno">23</span> <span class="kd">var</span> <span class="nx">PersonList</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<span class="lineno">24</span>   <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">25</span>     <span class="kd">var</span> <span class="nx">people</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">person</span><span class="p">){</span>
+<span class="lineno">26</span>       <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Person</span> <span class="nx">first</span><span class="o">=</span><span class="p">{</span><span class="nx">person</span><span class="p">.</span><span class="nx">first</span><span class="p">}</span> <span class="nx">last</span><span class="o">=</span><span class="p">{</span><span class="nx">person</span><span class="p">.</span><span class="nx">last</span><span class="p">}</span> <span class="o">/&gt;</span>
+<span class="lineno">27</span>     <span class="p">});</span><span class="c1">// End People</span>
+<span class="lineno">28</span> 
+<span class="lineno">29</span>     <span class="k">return</span> <span class="p">(</span>
+<span class="lineno">30</span>       <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="lineno">31</span>         <span class="p">{</span><span class="nx">people</span><span class="p">}</span>
+<span class="lineno">32</span>       <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="lineno">33</span>     <span class="p">);</span>
+<span class="lineno">34</span>   <span class="p">}</span>
+<span class="lineno">35</span> <span class="p">});</span><span class="c1">// End PersonList</span>
+<span class="lineno">36</span> 
+<span class="lineno">37</span> 
+<span class="lineno">38</span> <span class="kd">var</span> <span class="nx">PersonApp</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<span class="lineno">39</span>   <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">40</span>     <span class="k">return</span> <span class="p">(</span>
+<span class="lineno">41</span>       <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="lineno">42</span>         <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">is</span> <span class="nx">the</span> <span class="nx">person</span> <span class="nx">App</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+<span class="lineno">43</span>         <span class="o">&lt;</span><span class="nx">PersonList</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">}</span> <span class="o">/&gt;</span>
+<span class="lineno">44</span>       <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="lineno">45</span>     <span class="p">);</span>
+<span class="lineno">46</span>   <span class="p">}</span>
+<span class="lineno">47</span> <span class="p">});</span><span class="c1">// End PersonApp</span>
+<span class="lineno">48</span> 
+<span class="lineno">49</span> 
+<span class="lineno">50</span> <span class="nx">React</span><span class="p">.</span><span class="nx">renderComponent</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">PersonApp</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">}</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">));</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p>We created a PersonApp which has data. The PersonApp then creates a PersonList which displays a Person for every object in the data array. React uses this.props to access attributes on the component (like first, last and data). Lets remove data because it’s static.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// ### in first.jsx ###</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="c1">// first remove the data array.</span>
+<span class="lineno"> 4</span> <span class="c1">// Person doesn&#39;t change</span>
+<span class="lineno"> 5</span> <span class="c1">// PersonList doesn&#39;t change</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span> <span class="kd">var</span> <span class="nx">PersonApp</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<span class="lineno"> 9</span>   <span class="nx">getInitialState</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">10</span>     <span class="k">return</span> <span class="p">{</span> <span class="nx">data</span><span class="o">:</span> <span class="p">[],</span> <span class="nx">first</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nx">last</span><span class="o">:</span><span class="s2">&quot;&quot;</span> <span class="p">};</span>
+<span class="lineno">11</span>   <span class="p">},</span>
+<span class="lineno">12</span> 
+<span class="lineno">13</span>   <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">14</span>     <span class="k">return</span> <span class="p">(</span>
+<span class="lineno">15</span>       <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="lineno">16</span>         <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">is</span> <span class="nx">the</span> <span class="nx">person</span> <span class="nx">App</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+<span class="lineno">17</span>         <span class="o">&lt;</span><span class="nx">form</span><span class="o">&gt;</span>
+<span class="lineno">18</span>           <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">first</span><span class="p">}</span> <span class="o">/&gt;</span>
+<span class="lineno">19</span>           <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">last</span><span class="p">}</span> <span class="o">/&gt;</span>
+<span class="lineno">20</span>           <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="o">&gt;</span><span class="nx">Add</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+<span class="lineno">21</span>         <span class="o">&lt;</span><span class="err">/form&gt;</span>
+<span class="lineno">22</span> 
+<span class="lineno">23</span>         <span class="o">&lt;</span><span class="nx">PersonList</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">}</span> <span class="o">/&gt;</span>
+<span class="lineno">24</span>       <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="lineno">25</span>     <span class="p">);</span>
+<span class="lineno">26</span>   <span class="p">}</span>
+<span class="lineno">27</span> <span class="p">});</span><span class="c1">// End PersonApp</span>
+<span class="lineno">28</span> 
+<span class="lineno">29</span> <span class="c1">// notice we removed data on this line</span>
+<span class="lineno">30</span> <span class="nx">React</span><span class="p">.</span><span class="nx">renderComponent</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">PersonApp</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">));</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p>It looks good but it would be nice to change the state of first and last when their associated input changes.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// ### in first.jsx ###</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="kd">var</span> <span class="nx">PersonApp</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<span class="lineno"> 4</span>   <span class="nx">getInitialState</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno"> 5</span>     <span class="k">return</span> <span class="p">{</span> <span class="nx">data</span><span class="o">:</span> <span class="p">[],</span> <span class="nx">first</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nx">last</span><span class="o">:</span><span class="s2">&quot;&quot;</span> <span class="p">};</span>
+<span class="lineno"> 6</span>   <span class="p">},</span>
+<span class="lineno"> 7</span>   <span class="nx">onChangeFirst</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+<span class="lineno"> 8</span>     <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">first</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">});</span>
+<span class="lineno"> 9</span>   <span class="p">},</span>
+<span class="lineno">10</span>   <span class="nx">onChangeLast</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+<span class="lineno">11</span>     <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">last</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">});</span>
+<span class="lineno">12</span>   <span class="p">},</span>
+<span class="lineno">13</span> 
+<span class="lineno">14</span>   <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">15</span>     <span class="k">return</span> <span class="p">(</span>
+<span class="lineno">16</span>       <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="lineno">17</span>         <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">is</span> <span class="nx">the</span> <span class="nx">person</span> <span class="nx">App</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+<span class="lineno">18</span>         <span class="o">&lt;</span><span class="nx">form</span><span class="o">&gt;</span>
+<span class="lineno">19</span>           <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">first</span><span class="p">}</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onChangeFirst</span><span class="p">}</span> <span class="o">/&gt;</span>
+<span class="lineno">20</span>           <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">last</span><span class="p">}</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onChangeLast</span><span class="p">}</span> <span class="o">/&gt;</span>
+<span class="lineno">21</span>         <span class="o">&lt;</span><span class="err">/form&gt;</span>
+<span class="lineno">22</span> 
+<span class="lineno">23</span>         <span class="o">&lt;</span><span class="nx">PersonList</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">}</span> <span class="o">/&gt;</span>
+<span class="lineno">24</span>       <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="lineno">25</span>     <span class="p">);</span>
+<span class="lineno">26</span>   <span class="p">}</span>
+<span class="lineno">27</span> <span class="p">});</span><span class="c1">// End PersonApp</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p>The state changes but we’re not modifying the data array inside the state. We want to add the new person object to the array. We’re going to accomplish this by adding an onSubmit event and handler to PersonApp.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// ### in first.jsx ###</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="kd">var</span> <span class="nx">PersonApp</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<span class="lineno"> 4</span>   <span class="nx">getInitialState</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno"> 5</span>     <span class="k">return</span> <span class="p">{</span> <span class="nx">data</span><span class="o">:</span> <span class="p">[],</span> <span class="nx">first</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nx">last</span><span class="o">:</span><span class="s2">&quot;&quot;</span> <span class="p">};</span>
+<span class="lineno"> 6</span>   <span class="p">},</span>
+<span class="lineno"> 7</span>   <span class="nx">onChangeFirst</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+<span class="lineno"> 8</span>     <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">first</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">});</span>
+<span class="lineno"> 9</span>   <span class="p">},</span>
+<span class="lineno">10</span>   <span class="nx">onChangeLast</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+<span class="lineno">11</span>     <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">last</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">});</span>
+<span class="lineno">12</span>   <span class="p">},</span>
+<span class="lineno">13</span>   <span class="nx">handleSubmit</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+<span class="lineno">14</span>     <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="lineno">15</span>     <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">first</span><span class="o">:</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">first</span><span class="p">,</span> <span class="nx">last</span><span class="o">:</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">last</span><span class="p">});</span>
+<span class="lineno">16</span>     <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">first</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">last</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">});</span>
+<span class="lineno">17</span>   <span class="p">},</span>
+<span class="lineno">18</span> 
+<span class="lineno">19</span>   <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">20</span>     <span class="k">return</span> <span class="p">(</span>
+<span class="lineno">21</span>       <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="lineno">22</span>         <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">is</span> <span class="nx">the</span> <span class="nx">person</span> <span class="nx">App</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+<span class="lineno">23</span>         <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="o">&gt;</span>
+<span class="lineno">24</span>           <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">first</span><span class="p">}</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onChangeFirst</span><span class="p">}</span> <span class="o">/&gt;</span>
+<span class="lineno">25</span>           <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">last</span><span class="p">}</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onChangeLast</span><span class="p">}</span> <span class="o">/&gt;</span>
+<span class="lineno">26</span>           <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="o">&gt;</span><span class="nx">Add</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+<span class="lineno">27</span>         <span class="o">&lt;</span><span class="err">/form&gt;</span>
+<span class="lineno">28</span> 
+<span class="lineno">29</span>         <span class="o">&lt;</span><span class="nx">PersonList</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">}</span> <span class="o">/&gt;</span>
+<span class="lineno">30</span>       <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="lineno">31</span>     <span class="p">);</span>
+<span class="lineno">32</span>   <span class="p">}</span>
+<span class="lineno">33</span> <span class="p">});</span><span class="c1">// End PersonApp</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#javascript-ref">
+    		javascript <span>27</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#nodejs-ref">nodejs <span>15</span></a></li>
+     
+    	<li><a href="/tags.html#expressjs-ref">expressjs <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#react-ref">react <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#components-ref">components <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/javascript/2015/02/14/learn-node-part-11-basic-react" title="Learn Node Part 11: Basic React">&laquo; Previous</a></li>
+    
+      <li><a href="/archive.html">Archive</a></li>
+    
+      <li class="next"><a href="/javascript/2015/02/14/learn-node-part-2-less" title="Learn Node Part 2: Less">Next &raquo;</a></li>
+    
+    </ul>
+    
+  </div>
+  <!-- END Left Side -->
+
+  <!-- Right Side -->
+  <div class="col-md-3">
+    <h3>
+      Recent Posts
+    </h3>
+    <hr>
+    <ul class="posts">
+      
+      <li>
+         <a href="/javascript/2015/02/14/learn-react-part-7-using-node-and-socketio">Learn React Part 7: using Node and Socket.io</a>
+        <hr>
+      </li>
+      
+      <li>
+         <a href="/javascript/2015/02/14/learn-node-part-9-webscraper">Learn Node Part 9: WebScraper</a>
+        <hr>
+      </li>
+      
+      <li>
+         <a href="/javascript/2015/02/14/learn-node-part-8-passport">Learn Node Part 8: Passport</a>
+        <hr>
+      </li>
+      
+      <li>
+         <a href="/javascript/2015/02/14/learn-node-part-7-browserify">Learn Node Part 7: Browserify</a>
+        <hr>
+      </li>
+      
+      <li>
+         <a href="/javascript/2015/02/14/learn-node-part-6-mocha-testing">Learn Node Part 6: Mocha Testing</a>
+        <hr>
+      </li>
+      
+    </ul>
+  </div>
+  <!-- END Right Side -->
+</div>
+
+
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p>&copy; 2015 Gabriel G</p>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/lib/lunr.min.js"></script>
+    <script type="text/jsx" src="/assets/themes/bootstrap-3/lib/myReact.js"></script>
+    <script type="text/jsx" src="/assets/themes/bootstrap-3/../../../search.js"></script>
+  </body>
+</html>
+
