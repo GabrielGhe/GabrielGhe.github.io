@@ -7,6 +7,9 @@ tags: [nodejs, npm, grunt]
 ---
 {% include JB/setup %}
 
+<!-- Overview -->
+<h3>Overview</h3>
+
 [Grunt](http://gruntjs.com) is amazing! It automates tasks for you in the most amazing way. It allows you to run tests, minify css/js files, combine js files and much much more.
 
 In this project, I used 2 js files [index.js](https://github.com/GabrielGhe/NodePractice/blob/master/Server10Grunt/public/javascripts/index.js) and [index2.js](https://github.com/GabrielGhe/NodePractice/blob/master/Server10Grunt/public/javascripts/index2.js). I concatinated them and saved the result to [built.js](https://github.com/GabrielGhe/NodePractice/blob/master/Server10Grunt/public/javascripts/built.js) and then I uglified that file and saved the result to [built.min.js](https://github.com/GabrielGhe/NodePractice/blob/master/Server10Grunt/public/javascripts/built.min.js). I also minimized the css using cssmin.
