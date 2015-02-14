@@ -3,7 +3,7 @@ layout: post
 title: "Learn Node Part 4: Angular Minification"
 description: ""
 category: javascript
-tags: [angularjs, minification]
+tags: [nodejs, angularjs, minification]
 ---
 {% include JB/setup %}
 
