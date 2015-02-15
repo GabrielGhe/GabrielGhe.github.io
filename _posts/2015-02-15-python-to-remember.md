@@ -28,10 +28,13 @@ Example code can be found [here](https://github.com/GabrielGhe/CoderbyteChalleng
 -->
 <br /><br /><br />
 <h3><a name="arrays"></a><a href="">1. Arrays</a></h3>
-```python
+<!-- Code _______________________________________-->
+{% highlight python linenos %}
 x = list("4321")  # ["4", "3", "2", "1"]
 x.append("val1")  # ["4", "3", "2", "1", "val1"]
 x.pop()           # ["4", "3", "2", "1"]
+x.pop(0)          # ["3", "2", "1"]
+x.insert(0,4)     # ["4", "3", "2", "1"]
 x.sort()          # ["1", "2", "3", "4"]
 x.reverse()       # ["4", "3", "2", "1"]
 x = x[::-1]       # ["1", "2", "3", "4"]
@@ -40,7 +43,8 @@ max(x)            # "4"
 y = ["ab", "cde", "efgh", "ij"]
 sorted(y, key = len)    # ['ab', 'ij', 'cde', 'efgh']
 sorted(y, key = len, reverse = True)  # ['efgh', 'cde', 'ab', 'ij']
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- 
 #########################################
@@ -53,10 +57,14 @@ sorted(y, key = len, reverse = True)  # ['efgh', 'cde', 'ab', 'ij']
 <h3><a name="dicts"></a><a href="">2. Dicts</a></h3>
 <!-- Code _______________________________________-->
 {% highlight python linenos %}
-dict = {"y": 6, "x": 5}
-dict.keys()   # ["y", "x"]
-dict.values() # [6, 5]
-dict["z"] = 4 # {"y": 6, "x": 5, "z": 4}
+dic = {"y": 6, "x": 5}
+dic.keys()         # ["y", "x"]
+dic.values()       # [6, 5]
+dic["z"] = 4       # dic = {"y": 6, "x": 5, "z": 4}
+dic.pop("z", None) # dic = {"y": 6, "x": 5}
+
+dict( [("hello",1), ("thing",2), ("yay", 3)] )
+# {'thing': 2, 'yay': 3, 'hello': 1} 
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
@@ -71,10 +79,10 @@ dict["z"] = 4 # {"y": 6, "x": 5, "z": 4}
 <h3><a name="numbers"></a><a href="">3. Numbers</a></h3>
 <!-- Code _______________________________________-->
 {% highlight python linenos %}
-int("4")    # 4
-int(5, 2)   # 101
-2**3        # 8 (2^3)
-4**.5       # 2.0
+int("4")          # 4
+"{0:b}".format(4) # '101'
+2**3              # 8 (2^3)
+4**.5             # 2.0
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
@@ -137,7 +145,7 @@ x.split()       # ["A", "bcdefg"]
 <!-- 
 #########################################
 #
-#   String
+#   Other
 #
 #########################################
 -->

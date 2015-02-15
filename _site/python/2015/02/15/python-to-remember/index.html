@@ -147,19 +147,23 @@
 -->
 <p><br /><br /><br /></p>
 <h3><a name="arrays"></a><a href="">1. Arrays</a></h3>
-<p>```python
-x = list(“4321”)  # [“4”, “3”, “2”, “1”]
-x.append(“val1”)  # [“4”, “3”, “2”, “1”, “val1”]
-x.pop()           # [“4”, “3”, “2”, “1”]
-x.sort()          # [“1”, “2”, “3”, “4”]
-x.reverse()       # [“4”, “3”, “2”, “1”]
-x = x[::-1]       # [“1”, “2”, “3”, “4”]
-max(x)            # “4”</p>
+<!-- Code _______________________________________-->
 
-<p>y = [“ab”, “cde”, “efgh”, “ij”]
-sorted(y, key = len)    # [‘ab’, ‘ij’, ‘cde’, ‘efgh’]
-sorted(y, key = len, reverse = True)  # [‘efgh’, ‘cde’, ‘ab’, ‘ij’]
-```</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s">&quot;4321&quot;</span><span class="p">)</span>  <span class="c"># [&quot;4&quot;, &quot;3&quot;, &quot;2&quot;, &quot;1&quot;]</span>
+<span class="lineno"> 2</span> <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;val1&quot;</span><span class="p">)</span>  <span class="c"># [&quot;4&quot;, &quot;3&quot;, &quot;2&quot;, &quot;1&quot;, &quot;val1&quot;]</span>
+<span class="lineno"> 3</span> <span class="n">x</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>           <span class="c"># [&quot;4&quot;, &quot;3&quot;, &quot;2&quot;, &quot;1&quot;]</span>
+<span class="lineno"> 4</span> <span class="n">x</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>          <span class="c"># [&quot;3&quot;, &quot;2&quot;, &quot;1&quot;]</span>
+<span class="lineno"> 5</span> <span class="n">x</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>     <span class="c"># [&quot;4&quot;, &quot;3&quot;, &quot;2&quot;, &quot;1&quot;]</span>
+<span class="lineno"> 6</span> <span class="n">x</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>          <span class="c"># [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;]</span>
+<span class="lineno"> 7</span> <span class="n">x</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>       <span class="c"># [&quot;4&quot;, &quot;3&quot;, &quot;2&quot;, &quot;1&quot;]</span>
+<span class="lineno"> 8</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>       <span class="c"># [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;]</span>
+<span class="lineno"> 9</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>            <span class="c"># &quot;4&quot;</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;ab&quot;</span><span class="p">,</span> <span class="s">&quot;cde&quot;</span><span class="p">,</span> <span class="s">&quot;efgh&quot;</span><span class="p">,</span> <span class="s">&quot;ij&quot;</span><span class="p">]</span>
+<span class="lineno">12</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="nb">len</span><span class="p">)</span>    <span class="c"># [&#39;ab&#39;, &#39;ij&#39;, &#39;cde&#39;, &#39;efgh&#39;]</span>
+<span class="lineno">13</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>  <span class="c"># [&#39;efgh&#39;, &#39;cde&#39;, &#39;ab&#39;, &#39;ij&#39;]</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- 
 #########################################
@@ -172,10 +176,14 @@ sorted(y, key = len, reverse = True)  # [‘efgh’, ‘cde’, ‘ab’, ‘ij�
 <h3><a name="dicts"></a><a href="">2. Dicts</a></h3>
 <!-- Code _______________________________________-->
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;y&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
-<span class="lineno">2</span> <span class="nb">dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>   <span class="c"># [&quot;y&quot;, &quot;x&quot;]</span>
-<span class="lineno">3</span> <span class="nb">dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="c"># [6, 5]</span>
-<span class="lineno">4</span> <span class="nb">dict</span><span class="p">[</span><span class="s">&quot;z&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="c"># {&quot;y&quot;: 6, &quot;x&quot;: 5, &quot;z&quot;: 4}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;y&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="lineno">2</span> <span class="n">dic</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>         <span class="c"># [&quot;y&quot;, &quot;x&quot;]</span>
+<span class="lineno">3</span> <span class="n">dic</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>       <span class="c"># [6, 5]</span>
+<span class="lineno">4</span> <span class="n">dic</span><span class="p">[</span><span class="s">&quot;z&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>       <span class="c"># dic = {&quot;y&quot;: 6, &quot;x&quot;: 5, &quot;z&quot;: 4}</span>
+<span class="lineno">5</span> <span class="n">dic</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="c"># dic = {&quot;y&quot;: 6, &quot;x&quot;: 5}</span>
+<span class="lineno">6</span> 
+<span class="lineno">7</span> <span class="nb">dict</span><span class="p">(</span> <span class="p">[(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">&quot;thing&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s">&quot;yay&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span> <span class="p">)</span>
+<span class="lineno">8</span> <span class="c"># {&#39;thing&#39;: 2, &#39;yay&#39;: 3, &#39;hello&#39;: 1}</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
@@ -190,10 +198,10 @@ sorted(y, key = len, reverse = True)  # [‘efgh’, ‘cde’, ‘ab’, ‘ij�
 <h3><a name="numbers"></a><a href="">3. Numbers</a></h3>
 <!-- Code _______________________________________-->
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="nb">int</span><span class="p">(</span><span class="s">&quot;4&quot;</span><span class="p">)</span>    <span class="c"># 4</span>
-<span class="lineno">2</span> <span class="nb">int</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   <span class="c"># 101</span>
-<span class="lineno">3</span> <span class="mi">2</span><span class="o">**</span><span class="mi">3</span>        <span class="c"># 8 (2^3)</span>
-<span class="lineno">4</span> <span class="mi">4</span><span class="o">**.</span><span class="mi">5</span>       <span class="c"># 2.0</span></code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="nb">int</span><span class="p">(</span><span class="s">&quot;4&quot;</span><span class="p">)</span>          <span class="c"># 4</span>
+<span class="lineno">2</span> <span class="s">&quot;{0:b}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c"># &#39;101&#39;</span>
+<span class="lineno">3</span> <span class="mi">2</span><span class="o">**</span><span class="mi">3</span>              <span class="c"># 8 (2^3)</span>
+<span class="lineno">4</span> <span class="mi">4</span><span class="o">**.</span><span class="mi">5</span>             <span class="c"># 2.0</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
@@ -256,7 +264,7 @@ sorted(y, key = len, reverse = True)  # [‘efgh’, ‘cde’, ‘ab’, ‘ij�
 <!-- 
 #########################################
 #
-#   String
+#   Other
 #
 #########################################
 -->
