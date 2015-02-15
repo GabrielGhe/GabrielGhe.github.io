@@ -51,12 +51,14 @@ sorted(y, key = len, reverse = True)  # ['efgh', 'cde', 'ab', 'ij']
 -->
 <br /><br /><br />
 <h3><a name="dicts"></a><a href="">2. Dicts</a></h3>
-```python
+<!-- Code _______________________________________-->
+{% highlight python linenos %}
 dict = {"y": 6, "x": 5}
 dict.keys()   # ["y", "x"]
 dict.values() # [6, 5]
 dict["z"] = 4 # {"y": 6, "x": 5, "z": 4}
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- 
 #########################################
@@ -67,12 +69,14 @@ dict["z"] = 4 # {"y": 6, "x": 5, "z": 4}
 -->
 <br /><br /><br />
 <h3><a name="numbers"></a><a href="">3. Numbers</a></h3>
-```python
+<!-- Code _______________________________________-->
+{% highlight python linenos %}
 int("4")    # 4
 int(5, 2)   # 101
 2**3        # 8 (2^3)
 4**.5       # 2.0
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- 
 #########################################
@@ -83,7 +87,8 @@ int(5, 2)   # 101
 -->
 <br /><br /><br />
 <h3><a name="probability"></a><a href="">4. Probability</a></h3>
-```python
+<!-- Code _______________________________________-->
+{% highlight python linenos %}
 import itertools
 
 itertools.combinations(array,x)  # array choose x
@@ -93,7 +98,8 @@ for comb in itertools.combinations(array,x):
 itertools.permutations(arr, x)   # permutation
 for comb in itertools.permutations(array,x):
   # do stuff
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- 
 #########################################
@@ -104,7 +110,8 @@ for comb in itertools.permutations(array,x):
 -->
 <br /><br /><br />
 <h3><a name="string"></a><a href="">5. String</a></h3>
-```python
+<!-- Code _______________________________________-->
+{% highlight python linenos %}
 x = raw_input()  # "A bcdefg  "
 
 len(x)      # 10
@@ -124,10 +131,20 @@ x[0].isdigit()  # False
 
 x.split()       # ["A", "bcdefg"]
 "".join( sorted(x) )  # "   Abcdefg"
-```
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<h3 id="other"><a href="#table-of-content">6. Other</a></h3>
-```python
+<!-- 
+#########################################
+#
+#   String
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="other"></a><a href="">6. Other</a></h3>
+<!-- Code _______________________________________-->
+{% highlight python linenos %}
 # ternery
 5 if booleanValue else 6  # (booleanValue)? 5 : 6;
 
@@ -141,5 +158,10 @@ for idx, val in enumerate(array):
 
 # sets
 # https://docs.python.org/2/library/sets.html
-set([1, 1, 3, 5, 6, 6, 4])          # set([1, 3, 4, 5, 6])
-```
+s = set([1, 1, 3, 5, 6, 6, 4])      # set([1, 3, 4, 5, 6])
+s.add(8)                            # set([1,3,4,5,6,8])
+s.discard(3)                        # set([1,4,5,6,8])
+s.remove(4)                         # set([1,5,6,8]) throws error if key not present
+6 in s                              # True
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->

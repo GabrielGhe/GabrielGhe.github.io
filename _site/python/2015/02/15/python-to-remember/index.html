@@ -170,12 +170,14 @@ sorted(y, key = len, reverse = True)  # [‘efgh’, ‘cde’, ‘ab’, ‘ij�
 -->
 <p><br /><br /><br /></p>
 <h3><a name="dicts"></a><a href="">2. Dicts</a></h3>
-<p><code>python
-dict = {"y": 6, "x": 5}
-dict.keys()   # ["y", "x"]
-dict.values() # [6, 5]
-dict["z"] = 4 # {"y": 6, "x": 5, "z": 4}
-</code></p>
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;y&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="lineno">2</span> <span class="nb">dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>   <span class="c"># [&quot;y&quot;, &quot;x&quot;]</span>
+<span class="lineno">3</span> <span class="nb">dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="c"># [6, 5]</span>
+<span class="lineno">4</span> <span class="nb">dict</span><span class="p">[</span><span class="s">&quot;z&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="c"># {&quot;y&quot;: 6, &quot;x&quot;: 5, &quot;z&quot;: 4}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- 
 #########################################
@@ -186,12 +188,14 @@ dict["z"] = 4 # {"y": 6, "x": 5, "z": 4}
 -->
 <p><br /><br /><br /></p>
 <h3><a name="numbers"></a><a href="">3. Numbers</a></h3>
-<p><code>python
-int("4")    # 4
-int(5, 2)   # 101
-2**3        # 8 (2^3)
-4**.5       # 2.0
-</code></p>
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="nb">int</span><span class="p">(</span><span class="s">&quot;4&quot;</span><span class="p">)</span>    <span class="c"># 4</span>
+<span class="lineno">2</span> <span class="nb">int</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   <span class="c"># 101</span>
+<span class="lineno">3</span> <span class="mi">2</span><span class="o">**</span><span class="mi">3</span>        <span class="c"># 8 (2^3)</span>
+<span class="lineno">4</span> <span class="mi">4</span><span class="o">**.</span><span class="mi">5</span>       <span class="c"># 2.0</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- 
 #########################################
@@ -202,17 +206,19 @@ int(5, 2)   # 101
 -->
 <p><br /><br /><br /></p>
 <h3><a name="probability"></a><a href="">4. Probability</a></h3>
-<p>```python
-import itertools</p>
+<!-- Code _______________________________________-->
 
-<p>itertools.combinations(array,x)  # array choose x
-for comb in itertools.combinations(array,x):
-  # do stuff</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="kn">import</span> <span class="nn">itertools</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>  <span class="c"># array choose x</span>
+<span class="lineno">4</span> <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+<span class="lineno">5</span>   <span class="c"># do stuff</span>
+<span class="lineno">6</span>   
+<span class="lineno">7</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>   <span class="c"># permutation</span>
+<span class="lineno">8</span> <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+<span class="lineno">9</span>   <span class="c"># do stuff</span></code></pre></div>
 
-<p>itertools.permutations(arr, x)   # permutation
-for comb in itertools.permutations(array,x):
-  # do stuff
-```</p>
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- 
 #########################################
@@ -223,45 +229,61 @@ for comb in itertools.permutations(array,x):
 -->
 <p><br /><br /><br /></p>
 <h3><a name="string"></a><a href="">5. String</a></h3>
-<p>```python
-x = raw_input()  # “A bcdefg  “</p>
+<!-- Code _______________________________________-->
 
-<p>len(x)      # 10
-x[0]        # “A”
-sorted(x)   # [’ ’, ‘ ‘, ‘ ‘, ‘A’, ‘b’, ‘c’, ‘d’, ‘e’, ‘f’, ‘g’]</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>  <span class="c"># &quot;A bcdefg  &quot;</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>      <span class="c"># 10</span>
+<span class="lineno"> 4</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>        <span class="c"># &quot;A&quot;</span>
+<span class="lineno"> 5</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>   <span class="c"># [&#39; &#39;, &#39; &#39;, &#39; &#39;, &#39;A&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;]</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>   <span class="c"># &quot;a bcdefg  &quot;</span>
+<span class="lineno"> 8</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>   <span class="c"># &quot;A BCDEFG  &quot;</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="n">x</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c"># &quot;A bcdefg  5&quot;</span>
+<span class="lineno">11</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>      <span class="c"># &quot;A bcdefg  &quot;</span>
+<span class="lineno">12</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>      <span class="c"># &quot;bc&quot;         x[startIndex:endIndexExluded:step]</span>
+<span class="lineno">13</span> 
+<span class="lineno">14</span> <span class="n">x</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>       <span class="c"># &quot;A Bcdefg  &quot;</span>
+<span class="lineno">15</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span>  <span class="c"># True</span>
+<span class="lineno">16</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span>  <span class="c"># False</span>
+<span class="lineno">17</span> 
+<span class="lineno">18</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>       <span class="c"># [&quot;A&quot;, &quot;bcdefg&quot;]</span>
+<span class="lineno">19</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span>  <span class="c"># &quot;   Abcdefg&quot;</span></code></pre></div>
 
-<p>x.lower()   # “a bcdefg  “
-x.upper()   # “A BCDEFG  “</p>
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<p>x += str(5) # “A bcdefg  5”
-x[:-1]      # “A bcdefg  “
-x[2:4]      # “bc”         x[startIndex:endIndexExluded:step]</p>
+<!-- 
+#########################################
+#
+#   String
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="other"></a><a href="">6. Other</a></h3>
+<!-- Code _______________________________________-->
 
-<p>x.title()       # “A Bcdefg  “
-x[0].isalpha()  # True
-x[0].isdigit()  # False</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="c"># ternery</span>
+<span class="lineno"> 2</span> <span class="mi">5</span> <span class="k">if</span> <span class="n">booleanValue</span> <span class="k">else</span> <span class="mi">6</span>  <span class="c"># (booleanValue)? 5 : 6;</span>
+<span class="lineno"> 3</span> 
+<span class="lineno"> 4</span> <span class="c"># generate new list from existing list</span>
+<span class="lineno"> 5</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">,</span> <span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">]</span>
+<span class="lineno"> 6</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()]</span>   <span class="c"># [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]</span>
+<span class="lineno"> 7</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()]</span>   <span class="c"># [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;]</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="c"># get idx and value in loop</span>
+<span class="lineno">10</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span> <span class="c"># sets</span>
+<span class="lineno">13</span> <span class="c"># https://docs.python.org/2/library/sets.html</span>
+<span class="lineno">14</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>      <span class="c"># set([1, 3, 4, 5, 6])</span>
+<span class="lineno">15</span> <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>                            <span class="c"># set([1,3,4,5,6,8])</span>
+<span class="lineno">16</span> <span class="n">s</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>                        <span class="c"># set([1,4,5,6,8])</span>
+<span class="lineno">17</span> <span class="n">s</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>                         <span class="c"># set([1,5,6,8]) throws error if key not present</span>
+<span class="lineno">18</span> <span class="mi">6</span> <span class="ow">in</span> <span class="n">s</span>                              <span class="c"># True</span></code></pre></div>
 
-<p>x.split()       # [“A”, “bcdefg”]
-““.join( sorted(x) )  # “   Abcdefg”
-```</p>
-
-<h3 id="other"><a href="#table-of-content">6. Other</a></h3>
-<p>```python
-# ternery
-5 if booleanValue else 6  # (booleanValue)? 5 : 6;</p>
-
-<h1 id="generate-new-list-from-existing-list">generate new list from existing list</h1>
-<p>x = [‘a’, ‘1’, ‘b’, ‘2’, ‘c’, ‘3’, ‘d’, ‘4’]
-x = [c for c in x if c.isalpha()]   # [‘a’, ‘b’, ‘c’, ‘d’]
-x = [c for c in x if c.isdigit()]   # [‘1’, ‘2’, ‘3’, ‘4’]</p>
-
-<h1 id="get-idx-and-value-in-loop">get idx and value in loop</h1>
-<p>for idx, val in enumerate(array):</p>
-
-<h1 id="sets">sets</h1>
-<p># https://docs.python.org/2/library/sets.html
-set([1, 1, 3, 5, 6, 6, 4])          # set([1, 3, 4, 5, 6])
-```</p>
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
     </div>
 
