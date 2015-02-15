@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Learn Node Part 1: Bower</title>
+    <title>Python To Remember</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -116,56 +116,152 @@
   <div class="col-md-9">
     <div class="page-header">
       <h1>
-        <i class="icon-javascript" style="font-size:2em"></i> Learn Node Part 1: Bower 
+        <i class="icon-python" style="font-size:2em"></i> Python To Remember 
     </h1>
     </div>
     <div class="date">
-      <span>Saturday, February 14, 2015</span>
+      <span>Sunday, February 15, 2015</span>
     </div>
     <div class="content">
       
-<!-- Overview -->
-<h3>Overview</h3>
+<h3><a name="table-of-content"></a>Overview</h3>
 
-<p>NodeJS has the amazing npm, which is one of my favorite package managers. It handles all your modules
-neatly inside the package.json file. This is great for the server side, but what about the client side?</p>
+<p>Example code can be found <a href="https://github.com/GabrielGhe/CoderbyteChallenges">here</a></p>
 
-<p>That’s where bower comes in handy. BowerJS manages your client side dependencies. Everything from jQuery, AngularJS and bootstrap can all be easily installed with bower. You can find more information <a href="https://github.com/GabrielGhe/NodePractice/tree/master/Server8Bower">here</a>.</p>
+<h3 id="table-of-content">Table of content</h3>
+<ol>
+  <li><a href="#arrays">Arrays</a></li>
+  <li><a href="#dict">Dicts</a></li>
+  <li><a href="#numbers">Numbers</a></li>
+  <li><a href="#probability">Probability</a></li>
+  <li><a href="#string">String</a></li>
+  <li><a href="#other">Other</a></li>
+</ol>
 
-<!-- Code _______________________________________-->
+<!-- 
+#########################################
+#
+#   Arrays
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="arrays"></a><a href="">1. Arrays</a></h3>
+<p>```python
+x = list(“4321”)  # [“4”, “3”, “2”, “1”]
+x.append(“val1”)  # [“4”, “3”, “2”, “1”, “val1”]
+x.pop()           # [“4”, “3”, “2”, “1”]
+x.sort()          # [“1”, “2”, “3”, “4”]
+x.reverse()       # [“4”, “3”, “2”, “1”]
+x = x[::-1]       # [“1”, “2”, “3”, “4”]
+max(x)            # “4”</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> <span class="c"># once you install npm ... first, in your command line</span>
-<span class="lineno">2</span> <span class="nv">$ </span>npm install -g bower
-<span class="lineno">3</span> <span class="nv">$ </span>touch .bowerrc
-<span class="lineno">4</span> <span class="nv">$ </span>touch bower.json</code></pre></div>
+<p>y = [“ab”, “cde”, “efgh”, “ij”]
+sorted(y, key = len)    # [‘ab’, ‘ij’, ‘cde’, ‘efgh’]
+sorted(y, key = len, reverse = True)  # [‘efgh’, ‘cde’, ‘ab’, ‘ij’]
+```</p>
 
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+<!-- 
+#########################################
+#
+#   Dicts
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="dicts"></a><a href="">2. Dicts</a></h3>
+<p><code>python
+dict = {"y": 6, "x": 5}
+dict.keys()   # ["y", "x"]
+dict.values() # [6, 5]
+dict["z"] = 4 # {"y": 6, "x": 5, "z": 4}
+</code></p>
 
-<!-- Code _______________________________________-->
+<!-- 
+#########################################
+#
+#   Numbers
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="numbers"></a><a href="">3. Numbers</a></h3>
+<p><code>python
+int("4")    # 4
+int(5, 2)   # 101
+2**3        # 8 (2^3)
+4**.5       # 2.0
+</code></p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// in .bowerrc</span>
-<span class="lineno"> 2</span> <span class="p">{</span>
-<span class="lineno"> 3</span>   <span class="c1">//where do you want the bower components to be stored</span>
-<span class="lineno"> 4</span>   <span class="s2">&quot;directory&quot;</span> <span class="o">:</span> <span class="s2">&quot;public/bower_components&quot;</span>
-<span class="lineno"> 5</span> <span class="p">}</span>
-<span class="lineno"> 6</span> 
-<span class="lineno"> 7</span> <span class="c1">// in bower.json</span>
-<span class="lineno"> 8</span> <span class="p">{</span>
-<span class="lineno"> 9</span>   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Server1&quot;</span><span class="p">,</span>
-<span class="lineno">10</span>   <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
-<span class="lineno">11</span>   <span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
-<span class="lineno">12</span>   <span class="p">}</span>
-<span class="lineno">13</span> <span class="p">}</span></code></pre></div>
+<!-- 
+#########################################
+#
+#   Probability
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="probability"></a><a href="">4. Probability</a></h3>
+<p>```python
+import itertools</p>
 
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+<p>itertools.combinations(array,x)  # array choose x
+for comb in itertools.combinations(array,x):
+  # do stuff</p>
 
-<p>After that, you can simply add components by doing the following in your command line.</p>
+<p>itertools.permutations(arr, x)   # permutation
+for comb in itertools.permutations(array,x):
+  # do stuff
+```</p>
 
-<!-- Code _______________________________________-->
+<!-- 
+#########################################
+#
+#   String
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="string"></a><a href="">5. String</a></h3>
+<p>```python
+x = raw_input()  # “A bcdefg  “</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">bower</span> <span class="nx">install</span> <span class="nx">jquery</span></code></pre></div>
+<p>len(x)      # 10
+x[0]        # “A”
+sorted(x)   # [’ ’, ‘ ‘, ‘ ‘, ‘A’, ‘b’, ‘c’, ‘d’, ‘e’, ‘f’, ‘g’]</p>
 
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+<p>x.lower()   # “a bcdefg  “
+x.upper()   # “A BCDEFG  “</p>
+
+<p>x += str(5) # “A bcdefg  5”
+x[:-1]      # “A bcdefg  “
+x[2:4]      # “bc”         x[startIndex:endIndexExluded:step]</p>
+
+<p>x.title()       # “A Bcdefg  “
+x[0].isalpha()  # True
+x[0].isdigit()  # False</p>
+
+<p>x.split()       # [“A”, “bcdefg”]
+““.join( sorted(x) )  # “   Abcdefg”
+```</p>
+
+<h3 id="other"><a href="#table-of-content">6. Other</a></h3>
+<p>```python
+# ternery
+5 if booleanValue else 6  # (booleanValue)? 5 : 6;</p>
+
+<h1 id="generate-new-list-from-existing-list">generate new list from existing list</h1>
+<p>x = [‘a’, ‘1’, ‘b’, ‘2’, ‘c’, ‘3’, ‘d’, ‘4’]
+x = [c for c in x if c.isalpha()]   # [‘a’, ‘b’, ‘c’, ‘d’]
+x = [c for c in x if c.isdigit()]   # [‘1’, ‘2’, ‘3’, ‘4’]</p>
+
+<h1 id="get-idx-and-value-in-loop">get idx and value in loop</h1>
+<p>for idx, val in enumerate(array):</p>
+
+<h1 id="sets">sets</h1>
+<p># https://docs.python.org/2/library/sets.html
+set([1, 1, 3, 5, 6, 6, 4])          # set([1, 3, 4, 5, 6])
+```</p>
 
     </div>
 
@@ -178,8 +274,8 @@ neatly inside the package.json file. This is great for the server side, but what
 
   
      
-    	<li><a href="/categories.html#javascript-ref">
-    		javascript <span>27</span>
+    	<li><a href="/categories.html#python-ref">
+    		python <span>8</span>
     	</a></li>
     
   
@@ -197,11 +293,15 @@ neatly inside the package.json file. This is great for the server side, but what
 
   
      
-    	<li><a href="/tags.html#nodejs-ref">nodejs <span>15</span></a></li>
+    	<li><a href="/tags.html#string-ref">string <span>3</span></a></li>
      
-    	<li><a href="/tags.html#bowerjs-ref">bowerjs <span>1</span></a></li>
+    	<li><a href="/tags.html#array-ref">array <span>1</span></a></li>
      
-    	<li><a href="/tags.html#npm-ref">npm <span>3</span></a></li>
+    	<li><a href="/tags.html#dictionary-ref">dictionary <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#set-ref">set <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#hash-ref">hash <span>1</span></a></li>
     
   
 
@@ -213,11 +313,11 @@ neatly inside the package.json file. This is great for the server side, but what
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/javascript/2015/02/14/express-3-vs-express-4" title="Express 3 vs Express 4">&laquo; Previous</a></li>
+      <li class="prev"><a href="/javascript/2015/02/14/learn-react-part-7-using-node-and-socketio" title="Learn React Part 7: using Node and Socket.io">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/javascript/2015/02/14/learn-node-part-10-angularjs" title="Learn Node Part 10: AngularJS">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     

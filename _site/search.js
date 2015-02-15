@@ -3,6 +3,16 @@ var data = {};
 var temp;
 
 temp = {
+  "id"    : "/python/2015/02/15/python-to-remember",
+  "title"   : "Python To Remember",
+  "category": "python",
+  "tags"    : "string array dictionary set hash",
+  "content" : "OverviewExample code can be found hereTable of content  Arrays  Dicts  Numbers  Probability  String  Other1. Arrays```pythonx = list(“4321”)  # [“4”, “3”, “2”, “1”]x.append(“val1”)  # [“4”, “3”, “2”, “1”, “val1”]x.pop()           # [“4”, “3”, “2”, “1”]x.sort()          # [“1”, “2”, “3”, “4”]x.reverse()       # [“4”, “3”, “2”, “1”]x = x[::-1]       # [“1”, “2”, “3”, “4”]max(x)            # “4”y = [“ab”, “cde”, “efgh”, “ij”]sorted(y, key = len)    # [‘ab’, ‘ij’, ‘cde’, ‘efgh’]sorted(y, key = len, reverse = True)  # [‘efgh’, ‘cde’, ‘ab’, ‘ij’]```2. Dictspythondict = {y: 6, x: 5}dict.keys()   # [y, x]dict.values() # [6, 5]dict[z] = 4 # {y: 6, x: 5, z: 4}3. Numberspythonint(4)    # 4int(5, 2)   # 1012**3        # 8 (2^3)4**.5       # 2.04. Probability```pythonimport itertoolsitertools.combinations(array,x)  # array choose xfor comb in itertools.combinations(array,x):  # do stuffitertools.permutations(arr, x)   # permutationfor comb in itertools.permutations(array,x):  # do stuff```5. String```pythonx = raw_input()  # “A bcdefg  “len(x)      # 10x[0]        # “A”sorted(x)   # [’ ’, ‘ ‘, ‘ ‘, ‘A’, ‘b’, ‘c’, ‘d’, ‘e’, ‘f’, ‘g’]x.lower()   # “a bcdefg  “x.upper()   # “A BCDEFG  “x += str(5) # “A bcdefg  5”x[:-1]      # “A bcdefg  “x[2:4]      # “bc”         x[startIndex:endIndexExluded:step]x.title()       # “A Bcdefg  “x[0].isalpha()  # Truex[0].isdigit()  # Falsex.split()       # [“A”, “bcdefg”]““.join( sorted(x) )  # “   Abcdefg”```6. Other```python# ternery5 if booleanValue else 6  # (booleanValue)? 5 : 6;generate new list from existing listx = [‘a’, ‘1’, ‘b’, ‘2’, ‘c’, ‘3’, ‘d’, ‘4’]x = [c for c in x if c.isalpha()]   # [‘a’, ‘b’, ‘c’, ‘d’]x = [c for c in x if c.isdigit()]   # [‘1’, ‘2’, ‘3’, ‘4’]get idx and value in loopfor idx, val in enumerate(array):sets# https://docs.python.org/2/library/sets.htmlset([1, 1, 3, 5, 6, 6, 4])          # set([1, 3, 4, 5, 6])```",
+  "date"    : "February 15, 2015"
+};
+data[temp.id] = temp;
+
+temp = {
   "id"    : "/javascript/2015/02/14/learn-react-part-7-using-node-and-socketio",
   "title"   : "Learn React Part 7: using Node and Socket.io",
   "category": "javascript",
