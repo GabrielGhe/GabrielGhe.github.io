@@ -148,6 +148,7 @@
   <li><a href="#regex">Regex</a></li>
   <li><a href="#formatting">Formatting</a></li>
   <li><a href="#hashmap">HashMap</a></li>
+  <li><a href="#deque">Deque</a></li>
 </ol>
 
 <!-- 
@@ -1255,6 +1256,36 @@ Source: <a href="http://stackoverflow.com/questions/40471/differences-between-ha
 <span class="lineno">11</span> <span class="n">map</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>     <span class="c1">// {}</span></code></pre></div>
 
 <!-- /Code -->
+
+<!-- 
+#########################################
+#
+#     Deque
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="deque"></a><a href="">16. Deque</a></h3>
+
+<p>Deques implement the interfaces of both Stacks and Queues. They are great for both.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="n">Deque</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">deque</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayDeque</span><span class="o">&lt;&gt;();</span>
+<span class="lineno"> 2</span> <span class="n">deque</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>         <span class="c1">// [5]</span>
+<span class="lineno"> 3</span> <span class="n">deque</span><span class="o">.</span><span class="na">addFirst</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>    <span class="c1">// [2,5]</span>
+<span class="lineno"> 4</span> <span class="n">deque</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>     <span class="c1">// [2,5,3]</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="n">deque</span><span class="o">.</span><span class="na">getFirst</span><span class="o">();</span>     <span class="c1">// 2</span>
+<span class="lineno"> 7</span> <span class="n">deque</span><span class="o">.</span><span class="na">getLast</span><span class="o">();</span>      <span class="c1">// 3</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="n">deque</span><span class="o">.</span><span class="na">removeFirst</span><span class="o">();</span>  <span class="c1">// 2 [5,3]</span>
+<span class="lineno">10</span> <span class="n">deque</span><span class="o">.</span><span class="na">removeLast</span><span class="o">();</span>   <span class="c1">// 3 [5]</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">deque</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>  <span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="lineno">13</span> <span class="n">deque</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="n">array</span><span class="o">);</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
     </div>
 

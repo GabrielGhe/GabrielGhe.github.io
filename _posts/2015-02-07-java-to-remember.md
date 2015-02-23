@@ -30,6 +30,7 @@ Credits to source article [here](http://www.programcreek.com/2012/11/top-10-algo
 13. [Regex](#regex)
 14. [Formatting](#formatting)
 15. [HashMap](#hashmap)
+16. [Deque](#deque)
 
 <!-- 
 #########################################
@@ -1034,3 +1035,33 @@ map.remove("a"); // { b:2, c:3 }
 map.clear();     // {}
 {% endhighlight %}
 <!-- /Code -->
+
+<!-- 
+#########################################
+#
+#     Deque
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="deque"></a><a href="">16. Deque</a></h3>
+
+Deques implement the interfaces of both Stacks and Queues. They are great for both.
+
+<!-- Code _______________________________________-->
+{% highlight java linenos %}
+Deque<Integer> deque = new ArrayDeque<>();
+deque.add(5);         // [5]
+deque.addFirst(2);    // [2,5]
+deque.addLast(3);     // [2,5,3]
+
+deque.getFirst();     // 2
+deque.getLast();      // 3
+
+deque.removeFirst();  // 2 [5,3]
+deque.removeLast();   // 3 [5]
+
+int[] array = new int[deque.size()];  [0]
+deque.toArray(array);
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
