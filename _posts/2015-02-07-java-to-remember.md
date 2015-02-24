@@ -58,7 +58,10 @@ Arrays.toString(char[] a)         // convert to string
 Character.isLetter('a')           // true
 Character.isDigit(5)              // true
 Character.isLetterOrDigit('a')    // true
-Character.isSpaceChar(' ')        // true
+Character.isWhiteSpace(' ')       // true
+
+Character.toLowerCase('A')        // false
+Character.isUpperCase('a')        // false
 {% endhighlight %}
 <!-- /Code -->
 
