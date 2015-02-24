@@ -60,7 +60,7 @@ Character.isDigit(5)              // true
 Character.isLetterOrDigit('a')    // true
 Character.isWhiteSpace(' ')       // true
 
-Character.toLowerCase('A')        // false
+Character.toLowerCase('A')        // 'a'
 Character.isUpperCase('a')        // false
 {% endhighlight %}
 <!-- /Code -->
