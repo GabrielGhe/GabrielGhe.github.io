@@ -49,10 +49,16 @@ Credits to source article [here](http://www.programcreek.com/2012/11/top-10-algo
 Collections.sort(List lst)        // sorts a List in place
 Arrays.sort(T[] array)            // sort an array
 Collections.reverse(List lst)     // reverses a LIST
+
 Arrays.toString(char[] a)         // convert to string
 "Hello".charAt(int x)             // get a char at the specific index
 "Hello".length()                  // string length
 [1,2,3,4,5].length                // array size
+
+Character.isLetter('a')           // true
+Character.isDigit(5)              // true
+Character.isLetterOrDigit('a')    // true
+Character.isSpaceChar(' ')        // true
 {% endhighlight %}
 <!-- /Code -->
 
