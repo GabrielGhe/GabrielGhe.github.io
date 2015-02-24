@@ -62,6 +62,10 @@ Character.isWhiteSpace(' ')       // true
 
 Character.toLowerCase('A')        // 'a'
 Character.isUpperCase('a')        // false
+
+"abcdef".substring(1, 2)          // "b"
+"abcdef".substring(1, 5)          // "bcde"
+"abcdef".substring(3)             // "def"
 {% endhighlight %}
 <!-- /Code -->
 
