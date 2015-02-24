@@ -1098,7 +1098,7 @@ deque.getLast();      // 3
 deque.removeFirst();  // 2 [5,3]
 deque.removeLast();   // 3 [5]
 
-int[] array = new int[deque.size()];  [0]
+int[] array = new int[deque.size()]; // [0]
 deque.toArray(array);
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
