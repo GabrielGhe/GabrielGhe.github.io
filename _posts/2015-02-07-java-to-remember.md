@@ -30,7 +30,8 @@ Credits to source article [here](http://www.programcreek.com/2012/11/top-10-algo
 13. [Regex](#regex)
 14. [Formatting](#formatting)
 15. [HashMap](#hashmap)
-16. [Deque](#deque)
+16. [HashSet](#hashset)
+17. [Deque](#deque)
 
 <!-- 
 #########################################
@@ -1018,11 +1019,12 @@ System.out.printf("%14.3f %14.3f\n", 123.456789, 987.654321);
 HashMaps & HashTables allow inserts, deletes and gets at O(1).
 HashTables are synchronized while HashMaps are not. HashTables do not allow null keys or values.
 HashMaps allows 1 null key and unlimited null values.
+The synchronized HashMap is the ConcurrentHashMap<Key,Value> which is in java.util.concurrent.
 Source: [here](http://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable)
 
 <!-- Code -->
 {% highlight java linenos %}
-HashMap<String, Integer> map = new HashMap<String, Integer>();
+Map<String, Integer> map = new HashMap<>();
 map.put("a", 1); // { a:1 }
 map.put("b", 2); // { a:1, b:2 }
 map.put("c", 3); // { a:1, b:2, c:3 }
@@ -1039,12 +1041,47 @@ map.clear();     // {}
 <!-- 
 #########################################
 #
+#     HashMap
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="hashset"></a><a href="">16. HashSet</a></h3>
+
+A HashSet is a dictionary that only stores keys. It doesn't allow for duplicates and only stores keys.
+
+<!-- Code _______________________________________-->
+{% highlight java linenos %}
+Set<Integer> set = new HashSet<>();
+set.add(1);       // { 1 }
+set.add(2);       // { 1, 2 }
+set.add(3);       // { 1, 2, 3 }
+
+set.contains(5);  // false
+set.contains(2);  // true
+set.remove(2);    // { 1, 3 }
+
+for(int val: set) {
+  System.out.println(val);
+}
+// 1
+// 3
+
+List<Integer> list = new ArrayList<>(set); // [1,3]
+
+set.clear();      // {}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- 
+#########################################
+#
 #     Deque
 #
 #########################################
 -->
 <br /><br /><br />
-<h3><a name="deque"></a><a href="">16. Deque</a></h3>
+<h3><a name="deque"></a><a href="">17. Deque</a></h3>
 
 Deques implement the interfaces of both Stacks and Queues. They are great for both.
 
