@@ -43,7 +43,7 @@ Credits to source article [here](http://www.programcreek.com/2012/11/top-10-algo
 <br /><br /><br />
 <h3><a name="string"></a><a href="">1. String</a></h3>
 
-<!-- Code -->
+<!-- Code _______________________________________-->
 {% highlight java linenos %}
 "Hello".toCharArray()             // ['H', 'e', 'l', 'l', 'o']
 Collections.sort(List lst)        // sorts a List in place
@@ -67,7 +67,7 @@ Character.isUpperCase('a')        // false
 "abcdef".substring(1, 5)          // "bcde"
 "abcdef".substring(3)             // "def"
 {% endhighlight %}
-<!-- /Code -->
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- 
 #########################################
