@@ -116,3 +116,145 @@ promiseOne()
   .then(promiseThree);
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+A popular promise library for nodejs is [Q](https://github.com/kriskowal/q)
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
+//it allows you to do many awesome things like
+var Q = require("q");
+
+
+//chain promises
+promiseOne()
+  .then(promiseTwo)
+  .then(promiseThree)
+  .then(function() {
+    //normal anonymous function
+  })
+  .fail(function(error) {
+    //can handle error
+  })
+  .done();
+  
+  
+//Create promises from async methods
+Q.ninvoke(obj, "asyncMethod", {
+    param1: "parameter"
+  })
+  .then(function(resultFromAsyncMethod) {
+    //do stuff
+  });
+  
+
+//Use callbacks and promises together
+function async(err, val){
+  //this is a async callback
+  var deferred = Q.defer();
+  
+  if (err) {
+    deferred.reject(new Error(err));
+  } else {
+    deferred.resolve(val);
+  }
+  return deferred.promise;
+}
+
+
+//A value can be turned into a promise
+Q({ x:5 })
+ .then(function(val){
+  //val == 5
+ });
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- 
+#########################################
+#
+#       Context
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="context"></a><a href="">4. Context</a></h3>
+
+<h4>Hoisting</h4>
+
+Javascript hoists variable declarations
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
+function blah() {
+  var a = 1;
+}
+
+//is the same as
+
+var a;
+function sameBlah() {
+  a = 1;
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+It also hoists up function declarations
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
+function outerFunc() {
+  //How did it work?? I called innerFunc before initialization it!
+  innerFunc();
+
+  function innerFunc() {
+    console.log(5);
+  }
+}
+
+//is not the same as
+function outerFunc() {
+  x(); //won't work
+
+  var x = function() {
+    console.log(5);
+  }
+  
+  x(); //will work
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<h4>Bind method</h4>
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
+//instead of doing something like this
+obj = {
+...
+  render: function () {
+    var that = this; //have to do this every time...
+    this.getAsyncData(function () {
+      that.specialFunction();
+      that.anotherSpecialFunction();
+    });
+  }
+...
+};
+
+
+//We do
+obj = {
+...
+  render: function () {
+    this.getAsyncData(function () {
+      this.specialFunction();
+      this.anotherSpecialFunction();
+    }.bind(this)); 
+    //This bind means that when getAsyncData gets called
+    //this === obj
+  }
+...
+};
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
