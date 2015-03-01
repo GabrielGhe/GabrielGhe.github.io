@@ -132,8 +132,9 @@
 
 <p>Flux is a type of web application architecture that plays nicely with React’s unidirectional data flow. You can find all the information from this post and a lot more in the <a href="https://www.youtube.com/watch?v=KtmjkCuV-EU">Full Stack Flux</a> video and the <a href="https://www.youtube.com/watch?v=Bic_sFiaNDI">HTMLDevConf React Flux</a> video. The images are from both those videos, the creators own all the rights to them.</p>
 
-<p><br /></p>
-<h3>Old way</h3>
+<p><br /><br />
+<!-- Old Way --></p>
+<h3>Old Way</h3>
 
 <p>Let’s take the facebook chat as the example. If we wanted to get the number of unread messages for each thread (unread messages per person).</p>
 
@@ -184,8 +185,9 @@
 
 <p>Some people use pub/sub which is nice… until you want the models to get the data in a certain order. (The notification bar which holds everything gets the message before the Conversation).</p>
 
-<p><br /></p>
-<h3>New way</h3>
+<p><br /><br />
+<!-- New Way --></p>
+<h3>New Way</h3>
 
 <p>There is a clean way to handle this issue. Using a unidirectional data flow. Flux’s architecture looks something like this.</p>
 
@@ -370,6 +372,18 @@ We now have to create FooChild which will display each message.</p>
 <span class="lineno">18</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">FooChild</span><span class="p">;</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- Initialization -->
+<p><br /><br /></p>
+<h3>Initialization</h3>
+
+<p>Inside <code>AppBoostrap.js</code>, we use the dispatcher and have it load the contents of every store and only after every store has content do we render.</p>
+
+<!-- Web Api -->
+<p><br /><br /></p>
+<h3>Web Api</h3>
+
+<p>Put all the Api calls into a <code>WebApiUtils</code> module.</p>
 
     </div>
 

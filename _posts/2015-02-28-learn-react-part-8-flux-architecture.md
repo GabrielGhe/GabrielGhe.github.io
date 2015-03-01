@@ -12,8 +12,9 @@ tags: [reactjs, flux]
 
 Flux is a type of web application architecture that plays nicely with React's unidirectional data flow. You can find all the information from this post and a lot more in the [Full Stack Flux](https://www.youtube.com/watch?v=KtmjkCuV-EU) video and the [HTMLDevConf React Flux](https://www.youtube.com/watch?v=Bic_sFiaNDI) video. The images are from both those videos, the creators own all the rights to them.
 
-<br />
-<h3>Old way</h3>
+<br /><br />
+<!-- Old Way -->
+<h3>Old Way</h3>
 
 Let's take the facebook chat as the example. If we wanted to get the number of unread messages for each thread (unread messages per person).
 
@@ -64,8 +65,9 @@ It's complicated already... It becomes even more complicated with more models.
 
 Some people use pub/sub which is nice... until you want the models to get the data in a certain order. (The notification bar which holds everything gets the message before the Conversation).
 
-<br />
-<h3>New way</h3>
+<br /><br />
+<!-- New Way -->
+<h3>New Way</h3>
 
 There is a clean way to handle this issue. Using a unidirectional data flow. Flux's architecture looks something like this.
 
@@ -256,3 +258,15 @@ var FooChild = React.createClass({
 module.exports = FooChild;
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- Initialization -->
+<br /><br />
+<h3>Initialization</h3>
+
+Inside `AppBoostrap.js`, we use the dispatcher and have it load the contents of every store and only after every store has content do we render.
+
+<!-- Web Api -->
+<br /><br />
+<h3>Web Api</h3>
+
+Put all the Api calls into a `WebApiUtils` module.
