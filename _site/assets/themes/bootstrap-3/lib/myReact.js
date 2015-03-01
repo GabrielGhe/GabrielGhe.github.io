@@ -174,7 +174,7 @@ var RandomPost = React.createClass({
         return (
             <li>
                 <i className={"icon-" + this.props.data.category} style={style}/>
-                <a href="{this.props.data.id}">
+                <a href={this.props.data.id}>
                   {this.props.data.title}
                 </a>
                 <hr />
