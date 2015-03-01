@@ -586,5 +586,5 @@ random_posts = random_posts.map(function(key){
 
 $(function() {
   React.renderComponent(<SearchBar lunr={idx} posts={data} />, document.getElementById('searchbar'));
-  React.renderComponent(<RandomPosts posts={random_posts} />, document.getElementById('random_posts'));
+  React.renderComponent(<RandomPostList posts={random_posts} />, document.getElementById('random_posts'));
 });

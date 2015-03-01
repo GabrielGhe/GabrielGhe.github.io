@@ -1,5 +1,7 @@
 /** @jsx React.DOM */
 
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
 var SearchPost = React.createClass({
   onMouseOver: function(){
       this.props.hoverItem(this.props.index);
@@ -60,7 +62,7 @@ var SearchPostList = React.createClass({
     return (
       <div className="searchResults">
         <ul style={myStyle}>
-          {searchR}
+            {searchR}
         </ul>
       </div>
     );
@@ -162,29 +164,39 @@ var SearchBar = React.createClass({
   }
 }); // End SearchBar
 
-var RandomPosts = React.createClass({
+var RandomPost = React.createClass({
     render: function(){
-        var self = this;
         var style = {
           fontSize: "2em",
           marginRight: "5px",
         };
+
+        return (
+            <li>
+                <i className={"icon-" + this.props.data.category} style={style}/>
+                <a href="{this.props.data.id}">
+                  {this.props.data.title}
+                </a>
+                <hr />
+            </li>
+        )
+    }
+}); // End RandomPost
+
+var RandomPostList = React.createClass({
+    render: function(){
+        // Variables
+        // mapping item to a react component
         var random_items = this.props.posts.map(function(post){
             return (
-                <li>
-                    <i className={"icon-" + post.category} style={style}/>
-                    <a href="{post.id}">
-                      {post.title}
-                    </a>
-                    <hr />
-                </li>
+                <RandomPost data={post} />
             );
         });
 
         return (
             <ul className="posts">
-              {random_items}
+                {random_items}
             </ul>
         );
     }
-});
+});// End RandomPostList
