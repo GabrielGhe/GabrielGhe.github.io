@@ -10,7 +10,7 @@ tags: [reactjs, flux]
 <!-- Overview -->
 <h3>Overview</h3>
 
-Flux is a type of web application architecture that plays nicely with React's unidirectional data flow. You can find all the information from this post and a lot more in the [Full Stack Flux](https://www.youtube.com/watch?v=KtmjkCuV-EU) video.
+Flux is a type of web application architecture that plays nicely with React's unidirectional data flow. You can find all the information from this post and a lot more in the [Full Stack Flux](https://www.youtube.com/watch?v=KtmjkCuV-EU) video and the [HTMLDevConf React Flux](https://www.youtube.com/watch?v=Bic_sFiaNDI) video.
 
 <br />
 <h3>Old way</h3>
@@ -56,6 +56,13 @@ function onNewMessage(msg){
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+You then create models that hold the information. Like a Conversation model and a Notification model. Well the Notification model needs to know when the Conversation model updates like when someone sends you a message and a little unread icon appears next to messages.
 
+It's complicated already... It becomes even more complicated with more models.
 
+<br />
+
+Some people use pub/sub which is nice... until you want the models to get the data in a certain order. (The notification bar which holds everything gets the message before the Conversation).
+
+<br />
 

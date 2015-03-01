@@ -130,7 +130,7 @@
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>Flux is a type of web application architecture that plays nicely with React’s unidirectional data flow. You can find all the information from this post and a lot more in the <a href="https://www.youtube.com/watch?v=KtmjkCuV-EU">Full Stack Flux</a> video.</p>
+<p>Flux is a type of web application architecture that plays nicely with React’s unidirectional data flow. You can find all the information from this post and a lot more in the <a href="https://www.youtube.com/watch?v=KtmjkCuV-EU">Full Stack Flux</a> video and the <a href="https://www.youtube.com/watch?v=Bic_sFiaNDI">HTMLDevConf React Flux</a> video.</p>
 
 <p><br /></p>
 <h3>Old way</h3>
@@ -175,6 +175,16 @@
 <span class="lineno">16</span> <span class="p">}</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p>You then create models that hold the information. Like a Conversation model and a Notification model. Well the Notification model needs to know when the Conversation model updates like when someone sends you a message and a little unread icon appears next to messages.</p>
+
+<p>It’s complicated already… It becomes even more complicated with more models.</p>
+
+<p><br /></p>
+
+<p>Some people use pub/sub which is nice… until you want the models to get the data in a certain order. (The notification bar which holds everything gets the message before the Conversation).</p>
+
+<p><br /></p>
 
 
     </div>
