@@ -71,13 +71,13 @@ There is a clean way to handle this issue. Using a unidirectional data flow. Flu
 
 ![Notification]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture3.png)
 
+
+
 <br />
 `Action`: object with a type property and new data
 
-<br />
 `Action Creator`: methods that create Actions, they become the API.
 
-<br />
 <!-- Code _______________________________________-->
 {% highlight javascript linenos %}
 // ### in FooActionCreator.js ###
@@ -89,7 +89,7 @@ var ActionTypes = AppConstants.ActionTypes;
 
 module.exports = {
     // Action Creator
-    createMessage: function(text){
+    createMessage(text){
         // That new object is an Action
         AppDispatcher.dispatch({
             type: ActionTypes.MESSAGE_CREATE,
@@ -99,6 +99,8 @@ module.exports = {
 };
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
 
 <br />
 `Dispatcher`: It's basically a registry of callbacks. The Flux dispatcher is a singleton. Payload is an Action. Primary API: dispatch(), register(), waitFor()
@@ -114,5 +116,52 @@ module.exports = new Dispatcher();
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+
+
 <br />
 `Store`: Each store is a singleton. Holds the data. Only way into the store is through the callback from the Dispatcher. Only has getters, no setters. It emits "I changed" events when the state changes.
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
+// ### in FooStore ###
+
+var _dispatchToken;
+var _messages = {};
+
+class FooStore extends EventEmitter {
+    constructor(){
+        super();
+
+        _dispatcherToken = AppDispatcher.register( (action) => {
+            switch(action.type){
+                case ActionTypes.MESSAGE_CREATE:
+                    var message = {
+                        id: Date.now(),
+                        text: action.text
+                    };
+                    _messages[message.id] = message;
+                    this.emit('change');
+                    break;
+
+                case ActionTypes.MESSAGE_DELETE:
+                    delete _messages[action.messageId];
+                    this.emit('change');
+                    break;
+
+                default:
+            }// End switch
+        });// End AppDispatcher.register
+    }// End constructor
+
+    getDispatchToken(){
+        return _dispatchToken;
+    }
+
+    getMessages(){
+        return _messages;
+    }
+}
+
+module.exports = new FooStore();
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->

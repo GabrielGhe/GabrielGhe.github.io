@@ -194,11 +194,9 @@
 <p><br />
 <code>Action</code>: object with a type property and new data</p>
 
-<p><br />
-<code>Action Creator</code>: methods that create Actions, they become the API.</p>
+<p><code>Action Creator</code>: methods that create Actions, they become the API.</p>
 
-<p><br />
-<!-- Code _______________________________________--></p>
+<!-- Code _______________________________________-->
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// ### in FooActionCreator.js ###</span>
 <span class="lineno"> 2</span> 
@@ -209,7 +207,7 @@
 <span class="lineno"> 7</span> 
 <span class="lineno"> 8</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
 <span class="lineno"> 9</span>     <span class="c1">// Action Creator</span>
-<span class="lineno">10</span>     <span class="nx">createMessage</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">text</span><span class="p">){</span>
+<span class="lineno">10</span>     <span class="nx">createMessage</span><span class="p">(</span><span class="nx">text</span><span class="p">){</span>
 <span class="lineno">11</span>         <span class="c1">// That new object is an Action</span>
 <span class="lineno">12</span>         <span class="nx">AppDispatcher</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">({</span>
 <span class="lineno">13</span>             <span class="nx">type</span><span class="o">:</span> <span class="nx">ActionTypes</span><span class="p">.</span><span class="nx">MESSAGE_CREATE</span><span class="p">,</span>
@@ -236,6 +234,51 @@
 
 <p><br />
 <code>Store</code>: Each store is a singleton. Holds the data. Only way into the store is through the callback from the Dispatcher. Only has getters, no setters. It emits “I changed” events when the state changes.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// ### in FooStore ###</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="kd">var</span> <span class="nx">_dispatchToken</span><span class="p">;</span>
+<span class="lineno"> 4</span> <span class="kd">var</span> <span class="nx">_messages</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="kr">class</span> <span class="nx">FooStore</span> <span class="kr">extends</span> <span class="nx">EventEmitter</span> <span class="p">{</span>
+<span class="lineno"> 7</span>     <span class="nx">constructor</span><span class="p">(){</span>
+<span class="lineno"> 8</span>         <span class="kr">super</span><span class="p">();</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span>         <span class="nx">_dispatcherToken</span> <span class="o">=</span> <span class="nx">AppDispatcher</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span> <span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="lineno">11</span>             <span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">){</span>
+<span class="lineno">12</span>                 <span class="k">case</span> <span class="nx">ActionTypes</span><span class="p">.</span><span class="nx">MESSAGE_CREATE</span><span class="o">:</span>
+<span class="lineno">13</span>                     <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="p">{</span>
+<span class="lineno">14</span>                         <span class="nx">id</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span>
+<span class="lineno">15</span>                         <span class="nx">text</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">text</span>
+<span class="lineno">16</span>                     <span class="p">};</span>
+<span class="lineno">17</span>                     <span class="nx">_messages</span><span class="p">[</span><span class="nx">message</span><span class="p">.</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="nx">message</span><span class="p">;</span>
+<span class="lineno">18</span>                     <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">);</span>
+<span class="lineno">19</span>                     <span class="k">break</span><span class="p">;</span>
+<span class="lineno">20</span> 
+<span class="lineno">21</span>                 <span class="k">case</span> <span class="nx">ActionTypes</span><span class="p">.</span><span class="nx">MESSAGE_DELETE</span><span class="o">:</span>
+<span class="lineno">22</span>                     <span class="k">delete</span> <span class="nx">_messages</span><span class="p">[</span><span class="nx">action</span><span class="p">.</span><span class="nx">messageId</span><span class="p">];</span>
+<span class="lineno">23</span>                     <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">);</span>
+<span class="lineno">24</span>                     <span class="k">break</span><span class="p">;</span>
+<span class="lineno">25</span> 
+<span class="lineno">26</span>                 <span class="k">default</span><span class="o">:</span>
+<span class="lineno">27</span>             <span class="p">}</span><span class="c1">// End switch</span>
+<span class="lineno">28</span>         <span class="p">});</span><span class="c1">// End AppDispatcher.register</span>
+<span class="lineno">29</span>     <span class="p">}</span><span class="c1">// End constructor</span>
+<span class="lineno">30</span> 
+<span class="lineno">31</span>     <span class="nx">getDispatchToken</span><span class="p">(){</span>
+<span class="lineno">32</span>         <span class="k">return</span> <span class="nx">_dispatchToken</span><span class="p">;</span>
+<span class="lineno">33</span>     <span class="p">}</span>
+<span class="lineno">34</span> 
+<span class="lineno">35</span>     <span class="nx">getMessages</span><span class="p">(){</span>
+<span class="lineno">36</span>         <span class="k">return</span> <span class="nx">_messages</span><span class="p">;</span>
+<span class="lineno">37</span>     <span class="p">}</span>
+<span class="lineno">38</span> <span class="p">}</span>
+<span class="lineno">39</span> 
+<span class="lineno">40</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooStore</span><span class="p">();</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
     </div>
 
