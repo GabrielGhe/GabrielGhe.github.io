@@ -90,7 +90,6 @@ var SearchBar = React.createClass({
       this.setState({ data: list });
   },
   selectItem: function(path){
-      console.log("In selectItem",path)
       document.location.href = path
   },
   hoverItem: function(index){
@@ -162,3 +161,30 @@ var SearchBar = React.createClass({
     )
   }
 }); // End SearchBar
+
+var RandomPosts = React.createClass({
+    render: function(){
+        var self = this;
+        var style = {
+          fontSize: "2em",
+          marginRight: "5px",
+        };
+        var random_items = this.props.posts.map(function(post){
+            return (
+                <li>
+                    <i className={"icon-" + post.category} style={style}/>
+                    <a href="{post.id}">
+                      {post.title}
+                    </a>
+                    <hr />
+                </li>
+            );
+        });
+
+        return (
+            <ul className="posts">
+              {random_items}
+            </ul>
+        );
+    }
+});
