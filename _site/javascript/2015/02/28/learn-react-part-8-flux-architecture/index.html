@@ -137,7 +137,7 @@
 
 <p>Let’s take the facebook chat as the example. If we wanted to get the number of unread messages for each thread (unread messages per person).</p>
 
-<p><img src="/assets/themes/images/2015-02-28-learn-react-part-8-flux-architecture2.png" alt="Notification" /></p>
+<p><img src="/assets/themes/images/2015-02-28-learn-react-part-8-flux-architecture2.png" alt="Chat Notification" /></p>
 
 <!-- Code _______________________________________-->
 
@@ -153,7 +153,7 @@
 
 <p>This is nice and all, but what happens if we want to know how many threads have unread messages (number of conversations that have unread messages)? We would have to update our code.</p>
 
-<p><img src="/assets/themes/images/2015-02-28-learn-react-part-8-flux-architecture.png" alt="Notification" /></p>
+<p><img src="/assets/themes/images/2015-02-28-learn-react-part-8-flux-architecture.png" alt="Structure" /></p>
 
 <!-- Code _______________________________________-->
 
@@ -275,8 +275,99 @@
 <span class="lineno">36</span>         <span class="k">return</span> <span class="nx">_messages</span><span class="p">;</span>
 <span class="lineno">37</span>     <span class="p">}</span>
 <span class="lineno">38</span> <span class="p">}</span>
-<span class="lineno">39</span> 
-<span class="lineno">40</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooStore</span><span class="p">();</span></code></pre></div>
+<span class="lineno">39</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooStore</span><span class="p">();</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p><br />
+<code>Views</code>: Tree of react components. The components near the top of the tree listen for store changes. When there’s a store change, they query the store for new data and pass it down to children.</p>
+
+<p><img src="/assets/themes/images/2015-02-28-learn-react-part-8-flux-architecture4.png" alt="Lifecycles" /></p>
+
+<p><br />
+We fist create our ControllerView which retrieves the data from the Store.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// ### in FooControllerView.react.js ###</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react&#39;</span><span class="p">);</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span> <span class="kd">var</span> <span class="nx">FooControllerView</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<span class="lineno"> 6</span>     <span class="nx">getInitialState</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno"> 7</span>         <span class="k">return</span> <span class="p">{</span>
+<span class="lineno"> 8</span>             <span class="nx">messages</span><span class="o">:</span> <span class="nx">FooStore</span><span class="p">.</span><span class="nx">getMessages</span><span class="p">();</span>
+<span class="lineno"> 9</span>         <span class="p">};</span>
+<span class="lineno">10</span>     <span class="p">},</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span>     <span class="nx">componentDidMount</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">13</span>         <span class="nx">FooStore</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onChange</span><span class="p">);</span>
+<span class="lineno">14</span>     <span class="p">},</span>
+<span class="lineno">15</span> 
+<span class="lineno">16</span>     <span class="nx">componentWillUnmount</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">17</span>         <span class="nx">FooStore</span><span class="p">.</span><span class="nx">removeListener</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onChange</span><span class="p">);</span>
+<span class="lineno">18</span>     <span class="p">},</span>
+<span class="lineno">19</span> 
+<span class="lineno">20</span>     <span class="nx">_onChange</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">21</span>         <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+<span class="lineno">22</span>             <span class="nx">messages</span><span class="o">:</span> <span class="nx">FooStore</span><span class="p">.</span><span class="nx">getMessages</span><span class="p">();</span>
+<span class="lineno">23</span>         <span class="p">});</span>
+<span class="lineno">24</span>     <span class="p">},</span>
+<span class="lineno">25</span> 
+<span class="lineno">26</span>     <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">27</span>         <span class="c1">//TODO</span>
+<span class="lineno">28</span>     <span class="p">}</span>
+<span class="lineno">29</span> <span class="p">});</span>
+<span class="lineno">30</span> 
+<span class="lineno">31</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">FooControllerView</span><span class="p">;</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno"> 2</span>     <span class="kd">var</span> <span class="nx">messageListItems</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">message</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="lineno"> 3</span>         <span class="k">return</span> <span class="p">(</span>
+<span class="lineno"> 4</span>             <span class="o">&lt;</span><span class="nx">FooChild</span>
+<span class="lineno"> 5</span>                 <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">message</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span>
+<span class="lineno"> 6</span>                 <span class="nx">id</span><span class="o">=</span><span class="p">{</span><span class="nx">message</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span>
+<span class="lineno"> 7</span>                 <span class="nx">text</span><span class="o">=</span><span class="p">{</span><span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span>
+<span class="lineno"> 8</span>             <span class="o">/&gt;</span>
+<span class="lineno"> 9</span>         <span class="p">);</span>
+<span class="lineno">10</span>     <span class="p">});</span> <span class="c1">// End messageListItems</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span>     <span class="k">return</span> <span class="p">(</span>
+<span class="lineno">13</span>         <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+<span class="lineno">14</span>             <span class="p">{</span><span class="nx">messageListItems</span><span class="p">}</span>
+<span class="lineno">15</span>         <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+<span class="lineno">16</span>     <span class="p">);</span>
+<span class="lineno">17</span> <span class="p">}</span><span class="c1">// End render</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p><br />
+We now have to create FooChild which will display each message.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// ### in FooChild.react.js ###</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react&#39;</span><span class="p">);</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span> <span class="kd">var</span> <span class="nx">FooChild</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<span class="lineno"> 6</span>     <span class="nx">propTypes</span> <span class="o">=</span> <span class="p">{</span>
+<span class="lineno"> 7</span>         <span class="nx">id</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">number</span><span class="p">.</span><span class="nx">isRequired</span><span class="p">,</span>
+<span class="lineno"> 8</span>         <span class="nx">text</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">number</span><span class="p">.</span><span class="nx">isRequired</span>
+<span class="lineno"> 9</span>     <span class="p">}</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span>     <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">12</span>         <span class="k">return</span> <span class="p">(</span>
+<span class="lineno">13</span>             <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+<span class="lineno">14</span>         <span class="p">);</span>
+<span class="lineno">15</span>     <span class="p">}</span>
+<span class="lineno">16</span> <span class="p">});</span>
+<span class="lineno">17</span> 
+<span class="lineno">18</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">FooChild</span><span class="p">;</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 

@@ -17,7 +17,7 @@ Flux is a type of web application architecture that plays nicely with React's un
 
 Let's take the facebook chat as the example. If we wanted to get the number of unread messages for each thread (unread messages per person).
 
-![Notification]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture2.png)
+![Chat Notification]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture2.png)
 
 <!-- Code _______________________________________-->
 {% highlight javascript linenos %}
@@ -33,7 +33,7 @@ function onNewMessage(msg){
 
 This is nice and all, but what happens if we want to know how many threads have unread messages (number of conversations that have unread messages)? We would have to update our code.
 
-![Notification]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture.png)
+![Structure]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture.png)
 
 <!-- Code _______________________________________-->
 {% highlight javascript linenos %}
@@ -161,7 +161,98 @@ class FooStore extends EventEmitter {
         return _messages;
     }
 }
-
 module.exports = new FooStore();
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<br />
+`Views`: Tree of react components. The components near the top of the tree listen for store changes. When there's a store change, they query the store for new data and pass it down to children.
+
+![Lifecycles]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture4.png)
+
+<br />
+We fist create our ControllerView which retrieves the data from the Store.
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
+// ### in FooControllerView.react.js ###
+
+var React = require('react');
+
+var FooControllerView = React.createClass({
+    getInitialState: function(){
+        return {
+            messages: FooStore.getMessages();
+        };
+    },
+
+    componentDidMount: function(){
+        FooStore.on('change', this._onChange);
+    },
+
+    componentWillUnmount: function(){
+        FooStore.removeListener('change', this._onChange);
+    },
+
+    _onChange: function(){
+        this.setState({
+            messages: FooStore.getMessages();
+        });
+    },
+
+    render: function(){
+        //TODO
+    }
+});
+
+module.exports = FooControllerView;
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
+render: function(){
+    var messageListItems = this.state.messages.map(message => {
+        return (
+            <FooChild
+                key={message.id}
+                id={message.id}
+                text={message.text}
+            />
+        );
+    }); // End messageListItems
+
+    return (
+        <ul>
+            {messageListItems}
+        </ul>
+    );
+}// End render
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<br />
+We now have to create FooChild which will display each message.
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
+// ### in FooChild.react.js ###
+
+var React = require('react');
+
+var FooChild = React.createClass({
+    propTypes = {
+        id: React.PropTypes.number.isRequired,
+        text: React.PropTypes.number.isRequired
+    }
+
+    render: function(){
+        return (
+            <li>{this.props.text}</li>
+        );
+    }
+});
+
+module.exports = FooChild;
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
