@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Windows 8 development: navigate to a page</title>
+    <title>Learn React Part 8: Flux Architecture</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -116,41 +116,63 @@
   <div class="col-md-9">
     <div class="page-header">
       <h1>
-        <i class="icon-csharp" style="font-size:2em"></i> Windows 8 development: navigate to a page 
+        <i class="icon-javascript" style="font-size:2em"></i> Learn React Part 8: Flux Architecture 
     </h1>
     </div>
     <div class="date">
-      <span>Sunday, January 11, 2015</span>
+      <span>Saturday, February 28, 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>In mobile apps, we often navigate to different pages. In this post, we will see how to do that on the windows phone. More information can be found <a href="https://www.youtube.com/watch?v=kkUaC-sOJPQ">here</a>.</p>
+<p>Flux is a type of web application architecture that plays nicely with React’s unidirectional data flow. You can find all the information from this post and a lot more in the <a href="https://www.youtube.com/watch?v=KtmjkCuV-EU">Full Stack Flux</a> video.</p>
 
-<!-- Details -->
-<h3>Details</h3>
+<p><br /></p>
+<h3>Old way</h3>
 
-<p>We will have <code>MainPage</code> which will have a button whos click event takes us to a new page, <code>Page2</code>.</p>
+<p>Let’s take the facebook chat as the example. If we wanted to get the number of unread messages for each thread (unread messages per person).</p>
 
-<p>MainPage xaml will have a button that will take you to the next page.</p>
+<p><img src="/assets/themes/images/2015-02-28-learn-react-part-8-flux-architecture2.png" alt="Notification" /></p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Go to Page2&quot;</span> <span class="na">onClick=</span><span class="s">&quot;Button_Click&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
+<!-- Code _______________________________________-->
 
-<p>The click event for that button will look like this.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="kd">var</span> <span class="nx">unreadMessageCounts</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="lineno">2</span> <span class="kd">function</span> <span class="nx">onNewMessage</span><span class="p">(</span><span class="nx">msg</span><span class="p">){</span>
+<span class="lineno">3</span>     <span class="c1">// increment the old count and cache the new count</span>
+<span class="lineno">4</span>     <span class="kd">var</span> <span class="nx">unreadCount</span> <span class="o">=</span> <span class="o">++</span><span class="nx">unreadMessageCounts</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">threadId</span><span class="p">];</span>
+<span class="lineno">5</span>     <span class="c1">// update DOM</span>
+<span class="lineno">6</span>     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#messageCount&#39;</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">threadId</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">unreadCount</span><span class="p">);</span>
+<span class="lineno">7</span> <span class="p">}</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno">1</span> <span class="c1">// MainPage</span>
-<span class="lineno">2</span> <span class="k">private</span> <span class="k">void</span> <span class="nf">Button_Click</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">3</span>   <span class="n">Frame</span><span class="p">.</span><span class="n">Navigate</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Page2</span><span class="p">),</span> <span class="s">&quot;This is extra data that I&#39;m sending to Page2&quot;</span><span class="p">);</span>
-<span class="lineno">4</span> <span class="p">}</span></code></pre></div>
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<p>On Page2, we can get the parameters passed when we changed pages in the <code>OnNavigatedTo</code> method.</p>
+<p>This is nice and all, but what happens if we want to know how many threads have unread messages (number of conversations that have unread messages)? We would have to update our code.</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno">1</span> <span class="c1">// Page2</span>
-<span class="lineno">2</span> <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnNavigatedTo</span><span class="p">(</span><span class="n">NavigationEventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">3</span>   <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span> <span class="n">e</span><span class="p">.</span><span class="n">Parameter</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">);</span>
-<span class="lineno">4</span> <span class="p">}</span></code></pre></div>
+<p><img src="/assets/themes/images/2015-02-28-learn-react-part-8-flux-architecture.png" alt="Notification" /></p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">unreadMessageCounts</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="lineno"> 2</span> <span class="kd">var</span> <span class="nx">unreadThreadCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno"> 3</span> 
+<span class="lineno"> 4</span> <span class="kd">function</span> <span class="nx">onNewMessage</span><span class="p">(</span><span class="nx">msg</span><span class="p">){</span>
+<span class="lineno"> 5</span>     <span class="c1">// increment the old count and cache the new count</span>
+<span class="lineno"> 6</span>     <span class="kd">var</span> <span class="nx">unreadCount</span> <span class="o">=</span> <span class="o">++</span><span class="nx">unreadMessageCounts</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">threadId</span><span class="p">];</span>
+<span class="lineno"> 7</span>     <span class="k">if</span> <span class="p">(</span><span class="nx">unreadCount</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 8</span>         <span class="c1">// increment number of unread threads</span>
+<span class="lineno"> 9</span>         <span class="o">++</span><span class="nx">unreadThreadCount</span><span class="p">;</span>
+<span class="lineno">10</span>         <span class="c1">// update DOM for threads</span>
+<span class="lineno">11</span>         <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#unreadThreads&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">unreadThreadCount</span><span class="p">);</span>
+<span class="lineno">12</span>     <span class="p">}</span>
+<span class="lineno">13</span> 
+<span class="lineno">14</span>     <span class="c1">// update DOM for the conversation</span>
+<span class="lineno">15</span>     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#messageCount&#39;</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">threadId</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">unreadCount</span><span class="p">);</span>
+<span class="lineno">16</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
 
     </div>
 
@@ -163,8 +185,8 @@
 
   
      
-    	<li><a href="/categories.html#csharp-ref">
-    		csharp <span>12</span>
+    	<li><a href="/categories.html#javascript-ref">
+    		javascript <span>29</span>
     	</a></li>
     
   
@@ -182,13 +204,9 @@
 
   
      
-    	<li><a href="/tags.html#c#-ref">c# <span>12</span></a></li>
+    	<li><a href="/tags.html#reactjs-ref">reactjs <span>6</span></a></li>
      
-    	<li><a href="/tags.html#windows-ref">windows <span>3</span></a></li>
-     
-    	<li><a href="/tags.html#windows phone-ref">windows phone <span>3</span></a></li>
-     
-    	<li><a href="/tags.html#navigation-ref">navigation <span>1</span></a></li>
+    	<li><a href="/tags.html#flux-ref">flux <span>1</span></a></li>
     
   
 
@@ -200,11 +218,11 @@
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/javascript/2015/01/05/ecmascript-6-feature-modules" title="EcmaScript 6 feature: modules">&laquo; Previous</a></li>
+      <li class="prev"><a href="/javascript/2015/02/25/javascript-to-remember" title="JavaScript to Remember">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/csharp/2015/01/11/windows-8-development-styling-xaml" title="Windows 8 development: styling xaml">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     

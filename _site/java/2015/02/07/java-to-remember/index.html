@@ -148,6 +148,7 @@
   <li><a href="#regex">Regex</a></li>
   <li><a href="#formatting">Formatting</a></li>
   <li><a href="#hashmap">HashMap</a></li>
+  <li><a href="#hashset">HashSet</a></li>
   <li><a href="#deque">Deque</a></li>
 </ol>
 
@@ -161,18 +162,31 @@
 <p><br /><br /><br /></p>
 <h3><a name="string"></a><a href="">1. String</a></h3>
 
-<!-- Code -->
+<!-- Code _______________________________________-->
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">()</span>             <span class="c1">// [&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]</span>
-<span class="lineno">2</span> <span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">List</span> <span class="n">lst</span><span class="o">)</span>        <span class="c1">// sorts a List in place</span>
-<span class="lineno">3</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">T</span><span class="o">[]</span> <span class="n">array</span><span class="o">)</span>            <span class="c1">// sort an array</span>
-<span class="lineno">4</span> <span class="n">Collections</span><span class="o">.</span><span class="na">reverse</span><span class="o">(</span><span class="n">List</span> <span class="n">lst</span><span class="o">)</span>     <span class="c1">// reverses a LIST</span>
-<span class="lineno">5</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="kt">char</span><span class="o">[]</span> <span class="n">a</span><span class="o">)</span>         <span class="c1">// convert to string</span>
-<span class="lineno">6</span> <span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span>             <span class="c1">// get a char at the specific index</span>
-<span class="lineno">7</span> <span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">length</span><span class="o">()</span>                  <span class="c1">// string length</span>
-<span class="lineno">8</span> <span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">].</span><span class="na">length</span>                <span class="c1">// array size</span></code></pre></div>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">()</span>             <span class="c1">// [&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]</span>
+<span class="lineno"> 2</span> <span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">List</span> <span class="n">lst</span><span class="o">)</span>        <span class="c1">// sorts a List in place</span>
+<span class="lineno"> 3</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">T</span><span class="o">[]</span> <span class="n">array</span><span class="o">)</span>            <span class="c1">// sort an array</span>
+<span class="lineno"> 4</span> <span class="n">Collections</span><span class="o">.</span><span class="na">reverse</span><span class="o">(</span><span class="n">List</span> <span class="n">lst</span><span class="o">)</span>     <span class="c1">// reverses a LIST</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="kt">char</span><span class="o">[]</span> <span class="n">a</span><span class="o">)</span>         <span class="c1">// convert to string</span>
+<span class="lineno"> 7</span> <span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span>             <span class="c1">// get a char at the specific index</span>
+<span class="lineno"> 8</span> <span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">length</span><span class="o">()</span>                  <span class="c1">// string length</span>
+<span class="lineno"> 9</span> <span class="o">[</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">].</span><span class="na">length</span>                <span class="c1">// array size</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> <span class="n">Character</span><span class="o">.</span><span class="na">isLetter</span><span class="o">(</span><span class="sc">&#39;a&#39;</span><span class="o">)</span>           <span class="c1">// true</span>
+<span class="lineno">12</span> <span class="n">Character</span><span class="o">.</span><span class="na">isDigit</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>              <span class="c1">// true</span>
+<span class="lineno">13</span> <span class="n">Character</span><span class="o">.</span><span class="na">isLetterOrDigit</span><span class="o">(</span><span class="sc">&#39;a&#39;</span><span class="o">)</span>    <span class="c1">// true</span>
+<span class="lineno">14</span> <span class="n">Character</span><span class="o">.</span><span class="na">isWhiteSpace</span><span class="o">(</span><span class="sc">&#39; &#39;</span><span class="o">)</span>       <span class="c1">// true</span>
+<span class="lineno">15</span> 
+<span class="lineno">16</span> <span class="n">Character</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">(</span><span class="sc">&#39;A&#39;</span><span class="o">)</span>        <span class="c1">// &#39;a&#39;</span>
+<span class="lineno">17</span> <span class="n">Character</span><span class="o">.</span><span class="na">isUpperCase</span><span class="o">(</span><span class="sc">&#39;a&#39;</span><span class="o">)</span>        <span class="c1">// false</span>
+<span class="lineno">18</span> 
+<span class="lineno">19</span> <span class="s">&quot;abcdef&quot;</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>          <span class="c1">// &quot;b&quot;</span>
+<span class="lineno">20</span> <span class="s">&quot;abcdef&quot;</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">5</span><span class="o">)</span>          <span class="c1">// &quot;bcde&quot;</span>
+<span class="lineno">21</span> <span class="s">&quot;abcdef&quot;</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span>             <span class="c1">// &quot;def&quot;</span></code></pre></div>
 
-<!-- /Code -->
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- 
 #########################################
@@ -1239,11 +1253,12 @@
 <p>HashMaps &amp; HashTables allow inserts, deletes and gets at O(1).
 HashTables are synchronized while HashMaps are not. HashTables do not allow null keys or values.
 HashMaps allows 1 null key and unlimited null values.
+The synchronized HashMap is the ConcurrentHashMap&lt;Key,Value&gt; which is in java.util.concurrent.
 Source: <a href="http://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable">here</a></p>
 
 <!-- Code -->
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
 <span class="lineno"> 2</span> <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// { a:1 }</span>
 <span class="lineno"> 3</span> <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;b&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span> <span class="c1">// { a:1, b:2 }</span>
 <span class="lineno"> 4</span> <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span> <span class="c1">// { a:1, b:2, c:3 }</span>
@@ -1260,12 +1275,47 @@ Source: <a href="http://stackoverflow.com/questions/40471/differences-between-ha
 <!-- 
 #########################################
 #
+#     HashMap
+#
+#########################################
+-->
+<p><br /><br /><br /></p>
+<h3><a name="hashset"></a><a href="">16. HashSet</a></h3>
+
+<p>A HashSet is a dictionary that only stores keys. It doesn’t allow for duplicates and only stores keys.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+<span class="lineno"> 2</span> <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>       <span class="c1">// { 1 }</span>
+<span class="lineno"> 3</span> <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>       <span class="c1">// { 1, 2 }</span>
+<span class="lineno"> 4</span> <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>       <span class="c1">// { 1, 2, 3 }</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="n">set</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>  <span class="c1">// false</span>
+<span class="lineno"> 7</span> <span class="n">set</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>  <span class="c1">// true</span>
+<span class="lineno"> 8</span> <span class="n">set</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>    <span class="c1">// { 1, 3 }</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">val:</span> <span class="n">set</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">11</span>   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+<span class="lineno">12</span> <span class="o">}</span>
+<span class="lineno">13</span> <span class="c1">// 1</span>
+<span class="lineno">14</span> <span class="c1">// 3</span>
+<span class="lineno">15</span> 
+<span class="lineno">16</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">set</span><span class="o">);</span> <span class="c1">// [1,3]</span>
+<span class="lineno">17</span> 
+<span class="lineno">18</span> <span class="n">set</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>      <span class="c1">// {}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- 
+#########################################
+#
 #     Deque
 #
 #########################################
 -->
 <p><br /><br /><br /></p>
-<h3><a name="deque"></a><a href="">16. Deque</a></h3>
+<h3><a name="deque"></a><a href="">17. Deque</a></h3>
 
 <p>Deques implement the interfaces of both Stacks and Queues. They are great for both.</p>
 
@@ -1282,7 +1332,7 @@ Source: <a href="http://stackoverflow.com/questions/40471/differences-between-ha
 <span class="lineno"> 9</span> <span class="n">deque</span><span class="o">.</span><span class="na">removeFirst</span><span class="o">();</span>  <span class="c1">// 2 [5,3]</span>
 <span class="lineno">10</span> <span class="n">deque</span><span class="o">.</span><span class="na">removeLast</span><span class="o">();</span>   <span class="c1">// 3 [5]</span>
 <span class="lineno">11</span> 
-<span class="lineno">12</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">deque</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>  <span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="lineno">12</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">deque</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span> <span class="c1">// [0]</span>
 <span class="lineno">13</span> <span class="n">deque</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="n">array</span><span class="o">);</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
@@ -1365,6 +1415,16 @@ Source: <a href="http://stackoverflow.com/questions/40471/differences-between-ha
     <ul class="posts">
       
       <li>
+         <a href="/javascript/2015/02/28/learn-react-part-8-flux-architecture">Learn React Part 8: Flux Architecture</a>
+        <hr>
+      </li>
+      
+      <li>
+         <a href="/javascript/2015/02/25/javascript-to-remember">JavaScript to Remember</a>
+        <hr>
+      </li>
+      
+      <li>
          <a href="/python/2015/02/15/python-to-remember">Python To Remember</a>
         <hr>
       </li>
@@ -1376,16 +1436,6 @@ Source: <a href="http://stackoverflow.com/questions/40471/differences-between-ha
       
       <li>
          <a href="/javascript/2015/02/14/learn-node-part-9-webscraper">Learn Node Part 9: WebScraper</a>
-        <hr>
-      </li>
-      
-      <li>
-         <a href="/javascript/2015/02/14/learn-node-part-8-passport">Learn Node Part 8: Passport</a>
-        <hr>
-      </li>
-      
-      <li>
-         <a href="/javascript/2015/02/14/learn-node-part-7-browserify">Learn Node Part 7: Browserify</a>
         <hr>
       </li>
       
