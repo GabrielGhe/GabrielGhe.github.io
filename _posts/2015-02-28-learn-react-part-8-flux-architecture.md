@@ -10,7 +10,7 @@ tags: [reactjs, flux]
 <!-- Overview -->
 <h3>Overview</h3>
 
-Flux is a type of web application architecture that plays nicely with React's unidirectional data flow. You can find all the information from this post and a lot more in the [Full Stack Flux](https://www.youtube.com/watch?v=KtmjkCuV-EU) video and the [HTMLDevConf React Flux](https://www.youtube.com/watch?v=Bic_sFiaNDI) video.
+Flux is a type of web application architecture that plays nicely with React's unidirectional data flow. You can find all the information from this post and a lot more in the [Full Stack Flux](https://www.youtube.com/watch?v=KtmjkCuV-EU) video and the [HTMLDevConf React Flux](https://www.youtube.com/watch?v=Bic_sFiaNDI) video. The images are from both those videos, the creators own all the rights to them.
 
 <br />
 <h3>Old way</h3>
@@ -65,4 +65,54 @@ It's complicated already... It becomes even more complicated with more models.
 Some people use pub/sub which is nice... until you want the models to get the data in a certain order. (The notification bar which holds everything gets the message before the Conversation).
 
 <br />
+<h3>New way</h3>
 
+There is a clean way to handle this issue. Using a unidirectional data flow. Flux's architecture looks something like this.
+
+![Notification]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture3.png)
+
+<br />
+`Action`: object with a type property and new data
+
+<br />
+`Action Creator`: methods that create Actions, they become the API.
+
+<br />
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
+// ### in FooActionCreator.js ###
+
+var AppDispatcher = require('../AppDispatcher');
+var AppConstants = require('../AppConstants');
+
+var ActionTypes = AppConstants.ActionTypes;
+
+module.exports = {
+    // Action Creator
+    createMessage: function(text){
+        // That new object is an Action
+        AppDispatcher.dispatch({
+            type: ActionTypes.MESSAGE_CREATE,
+            text: text
+        });
+    }
+};
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<br />
+`Dispatcher`: It's basically a registry of callbacks. The Flux dispatcher is a singleton. Payload is an Action. Primary API: dispatch(), register(), waitFor()
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos %}
+// ### in AppDispatcher.js ###
+
+var Dispatcher = require('Flux.Dispatcher');
+
+// export singleton
+module.exports = new Dispatcher();
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<br />
+`Store`: Each store is a singleton. Holds the data. Only way into the store is through the callback from the Dispatcher. Only has getters, no setters. It emits "I changed" events when the state changes.

@@ -130,7 +130,7 @@
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>Flux is a type of web application architecture that plays nicely with React’s unidirectional data flow. You can find all the information from this post and a lot more in the <a href="https://www.youtube.com/watch?v=KtmjkCuV-EU">Full Stack Flux</a> video and the <a href="https://www.youtube.com/watch?v=Bic_sFiaNDI">HTMLDevConf React Flux</a> video.</p>
+<p>Flux is a type of web application architecture that plays nicely with React’s unidirectional data flow. You can find all the information from this post and a lot more in the <a href="https://www.youtube.com/watch?v=KtmjkCuV-EU">Full Stack Flux</a> video and the <a href="https://www.youtube.com/watch?v=Bic_sFiaNDI">HTMLDevConf React Flux</a> video. The images are from both those videos, the creators own all the rights to them.</p>
 
 <p><br /></p>
 <h3>Old way</h3>
@@ -185,7 +185,57 @@
 <p>Some people use pub/sub which is nice… until you want the models to get the data in a certain order. (The notification bar which holds everything gets the message before the Conversation).</p>
 
 <p><br /></p>
+<h3>New way</h3>
 
+<p>There is a clean way to handle this issue. Using a unidirectional data flow. Flux’s architecture looks something like this.</p>
+
+<p><img src="/assets/themes/images/2015-02-28-learn-react-part-8-flux-architecture3.png" alt="Notification" /></p>
+
+<p><br />
+<code>Action</code>: object with a type property and new data</p>
+
+<p><br />
+<code>Action Creator</code>: methods that create Actions, they become the API.</p>
+
+<p><br />
+<!-- Code _______________________________________--></p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// ### in FooActionCreator.js ###</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="kd">var</span> <span class="nx">AppDispatcher</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../AppDispatcher&#39;</span><span class="p">);</span>
+<span class="lineno"> 4</span> <span class="kd">var</span> <span class="nx">AppConstants</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../AppConstants&#39;</span><span class="p">);</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="kd">var</span> <span class="nx">ActionTypes</span> <span class="o">=</span> <span class="nx">AppConstants</span><span class="p">.</span><span class="nx">ActionTypes</span><span class="p">;</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+<span class="lineno"> 9</span>     <span class="c1">// Action Creator</span>
+<span class="lineno">10</span>     <span class="nx">createMessage</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">text</span><span class="p">){</span>
+<span class="lineno">11</span>         <span class="c1">// That new object is an Action</span>
+<span class="lineno">12</span>         <span class="nx">AppDispatcher</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">({</span>
+<span class="lineno">13</span>             <span class="nx">type</span><span class="o">:</span> <span class="nx">ActionTypes</span><span class="p">.</span><span class="nx">MESSAGE_CREATE</span><span class="p">,</span>
+<span class="lineno">14</span>             <span class="nx">text</span><span class="o">:</span> <span class="nx">text</span>
+<span class="lineno">15</span>         <span class="p">});</span>
+<span class="lineno">16</span>     <span class="p">}</span>
+<span class="lineno">17</span> <span class="p">};</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p><br />
+<code>Dispatcher</code>: It’s basically a registry of callbacks. The Flux dispatcher is a singleton. Payload is an Action. Primary API: dispatch(), register(), waitFor()</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="c1">// ### in AppDispatcher.js ###</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="kd">var</span> <span class="nx">Dispatcher</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;Flux.Dispatcher&#39;</span><span class="p">);</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="c1">// export singleton</span>
+<span class="lineno">6</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dispatcher</span><span class="p">();</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p><br />
+<code>Store</code>: Each store is a singleton. Holds the data. Only way into the store is through the callback from the Dispatcher. Only has getters, no setters. It emits “I changed” events when the state changes.</p>
 
     </div>
 
