@@ -184,8 +184,12 @@ var RandomPost = React.createClass({
 }); // End RandomPost
 
 var RandomPostList = React.createClass({
-    render: function(){
-        // Variables
+    getInitialState: function(){
+        return {
+            posts: []
+        };
+    },
+    componentDidMount: function(){
         // mapping item to a react component
         var random_items = this.props.posts.map(function(post){
             return (
@@ -193,9 +197,14 @@ var RandomPostList = React.createClass({
             );
         });
 
+        this.setState({posts: random_items});
+    },
+    render: function(){
         return (
             <ul className="posts">
-                {random_items}
+                <ReactCSSTransitionGroup transitionName="random">
+                    {this.state.posts}
+                </ReactCSSTransitionGroup>
             </ul>
         );
     }

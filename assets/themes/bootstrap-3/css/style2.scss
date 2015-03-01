@@ -1,0 +1,13 @@
+---
+---
+
+.random-enter {
+    @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+            -moz-animation-delay: 0.2s * $i;
+            -o-animation-delay: 0.2s * $i;
+            -webkit-animation-delay: 0.2s * $i;
+            animation-delay: 0.2s * $i;
+        }
+    }
+}
