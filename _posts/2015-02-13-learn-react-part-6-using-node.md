@@ -7,9 +7,13 @@ tags: [react, nodejs, browserify, reactify, watchify, less, express]
 ---
 {% include JB/setup %}
 
+<h3><b>EDIT</b></h3>
+
+This is the old way of using Browserify with React and Node. To see the new version, look at [Using React with Grunt and Browserify](/javascript/2015/03/02/using-react-with-grunt-and-browserify/).
+
+<br /><br />
 <!-- Overview -->
 <h3>Overview</h3>
-
 
 We're going to set up a React server using browserify, EJS, Express and Less.
 

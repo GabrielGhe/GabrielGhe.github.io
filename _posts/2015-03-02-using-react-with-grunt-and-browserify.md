@@ -10,7 +10,7 @@ tags: [grunt, reactjs, browserify]
 <!-- Overview -->
 <h3>Overview</h3>
 
-If we want to set up a fast way to develop React web apps, we have to be able to compile `jsx` files quickly. To accomplish this, we use `browserify` and `grunt`. Read the following posts before going furthur: [Setup Grunt](/javascript/2015/02/14/learn-node-part-3-grunt/), [Continuous NodeJS](/javascript/2015/03/02/continuous-development-in-nodejs/).
+If we want to set up a fast way to develop React web apps, we have to be able to compile `jsx` files quickly. To accomplish this, we use `browserify` and `grunt`. Read the following posts before going further: [Setup Grunt](/javascript/2015/02/14/learn-node-part-3-grunt/), [Continuous NodeJS](/javascript/2015/03/02/continuous-development-in-nodejs/).
 
 <br />
 <!-- Step 1: Installation -->
