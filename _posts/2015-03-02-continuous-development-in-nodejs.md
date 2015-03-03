@@ -123,3 +123,9 @@ module.exports = function(grunt){
 };
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<br />
+<!-- Step 3: Dev -->
+<h3>Step 3: Dev</h3>
+
+Now you can simply call `grunt` and the server will start up. When you make a change to a file and save, it will refresh the page.
