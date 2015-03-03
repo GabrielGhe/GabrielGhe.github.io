@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using react with grunt and browserify"
+title: "Using React with Grunt and Browserify"
 description: ""
 category: javascript
 tags: [grunt, reactjs, browserify]
