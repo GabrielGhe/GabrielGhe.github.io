@@ -18,13 +18,13 @@ Here's an example of a generic swap.
 var lucky = 7
 var unlucky = 13
 
-swapTwoVariables(&lucky, &unlucky)
-
 func swapTwoVariables<T>(inout first: T, inout second: T) {
     let temp = first
     first = second
     second = temp
 }
+
+swapTwoVariables(&lucky, &unlucky)
 
 println("lucky: \(lucky)   unlucky: \(unlucky)")
 // "lucky: 13   unlucky: 7"
