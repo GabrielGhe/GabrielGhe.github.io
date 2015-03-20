@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://swiftcomparsion.qiniudn.com/ -->
+<html class="wf-proximanova-n1-inactive wf-proximanova-n3-inactive wf-proximanova-n4-inactive wf-proximanova-n6-inactive wf-proximanova-n7-inactive wf-inactive"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Swift is a lot like C#</title>
+  <meta name="description" content="Examples of how Apple&#39;s Swift language is similar to Scala.">
+  <link rel="stylesheet" href="http://swiftcomparsion.qiniudn.com/css/prism.css">
+  <link rel="stylesheet" href="http://swiftcomparsion.qiniudn.com/css/index.css">
+  <script type="text/javascript" src="./swift-comparison_files/ghy0wve.js"></script>
+  <style type="text/css">.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}</style><link rel="stylesheet" href="http://use.typekit.net/c/f55778/1w;proxima-nova,2,b5r:N:n1,b5t:N:n3,b5w:N:n4,b5y:N:n6,bBh:N:n7/d?3bb2a6e53c9684ffdc9a99f7135b2a629a9b1e388b7bc6a88da86dd810db6bf5de1a4dc89172202ee2b5087339715841e9919327cc418e0a078417b33b3ad0366aee346812e73ffc4e195305e3982110f54291e57cdceeb29443991079db0db8a09e5253ccff1168e48059ae00d3b7f11309d22c9d147c7d63174bdc2927d550be4a961392416840bad6a64aa7f8f4c34fc6ead6fadff5a28bbfe21e26a14f113e256ac8fb6849f0df2aac0a73d324d77f137582eedf7e00dcfdfb67ffeb86dd3fb1b1df9f57fd5bb4e914b55cde92ff9244e884e66070ed946b00aca340591aec7e8ea272aa47dda3d94ca96e9e68a3cc4ed868141a17fbc2229a79cd1c23f3081b1167a4c38bec6f46716cc4943d195a5704d04c6514df17d6b3ee9873a4a592d11ef4410ef0b2914c66c12e4b010167909588599d7d1940fed08a03cf78"><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script src="./swift-comparison_files/prism.js"></script>
+  <script src="./swift-comparison_files/index.js"></script>
+</head>
+<body><a href="https://github.com/terryso/swiftislikecsharp"><img style="position: absolute; top: 0; right: 0; border: 0;" src="./swift-comparison_files/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+  <div class="page">
+    <header class="page-header">
+      <div class="inner">
+        <h1>Swift is a lot like C#</h1>
+      </div>
+    </header>
+    <div class="explanation">
+      <div class="inner">
+        <p>A new programming language called <a href="https://developer.apple.com/swift/">Swift</a> was announced at WWDC'14. Here's a source-to-source comparison of Swift and <a href="http://www.scala-lang.org/">C#</a> using the <a href="https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html">examples</a> given in "The Swift Programming Language" book published by Apple in the iTunes Store.</p>
+        <p><a href="https://github.com/leverich/">Jacob Leverich</a> provides another excellent <a href="https://leverich.github.io/swiftislikescala/">point-by-point comparison with </a><a href="http://www.scala-lang.org/">Scala</a>.</p>
+      </div>
+    </div>
+    <header class="search">
+      <input type="search" placeholder="Search..." required="">
+    </header>
+    <div class="comparisons">
+      <div class="empty-message">Your search didn't match any comparisons.</div>
+      <section id="basics" class="odd">
+        <div class="inner">
+          <h2>Basics</h2>
+          <div id="hello_world" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#hello_world">Hello World</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>println("Hello, world!")
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>Console.WriteLine("Hello, world!");
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="variables_and_constants" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#variables_and_constants">Variables And Constants</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var myVariable = 42
+myVariable = 50
+let myConstant = 42
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var myVariable = 42;
+myVariable = 50;
+const int myConstant = 42;
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="explicit_types" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#explicit_types">Explicit Types</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>let explicitDouble: Double = 70
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>const double explicitDouble = 70;
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="type_coercion" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#type_coercion">Type Coercion</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>let label = "The width is "
+let width = 94
+let widthLabel = label + String(width)
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var label = "The width is ";
+var width = 94;
+var widthLabel = label + width;
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="string_interpolation" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#string_interpolation">String Interpolation</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>let apples = 3
+let oranges = 5
+let fruitSummary = "I have \(apples + oranges) " + 
+                   "pieces of fruit."
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var apples = 3;
+var oranges = 5;
+var fruitSummary = String.Format("I have {0} " +
+                          "pieces of fruit.", apples + oranges);
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="range_operator" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#range_operator">Range Operator</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>let names = ["Anna", "Alex", "Brian", "Jack"]
+let count = names.count
+for i in 0..count {
+    println("Person \(i + 1) is called \(names[i])")
+}
+// Person 1 is called Anna
+// Person 2 is called Alex
+// Person 3 is called Brian
+// Person 4 is called Jack
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var names = new[] {"Anna", "Alex", "Brian", "Jack"};
+var count = names.Length;
+foreach (var i in Enumerable.Range(0, count)) {
+    Console.WriteLine("Person {0} is called {1}", i + 1, names[i]);
+}
+// Person 1 is called Anna
+// Person 2 is called Alex
+// Person 3 is called Brian
+// Person 4 is called Jack
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="inclusive_range_operator" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#inclusive_range_operator">Inclusive Range Operator</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>for index in 1...5 {
+    println("\(index) times 5 is \(index * 5)")
+}
+// 1 times 5 is 5
+// 2 times 5 is 10
+// 3 times 5 is 15
+// 4 times 5 is 20
+// 5 times 5 is 25
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>foreach (var index in Enumerable.Range(1, 5)) {
+    Console.WriteLine("{0} times 5 is {1}", index, index * 5);
+}
+// 1 times 5 is 5
+// 2 times 5 is 10
+// 3 times 5 is 15
+// 4 times 5 is 20
+// 5 times 5 is 25
+</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="collections">
+        <div class="inner">
+          <h2>Collections</h2>
+          <div id="arrays" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#arrays">Arrays</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var shoppingList = ["catfish", "water",
+    "tulips", "blue paint"]
+shoppingList[1] = "bottle of water"
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var shoppingList = new[]{"catfish", "water", "tulips", "blue paint"};
+shoppingList[1] = "bottle of water";
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="maps" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#maps">Maps</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var occupations = [
+    "Malcolm": "Captain",
+    "Kaylee": "Mechanic",
+]
+occupations["Jayne"] = "Public Relations"
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var occupations = new Dictionary&lt;string, string&gt; 
+                                  {
+                                      {"Malcolm", "Captain"},
+                                      {"Kaylee", "Mechanic"}
+                                  };
+occupations["Jayne"] = "Public Relations";
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="empty_collections" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#empty_collections">Empty Collections</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>let emptyArray = String[]()
+let emptyDictionary = Dictionary&lt;String, Float&gt;()
+let emptyArrayNoType = []
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var emptyArray = new String[] {};
+var emptyDictionary = new Dictionary&lt;String, float&gt;();
+var emptyArrayNoType = new ArrayList();
+</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="functions" class="odd">
+        <div class="inner">
+          <h2>Functions</h2>
+          <div id="functions" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#functions">Functions</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>func greet(name: String, day: String) -&gt; String {
+    return "Hello \(name), today is \(day)."
+}
+greet("Bob", "Tuesday")
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>public string greet(string name, string day) {
+    return string.Format("Hello {0}, today is {1}.", name, day);
+}
+greet("Bob", "Tuesday");
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="tuple_return" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#tuple_return">Tuple Return</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>func getGasPrices() -&gt; (Double, Double, Double) {
+    return (3.59, 3.69, 3.79)
+}
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>public Tuple&lt;double, double, double&gt; getGasPrices() {
+    return Tuple.Create(3.59, 3.69, 3.79);
+}
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="variable_number_of_arguments" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#variable_number_of_arguments">Variable Number Of Arguments</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>func sumOf(numbers: Int...) -&gt; Int {
+    var sum = 0
+    for number in numbers {
+        sum += number
+    }
+    return sum
+}
+sumOf(42, 597, 12)
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>public int sumOf(params int[] numbers) {
+    return numbers.Sum();
+}
+sumOf(42, 597, 12)
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="function_type" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#function_type">Function Type</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>func makeIncrementer() -&gt; (Int -&gt; Int) {
+    func addOne(number: Int) -&gt; Int {
+        return 1 + number
+    }
+    return addOne
+}
+var increment = makeIncrementer()
+increment(7)
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>public Func&lt;int, int&gt; makeIncrementer() {
+    Func&lt;int, int&gt; addOne = number =&gt; 1 + number;
+    return addOne;
+}
+var increment = makeIncrementer();
+increment(7)
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="map" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#map">Map</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var numbers = [20, 19, 7, 12]
+numbers.map({ number in 3 * number })
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var numbers = new[] {20, 19, 7, 12};
+numbers.Select(number =&gt; 3 * number);
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="sort" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#sort">Sort</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>sort([1, 5, 3, 12, 2]) { $0 &gt; $1 }
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var list = new List&lt;int&gt; {1, 5, 3, 12, 2};
+list.Sort((x, y) =&gt; Convert.ToInt32((x &gt; y)));
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="named_arguments" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#named_arguments">Named Arguments</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>def area(width: Int, height: Int) -&gt; Int {
+    return width * height
+}
+
+area(width: 10, height: 10)
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>public int area(int width, int height) {
+    return width * height;
+}
+
+area(width:10, height:10);
+</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="classes">
+        <div class="inner">
+          <h2>Classes</h2>
+          <div id="declaration" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#declaration">Declaration</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>class Shape {
+    var numberOfSides = 0
+    func simpleDescription() -&gt; String {
+        return "A shape with \(numberOfSides) sides."
+    }
+}
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>class Shape {
+    public int numberOfSides { get; set; }
+    public string simpleDescription() {
+        return string.Format("A shape with {0} sides.", numberOfSides);
+    }
+}
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="usage" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#usage">Usage</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var shape = Shape()
+shape.numberOfSides = 7
+var shapeDescription = shape.simpleDescription()
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var shape = new Shape();
+shape.numberOfSides = 7;
+var shapeDescription = shape.simpleDescription();
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="subclass" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#subclass">Subclass</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>class NamedShape {
+    var numberOfSides: Int = 0
+    var name: String
+
+    init(name: String) {
+        self.name = name
+    }
+
+    func simpleDescription() -&gt; String {
+        return "A shape with \(numberOfSides) sides."
+    }
+}
+
+class Square: NamedShape {
+    var sideLength: Double
+
+    init(sideLength: Double, name: String) {
+        self.sideLength = sideLength
+        super.init(name: name)
+        numberOfSides = 4
+    }
+
+    func area() -&gt; Double {
+        return sideLength * sideLength
+    }
+
+    override func simpleDescription() -&gt; String {
+        return "A square with sides of length
+                \(sideLength)."
+    }
+}
+
+let test = Square(sideLength: 5.2)
+test.area()
+test.simpleDescription()
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>class NamedShape {
+    public int numberOfSides { get; set; }
+    public string name { get; set; }
+
+    public NamedShape(string name) {
+        this.name = name;
+    }
+
+    public virtual string simpleDescription() {
+        return string.Format("A shape with {0} sides.",
+                              numberOfSides);
+    }
+}
+
+class Square : NamedShape {
+    public double sideLength { get; set; }
+    public Square(double sideLength, string name) : base(name) {
+        this.sideLength = sideLength;
+        this.numberOfSides = 4;
+    }
+
+    public double area() {
+        return sideLength * sideLength;
+    }
+
+    public override string simpleDescription() {
+        return string.Format("A square with sides of length {0}.",
+                              sideLength);
+    }
+}
+
+val test = new Square(5.2, "my test square");
+test.area();
+test.simpleDescription();
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="checking_type" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#checking_type">Checking Type</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var movieCount = 0
+var songCount = 0
+ 
+for item in library {
+    if item is Movie {
+        ++movieCount
+    } else if item is Song {
+        ++songCount
+    }
+}
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>var movieCount = 0;
+var songCount = 0;
+
+foreach (var item in library) {
+    if (item is Movie) {
+        ++movieCount;
+    } else if (item is Song) {
+        ++songCount;
+    }
+}
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="downcasting" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#downcasting">Downcasting</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>for object in someObjects {
+    let movie = object as Movie
+    println("Movie: '\(movie.name)', dir. \(movie.director)")
+}
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>foreach (var obj in someObjects) {
+    var movie = obj as Movie;
+    if (movie != null) {
+        Console.WriteLine(string.Format("Movie: '{0}', dir. {1}",
+                          movie.name, movie.director));
+    }
+}
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="protocol" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#protocol">Protocol</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>protocol Nameable {
+    func name() -&gt; String
+}
+
+func f&lt;T: Nameable&gt;(x: T) {
+    println("Name is " + x.name())
+}
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>interface Nameable {
+    string name();
+}
+
+public void f&lt;T&gt;(T x) where T : Nameable {
+    Console.WriteLine("Name is " + x.name());
+}
+</code></pre>
+              </div>
+            </div>
+          </div>
+          <div id="extensions" class="comparison">
+            <h3><a href="http://swiftcomparsion.qiniudn.com/#extensions">Extensions</a></h3>
+            <div data-browser="swift" class="browser swift">
+              <h4>SWIFT</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>extension Double {
+    var km: Double { return self * 1_000.0 }
+    var m: Double { return self }
+    var cm: Double { return self / 100.0 }
+    var mm: Double { return self / 1_000.0 }
+    var ft: Double { return self / 3.28084 }
+}
+let oneInch = 25.4.mm
+println("One inch is \(oneInch) meters")
+// prints "One inch is 0.0254 meters"
+let threeFeet = 3.ft
+println("Three feet is \(threeFeet) meters")
+// prints "Three feet is 0.914399970739201 meters"
+</code></pre>
+              </div>
+            </div>
+            <div data-browser="csharp" class="browser csharp">
+              <h4>CSHARP</h4>
+              <div data-lang="csharp" class="code-block language-csharp">
+                <pre class="language-csharp"><code>public static class DoubleExtension {
+    public static double km(this double number) {
+        return number * 1000.0;
+    }
+
+    public static double m(this double number) {
+        return number;
+    }
+
+    public static double cm(this double number) {
+        return number / 100.0;
+    }
+
+    public static double mm(this double number) {
+        return number / 1000.0;
+    }
+
+    public static double ft(this double number) {
+        return number / 3.28084;
+    }
+}
+
+val oneInch = (25.4).mm();
+Console.WriteLine("One inch is {0} meters", oneInch);
+// prints "One inch is 0.0254 meters"
+var threeFeet = (3.0).ft();
+Console.WriteLine("Three feet is {0} meters", threeFeet);
+// prints "Three feet is 0.914399970739201 meters"
+</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer>    
+      <p>Shamelessly forked from <a href="http://youmightnotneedjquery.com/">http://youmightnotneedjquery.com/</a>.</p>
+      <p>Follow <a href="http://weibo.com/suchuanyi">@四眼蒙面侠</a>.</p>
+      <p>
+        <script type="text/javascript">
+          var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+          document.write(unescape("%3Cspan id='cnzz_stat_icon_1000481583'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1000481583%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+          
+        </script><span id="cnzz_stat_icon_1000481583"></span><script src="http://s11.cnzz.com/z_stat.php?id=1000481583&show=pic" type="text/javascript"></script>
+      </p>
+    </footer>
+  </div>
+  <div style="-webkit-transform: translateZ(0);"></div>
+</body></html>
