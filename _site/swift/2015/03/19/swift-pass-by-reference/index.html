@@ -138,13 +138,13 @@ Here’s an example of a generic swap.</p>
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno"> 1</span> <span class="k">var</span> <span class="n">lucky</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="lineno"> 2</span> <span class="k">var</span> <span class="n">unlucky</span> <span class="o">=</span> <span class="mi">13</span>
 <span class="lineno"> 3</span> 
-<span class="lineno"> 4</span> <span class="n">swapTwoVariables</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lucky</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">unlucky</span><span class="p">)</span>
-<span class="lineno"> 5</span> 
-<span class="lineno"> 6</span> <span class="k">func</span> <span class="n">swapTwoVariables</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">inout</span> <span class="nl">first</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="k">inout</span> <span class="nl">second</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 7</span>     <span class="k">let</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">first</span>
-<span class="lineno"> 8</span>     <span class="n">first</span> <span class="o">=</span> <span class="n">second</span>
-<span class="lineno"> 9</span>     <span class="n">second</span> <span class="o">=</span> <span class="n">temp</span>
-<span class="lineno">10</span> <span class="p">}</span>
+<span class="lineno"> 4</span> <span class="k">func</span> <span class="n">swapTwoVariables</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">inout</span> <span class="nl">first</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="k">inout</span> <span class="nl">second</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 5</span>     <span class="k">let</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">first</span>
+<span class="lineno"> 6</span>     <span class="n">first</span> <span class="o">=</span> <span class="n">second</span>
+<span class="lineno"> 7</span>     <span class="n">second</span> <span class="o">=</span> <span class="n">temp</span>
+<span class="lineno"> 8</span> <span class="p">}</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="n">swapTwoVariables</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lucky</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">unlucky</span><span class="p">)</span>
 <span class="lineno">11</span> 
 <span class="lineno">12</span> <span class="n">println</span><span class="p">(</span><span class="s">&quot;lucky: \(lucky)   unlucky: \(unlucky)&quot;</span><span class="p">)</span>
 <span class="lineno">13</span> <span class="c1">// &quot;lucky: 13   unlucky: 7&quot;</span></code></pre></div>
@@ -163,7 +163,7 @@ Here’s an example of a generic swap.</p>
   
      
     	<li><a href="/categories.html#swift-ref">
-    		swift <span>6</span>
+    		swift <span>7</span>
     	</a></li>
     
   
@@ -201,7 +201,7 @@ Here’s an example of a generic swap.</p>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next disabled"><a>Next &rarr;</a>
+      <li class="next"><a href="/swift/2015/03/21/swift-initializers" title="Swift Initializers">Next &raquo;</a></li>
     
     </ul>
     

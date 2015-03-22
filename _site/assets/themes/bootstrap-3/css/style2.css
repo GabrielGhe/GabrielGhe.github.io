@@ -23,3 +23,6 @@
   -o-animation-delay: 1s;
   -webkit-animation-delay: 1s;
   animation-delay: 1s; }
+
+img {
+  margin: 20px 0 20px 0; }
