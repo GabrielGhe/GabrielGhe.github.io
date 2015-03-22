@@ -3,7 +3,7 @@ layout: post
 title: "Swift Generics"
 description: ""
 category: swift
-tags: [generics]
+tags: [ios, generics]
 ---
 {% include JB/setup %}
 

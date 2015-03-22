@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Swift: Pass By Reference</title>
+    <title>Swift UIView Bounds vs Frame vs Center</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -131,37 +131,28 @@
   <div class="col-md-9">
     <div class="page-header">
       <h1>
-        <i class="icon-swift" style="font-size:2em"></i> Swift: Pass By Reference 
+        <i class="icon-swift" style="font-size:2em"></i> Swift UIView Bounds vs Frame vs Center 
     </h1>
     </div>
     <div class="date">
-      <span>Thursday, March 19, 2015</span>
+      <span>Sunday, March 22, 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>In some cases, you would like to pass a variable by reference. In Swift, we use the <code>inout</code> and the <code>&amp;</code> keys.
-Here’s an example of a generic swap.</p>
+<p>When developing for iOS, a lot of people confuse a UIView’s <code>bounds</code>, <code>frame</code> and <code>center</code>. This post will illustrate their difference. The images are taken from <a href="http://web.stanford.edu/class/cs193p/cgi-bin/drupal/">Stanford’s cs193p class</a>.</p>
 
-<!-- Code _______________________________________-->
+<p><code>bounds</code>: The UIView’s size and location relative to itself.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno"> 1</span> <span class="k">var</span> <span class="n">lucky</span> <span class="o">=</span> <span class="mi">7</span>
-<span class="lineno"> 2</span> <span class="k">var</span> <span class="n">unlucky</span> <span class="o">=</span> <span class="mi">13</span>
-<span class="lineno"> 3</span> 
-<span class="lineno"> 4</span> <span class="k">func</span> <span class="n">swapTwoVariables</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">inout</span> <span class="nl">first</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="k">inout</span> <span class="nl">second</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 5</span>     <span class="k">let</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">first</span>
-<span class="lineno"> 6</span>     <span class="n">first</span> <span class="o">=</span> <span class="n">second</span>
-<span class="lineno"> 7</span>     <span class="n">second</span> <span class="o">=</span> <span class="n">temp</span>
-<span class="lineno"> 8</span> <span class="p">}</span>
-<span class="lineno"> 9</span> 
-<span class="lineno">10</span> <span class="n">swapTwoVariables</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lucky</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">unlucky</span><span class="p">)</span>
-<span class="lineno">11</span> 
-<span class="lineno">12</span> <span class="n">println</span><span class="p">(</span><span class="s">&quot;lucky: \(lucky)   unlucky: \(unlucky)&quot;</span><span class="p">)</span>
-<span class="lineno">13</span> <span class="c1">// &quot;lucky: 13   unlucky: 7&quot;</span></code></pre></div>
+<p><code>frame</code>: The UIView’s size and location relative to its superview.</p>
 
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+<p><code>center</code>: The UIView’s center relative to its superview.</p>
+
+<p><img src="/assets/themes/images/2015-03-22-swift-uiview-bounds-vs-frame-vs-center1.png" alt="Results" /></p>
+
+<p><img src="/assets/themes/images/2015-03-22-swift-uiview-bounds-vs-frame-vs-center2.png" alt="Results" /></p>
 
     </div>
 
@@ -193,11 +184,15 @@ Here’s an example of a generic swap.</p>
 
   
      
-    	<li><a href="/tags.html#swift-ref">swift <span>2</span></a></li>
+    	<li><a href="/tags.html#ios-ref">ios <span>7</span></a></li>
      
-    	<li><a href="/tags.html#inout-ref">inout <span>1</span></a></li>
+    	<li><a href="/tags.html#bounds-ref">bounds <span>1</span></a></li>
      
-    	<li><a href="/tags.html#reference-ref">reference <span>1</span></a></li>
+    	<li><a href="/tags.html#center-ref">center <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#frame-ref">frame <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#ui-ref">ui <span>4</span></a></li>
     
   
 
@@ -209,11 +204,11 @@ Here’s an example of a generic swap.</p>
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/swift/2015/03/19/swift-for-c-developers" title="Swift for C# developers">&laquo; Previous</a></li>
+      <li class="prev"><a href="/swift/2015/03/21/swift-initializers" title="Swift Initializers">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/swift/2015/03/21/swift-generics" title="Swift Generics">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     

@@ -3,7 +3,7 @@ layout: post
 title: "Swift Initializers"
 description: ""
 category: swift
-tags: [init]
+tags: [ios, init]
 ---
 {% include JB/setup %}
 
