@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Decorators</title>
-    <meta name="description" content="">
+    <title></title>
+    
     <meta name="author" content="Gabriel G">
 
     <!-- Enable responsive viewport -->
@@ -116,92 +116,62 @@
 
       <div class="container">
         
-<!-- Left Side -->
-<div class="row post-full">
+<div class="row">
+  <!-- Left Side -->
   <div class="col-md-9">
-    <div class="page-header">
-      <h1>
-        <i class="icon-python" style="font-size:2em"></i> Decorators 
-    </h1>
-    </div>
-    <div class="date">
-      <span>Monday, February  2, 2015</span>
-    </div>
-    <div class="content">
-      
-<!-- Overview -->
-<h3>Overview</h3>
-
-<p>Decorators allow you to modify a function when it gets called. It’s used for things like memoization that keeps track of return statements. You can find more information <a href="http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/">here</a>.</p>
-
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="k">def</span> <span class="nf">makebold</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
-<span class="lineno"> 2</span>     <span class="k">return</span> <span class="k">lambda</span><span class="p">:</span> <span class="s">&quot;&lt;b&gt;&quot;</span> <span class="o">+</span> <span class="n">fn</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;&lt;/b&gt;&quot;</span>
-<span class="lineno"> 3</span> 
-<span class="lineno"> 4</span> <span class="k">def</span> <span class="nf">makeitalic</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
-<span class="lineno"> 5</span>     <span class="k">return</span> <span class="k">lambda</span><span class="p">:</span> <span class="s">&quot;&lt;i&gt;&quot;</span> <span class="o">+</span> <span class="n">fn</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;&lt;/i&gt;&quot;</span>
-<span class="lineno"> 6</span> 
-<span class="lineno"> 7</span> <span class="nd">@makebold</span>
-<span class="lineno"> 8</span> <span class="nd">@makeitalic</span>
-<span class="lineno"> 9</span> <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
-<span class="lineno">10</span>     <span class="k">return</span> <span class="s">&quot;hello world&quot;</span>
-<span class="lineno">11</span> 
-<span class="lineno">12</span> <span class="n">hello</span><span class="p">()</span>
-<span class="lineno">13</span> <span class="c"># &quot;&lt;b&gt;&lt;i&gt;hello world&lt;/i&gt;&lt;/b&gt;&quot;</span>
-<span class="lineno">14</span> <span class="c"># &quot;&lt;b&gt;&quot; + (&quot;&lt;i&gt;&quot; + fn() + &quot;&lt;/i&gt;&quot;) + &quot;&lt;/b&gt;&quot;</span>
-<span class="lineno">15</span> 
-<span class="lineno">16</span> 
-<span class="lineno">17</span> <span class="k">print</span> <span class="n">hello</span><span class="p">()</span> <span class="c">## returns &lt;b&gt;&lt;i&gt;hello world&lt;/i&gt;&lt;/b&gt;</span></code></pre></div>
-
-    </div>
-
-  
-    <ul class="tag_box inline">
-      <li><i class="glyphicon glyphicon-open"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/categories.html#python-ref">
-    		python <span>8</span>
-    	</a></li>
     
+
+<ul class="posts">
+  
+    <li>
+      <h3>
+        <i class="icon-swift" style="font-size:2em"></i> <a href="/swift/2014/12/24/ios-uitableview-and-uisearchbar">UITableView and UISearchBar</a>
+      </h3>
+      <!-- Date -->
+      <p class="date">
+        Wednesday, December 24, 2014
+      </p>
+      <!-- END Date -->
+      <!-- Category -->
+      <p>
+        <b>Category</b>:
+
+        <a href="/categories.html#swift-ref" class="label label-primary">
+            swift
+        </a>
+      </p>
+      <!-- END Category -->
+      <!-- Tags -->
+      <p>
+        
+          <b>Tags</b>:
+          
+            <a href="/tags.html#ios-ref" class="label label-success">ios</a>
+          
+            <a href="/tags.html#ui-ref" class="label label-success">ui</a>
+          
+        
+      </p>
+      <!-- END Tags -->
+      <hr>
+    </li>
+  
+</ul>
+
+<ul class="pagination">
   
 
-
-    </ul>
-    
-
-  
-    <ul class="tag_box inline">
-      <li><i class="glyphicon glyphicon-tags"></i></li>
-      
-      
-
+  <li class="disabled">
+    <a>Page 5/5</a>
+  </li>
 
   
-     
-    	<li><a href="/tags.html#decorator-ref">decorator <span>1</span></a></li>
+    
+      <li class="prev"><a href="/page4" title="Newer">Newer</a></li>
     
   
+</ul>
 
-
-
-    </ul>
-    
-  
-    <hr>
-    <ul class="pagination">
-    
-      <li class="prev"><a href="/javascript/2015/02/01/learn-react-part-5-refs" title="Learn React Part 5: Refs">&laquo; Previous</a></li>
-    
-      <li><a href="/archive.html">Archive</a></li>
-    
-      <li class="next"><a href="/python/2015/02/02/python2-vs-python3" title="Python2 vs Python3">Next &raquo;</a></li>
-    
-    </ul>
-    
   </div>
   <!-- END Left Side -->
 
@@ -212,11 +182,10 @@
     </h3>
     <hr>
     <div id="random_posts">
-      <div style="text-align:center">
-          <i class="fa fa-spinner fa-spin fa-3x"></i>
-      </div>
+        <div style="text-align:center">
+            <i class="fa fa-spinner fa-spin fa-3x"></i>
+        </div>
     </div>
-    </ul>
   </div>
   <!-- END Right Side -->
 </div>
