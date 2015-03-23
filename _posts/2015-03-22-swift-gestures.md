@@ -53,7 +53,8 @@ func pinch(gesture: UIPinchGestureRecognizer) {
     switch gesture.state {
         case .Began:
         case .Changed:
-        case .Ended
+        case .Ended:
+        case .Recognized
     }
     var scale:CGFloat = gesture.scale        // can reset
     var velocity:CGFloat = gesture.velocity  // readonly how fast you pinch
