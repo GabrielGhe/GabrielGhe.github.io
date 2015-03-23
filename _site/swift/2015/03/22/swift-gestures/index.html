@@ -161,7 +161,7 @@
 <span class="lineno"> 8</span> <span class="k">func</span> <span class="n">pan</span><span class="p">(</span><span class="nl">gesture</span><span class="p">:</span> <span class="bp">UIPanGestureRecognizer</span><span class="p">)</span> <span class="p">{</span>
 <span class="lineno"> 9</span>     <span class="k">switch</span> <span class="n">gesture</span><span class="p">.</span><span class="n">state</span> <span class="p">{</span>
 <span class="lineno">10</span>         <span class="k">case</span> <span class="p">.</span><span class="nl">Changed</span><span class="p">:</span> <span class="k">fallthrough</span>
-<span class="lineno">11</span>         <span class="k">case</span><span class="p">.</span><span class="nl">Ended</span><span class="p">:</span>
+<span class="lineno">11</span>         <span class="k">case</span> <span class="p">.</span><span class="nl">Ended</span><span class="p">:</span>
 <span class="lineno">12</span>             <span class="k">let</span> <span class="n">translation</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">translationInView</span><span class="p">(</span><span class="n">pannableView</span><span class="p">)</span>
 <span class="lineno">13</span>             <span class="c1">// update anything that depends on the pan gesture using tranlation.x and .y</span>
 <span class="lineno">14</span>             <span class="n">gesture</span><span class="p">.</span><span class="n">setTranslation</span><span class="p">(</span><span class="n">CGPointZero</span><span class="p">,</span> <span class="nl">inView</span><span class="p">:</span><span class="n">pannableView</span><span class="p">)</span>
@@ -181,9 +181,14 @@
 <span class="lineno"> 5</span>     <span class="p">}</span>
 <span class="lineno"> 6</span> <span class="p">}</span>
 <span class="lineno"> 7</span> <span class="k">func</span> <span class="n">pinch</span><span class="p">(</span><span class="nl">gesture</span><span class="p">:</span> <span class="bp">UIPinchGestureRecognizer</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 8</span>     <span class="k">var</span> <span class="nl">scale</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">scale</span>        <span class="c1">// can reset</span>
-<span class="lineno"> 9</span>     <span class="k">var</span> <span class="nl">velocity</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">velocity</span>  <span class="c1">// readonly how fast you pinch</span>
-<span class="lineno">10</span> <span class="p">}</span></code></pre></div>
+<span class="lineno"> 8</span>     <span class="k">switch</span> <span class="n">gesture</span><span class="p">.</span><span class="n">state</span> <span class="p">{</span>
+<span class="lineno"> 9</span>         <span class="k">case</span> <span class="p">.</span><span class="nl">Began</span><span class="p">:</span>
+<span class="lineno">10</span>         <span class="k">case</span> <span class="p">.</span><span class="nl">Changed</span><span class="p">:</span>
+<span class="lineno">11</span>         <span class="k">case</span> <span class="p">.</span><span class="n">Ended</span>
+<span class="lineno">12</span>     <span class="p">}</span>
+<span class="lineno">13</span>     <span class="k">var</span> <span class="nl">scale</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">scale</span>        <span class="c1">// can reset</span>
+<span class="lineno">14</span>     <span class="k">var</span> <span class="nl">velocity</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">velocity</span>  <span class="c1">// readonly how fast you pinch</span>
+<span class="lineno">15</span> <span class="p">}</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 

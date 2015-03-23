@@ -29,7 +29,7 @@ Gestures are a big part of mobile development. This post is all about how to add
 func pan(gesture: UIPanGestureRecognizer) {
     switch gesture.state {
         case .Changed: fallthrough
-        case.Ended:
+        case .Ended:
             let translation = gesture.translationInView(pannableView)
             // update anything that depends on the pan gesture using tranlation.x and .y
             gesture.setTranslation(CGPointZero, inView:pannableView)
@@ -50,6 +50,11 @@ func pan(gesture: UIPanGestureRecognizer) {
     }
 }
 func pinch(gesture: UIPinchGestureRecognizer) {
+    switch gesture.state {
+        case .Began:
+        case .Changed:
+        case .Ended
+    }
     var scale:CGFloat = gesture.scale        // can reset
     var velocity:CGFloat = gesture.velocity  // readonly how fast you pinch
 }
