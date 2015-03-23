@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift for C# developers"
+title: "Swift: for C# developers"
 description: ""
 category: swift
 tags: [c#, comparison]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift Initializers"
+title: "Swift: Initializers"
 description: ""
 category: swift
 tags: [ios, init]

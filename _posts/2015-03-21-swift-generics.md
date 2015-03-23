@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swift Generics"
+title: "Swift: Generics"
 description: ""
 category: swift
 tags: [ios, generics]
