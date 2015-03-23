@@ -50,8 +50,8 @@ func pan(gesture: UIPanGestureRecognizer) {
     }
 }
 func pinch(gesture: UIPinchGestureRecognizer) {
-    let scale:CGFloat = gesture.scale        // can reset
-    let velocity:CGFloat = gesture.velocity  // readonly how fast you pinch
+    var scale:CGFloat = gesture.scale        // can reset
+    var velocity:CGFloat = gesture.velocity  // readonly how fast you pinch
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
@@ -68,8 +68,44 @@ func pinch(gesture: UIPinchGestureRecognizer) {
     }
 }
 func rotate(gesture: UIRotationGestureRecognizer) {
-    let rotation:CGFloat = gesture.rotation  // can reset
-    let velocity:CGFloat = gesture.velocity  // readonly how fast you rotate
+    var rotation:CGFloat = gesture.rotation  // can reset
+    var velocity:CGFloat = gesture.velocity  // readonly how fast you rotate
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+**Swipe**
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+@IBOutlet weak var swipableView: UIView {
+    didSet {
+        let recognizer = UISwipeGestureRecognizer(target: self, action: "swipe:")
+        rotatableView.addGestureRecognizer(recognizer)
+    }
+}
+func swipe(gesture: UISwipeGestureRecognizer) {
+    var direction:UISwipeGestureRecognizerDirection = gesture.direction
+    var numberOfTouchesRequired:Int = gesture.numberOfTouchesRequired
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+**Tap**
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+@IBOutlet weak var tapableView: UIView {
+    didSet {
+        let recognizer = UITapGestureRecognizer(target: self, action: "tap:")
+        rotatableView.addGestureRecognizer(recognizer)
+    }
+}
+func tap(gesture: UITapGestureRecognizer) {
+    var numberOfTapsRequired:Int = gesture.numberOfTapsRequired // single tap, double tap, etc
+    var numberOfTouchesRequired:Int = gesture.numberOfTouchesRequired
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->

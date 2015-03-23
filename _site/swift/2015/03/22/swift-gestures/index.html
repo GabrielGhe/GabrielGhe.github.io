@@ -181,8 +181,8 @@
 <span class="lineno"> 5</span>     <span class="p">}</span>
 <span class="lineno"> 6</span> <span class="p">}</span>
 <span class="lineno"> 7</span> <span class="k">func</span> <span class="n">pinch</span><span class="p">(</span><span class="nl">gesture</span><span class="p">:</span> <span class="bp">UIPinchGestureRecognizer</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 8</span>     <span class="k">let</span> <span class="nl">scale</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">scale</span>        <span class="c1">// can reset</span>
-<span class="lineno"> 9</span>     <span class="k">let</span> <span class="nl">velocity</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">velocity</span>  <span class="c1">// readonly how fast you pinch</span>
+<span class="lineno"> 8</span>     <span class="k">var</span> <span class="nl">scale</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">scale</span>        <span class="c1">// can reset</span>
+<span class="lineno"> 9</span>     <span class="k">var</span> <span class="nl">velocity</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">velocity</span>  <span class="c1">// readonly how fast you pinch</span>
 <span class="lineno">10</span> <span class="p">}</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
@@ -198,8 +198,42 @@
 <span class="lineno"> 5</span>     <span class="p">}</span>
 <span class="lineno"> 6</span> <span class="p">}</span>
 <span class="lineno"> 7</span> <span class="k">func</span> <span class="n">rotate</span><span class="p">(</span><span class="nl">gesture</span><span class="p">:</span> <span class="bp">UIRotationGestureRecognizer</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 8</span>     <span class="k">let</span> <span class="nl">rotation</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">rotation</span>  <span class="c1">// can reset</span>
-<span class="lineno"> 9</span>     <span class="k">let</span> <span class="nl">velocity</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">velocity</span>  <span class="c1">// readonly how fast you rotate</span>
+<span class="lineno"> 8</span>     <span class="k">var</span> <span class="nl">rotation</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">rotation</span>  <span class="c1">// can reset</span>
+<span class="lineno"> 9</span>     <span class="k">var</span> <span class="nl">velocity</span><span class="p">:</span><span class="n">CGFloat</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">velocity</span>  <span class="c1">// readonly how fast you rotate</span>
+<span class="lineno">10</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p><strong>Swipe</strong></p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno"> 1</span> <span class="p">@</span><span class="kt">IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nl">swipableView</span><span class="p">:</span> <span class="bp">UIView</span> <span class="p">{</span>
+<span class="lineno"> 2</span>     <span class="kr">didSet</span> <span class="p">{</span>
+<span class="lineno"> 3</span>         <span class="k">let</span> <span class="n">recognizer</span> <span class="o">=</span> <span class="bp">UISwipeGestureRecognizer</span><span class="p">(</span><span class="nl">target</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span> <span class="nl">action</span><span class="p">:</span> <span class="s">&quot;swipe:&quot;</span><span class="p">)</span>
+<span class="lineno"> 4</span>         <span class="n">rotatableView</span><span class="p">.</span><span class="n">addGestureRecognizer</span><span class="p">(</span><span class="n">recognizer</span><span class="p">)</span>
+<span class="lineno"> 5</span>     <span class="p">}</span>
+<span class="lineno"> 6</span> <span class="p">}</span>
+<span class="lineno"> 7</span> <span class="k">func</span> <span class="n">swipe</span><span class="p">(</span><span class="nl">gesture</span><span class="p">:</span> <span class="bp">UISwipeGestureRecognizer</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 8</span>     <span class="k">var</span> <span class="nl">direction</span><span class="p">:</span><span class="n">UISwipeGestureRecognizerDirection</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">direction</span>
+<span class="lineno"> 9</span>     <span class="k">var</span> <span class="nl">numberOfTouchesRequired</span><span class="p">:</span><span class="n">Int</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">numberOfTouchesRequired</span>
+<span class="lineno">10</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p><strong>Tap</strong></p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno"> 1</span> <span class="p">@</span><span class="kt">IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nl">tapableView</span><span class="p">:</span> <span class="bp">UIView</span> <span class="p">{</span>
+<span class="lineno"> 2</span>     <span class="kr">didSet</span> <span class="p">{</span>
+<span class="lineno"> 3</span>         <span class="k">let</span> <span class="n">recognizer</span> <span class="o">=</span> <span class="bp">UITapGestureRecognizer</span><span class="p">(</span><span class="nl">target</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span> <span class="nl">action</span><span class="p">:</span> <span class="s">&quot;tap:&quot;</span><span class="p">)</span>
+<span class="lineno"> 4</span>         <span class="n">rotatableView</span><span class="p">.</span><span class="n">addGestureRecognizer</span><span class="p">(</span><span class="n">recognizer</span><span class="p">)</span>
+<span class="lineno"> 5</span>     <span class="p">}</span>
+<span class="lineno"> 6</span> <span class="p">}</span>
+<span class="lineno"> 7</span> <span class="k">func</span> <span class="n">tap</span><span class="p">(</span><span class="nl">gesture</span><span class="p">:</span> <span class="bp">UITapGestureRecognizer</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 8</span>     <span class="k">var</span> <span class="nl">numberOfTapsRequired</span><span class="p">:</span><span class="n">Int</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">numberOfTapsRequired</span> <span class="c1">// single tap, double tap, etc</span>
+<span class="lineno"> 9</span>     <span class="k">var</span> <span class="nl">numberOfTouchesRequired</span><span class="p">:</span><span class="n">Int</span> <span class="o">=</span> <span class="n">gesture</span><span class="p">.</span><span class="n">numberOfTouchesRequired</span>
 <span class="lineno">10</span> <span class="p">}</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
