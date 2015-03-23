@@ -15,4 +15,61 @@ Gestures are a big part of mobile development. This post is all about how to add
 <!-- Content -->
 <h3>Content</h3>
 
- 
+**Pan Gesture**
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+@IBOutlet weak var pannableView: UIView {
+    didSet {
+        // the ':' means that the method pan will be called with an argument
+        let recognizer = UIPanGestureRecognizer(target: self, action: "pan:")
+        pannableView.addGestureRecognizer(recognizer)
+    }
+}
+func pan(gesture: UIPanGestureRecognizer) {
+    switch gesture.state {
+        case .Changed: fallthrough
+        case.Ended:
+            let translation = gesture.translationInView(pannableView)
+            // update anything that depends on the pan gesture using tranlation.x and .y
+            gesture.setTranslation(CGPointZero, inView:pannableView)
+    }
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+**Pinch**
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+@IBOutlet weak var pinchableView: UIView {
+    didSet {
+        let recognizer = UIPinchGestureRecognizer(target: self, action: "pinch:")
+        pinchableView.addGestureRecognizer(recognizer)
+    }
+}
+func pinch(gesture: UIPinchGestureRecognizer) {
+    let scale:CGFloat = gesture.scale        // can reset
+    let velocity:CGFloat = gesture.velocity  // readonly how fast you pinch
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+**Rotate**
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+@IBOutlet weak var rotatableView: UIView {
+    didSet {
+        let recognizer = UIRotationGestureRecognizer(target: self, action: "rotate:")
+        rotatableView.addGestureRecognizer(recognizer)
+    }
+}
+func rotate(gesture: UIRotationGestureRecognizer) {
+    let rotation:CGFloat = gesture.rotation  // can reset
+    let velocity:CGFloat = gesture.velocity  // readonly how fast you rotate
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
