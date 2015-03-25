@@ -166,11 +166,39 @@
 <span class="lineno">3</span>     <span class="nb">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
 <span class="lineno">4</span>     <span class="c1">// do more setup</span>
 <span class="lineno">5</span>     <span class="c1">// update your ui</span>
-<span class="lineno">6</span>     <span class="c1">// geometry is not set (screen size etc)</span>
+<span class="lineno">6</span>     <span class="c1">// geometry is not set yet (bounds)</span>
 <span class="lineno">7</span> <span class="p">}</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="k">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">2</span>     <span class="c1">// every time the view gets displayed</span>
+<span class="lineno">3</span>     <span class="c1">// geometry is set (bounds)</span>
+<span class="lineno">4</span> <span class="p">}</span>
+<span class="lineno">5</span> <span class="k">func</span> <span class="n">viewDidAppear</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="kr">override</span> <span class="k">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">2</span>     <span class="nb">super</span><span class="p">.</span><span class="n">viewWillDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
+<span class="lineno">3</span>     <span class="c1">// clean up stuff</span>
+<span class="lineno">4</span>     <span class="c1">// get rid of image</span>
+<span class="lineno">5</span> <span class="p">}</span>
+<span class="lineno">6</span> <span class="k">func</span> <span class="n">viewDidDisappear</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="c1">// your geometry has changed (rotate)</span>
+<span class="lineno">2</span> <span class="k">func</span> <span class="n">viewWillLayoutSubviews</span><span class="p">()</span>
+<span class="lineno">3</span> <span class="k">func</span> <span class="n">viewDidLayoutSubviews</span><span class="p">()</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
     </div>
 

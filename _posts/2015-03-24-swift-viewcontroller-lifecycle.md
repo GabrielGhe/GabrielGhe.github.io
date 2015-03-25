@@ -33,8 +33,39 @@ override func viewDidLoad() {
     super.viewDidLoad()
     // do more setup
     // update your ui
-    // geometry is not set yet(screen size etc)
+    // geometry is not set yet (bounds)
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+func viewWillAppear(animated: Bool) {
+    // every time the view gets displayed
+    // geometry is set (bounds)
+}
+func viewDidAppear(animated: Bool)
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    // clean up stuff
+    // get rid of image
+}
+func viewDidDisappear(animated: Bool)
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+// your geometry has changed (rotate)
+func viewWillLayoutSubviews()
+func viewDidLayoutSubviews()
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
