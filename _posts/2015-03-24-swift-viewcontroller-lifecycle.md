@@ -15,12 +15,13 @@ The lifecycle for a ViewController is as follows.
 <!-- Content -->
 <h3>Content</h3>
 
-1. Creation
-2. Preparation if being segued to
-3. Outlet setting
-4. Appearing and disappearing
-5. Geometry changes
-6. Low-memory situations
+1. Instantiated (from storyboard or code)
+2. awakeFromNib
+3. segue preparation happens
+4. outlets get set
+5. viewDidLoad
+6. viewWillAppear/viewDidAppaer and viewWillDisappear/viewDidDisappear
+7. viewWillLayoutSubviews
 
 
 <!-- Lifecycle Methods -->
