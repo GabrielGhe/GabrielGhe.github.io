@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Swift: UIView Bounds vs Frame vs Center</title>
+    <title>Swift: ViewController Lifecycle</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -131,28 +131,46 @@
   <div class="col-md-9">
     <div class="page-header">
       <h1>
-        <i class="icon-swift" style="font-size:2em"></i> Swift: UIView Bounds vs Frame vs Center 
+        <i class="icon-swift" style="font-size:2em"></i> Swift: ViewController Lifecycle 
     </h1>
     </div>
     <div class="date">
-      <span>Sunday, March 22, 2015</span>
+      <span>Tuesday, March 24, 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>When developing for iOS, a lot of people confuse a UIView’s <code>bounds</code>, <code>frame</code> and <code>center</code>. This post will illustrate their difference. The images are taken from <a href="http://web.stanford.edu/class/cs193p/cgi-bin/drupal/">Stanford’s cs193p class</a>.</p>
+<p>The lifecycle for a ViewController is as follows.</p>
 
-<p><code>bounds</code>: The UIView’s size and location relative to itself.</p>
+<!-- Content -->
+<h3>Content</h3>
 
-<p><code>frame</code>: The UIView’s size and location relative to its superview.</p>
+<ol>
+  <li>Creation</li>
+  <li>Preparation if being segued to</li>
+  <li>Outlet setting</li>
+  <li>Appearing and disappearing</li>
+  <li>Geometry changes</li>
+  <li>Low-memory situations</li>
+</ol>
 
-<p><code>center</code>: The UIView’s center relative to its superview. To get center of your own view, you do <code>convertPoint(center, fromView: superview)</code></p>
+<!-- Lifecycle Methods -->
+<p><br />&lt;h4&gt;Lifecycle Methods&lt;h4&gt;</p>
 
-<p><img src="/assets/themes/images/2015-03-22-swift-uiview-bounds-vs-frame-vs-center1.png" alt="Results" /></p>
+<!-- Code _______________________________________-->
 
-<p><img src="/assets/themes/images/2015-03-22-swift-uiview-bounds-vs-frame-vs-center2.png" alt="Results" /></p>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="kr">override</span> <span class="k">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">2</span>     <span class="c1">// call super&#39;s version at beginning or end</span>
+<span class="lineno">3</span>     <span class="nb">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+<span class="lineno">4</span>     <span class="c1">// do more setup</span>
+<span class="lineno">5</span>     <span class="c1">// update your ui</span>
+<span class="lineno">6</span>     <span class="c1">// geometry is not set (screen size etc)</span>
+<span class="lineno">7</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
 
     </div>
 
@@ -186,13 +204,7 @@
      
     	<li><a href="/tags.html#ios-ref">ios <span>10</span></a></li>
      
-    	<li><a href="/tags.html#bounds-ref">bounds <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#center-ref">center <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#frame-ref">frame <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#ui-ref">ui <span>4</span></a></li>
+    	<li><a href="/tags.html#viewcontroller-ref">viewcontroller <span>2</span></a></li>
     
   
 
@@ -204,11 +216,11 @@
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/swift/2015/03/22/swift-making-a-protocol" title="Swift: Making a Protocol">&laquo; Previous</a></li>
+      <li class="prev"><a href="/swift/2015/03/22/swift-uiview-bounds-vs-frame-vs-center" title="Swift: UIView Bounds vs Frame vs Center">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/swift/2015/03/24/swift-viewcontroller-lifecycle" title="Swift: ViewController Lifecycle">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     
