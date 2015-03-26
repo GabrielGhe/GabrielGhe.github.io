@@ -632,13 +632,13 @@
 <span class="lineno"> 2</span>  
 <span class="lineno"> 3</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">f3</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
 <span class="lineno"> 4</span>   <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="o">)</span>
-<span class="lineno"> 5</span>     <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">]=</span> <span class="n">n</span><span class="o">;</span>
+<span class="lineno"> 5</span>     <span class="n">Steps</span><span class="o">[</span><span class="n">n</span><span class="o">]=</span> <span class="n">n</span><span class="o">;</span>
 <span class="lineno"> 6</span>  
-<span class="lineno"> 7</span>   <span class="k">if</span> <span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span>
+<span class="lineno"> 7</span>   <span class="k">if</span> <span class="o">(</span><span class="n">Steps</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span>
 <span class="lineno"> 8</span>       <span class="k">return</span> <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
 <span class="lineno"> 9</span>   <span class="k">else</span>
-<span class="lineno">10</span>       <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">=</span> <span class="n">f3</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">f3</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="o">);</span> <span class="c1">//store results so only calculate once!</span>
-<span class="lineno">11</span>   <span class="k">return</span> <span class="n">A</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+<span class="lineno">10</span>       <span class="n">Steps</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">=</span> <span class="n">f3</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">f3</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="o">);</span> <span class="c1">//store results so only calculate once!</span>
+<span class="lineno">11</span>   <span class="k">return</span> <span class="n">Steps</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
 <span class="lineno">12</span> <span class="o">}</span></code></pre></div>
 
 <!-- /Code -->
