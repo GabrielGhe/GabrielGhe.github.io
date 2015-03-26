@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Swift: ViewController Lifecycle</title>
+    <title>Swift: Multithreading</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -131,75 +131,21 @@
   <div class="col-md-9">
     <div class="page-header">
       <h1>
-        <i class="icon-swift" style="font-size:2em"></i> Swift: ViewController Lifecycle 
+        <i class="icon-swift" style="font-size:2em"></i> Swift: Multithreading 
     </h1>
     </div>
     <div class="date">
-      <span>Tuesday, March 24, 2015</span>
+      <span>Wednesday, March 25, 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>The lifecycle for a ViewController is as follows.</p>
+<p>Multithreading is a big part of Programming and you should know it well. You can find more information about multithreading <a href="https://developer.apple.com/library/mac/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091-CH1-SW1">here</a>.</p>
 
 <!-- Content -->
 <h3>Content</h3>
-
-<ol>
-  <li>Instantiated (from storyboard or code)</li>
-  <li>awakeFromNib</li>
-  <li>segue preparation happens</li>
-  <li>outlets get set</li>
-  <li>viewDidLoad</li>
-  <li>viewWillAppear/viewDidAppaer and viewWillDisappear/viewDidDisappear</li>
-  <li>viewWillLayoutSubviews</li>
-</ol>
-
-<!-- Lifecycle Methods -->
-<p><br />&lt;h4&gt;Lifecycle Methods&lt;h4&gt;</p>
-
-<!-- Code _______________________________________-->
-
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="kr">override</span> <span class="k">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
-<span class="lineno">2</span>     <span class="c1">// call super&#39;s version at beginning or end</span>
-<span class="lineno">3</span>     <span class="nb">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
-<span class="lineno">4</span>     <span class="c1">// do more setup</span>
-<span class="lineno">5</span>     <span class="c1">// update your ui</span>
-<span class="lineno">6</span>     <span class="c1">// geometry is not set yet (bounds)</span>
-<span class="lineno">7</span> <span class="p">}</span></code></pre></div>
-
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
-
-<!-- Code _______________________________________-->
-
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="k">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">2</span>     <span class="c1">// every time the view gets displayed</span>
-<span class="lineno">3</span>     <span class="c1">// geometry is set (bounds)</span>
-<span class="lineno">4</span> <span class="p">}</span>
-<span class="lineno">5</span> <span class="k">func</span> <span class="n">viewDidAppear</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span></code></pre></div>
-
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
-
-<!-- Code _______________________________________-->
-
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="kr">override</span> <span class="k">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">2</span>     <span class="nb">super</span><span class="p">.</span><span class="n">viewWillDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-<span class="lineno">3</span>     <span class="c1">// clean up stuff</span>
-<span class="lineno">4</span>     <span class="c1">// get rid of image</span>
-<span class="lineno">5</span> <span class="p">}</span>
-<span class="lineno">6</span> <span class="k">func</span> <span class="n">viewDidDisappear</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span></code></pre></div>
-
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
-
-<!-- Code _______________________________________-->
-
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="c1">// your geometry has changed (rotate)</span>
-<span class="lineno">2</span> <span class="k">func</span> <span class="n">viewWillLayoutSubviews</span><span class="p">()</span>
-<span class="lineno">3</span> <span class="k">func</span> <span class="n">viewDidLayoutSubviews</span><span class="p">()</span></code></pre></div>
-
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
     </div>
 
@@ -233,7 +179,13 @@
      
     	<li><a href="/tags.html#ios-ref">ios <span>12</span></a></li>
      
-    	<li><a href="/tags.html#viewcontroller-ref">viewcontroller <span>2</span></a></li>
+    	<li><a href="/tags.html#thread-ref">thread <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#parallel-ref">parallel <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#background-ref">background <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#concurrency-ref">concurrency <span>1</span></a></li>
     
   
 
@@ -245,11 +197,11 @@
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/swift/2015/03/22/swift-uiview-bounds-vs-frame-vs-center" title="Swift: UIView Bounds vs Frame vs Center">&laquo; Previous</a></li>
+      <li class="prev"><a href="/swift/2015/03/25/swift-closures" title="Swift: Closures">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/swift/2015/03/25/swift-closures" title="Swift: Closures">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     
