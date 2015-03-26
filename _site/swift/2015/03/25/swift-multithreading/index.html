@@ -159,22 +159,54 @@
 <span class="lineno">2</span> <span class="n">queue</span><span class="p">.</span><span class="n">addOperationWithBlock</span> <span class="p">{</span>
 <span class="lineno">3</span>     <span class="c1">// do something in the background</span>
 <span class="lineno">4</span> 
-<span class="lineno">5</span>     <span class="bp">NSOperationQueue</span><span class="p">.</span><span class="n">mainQueue</span><span class="p">().</span><span class="n">addOperationWithBlock</span> <span class="p">{</span>
-<span class="lineno">6</span>         <span class="c1">// when done, update your UI and/or model on the main queue</span>
-<span class="lineno">7</span>     <span class="p">}</span>
-<span class="lineno">8</span> <span class="p">}</span></code></pre></div>
+<span class="lineno">5</span>     <span class="k">let</span> <span class="nl">mainQ</span><span class="p">:</span> <span class="bp">NSOperationQueue</span> <span class="o">=</span> <span class="bp">NSOperationQueue</span><span class="p">.</span><span class="n">mainQueue</span><span class="p">()</span>
+<span class="lineno">6</span>     <span class="n">mainQ</span><span class="p">.</span><span class="n">addOperationWithBlock</span> <span class="p">{</span>
+<span class="lineno">7</span>         <span class="c1">// when done, update your UI and/or model on the main queue</span>
+<span class="lineno">8</span>     <span class="p">}</span>
+<span class="lineno">9</span> <span class="p">}</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Code _______________________________________-->
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="k">let</span> <span class="n">priority</span> <span class="o">=</span> <span class="n">DISPATCH_QUEUE_PRIORITY_DEFAULT</span>
-<span class="lineno">2</span> <span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">priority</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
-<span class="lineno">3</span>     <span class="c1">// do some task</span>
-<span class="lineno">4</span>     <span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_main_queue</span><span class="p">())</span> <span class="p">{</span>
-<span class="lineno">5</span>         <span class="c1">// update some UI</span>
-<span class="lineno">6</span>     <span class="p">}</span>
-<span class="lineno">7</span> <span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="k">let</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">DISPATCH_QUEUE_PRIORITY_DEFAULT</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="lineno">2</span> <span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">3</span>     <span class="c1">// do something in the background</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span>     <span class="k">let</span> <span class="nl">mainQ</span><span class="p">:</span> <span class="kt">dispatch_queue_t</span> <span class="o">=</span> <span class="n">dispatch_get_main_queue</span><span class="p">()</span>
+<span class="lineno">6</span>     <span class="n">dispatch_async</span><span class="p">(</span><span class="n">mainQ</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">7</span>         <span class="c1">// when done, update your UI and/or model on the main queue</span>
+<span class="lineno">8</span>     <span class="p">}</span>
+<span class="lineno">9</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p>When using the second option, you can use different priorities.</p>
+
+<ol>
+  <li><code>QOS_CLASS_USER_INTERACTIVE</code>: quick and high priority</li>
+  <li><code>QOS_CLASS_USER_INITIATED</code>: high priority, might take time</li>
+  <li><code>QOS_CLASS_UTILITY</code>: long running</li>
+  <li><code>QOS_CLASS_BACKGROUND</code>: user not concerned with this</li>
+</ol>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="k">let</span> <span class="n">qos</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="n">QOS_CLASS_USER_INTERACTIVE</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+<span class="lineno">2</span> <span class="k">let</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p>You can also do a <code>setTimeout</code> from javascript. I really recommend creating a helped method for this one because it looks horrible.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="k">let</span> <span class="n">delayInSeconds</span> <span class="o">=</span> <span class="mf">25.0</span>
+<span class="lineno">2</span> <span class="k">let</span> <span class="n">delay</span> <span class="o">=</span> <span class="n">Int64</span><span class="p">(</span><span class="n">delayInSeconds</span> <span class="o">*</span> <span class="n">Double</span><span class="p">(</span><span class="n">NSEC_PER_MSEC</span><span class="p">))</span>
+<span class="lineno">3</span> <span class="k">let</span> <span class="n">dispatchTime</span> <span class="o">=</span> <span class="n">dispatch_time</span><span class="p">(</span><span class="n">DISPATCH_TIME_NOW</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span>
+<span class="lineno">4</span> <span class="n">dispatch_after</span><span class="p">(</span><span class="n">dispatchTime</span><span class="p">,</span> <span class="n">dispatch_get_main_queue</span><span class="p">())</span> <span class="p">{</span>
+<span class="lineno">5</span>     <span class="c1">// do something on the main queue 25 seconds from now</span>
+<span class="lineno">6</span> <span class="p">}</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 

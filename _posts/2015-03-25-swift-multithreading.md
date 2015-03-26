@@ -27,7 +27,8 @@ let queue = NSOperationQueue()
 queue.addOperationWithBlock {
     // do something in the background
 
-    NSOperationQueue.mainQueue().addOperationWithBlock {
+    let mainQ: NSOperationQueue = NSOperationQueue.mainQueue()
+    mainQ.addOperationWithBlock {
         // when done, update your UI and/or model on the main queue
     }
 }
@@ -37,13 +38,43 @@ queue.addOperationWithBlock {
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
-let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-dispatch_async(dispatch_get_global_queue(priority, 0)) {
+let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+dispatch_async(queue) {
     // do something in the background
-    
-    dispatch_async(dispatch_get_main_queue()) {
+
+    let mainQ: dispatch_queue_t = dispatch_get_main_queue()
+    dispatch_async(mainQ) {
         // when done, update your UI and/or model on the main queue
     }
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+When using the second option, you can use different priorities.
+
+1. `QOS_CLASS_USER_INTERACTIVE`: quick and high priority
+2. `QOS_CLASS_USER_INITIATED`: high priority, might take time
+3. `QOS_CLASS_UTILITY`: long running
+4. `QOS_CLASS_BACKGROUND`: user not concerned with this
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+let qos = Int(QOS_CLASS_USER_INTERACTIVE.value)
+let queue = dispatch_get_global_queue(qos, 0)
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+You can also do a `setTimeout` from javascript. I really recommend creating a helped method for this one because it looks horrible.
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+let delayInSeconds = 25.0
+let delay = Int64(delayInSeconds * Double(NSEC_PER_MSEC))
+let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, delay)
+dispatch_after(dispatchTime, dispatch_get_main_queue()) {
+    // do something on the main queue 25 seconds from now
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
