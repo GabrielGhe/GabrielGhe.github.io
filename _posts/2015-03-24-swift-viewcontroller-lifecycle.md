@@ -25,7 +25,8 @@ The lifecycle for a ViewController is as follows.
 
 
 <!-- Lifecycle Methods -->
-<br /><h4>Lifecycle Methods<h4>
+<br />
+<h4>Lifecycle Methods</h4>
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
