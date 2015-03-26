@@ -173,7 +173,16 @@
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<p>The problem is that <code>self</code> has a reference to <code>batmanSong</code> and <code>batmanSong</code> has a reference to <code>self</code>.</p>
+<p>The problem is that <code>self</code> has a reference to <code>batmanSong</code> and <code>batmanSong</code> has a reference to <code>self</code>. To fix this problem, you just say that <code>batmanSong</code> shouldn’t keep a reference to <code>self</code>.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="n">batmanSong</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="kr">unowned</span> <span class="nb">self</span><span class="p">]</span> <span class="k">in</span>
+<span class="lineno">2</span>     <span class="n">na</span> <span class="o">+=</span> <span class="s">&quot;Na&quot;</span>
+<span class="lineno">3</span>     <span class="nb">self</span><span class="p">.</span><span class="n">sing</span><span class="p">(</span><span class="n">na</span> <span class="o">+</span> <span class="n">batman</span><span class="p">)</span>
+<span class="lineno">4</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
     </div>
 

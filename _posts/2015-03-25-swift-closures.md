@@ -41,5 +41,13 @@ class Person {
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-The problem is that `self` has a reference to `batmanSong` and `batmanSong` has a reference to `self`.
+The problem is that `self` has a reference to `batmanSong` and `batmanSong` has a reference to `self`. To fix this problem, you just say that `batmanSong` shouldn't keep a reference to `self`.
 
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+batmanSong = { [unowned self] in
+    na += "Na"
+    self.sing(na + batman)
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
