@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Swift: ViewController Lifecycle</title>
+    <title>Swift: Closures</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -131,75 +131,49 @@
   <div class="col-md-9">
     <div class="page-header">
       <h1>
-        <i class="icon-swift" style="font-size:2em"></i> Swift: ViewController Lifecycle 
+        <i class="icon-swift" style="font-size:2em"></i> Swift: Closures 
     </h1>
     </div>
     <div class="date">
-      <span>Tuesday, March 24, 2015</span>
+      <span>Wednesday, March 25, 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>The lifecycle for a ViewController is as follows.</p>
+<p>Closures are awesome. You can do some powerful things with them, but they are dangerous sometimes. You can find more information about closures <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID94">here</a>.</p>
 
 <!-- Content -->
 <h3>Content</h3>
 
-<ol>
-  <li>Instantiated (from storyboard or code)</li>
-  <li>awakeFromNib</li>
-  <li>segue preparation happens</li>
-  <li>outlets get set</li>
-  <li>viewDidLoad</li>
-  <li>viewWillAppear/viewDidAppaer and viewWillDisappear/viewDidDisappear</li>
-  <li>viewWillLayoutSubviews</li>
-</ol>
-
-<!-- Lifecycle Methods -->
-<p><br />&lt;h4&gt;Lifecycle Methods&lt;h4&gt;</p>
+<p>Here’s an example where the closure will create a memory leak.</p>
 
 <!-- Code _______________________________________-->
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="kr">override</span> <span class="k">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
-<span class="lineno">2</span>     <span class="c1">// call super&#39;s version at beginning or end</span>
-<span class="lineno">3</span>     <span class="nb">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
-<span class="lineno">4</span>     <span class="c1">// do more setup</span>
-<span class="lineno">5</span>     <span class="c1">// update your ui</span>
-<span class="lineno">6</span>     <span class="c1">// geometry is not set yet (bounds)</span>
-<span class="lineno">7</span> <span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno"> 1</span> <span class="k">class</span> <span class="n">Person</span> <span class="p">{</span>
+<span class="lineno"> 2</span>     <span class="k">var</span> <span class="n">batmanSong</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">// () -&gt; ()</span>
+<span class="lineno"> 3</span>     <span class="k">var</span> <span class="n">sing</span><span class="p">(</span><span class="nl">value</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 4</span>         <span class="n">println</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="lineno"> 5</span>     <span class="p">}</span>
+<span class="lineno"> 6</span>     <span class="k">func</span> <span class="n">learnSomething</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno"> 7</span>         <span class="k">var</span> <span class="n">na</span> <span class="o">=</span> <span class="s">&quot;Na&quot;</span>
+<span class="lineno"> 8</span>         <span class="k">var</span> <span class="n">batman</span> <span class="o">=</span> <span class="s">&quot; Batman&quot;</span>
+<span class="lineno"> 9</span>         <span class="n">batmanSong</span> <span class="o">=</span> <span class="p">{</span>
+<span class="lineno">10</span>             <span class="n">na</span> <span class="o">+=</span> <span class="s">&quot;Na&quot;</span>
+<span class="lineno">11</span>             <span class="nb">self</span><span class="p">.</span><span class="n">sing</span><span class="p">(</span><span class="n">na</span> <span class="o">+</span> <span class="n">batman</span><span class="p">)</span>
+<span class="lineno">12</span>         <span class="p">}</span>
+<span class="lineno">13</span>     <span class="p">}</span>
+<span class="lineno">14</span>     <span class="k">func</span> <span class="n">singBatmanSong8Times</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">15</span>         <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">.</span><span class="mf">.8</span> <span class="p">{</span>
+<span class="lineno">16</span>             <span class="n">sing</span><span class="p">()</span>
+<span class="lineno">17</span>         <span class="p">}</span>
+<span class="lineno">18</span>     <span class="p">}</span>
+<span class="lineno">19</span> <span class="p">}</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<!-- Code _______________________________________-->
-
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="k">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">2</span>     <span class="c1">// every time the view gets displayed</span>
-<span class="lineno">3</span>     <span class="c1">// geometry is set (bounds)</span>
-<span class="lineno">4</span> <span class="p">}</span>
-<span class="lineno">5</span> <span class="k">func</span> <span class="n">viewDidAppear</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span></code></pre></div>
-
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
-
-<!-- Code _______________________________________-->
-
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="kr">override</span> <span class="k">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">2</span>     <span class="nb">super</span><span class="p">.</span><span class="n">viewWillDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
-<span class="lineno">3</span>     <span class="c1">// clean up stuff</span>
-<span class="lineno">4</span>     <span class="c1">// get rid of image</span>
-<span class="lineno">5</span> <span class="p">}</span>
-<span class="lineno">6</span> <span class="k">func</span> <span class="n">viewDidDisappear</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span></code></pre></div>
-
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
-
-<!-- Code _______________________________________-->
-
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="c1">// your geometry has changed (rotate)</span>
-<span class="lineno">2</span> <span class="k">func</span> <span class="n">viewWillLayoutSubviews</span><span class="p">()</span>
-<span class="lineno">3</span> <span class="k">func</span> <span class="n">viewDidLayoutSubviews</span><span class="p">()</span></code></pre></div>
-
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+<p>The problem is that <code>self</code> has a reference to <code>batmanSong</code> and <code>batmanSong</code> has a reference to <code>self</code>.</p>
 
     </div>
 
@@ -233,7 +207,9 @@
      
     	<li><a href="/tags.html#ios-ref">ios <span>11</span></a></li>
      
-    	<li><a href="/tags.html#viewcontroller-ref">viewcontroller <span>2</span></a></li>
+    	<li><a href="/tags.html#closure-ref">closure <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#anonymous-ref">anonymous <span>1</span></a></li>
     
   
 
@@ -245,11 +221,11 @@
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/swift/2015/03/22/swift-uiview-bounds-vs-frame-vs-center" title="Swift: UIView Bounds vs Frame vs Center">&laquo; Previous</a></li>
+      <li class="prev"><a href="/swift/2015/03/24/swift-viewcontroller-lifecycle" title="Swift: ViewController Lifecycle">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/swift/2015/03/25/swift-closures" title="Swift: Closures">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     
