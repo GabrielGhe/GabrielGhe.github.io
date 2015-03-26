@@ -147,6 +147,37 @@
 <!-- Content -->
 <h3>Content</h3>
 
+<p>Multithreading in iOS is done with “queues”. Functions and closures are placed in a queue and then pulled off the queue to execute on an associated thread.</p>
+
+<p>There is a special queue called the <code>main queue</code>. All UI interections MUST happen on this queue only. You should put all non-UI activity that is time consuming a queue other than the <code>main queue</code> so that you have a responsive UI.</p>
+
+<p>There are 2 ways to do multithreading.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="k">let</span> <span class="n">queue</span> <span class="o">=</span> <span class="bp">NSOperationQueue</span><span class="p">()</span>
+<span class="lineno">2</span> <span class="n">queue</span><span class="p">.</span><span class="n">addOperationWithBlock</span> <span class="p">{</span>
+<span class="lineno">3</span>     <span class="c1">// do something in the background</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span>     <span class="bp">NSOperationQueue</span><span class="p">.</span><span class="n">mainQueue</span><span class="p">().</span><span class="n">addOperationWithBlock</span> <span class="p">{</span>
+<span class="lineno">6</span>         <span class="c1">// when done, update your UI and/or model on the main queue</span>
+<span class="lineno">7</span>     <span class="p">}</span>
+<span class="lineno">8</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="k">let</span> <span class="n">priority</span> <span class="o">=</span> <span class="n">DISPATCH_QUEUE_PRIORITY_DEFAULT</span>
+<span class="lineno">2</span> <span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">priority</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">3</span>     <span class="c1">// do some task</span>
+<span class="lineno">4</span>     <span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_main_queue</span><span class="p">())</span> <span class="p">{</span>
+<span class="lineno">5</span>         <span class="c1">// update some UI</span>
+<span class="lineno">6</span>     <span class="p">}</span>
+<span class="lineno">7</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
     </div>
 
   
