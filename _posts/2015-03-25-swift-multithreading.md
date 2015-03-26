@@ -66,6 +66,8 @@ let queue = dispatch_get_global_queue(qos, 0)
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 
+<h4>Javascript's setTimeout</h4>
+
 You can also do a `setTimeout` from javascript. I really recommend creating a helped method for this one because it looks horrible.
 
 <!-- Code _______________________________________-->
@@ -75,6 +77,23 @@ let delay = Int64(delayInSeconds * Double(NSEC_PER_MSEC))
 let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, delay)
 dispatch_after(dispatchTime, dispatch_get_main_queue()) {
     // do something on the main queue 25 seconds from now
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<h4>Synchronization</h4>
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+func synchronized(lock: AnyObject, closure: () -> ()) {
+    objc_sync_enter(lock)
+    closure()
+    objc_sync_exit(lock)
+}
+
+synchronized(self) {
+    println("This is a synchronized closure")
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->

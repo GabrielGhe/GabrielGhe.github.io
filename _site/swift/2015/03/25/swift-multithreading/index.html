@@ -197,6 +197,8 @@
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+<h4>Javascript's setTimeout</h4>
+
 <p>You can also do a <code>setTimeout</code> from javascript. I really recommend creating a helped method for this one because it looks horrible.</p>
 
 <!-- Code _______________________________________-->
@@ -207,6 +209,22 @@
 <span class="lineno">4</span> <span class="n">dispatch_after</span><span class="p">(</span><span class="n">dispatchTime</span><span class="p">,</span> <span class="n">dispatch_get_main_queue</span><span class="p">())</span> <span class="p">{</span>
 <span class="lineno">5</span>     <span class="c1">// do something on the main queue 25 seconds from now</span>
 <span class="lineno">6</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<h4>Synchronization</h4>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="k">func</span> <span class="nf">synchronized</span><span class="p">(</span><span class="nl">lock</span><span class="p">:</span> <span class="n">AnyObject</span><span class="p">,</span> <span class="nl">closure</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">())</span> <span class="p">{</span>
+<span class="lineno">2</span>     <span class="n">objc_sync_enter</span><span class="p">(</span><span class="n">lock</span><span class="p">)</span>
+<span class="lineno">3</span>     <span class="n">closure</span><span class="p">()</span>
+<span class="lineno">4</span>     <span class="n">objc_sync_exit</span><span class="p">(</span><span class="n">lock</span><span class="p">)</span>
+<span class="lineno">5</span> <span class="p">}</span>
+<span class="lineno">6</span> 
+<span class="lineno">7</span> <span class="n">synchronized</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">8</span>     <span class="n">println</span><span class="p">(</span><span class="s">&quot;This is a synchronized closure&quot;</span><span class="p">)</span>
+<span class="lineno">9</span> <span class="p">}</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
