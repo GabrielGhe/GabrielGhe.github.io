@@ -3,7 +3,7 @@ layout: post
 title: "Task Parallel Library"
 description: ""
 category: csharp 
-tags: [c#, parallel, task]
+tags: [c#, parallel, task, threading, concurrency]
 ---
 {% include JB/setup %}
 
