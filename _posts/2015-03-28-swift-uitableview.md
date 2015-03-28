@@ -18,7 +18,10 @@ TableViews are used everywhere in iOS dev which is why you have to know it. You 
 You start off with a `UITableView` or `UITableViewController`. The 2 protocols that you need to use a `UITableView` are the following.
 
 
-<h4>UITableViewDataSource (handles what needs to be displayed)</h4>
+<br />
+<h4>UITableViewDataSource: handles what needs to be displayed</h4>
+
+You can find more information about the protocol [here]((https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDataSource_Protocol/index.html)).
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
@@ -55,3 +58,8 @@ override func tableView(tableView: UITableView,
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+
+
+<h4>UITableViewDelegate: handles cell selection and modification</h4>
+
+There are too many to show here, but you can look them up. You can find them all [here](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html).
