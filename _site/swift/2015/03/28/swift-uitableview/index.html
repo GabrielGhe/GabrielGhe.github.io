@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Move to another ViewController Programmatically</title>
+    <title>Swift: UITableView</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -131,35 +131,61 @@
   <div class="col-md-9">
     <div class="page-header">
       <h1>
-        <i class="icon-swift" style="font-size:2em"></i> Move to another ViewController Programmatically 
+        <i class="icon-swift" style="font-size:2em"></i> Swift: UITableView 
     </h1>
     </div>
     <div class="date">
-      <span>Sunday, January 18, 2015</span>
+      <span>Saturday, March 28, 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>So you have a ViewController in your storyboard and you want to be able to display it from code but don’t know how. The answer is the <code>presentViewController</code> function.</p>
+<p>TableViews are used everywhere in iOS dev which is why you have to know it. You can find more information about UITableViews <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableView_Class/">here</a>.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno"> 1</span> <span class="c1">// we have to get the controller</span>
-<span class="lineno"> 2</span> <span class="c1">// Make sure you add an Identified to your controller</span>
-<span class="lineno"> 3</span> <span class="c1">// in the storyboard</span>
-<span class="lineno"> 4</span> <span class="k">var</span> <span class="n">newController</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">storyboard</span><span class="o">?</span><span class="p">.</span><span class="n">instantiateViewControllerWithIdentifier</span><span class="p">(</span><span class="s">&quot;NewViewController&quot;</span><span class="p">)</span> <span class="kt">as</span> <span class="n">NewViewController</span>
-<span class="lineno"> 5</span> 
-<span class="lineno"> 6</span> <span class="c1">// If you want to fade out or animate your current viewcontroller</span>
-<span class="lineno"> 7</span> <span class="c1">// you have to use a CATransition</span>
-<span class="lineno"> 8</span> <span class="k">var</span> <span class="n">transition</span> <span class="o">=</span> <span class="bp">CATransition</span><span class="p">()</span>
-<span class="lineno"> 9</span> <span class="n">transition</span><span class="p">.</span><span class="n">duration</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="lineno">10</span> <span class="n">transition</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">kCATransitionFade</span><span class="p">;</span>
-<span class="lineno">11</span> <span class="n">transition</span><span class="p">.</span><span class="n">subtype</span> <span class="o">=</span> <span class="n">kCATransitionFromBottom</span><span class="p">;</span>
-<span class="lineno">12</span> <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">window</span><span class="o">?</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">addAnimation</span><span class="p">(</span><span class="n">transition</span><span class="p">,</span> <span class="nl">forKey</span><span class="p">:</span> <span class="n">kCATransition</span><span class="p">)</span>
-<span class="lineno">13</span> 
-<span class="lineno">14</span> <span class="c1">// Now we display our new controller</span>
-<span class="lineno">15</span> <span class="c1">// The animation is false because the default animation is bad</span>
-<span class="lineno">16</span> <span class="nb">self</span><span class="p">.</span><span class="n">presentViewController</span><span class="p">(</span><span class="n">newController</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">false</span><span class="p">,</span> <span class="nl">completion</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span></code></pre></div>
+<!-- Content -->
+<h3>Content</h3>
+
+<p>You start off with a <code>UITableView</code> or <code>UITableViewController</code>. The 2 protocols that you need to use a <code>UITableView</code> are the following.</p>
+
+<h4>UITableViewDataSource** (handles what needs to be displayed)</h4>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="kr">override</span> <span class="k">func</span> <span class="n">numberOfSectionsInTableView</span><span class="p">(</span><span class="nl">tableView</span><span class="p">:</span> <span class="bp">UITableView</span><span class="p">)</span> 
+<span class="lineno">2</span>                                           <span class="o">-&gt;</span> <span class="n">Int</span> <span class="p">{</span>
+<span class="lineno">3</span>     <span class="k">return</span> <span class="n">myData</span><span class="p">.</span><span class="n">count</span> <span class="c1">// default is 1</span>
+<span class="lineno">4</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="kr">override</span> <span class="k">func</span> <span class="n">tableView</span><span class="p">(</span><span class="nl">tableView</span><span class="p">:</span> <span class="bp">UITableView</span><span class="p">,</span> 
+<span class="lineno">2</span>                         <span class="n">numberOfRowsInSection</span> <span class="nl">section</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> 
+<span class="lineno">3</span>                         <span class="o">-&gt;</span> <span class="n">Int</span> <span class="p">{</span>
+<span class="lineno">4</span>     <span class="k">return</span> <span class="n">myData</span><span class="p">[</span><span class="n">section</span><span class="p">].</span><span class="n">count</span>
+<span class="lineno">5</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno"> 1</span> <span class="kr">override</span> <span class="k">func</span> <span class="n">tableView</span><span class="p">(</span><span class="nl">tableView</span><span class="p">:</span> <span class="bp">UITableView</span><span class="p">,</span> 
+<span class="lineno"> 2</span>                         <span class="n">cellForRowAtIndexPath</span> <span class="nl">indexPath</span><span class="p">:</span> <span class="bp">NSIndexPath</span><span class="p">)</span> 
+<span class="lineno"> 3</span>                         <span class="o">-&gt;</span> <span class="bp">UITableViewCell</span> <span class="p">{</span>
+<span class="lineno"> 4</span>     <span class="k">let</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">tableView</span><span class="p">.</span><span class="n">dequeueReusableCellWithIdentifier</span><span class="p">(</span><span class="s">&quot;CellReuseIdentifier&quot;</span><span class="p">,</span>
+<span class="lineno"> 5</span>                                                            <span class="nl">forIndexPath</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">)</span> 
+<span class="lineno"> 6</span>                                                            <span class="kt">as</span> <span class="bp">UITableViewCell</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span>     <span class="c1">// Configure cell</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span>     <span class="k">return</span> <span class="n">cell</span>
+<span class="lineno">11</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
 
     </div>
 
@@ -193,11 +219,7 @@
      
     	<li><a href="/tags.html#ios-ref">ios <span>13</span></a></li>
      
-    	<li><a href="/tags.html#ui-ref">ui <span>4</span></a></li>
-     
-    	<li><a href="/tags.html#viewcontroller-ref">viewcontroller <span>2</span></a></li>
-     
-    	<li><a href="/tags.html#animation-ref">animation <span>1</span></a></li>
+    	<li><a href="/tags.html#table-ref">table <span>1</span></a></li>
     
   
 
@@ -209,11 +231,11 @@
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/python/2015/01/17/python-file-io" title="Python: File Input and Output">&laquo; Previous</a></li>
+      <li class="prev"><a href="/swift/2015/03/25/swift-multithreading" title="Swift: Multithreading">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/swift/2015/01/18/uiview-transitions" title="UIView Transitions">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     
