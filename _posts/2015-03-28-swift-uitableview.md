@@ -63,3 +63,19 @@ override func tableView(tableView: UITableView,
 <h4>UITableViewDelegate: handles cell selection and modification</h4>
 
 There are too many to show here, but you can look them up. You can find them all [here](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html).
+
+
+<!-- Bonus -->
+<h3>Bonus</h3>
+
+If you make a custom `UITableViewCell` and want to have the height be dynamic. You can do the following in `viewDidLoad`.
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+override func viewDidLoad() {
+    super.viewDidLoad()
+    tableView.estimatedRowHeight = tableView.rowHeight
+    tableView.rowHeight = UITableViewAutomaticDimension
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
