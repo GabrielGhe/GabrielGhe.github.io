@@ -27,7 +27,7 @@ class func scheduledTimerWithInterval(
 )
 */
 
-NSTimer.scheduledTimerWithInterval(
+let timer = NSTimer.scheduledTimerWithInterval(
     2.0,
     target: self,
     selector: "fire:", // the : means "call with an argument"
