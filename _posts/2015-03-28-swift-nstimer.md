@@ -34,6 +34,12 @@ let timer = NSTimer.scheduledTimerWithInterval(
     userInfo: nil,
     repeats: true
 )
+
+func fire(timer: NSTimer) {
+    if imDoneWithThisTimer {
+        timer.invalidate()
+    }
+}
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
