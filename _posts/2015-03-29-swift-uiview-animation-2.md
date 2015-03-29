@@ -15,7 +15,7 @@ This is part 2 of the animations post. In this post, we will look at how to add 
 <!-- Content -->
 <h3>Content</h3>
 
-1. Create a `UIDynamicAnimator`
+Create a `UIDynamicAnimator`
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
@@ -24,7 +24,7 @@ var animator = UIDynamicAnimator(referenceView: UIView)
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 
-2. Add `UIDynamicBehavior`s to it (gravity, collisions etc.)
+Add `UIDynamicBehavior`s to it (gravity, collisions etc.)
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
@@ -36,7 +36,7 @@ animator.addBehavior(collider)
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 
-3. Add `UIDynamicItems` (usually UIViews) to the UIDynamicBehaviors.
+Add `UIDynamicItems` (usually UIViews) to the UIDynamicBehaviors.
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
