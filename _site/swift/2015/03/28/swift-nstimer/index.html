@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Swift: UIView Bounds vs Frame vs Center</title>
+    <title>Swift: NSTimer</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -131,28 +131,45 @@
   <div class="col-md-9">
     <div class="page-header">
       <h1>
-        <i class="icon-swift" style="font-size:2em"></i> Swift: UIView Bounds vs Frame vs Center 
+        <i class="icon-swift" style="font-size:2em"></i> Swift: NSTimer 
     </h1>
     </div>
     <div class="date">
-      <span>Sunday, March 22, 2015</span>
+      <span>Saturday, March 28, 2015</span>
     </div>
     <div class="content">
       
 <!-- Overview -->
 <h3>Overview</h3>
 
-<p>When developing for iOS, a lot of people confuse a UIView’s <code>bounds</code>, <code>frame</code> and <code>center</code>. This post will illustrate their difference. The images are taken from <a href="http://web.stanford.edu/class/cs193p/cgi-bin/drupal/">Stanford’s cs193p class</a>.</p>
+<p>When you want to run something every x amount of time, you use an NSTimer. It is like the <code>setInterval</code> or <code>setTimeout</code> function from Javascript. You can find more information on NSTimers <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSTimer_Class/">here</a>.</p>
 
-<p><code>bounds</code>: The UIView’s size and location relative to itself.</p>
+<!-- Content -->
+<h3>Content</h3>
 
-<p><code>frame</code>: The UIView’s size and location relative to its superview.</p>
+<!-- Code _______________________________________-->
 
-<p><code>center</code>: The UIView’s center relative to its superview. To get center of your own view, you do <code>convertPoint(center, fromView: superview)</code></p>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno"> 1</span> <span class="cm">/*</span>
+<span class="lineno"> 2</span> <span class="cm">class func scheduledTimerWithInterval(</span>
+<span class="lineno"> 3</span> <span class="cm">    _ seconds: NSTimeInterval,</span>
+<span class="lineno"> 4</span> <span class="cm">    target: AnyObject,</span>
+<span class="lineno"> 5</span> <span class="cm">    selector: Selector(String),</span>
+<span class="lineno"> 6</span> <span class="cm">    userInfo: AnyObject?,</span>
+<span class="lineno"> 7</span> <span class="cm">    repeats: Bool</span>
+<span class="lineno"> 8</span> <span class="cm">)</span>
+<span class="lineno"> 9</span> <span class="cm">*/</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> <span class="bp">NSTimer</span><span class="p">.</span><span class="n">scheduledTimerWithInterval</span><span class="p">(</span>
+<span class="lineno">12</span>     <span class="mf">2.0</span><span class="p">,</span>
+<span class="lineno">13</span>     <span class="nl">target</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span>
+<span class="lineno">14</span>     <span class="nl">selector</span><span class="p">:</span> <span class="s">&quot;fire:&quot;</span><span class="p">,</span> <span class="c1">// the : means &quot;call with an argument&quot;</span>
+<span class="lineno">15</span>     <span class="nl">userInfo</span><span class="p">:</span> <span class="nb">nil</span><span class="p">,</span>
+<span class="lineno">16</span>     <span class="nl">repeats</span><span class="p">:</span> <span class="nb">true</span>
+<span class="lineno">17</span> <span class="p">)</span></code></pre></div>
 
-<p><img src="/assets/themes/images/2015-03-22-swift-uiview-bounds-vs-frame-vs-center1.png" alt="Results" /></p>
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<p><img src="/assets/themes/images/2015-03-22-swift-uiview-bounds-vs-frame-vs-center2.png" alt="Results" /></p>
+<p>// every 2 seconds, the method <code>fire(NSTimer)</code> will be invoked in <code>self</code></p>
 
     </div>
 
@@ -186,13 +203,9 @@
      
     	<li><a href="/tags.html#ios-ref">ios <span>14</span></a></li>
      
-    	<li><a href="/tags.html#bounds-ref">bounds <span>1</span></a></li>
+    	<li><a href="/tags.html#timer-ref">timer <span>1</span></a></li>
      
-    	<li><a href="/tags.html#center-ref">center <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#frame-ref">frame <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#ui-ref">ui <span>4</span></a></li>
+    	<li><a href="/tags.html#setinterval-ref">setinterval <span>1</span></a></li>
     
   
 
@@ -204,11 +217,11 @@
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/swift/2015/03/22/swift-making-a-protocol" title="Swift: Making a Protocol">&laquo; Previous</a></li>
+      <li class="prev"><a href="/swift/2015/03/25/swift-multithreading" title="Swift: Multithreading">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/swift/2015/03/24/swift-viewcontroller-lifecycle" title="Swift: ViewController Lifecycle">Next &raquo;</a></li>
+      <li class="next"><a href="/swift/2015/03/28/swift-uitableview" title="Swift: UITableView">Next &raquo;</a></li>
     
     </ul>
     

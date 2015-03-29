@@ -198,6 +198,21 @@
 
 <p>If you make a custom <code>UITableViewCell</code> and want to have the height be dynamic. You can do the following in <code>viewDidLoad</code>.</p>
 
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="kr">override</span> <span class="k">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">2</span>     <span class="nb">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+<span class="lineno">3</span>     <span class="n">tableView</span><span class="p">.</span><span class="n">estimatedRowHeight</span> <span class="o">=</span> <span class="n">tableView</span><span class="p">.</span><span class="n">rowHeight</span>
+<span class="lineno">4</span>     <span class="n">tableView</span><span class="p">.</span><span class="n">rowHeight</span> <span class="o">=</span> <span class="n">UITableViewAutomaticDimension</span>
+<span class="lineno">5</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p>If you want to have a “pull to refresh”, you can add the refresh control on the TableView. In the inspector, you can set refreshing to Enabled and modify the refresh control from the left side menu in the storyboard.</p>
+
+<p><img src="/assets/themes/images/2015-03-28-swift-uitableview.png" alt="Image of refreshing" /></p>
+
+
     </div>
 
   
@@ -210,7 +225,7 @@
   
      
     	<li><a href="/categories.html#swift-ref">
-    		swift <span>15</span>
+    		swift <span>16</span>
     	</a></li>
     
   
@@ -228,7 +243,7 @@
 
   
      
-    	<li><a href="/tags.html#ios-ref">ios <span>13</span></a></li>
+    	<li><a href="/tags.html#ios-ref">ios <span>14</span></a></li>
      
     	<li><a href="/tags.html#table-ref">table <span>1</span></a></li>
     
@@ -242,7 +257,7 @@
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/swift/2015/03/25/swift-multithreading" title="Swift: Multithreading">&laquo; Previous</a></li>
+      <li class="prev"><a href="/swift/2015/03/28/swift-nstimer" title="Swift: NSTimer">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
