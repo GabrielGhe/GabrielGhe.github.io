@@ -7,7 +7,7 @@ var SearchPost = React.createClass({
       this.props.hoverItem(this.props.index);
   },
   onClick: function(){
-      window.location = this.props.url;
+      document.location.href = this.props.url;
   },
   render: function(){
       var tags = this.props.tags.split(" ").map(function(tag){
