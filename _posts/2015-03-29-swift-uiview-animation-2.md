@@ -110,6 +110,46 @@ var translatesReferenceBoundsIntoBoundary: Bool // referencesView's edges
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
+class DropItBehavior: UIDynamicBehavior {
+    let gravity = UIGravityBehavior()
+    lazy var collider: UICollisionBehavior {
+       let lazyCollider = UICollisionBehavior() 
+       lazyCollider.translateReferenceBoundsIntoBoundary = true
+       return lazyCollider
+    }()
+    lazy var dropBehavior: UIDynamicItemBehavior = {
+        let lazyDrop = UIDynamicItemBehavior()
+        lazyDrop.allowsRotation = false
+        lazyDrop.elasticity = 0.75
+        return lazyDrop
+    }()
+    
+    override init() {
+        super.init()
+        addChildBehavior(gravity)
+        addChildBehavior(collider)
+        addChildBehavior(dropBehavior)
+    }
+    
+    func addDrop(drop: UIView) {
+        dynamicAnimator?.referenceView?.addSubview(drop)
+        gravity.addItem(drop)
+        collider.addItem(drop)
+        dropBehavior.addItem(drop)
+    }
+    
+    func removeDrop(drop: UIView) {
+        gravity.removeItem(drop)
+        collider.removeItem(drop)
+        dropBehavior.removeItem(drop)
+        drop.removeFromSuperview()
+    }
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
 class DropBlockViewController: UIViewController {
     @IBOutlet weak var gameView: UIView!
     var dropsPerRow = 10
@@ -117,12 +157,9 @@ class DropBlockViewController: UIViewController {
         let size = gameView.bounds.size.width / CGFloat(dropsPerRow)
         return CGSize(width:size, height:size)
     }
-    let gravity = UIGravityBehavior()
-    lazy var collider: UICollisionBehavior {
-       let lazyCollider = UICollisionBehavior() 
-       lazyCollider.translateReferenceBoundsIntoBoundary = true
-       return lazyCollider
-    }()
+    
+    let dropBehavior = DropItBehavior()
+    
     lazy var animator: UIDynamicAnimator = {
         // set to gameView in viewDidLoad because it has to set Outlet
         return UIDynamicAnimator(referenceView: self.gameView)
@@ -134,8 +171,7 @@ class DropBlockViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        animator.addBehavior(gravity)
-        animator.addBehavior(collider)
+        animator.addBehavior(dropBehavior)
     }
     
     func drop() {
@@ -145,9 +181,7 @@ class DropBlockViewController: UIViewController {
         let dropView = UIView(frame:frame)
         dropView.backgroundColor = UIColor.random
         
-        gameView.addSubView(dropView)
-        gravity.addItem(dropView)
-        collider.addItem(dropView)
+        dropBehavior.addDrop(dropView)
     }
 }
 
