@@ -6,6 +6,9 @@ var SearchPost = React.createClass({
   onMouseOver: function(){
       this.props.hoverItem(this.props.index);
   },
+  onClick: function(){
+      this.props.selectItem(this.props.url);
+  },
   render: function(){
       var tags = this.props.tags.split(" ").map(function(tag){
           return (<a href={'/tags.html#'+ tag +'-ref'} className="label label-success">{ tag }</a>);
@@ -20,7 +23,7 @@ var SearchPost = React.createClass({
 
       return (
           <li onMouseOver={this.onMouseOver}
-              onClick={this.props.selectItem}
+              onClick={this.onClick}
               className={"searchElement" + this.props.isActive }>
 
               {/* Icon */}
