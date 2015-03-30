@@ -105,7 +105,7 @@ var SearchBar = React.createClass({
   onBlur: function(e){
       setTimeout(function(){
           this.setState({ focused: false });
-      }.bind(this), 50);
+      }.bind(this), 200);
   },
   onChange: function(e){
       this.setState({ activeItem: 0 });
