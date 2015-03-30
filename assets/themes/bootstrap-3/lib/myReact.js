@@ -6,9 +6,6 @@ var SearchPost = React.createClass({
   onMouseOver: function(){
       this.props.hoverItem(this.props.index);
   },
-  onClick: function(){
-      document.location.href = this.props.url;
-  },
   render: function(){
       var tags = this.props.tags.split(" ").map(function(tag){
           return (<a href={'/tags.html#'+ tag +'-ref'} className="label label-success">{ tag }</a>);
@@ -23,7 +20,7 @@ var SearchPost = React.createClass({
 
       return (
           <li onMouseOver={this.onMouseOver}
-              onClick={this.onClick.bind(this)}
+              onClick={this.props.selectItem}
               className={"searchElement" + this.props.isActive }>
 
               {/* Icon */}
@@ -56,6 +53,7 @@ var SearchPostList = React.createClass({
                               url={post.id}
                               tags={post.tags}
                               hoverItem={that.props.hoverItem}
+                              selectItem={that.props.selectItem}
                               category={post.category} />
     });// End Post Item
 
@@ -161,6 +159,7 @@ var SearchBar = React.createClass({
                   onChange={this.onChange} />
           <SearchPostList data={this.state.data}
                           focused={this.state.focused}
+                          selectItem={this.selectItem}
                           hoverItem={this.hoverItem}
                           activeItem={this.state.activeItem} />
         </div>
