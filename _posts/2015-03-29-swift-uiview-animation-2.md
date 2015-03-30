@@ -87,3 +87,19 @@ var length: CGFloat
 var anchorPoint: CGPoint
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- UICollisionBehavior -->
+<h3>UICollisionBehavior</h3>
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+var collisionMode: UICollisionBehaviorMode // .Items, .Boundaries, .Everything
+// with .Items, any items you add to a UICollisionBehavior will bounce off of each other
+// with .Boundaries, then you add UIBezierPath boundaries for items to bounce off of
+
+func addBoundaryWithIdentifier(identifier: NSCopying, forPath: UIBezierPath)
+func removeBoundaryWithIdentifier(identifier: NSCopying)
+var translatesReferenceBoundsIntoBoundary: Bool // referencesView's edges
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
