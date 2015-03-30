@@ -23,7 +23,7 @@ var SearchPost = React.createClass({
 
       return (
           <li onMouseOver={this.onMouseOver}
-              onClick={this.onClick}
+              onClick={this.onClick.bind(this)}
               className={"searchElement" + this.props.isActive }>
 
               {/* Icon */}
