@@ -6,6 +6,9 @@ var SearchPost = React.createClass({
   onMouseOver: function(){
       this.props.hoverItem(this.props.index);
   },
+  onClick: function(){
+      window.location = this.props.url;
+  },
   render: function(){
       var tags = this.props.tags.split(" ").map(function(tag){
           return (<a href={'/tags.html#'+ tag +'-ref'} className="label label-success">{ tag }</a>);
