@@ -103,3 +103,58 @@ func removeBoundaryWithIdentifier(identifier: NSCopying)
 var translatesReferenceBoundsIntoBoundary: Bool // referencesView's edges
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- Example -->
+<h3>Example</h3>
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+class DropBlockViewController: UIViewController {
+    @IBOutlet weak var gameView: UIView!
+    var dropsPerRow = 10
+    var dropSize: CGSize {
+        let size = gameView.bounds.size.width / CGFloat(dropsPerRow)
+        return CGSize(width:size, height:size)
+    }
+    let gravity = UIGravityBehavior()
+    lazy var collider: UICollisionBehavior {
+       let lazyCollider = UICollisionBehavior() 
+       lazyCollider.translateReferenceBoundsIntoBoundary = true
+       return lazyCollider
+    }()
+    lazy var animator: UIDynamicAnimator = {
+        // set to gameView in viewDidLoad because it has to set Outlet
+        return UIDynamicAnimator(referenceView: self.gameView)
+    }()
+    
+    @IBAction func drop(sender: UITapGestureRecognizer) {
+        drop()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        animator.addBehavior(gravity)
+        animator.addBehavior(collider)
+    }
+    
+    func drop() {
+        var frame = CGRect(origin: CGPointZero, size:dropSize)
+        frame.origin.x = CGFloat.random(dropsPerRow) * dropSize.width
+        
+        let dropView = UIView(frame:frame)
+        dropView.backgroundColor = UIColor.random
+        
+        gameView.addSubView(dropView)
+        gravity.addItem(dropView)
+        collider.addItem(dropView)
+    }
+}
+
+private extension CGFloat {
+    static func random(max: Int) -> CGFloat {
+        return CGfloat(arc4random() % UInt32(max))
+    }
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
