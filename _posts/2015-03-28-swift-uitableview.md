@@ -62,7 +62,15 @@ override func tableView(tableView: UITableView,
 <br />
 <h4>UITableViewDelegate: handles cell selection and modification</h4>
 
-There are too many to show here, but you can look them up. You can find them all [here](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html).
+There are too many to show here, but you can look them up. You can find them all [here](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html). The most important event is the `didSelectRowAtIndexPath`.
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+func tableView(sender: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // do stuff with indexPath.row and indexPath.section
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 
 <br />
