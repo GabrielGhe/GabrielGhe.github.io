@@ -77,8 +77,12 @@ func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
     if let identifier = segue.identifier {
         switch identifier {
             case "RandomSegueIdentifier": // handle "RandomSegueIdentifier"
-            case "AnotherSegueIdentifier": // handle "AnotherSegueIdentifier"
-        
+            case "AnotherSegueIdentifier":
+                let cell = sender as MyTableViewCell
+                if let indexPath = tableView.indexPathForCell(cell) {
+                    let seguedToMVC = segue.destinationViewController as MyVC
+                    seguedToMVC.publicAPI = data[indexPath.section][indexPath.row]
+                }
             default: break
         }
     }
