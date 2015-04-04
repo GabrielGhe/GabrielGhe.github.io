@@ -66,7 +66,7 @@ There are too many to show here, but you can look them up. You can find them all
 
 
 
-<h4>Segues</h4>
+<h3>Segues</h3>
 
 If you also embed the UITableView inside of a UINavigationController, you can navigate to a new UIView when selecting a row. After you `control+drag` from the prototype/static cell to the new view, you can name the segue to know which row fired the event. Everytime you click a row, `prepareForSegue` is called, where you can handle the segue.
 
