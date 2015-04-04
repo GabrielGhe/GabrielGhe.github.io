@@ -65,6 +65,27 @@ override func tableView(tableView: UITableView,
 There are too many to show here, but you can look them up. You can find them all [here](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html).
 
 
+
+<h4>Segues</h4>
+
+If you also embed the UITableView inside of a UINavigationController, you can navigate to a new UIView when selecting a row. After you `control+drag` from the prototype/static cell to the new view, you can name the segue to know which row fired the event. Everytime you click a row, `prepareForSegue` is called, where you can handle the segue.
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+// sender is what launched the event (can be UITableViewCell or UIButton)
+func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
+    if let identifier = segue.identifier {
+        switch identifier {
+            case "RandomSegueIdentifier": // handle "RandomSegueIdentifier"
+            case "AnotherSegueIdentifier": // handle "AnotherSegueIdentifier"
+        
+            default: break
+        }
+    }
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
 <!-- Bonus -->
 <h3>Bonus</h3>
 
