@@ -1,0 +1,13 @@
+---
+layout: post
+title: "C++: Templates"
+description: ""
+category: cplusplus
+tags: [cpp, templates]
+---
+{% include JB/setup %}
+
+<!-- Overview -->
+<h3>Overview</h3>
+
+In C++, generics are done using templates. Templates generate the required code at compile time instead of at runtime.
