@@ -50,20 +50,51 @@ template <typename T>
 class calc
 {
   public:
-    A_Type multiply(T x, T y);
-    A_Type add(T x, T y);
+    T multiply(T x, T y);
+    T add(T x, T y);
 };
 
-template <class T>
+template <typename T>
 T calc<T>::multiply(T x, T y)
 {
   return x*y;
 }
 
-template <class T>
+template <typename T>
 T calc<T>::add(T x, T y)
 {
   return x+y;
 }
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- After Specialized -->
+<h4>After Specialized</h4>
+
+This code will be specific for integers.
+
+<!-- Code _______________________________________-->
+{% highlight c++ linenos %}
+template <>
+class calc<int>
+{
+  public:
+    int multiply(int x, int y);
+    int add(int x, int y);
+}
+
+template <>
+int calc<int>::multiply(int x, int y)
+{
+  return x*y;
+}
+
+template <>
+int calc<int>::add(int x, int y)
+{
+  return x+y;
+}
+
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
