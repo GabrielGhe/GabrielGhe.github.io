@@ -12,7 +12,6 @@ tags: [cpp, templates]
 
 In C++, generics are done using templates. Templates generate the required code at compile time instead of at runtime.
 This improves performance significantly. You can find more information about templates [here](http://www.cprogramming.com/tutorial/templates.html).
-Templates can only be in the header files.
 
 <!-- Content -->
 <h3>Content</h3>
