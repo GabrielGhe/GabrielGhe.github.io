@@ -10,7 +10,7 @@ tags: [cpp, pointers]
 <!-- Overview -->
 <h3>Overview</h3>
 
-In C++, pointers are extremely important. This is only a brief overview of pointers. You can find more information about pointers [here](http://www.cplusplus.com/doc/tutorial/pointers/).
+In C++, pointers are extremely important. This is only a brief overview of pointers. You can find more information about pointers [here](http://www.cplusplus.com/doc/tutorial/pointers/). To read about the differences between a shared and unique pointer, refer to [this post](http://stackoverflow.com/questions/6876751/differences-between-unique-ptr-and-shared-ptr).
 
 <!-- Content -->
 <h3>Content</h3>
@@ -37,7 +37,29 @@ Person* pointerToP = &P;
 // to access `P`'s methods, you can use the -> notation or (*P)
 (*pointerToP).pMethod();
 pointerToP->pMethod();
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+
+<!-- Unique Pointer in C++11 -->
+<h3>Unique Pointer in C++11</h3>
+
+<!-- Code _______________________________________-->
+{% highlight c++ linenos %}
+#include <memory>
+std::unique_ptr<Person> uniquePointerToPerson(new Person()); //bad old way to init
+
+// reset pointer to a new person object
+uniquePointerToPerson.reset(new Person());
+
+// otherPointerToPerson now holds the unique pointer
+std::unique_ptr<Person> otherPointerToPerson = std::move(uniquePointerToPerson);
+
+// reset to nullptr
+otherPointerToPerson.reset();
+
+// creating new unique pointer to new Person
+otherPointerToPerson = std::make_shared<Person>(); // better new way to init
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
@@ -49,13 +71,13 @@ pointerToP->pMethod();
 {% highlight c++ linenos %}
 // uses reference counting
 #include <memory>
-std::shared_ptr<Person> sharedPointerToPerson;
+std::shared_ptr<Person> sharedPointerToPerson(new Person()); //bad old way to init
 
-// increment the resource count by creating
-sharedPointerToPerson = std::make_shared<Person>();
-
-// decrement reference count
+// decrement reference count, makes it 0
 sharedPointerToPerson.reset();
+
+// increment the reference count by creating new Person
+sharedPointerToPerson = std::make_shared<Person>(); // better new way to init
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
