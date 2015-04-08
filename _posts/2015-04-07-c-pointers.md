@@ -59,7 +59,7 @@ std::unique_ptr<Person> otherPointerToPerson = std::move(uniquePointerToPerson);
 otherPointerToPerson.reset();
 
 // creating new unique pointer to new Person
-otherPointerToPerson = std::make_shared<Person>(); // better new way to init
+otherPointerToPerson = std::make_unique<Person>(); // better new way to init
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
