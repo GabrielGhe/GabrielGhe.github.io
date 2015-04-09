@@ -17,7 +17,7 @@ You can get more information about how to accomplish this task [here](http://www
 <!-- Content -->
 <h3>Content</h3>
 
-In C#, declare a delegate which takes in 2 ints and returns nothing
+In C#, declare a delegate which takes in 2 ints and returns nothing. Here we're declaring the callback signature.
 
 <!-- Code _______________________________________-->
 {% highlight csharp linenos %}
@@ -30,8 +30,8 @@ In your C++ code, also define the same signature for the callback.
 
 <!-- Code _______________________________________-->
 {% highlight csharp linenos %}
-// YourCallback is now a function that takes in an int and returns void
-typedef void (__stdcall * YourCallback)(int);
+// YourCallback is now a function that takes in 2 ints and returns void
+typedef void (__stdcall * YourCallback)(int, int);
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
@@ -42,13 +42,15 @@ We're going to make a function in C++ which takes in our C# callback and execute
 // this says that it will be exported
 #define DLL __declspec(dllexport)
 DLL void TakesInCallbackAndDoesStuff(YourCallback yourCallback) {
-  // stuff
+  // do stuff
+  yourCallback(param1, param1);
 }
 
 /*
 This is another way, just declaring that it will be exported in the signature
 extern "C" __declspec(dllexport) void __stdcall TakesInCallbackAndDoesStuff(YourCallback yourCallback) {
   // stuff
+  yourCallback(param1, param1);
 }
 */
 {% endhighlight %}
@@ -59,9 +61,9 @@ Now that we have the function in C++ that will do stuff and execute our callback
 <!-- Code _______________________________________-->
 {% highlight csharp linenos %}
 YourCallback callback =
-    (intParameter) =>
+    (intParam1, intParam2) =>
     {
-        Console.WriteLine("The result of the C++ function is = {0}", intParameter);
+        Console.WriteLine("The result of the C++ function is {0} and {1}", intParam1, intParam2);
     };
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
