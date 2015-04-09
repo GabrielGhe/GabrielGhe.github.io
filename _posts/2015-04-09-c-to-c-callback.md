@@ -3,7 +3,7 @@ layout: post
 title: "C++ to C# Callback"
 description: ""
 category: cplusplus
-tags: [cpp, pointers]
+tags: [csharp, cpp, callback, export]
 ---
 {% include JB/setup %}
 
@@ -54,7 +54,22 @@ extern "C" __declspec(dllexport) void __stdcall TakesInCallbackAndDoesStuff(Your
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+Now that we have the function in C++ that will do stuff and execute our callback, we have to make a callback in C#.
+
 <!-- Code _______________________________________-->
 {% highlight csharp linenos %}
+YourCallback callback =
+    (intParameter) =>
+    {
+        Console.WriteLine("The result of the C++ function is = {0}", intParameter);
+    };
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+All that's left is to send our callback to the C++ function from our C# code.
+
+<!-- Code _______________________________________-->
+{% highlight csharp linenos %}
+TakesInCallbackAndDoesStuff(callback);
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
