@@ -54,7 +54,7 @@ extern "C" __declspec(dllexport) void __stdcall TakesInCallbackAndDoesStuff(Your
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-Now that we have the function in C++ that will do stuff and execute our callback, we have to make a callback in C#.
+Now that we have the function in C++ that will do stuff and execute our callback when it's done, we have to make a callback in C#.
 
 <!-- Code _______________________________________-->
 {% highlight csharp linenos %}
