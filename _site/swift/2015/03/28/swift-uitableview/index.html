@@ -189,9 +189,43 @@
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+<p><br /></p>
 <h4>UITableViewDelegate: handles cell selection and modification</h4>
 
-<p>There are too many to show here, but you can look them up. You can find them all <a href="https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html">here</a>.</p>
+<p>There are too many to show here, but you can look them up. You can find them all <a href="https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html">here</a>. The most important event is the <code>didSelectRowAtIndexPath</code>.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno">1</span> <span class="k">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nl">sender</span><span class="p">:</span> <span class="bp">UITableView</span><span class="p">,</span> <span class="n">didSelectRowAtIndexPath</span> <span class="nl">indexPath</span><span class="p">:</span> <span class="bp">NSIndexPath</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">2</span>     <span class="c1">// do stuff with indexPath.row and indexPath.section</span>
+<span class="lineno">3</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+<p><br /></p>
+<h4>Segues</h4>
+
+<p>If you also embed the UITableView inside of a UINavigationController, you can navigate to a new UIView when selecting a row. After you <code>control+drag</code> from the prototype/static cell to the new view, you can name the segue to know which row fired the event. Everytime you click a row, <code>prepareForSegue</code> is called, where you can handle the segue.</p>
+
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno"> 1</span> <span class="c1">// sender is what launched the event (can be UITableViewCell or UIButton)</span>
+<span class="lineno"> 2</span> <span class="k">func</span> <span class="nf">prepareForSegue</span><span class="p">(</span><span class="nl">segue</span><span class="p">:</span> <span class="bp">UIStoryboardSegue</span><span class="p">,</span> <span class="nl">sender</span><span class="p">:</span> <span class="n">AnyObject</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 3</span>     <span class="k">if</span> <span class="k">let</span> <span class="n">identifier</span> <span class="o">=</span> <span class="n">segue</span><span class="p">.</span><span class="n">identifier</span> <span class="p">{</span>
+<span class="lineno"> 4</span>         <span class="k">switch</span> <span class="n">identifier</span> <span class="p">{</span>
+<span class="lineno"> 5</span>             <span class="k">case</span> <span class="s">&quot;RandomSegueIdentifier&quot;</span><span class="o">:</span> <span class="c1">// handle &quot;RandomSegueIdentifier&quot;</span>
+<span class="lineno"> 6</span>             <span class="k">case</span> <span class="s">&quot;AnotherSegueIdentifier&quot;</span><span class="o">:</span>
+<span class="lineno"> 7</span>                 <span class="k">let</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">sender</span> <span class="kt">as</span> <span class="n">MyTableViewCell</span>
+<span class="lineno"> 8</span>                 <span class="k">if</span> <span class="k">let</span> <span class="n">indexPath</span> <span class="o">=</span> <span class="n">tableView</span><span class="p">.</span><span class="n">indexPathForCell</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 9</span>                     <span class="k">let</span> <span class="n">seguedToMVC</span> <span class="o">=</span> <span class="n">segue</span><span class="p">.</span><span class="n">destinationViewController</span> <span class="kt">as</span> <span class="n">MyVC</span>
+<span class="lineno">10</span>                     <span class="n">seguedToMVC</span><span class="p">.</span><span class="n">publicAPI</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">indexPath</span><span class="p">.</span><span class="n">section</span><span class="p">][</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">]</span>
+<span class="lineno">11</span>                 <span class="p">}</span>
+<span class="lineno">12</span>             <span class="k">default</span><span class="o">:</span> <span class="k">break</span>
+<span class="lineno">13</span>         <span class="p">}</span>
+<span class="lineno">14</span>     <span class="p">}</span>
+<span class="lineno">15</span> <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Bonus -->
 <h3>Bonus</h3>
@@ -225,7 +259,7 @@
   
      
     	<li><a href="/categories.html#swift-ref">
-    		swift <span>17</span>
+    		swift <span>18</span>
     	</a></li>
     
   
@@ -243,7 +277,7 @@
 
   
      
-    	<li><a href="/tags.html#ios-ref">ios <span>15</span></a></li>
+    	<li><a href="/tags.html#ios-ref">ios <span>16</span></a></li>
      
     	<li><a href="/tags.html#table-ref">table <span>1</span></a></li>
     
