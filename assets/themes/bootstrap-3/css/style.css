@@ -238,11 +238,14 @@ a.label {
 
 /* Make line numbers unselectable: excludes line numbers from copy-paste user ops */
 .lineno { 
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
-  -o-user-select: none !important;
-  user-select: none !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
+
 .lineno::-moz-selection {background-color: transparent;}/* Mozilla specific */
 .lineno::selection {background-color: transparent;} /* Other major browsers */
 

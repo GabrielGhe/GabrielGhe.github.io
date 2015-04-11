@@ -4,7 +4,6 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title>C++ to C# Callback</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
@@ -172,8 +171,8 @@ You can get more information about how to accomplish this task <a href="http://w
 <!-- Code _______________________________________-->
 
 <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="c1">// this says that it will be exported</span>
-<span class="lineno"> 2</span> <span class="cp">#define DLL __declspec(dllexport)</span>
-<span class="lineno"> 3</span> <span class="n">DLL</span> <span class="k">void</span> <span class="nf">TakesInCallbackAndDoesStuff</span><span class="p">(</span><span class="n">YourCallback</span> <span class="n">yourCallback</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 2</span> <span class="hll"><span class="cp">#define DLL __declspec(dllexport)</span>
+</span><span class="lineno"> 3</span> <span class="n">DLL</span> <span class="k">void</span> <span class="nf">TakesInCallbackAndDoesStuff</span><span class="p">(</span><span class="n">YourCallback</span> <span class="n">yourCallback</span><span class="p">)</span> <span class="p">{</span>
 <span class="lineno"> 4</span>   <span class="c1">// do stuff</span>
 <span class="lineno"> 5</span>   <span class="n">yourCallback</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param1</span><span class="p">);</span>
 <span class="lineno"> 6</span> <span class="p">}</span>
