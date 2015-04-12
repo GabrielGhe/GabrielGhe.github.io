@@ -33,7 +33,16 @@ func viewDidAppear(animated: Bool) {
     // Is the bar translucent
     nav?.translucent = true
 
-    
+    // Create an imageView to place instead of the NavigationBar title
+    let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+    imageView.contentMode = .ScaleAspectFit
+
+    // Put an image inside the imageView
+    let image = UIImage(named: "MyImage")
+    imageView.image = image
+
+    // place it instead of the title
+    navigationItem.titleView = imageView
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
