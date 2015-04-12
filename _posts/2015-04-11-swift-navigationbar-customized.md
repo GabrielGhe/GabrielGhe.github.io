@@ -42,7 +42,11 @@ func viewDidAppear(animated: Bool) {
     imageView.image = image
 
     // place it instead of the title
-    navigationItem.titleView = imageView
+    self.navigationItem.titleView = imageView
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+You can find the properties of a `UINavigationItem` [here](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationItem_Class/index.html#//apple_ref/doc/uid/TP40006933-CH3-SW13).
+
+You can find the properties of a `UINavigationController` [here](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/index.html).
