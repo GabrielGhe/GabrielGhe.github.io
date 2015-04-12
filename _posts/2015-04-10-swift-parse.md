@@ -21,7 +21,7 @@ You first need the bridging header. So create an objective-c `.m` file of any na
 Add the following import into the briding header so that you can use those them in swift.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight c++ linenos %}
 #import <Parse/Parse.h>
 // or #import <ParseOSX/ParseOSX.h>
 {% endhighlight %}
