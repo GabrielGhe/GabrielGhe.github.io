@@ -132,5 +132,66 @@ int* last = &values[4];     // pointing to last (5)
 
 ++ptr;                      // pointing to second element (1)
 ptr += 3;                   // pointing to last element (4)
+
+
+/* FUNCTION POINTERS
+*/
+int celsius_to_f(int c)
+{
+    return c * 9/5 + 32;
+}
+typedef int (* converter)(int from);
+converter convert = celsius_to_f;
+printf("%d\n", convert(34));
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- Structures -->
+<h4>Structures</h4>
+
+<!-- Code _______________________________________-->
+{% highlight c linenos %}
+typedef struct
+{
+    float red;
+    float green;
+    float blue;
+    float alpha;
+} color;
+color my_color = { 1, 0, 0, 1 }; // red
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- Memory -->
+<h4>Memory</h4>
+
+<!-- Code _______________________________________-->
+{% highlight c linenos %}
+#include <stdlib.h>
+
+/* malloc
+allocates number of bytes,
+returning pointer to address of first byte
+*/
+typedef struct {
+    int value;
+} MyStruct;
+
+MyStruct* a = (MyStruct*) malloc(sizeof(MyStruct));
+MyStruct* b = (MyStruct*) malloc(sizeof(MyStruct));
+MyStruct* c = (MyStruct*) malloc(sizeof(MyStruct));
+
+a->value = 1;
+b->value = 2;
+c->value = 3;
+
+/* free
+releases the memory given a pointer
+*/
+free(a);
+free(b);
+free(c);
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
