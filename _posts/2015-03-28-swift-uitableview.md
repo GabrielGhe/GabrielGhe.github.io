@@ -25,8 +25,7 @@ You can find more information about the protocol [here]((https://developer.apple
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
-override func numberOfSectionsInTableView(tableView: UITableView) 
-                                          -> Int {
+func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return myData.count // default is 1
 }
 {% endhighlight %}
@@ -34,8 +33,8 @@ override func numberOfSectionsInTableView(tableView: UITableView)
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
-override func tableView(tableView: UITableView, 
-                        numberOfRowsInSection section: Int) 
+func tableView(tableView: UITableView, 
+    numberOfRowsInSection section: Int) 
                         -> Int {
     return myData[section].count
 }
@@ -44,12 +43,11 @@ override func tableView(tableView: UITableView,
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
-override func tableView(tableView: UITableView, 
-                        cellForRowAtIndexPath indexPath: NSIndexPath) 
-                        -> UITableViewCell {
+func tableView(tableView: UITableView, 
+  cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
     let cell = tableView.dequeueReusableCellWithIdentifier("CellReuseIdentifier",
-                                                           forIndexPath: indexPath) 
-                                                           as UITableViewCell
+                        forIndexPath: indexPath) as UITableViewCell
 
     // Configure cell
 
@@ -60,7 +58,7 @@ override func tableView(tableView: UITableView,
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
-override func tableView(tableView: UITableView,
+func tableView(tableView: UITableView,
   commitEditingStyle editingStyle: UITableViewCellEditingStyle,
       forRowAtIndexPath indexPath: NSIndexPath) {
 
@@ -119,7 +117,7 @@ If you make a custom `UITableViewCell` and want to have the height be dynamic. Y
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
-override func viewDidLoad() {
+func viewDidLoad() {
     super.viewDidLoad()
     tableView.estimatedRowHeight = tableView.rowHeight
     tableView.rowHeight = UITableViewAutomaticDimension
