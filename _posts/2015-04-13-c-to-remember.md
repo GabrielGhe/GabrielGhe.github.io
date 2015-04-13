@@ -195,3 +195,86 @@ free(b);
 free(c);
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- BONUS -->
+<h4>BONUS: quicksort</h4>
+
+<!-- Code _______________________________________-->
+{% highlight c linenos %}
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// swap
+void swap(int* i, int* j)
+{
+	int temp = *i;
+	*i = *j;
+	*j = temp;
+}
+
+// partition
+int partition(int* array, int first, int end)
+{
+	int pivot = first + rand() % (end-first);
+	swap(array+pivot, array+end);
+
+	for(int i=first; i < end; ++i)
+	{
+		if( *(array+i) <= *(array+end))
+		{
+			swap(array+i, array+first);
+			++first;
+		}
+	}
+
+	swap(array+first, array+end);
+	return first;
+}
+
+// quick_sort_helper
+void quick_sort_helper(int* array, int first, int end)
+{
+	if (first < end)
+	{
+		int pivot = partition(array, first, end);
+		quick_sort_helper(array, first, pivot-1);
+		quick_sort_helper(array, pivot+1, end);
+	}
+}
+
+void quick_sort(int* array, int size)
+{
+	quick_sort_helper(array, 0, size - 1);
+}
+
+// print array
+void print_array(int* array, int size)
+{
+	printf("[ ");
+	for(int i=0; i < size; ++i)
+	{
+		printf("%d ", *(array + i), size);
+	}
+	printf("]\n");
+}
+
+
+int main()
+{
+	srand(time(0));
+	int size = 5;
+	int* my_array = (int*) malloc(size * sizeof(int));
+	for(int i=0; i < size; ++i)
+	{
+		*(my_array+i) = rand() % 100;
+	}
+	print_array(my_array, size);
+	quick_sort(my_array, size);
+	print_array(my_array, size);
+	free(my_array);
+	return 0;
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
