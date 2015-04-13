@@ -10,12 +10,14 @@ tags: [c, memory allocation]
 <!-- Overview -->
 <h3>Overview</h3>
 
-C is used almost everywhere, enough said. This is a short overview of the language.
+C is used almost everywhere, enough said. This is a short overview of the language. To run a C file, you frist compile the file into an object file and then the linker links it to any other compiled file that it needs and creates an executable.
 
 <!-- Content -->
 <h3>Content</h3>
 
+<!-- -->
 <h4></h4>
+
 
 <!-- Hello World -->
 <h4>Hello World</h4>
@@ -32,3 +34,14 @@ int main()
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+
+<!-- Variables -->
+<h4>Variables</h4>
+
+<!-- Code _______________________________________-->
+{% highlight c linenos %}
+char myChar = 'a';
+int i = 4;
+float f = 2.3;
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
