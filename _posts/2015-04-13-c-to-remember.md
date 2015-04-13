@@ -57,6 +57,12 @@ float f = 2.3;
 typedef char bool;
 #define true 1
 #define false 0
+
+// arrays
+int values[5];
+int values[] = { 1, 2, 3, 4, 5 };   // [1, 2, 3, 4, 5]
+int values[5] = { 1, 2, 3 };        // [1, 2, 3, 0, 0]
+values[0] = 6                       // [6, 2, 3, 4, 5]
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
@@ -85,5 +91,46 @@ Operator        Operation           Associativity
 ^= |=       
 
 */
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- Pointers -->
+<h4>Pointers</h4>
+
+<!-- Code _______________________________________-->
+{% highlight c linenos %}
+/* INIT POINTER
+p is a pointer to int and is initialized with address of apples
+*/
+int apples = 5;
+int* p = &apples;       // p = apples' address
+
+/* DEREFERENCE POINTER
+- dereference p (get the value of the address that p is pointing at)
+- add 6 to dereferenced p
+- place result in oranges
+*/
+int oranges = *p + 6;   // oranges = 11
+
+/* POINTER VALIDATION
+you initialize the poitner to 0
+which is null/nullptr and before you use
+the pointer, check if it's valid with an if
+*/
+int* g = 0;
+if (g)
+{
+    // g is not null, do stuff with g
+}
+
+/* ARRAYS AND POINTERS
+*/
+int values[] = { 0, 1, 2, 3, 4 };
+int* ptr = values;          // pointing to first element (0)
+int* last = &values[4];     // pointing to last (5)
+
+++ptr;                      // pointing to second element (1)
+ptr += 3;                   // pointing to last element (4)
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
