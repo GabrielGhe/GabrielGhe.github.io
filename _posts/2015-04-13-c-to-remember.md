@@ -2,7 +2,7 @@
 layout: post
 title: "C To Remember"
 description: ""
-category: cplusplus
+category: c
 tags: [c, memory allocation]
 ---
 {% include JB/setup %}
@@ -21,7 +21,7 @@ C is used almost everywhere, enough said. This is a short overview of the langua
 <h4>Hello World</h4>
 
 <!-- Code _______________________________________-->
-{% highlight c++ linenos %}
+{% highlight c linenos %}
 #include <stdio.h>
 
 int main()
