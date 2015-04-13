@@ -52,6 +52,11 @@ static int s_i = 3;
 char myChar = 'a';
 int i = 4;
 float f = 2.3;
+
+// missing types
+typedef char bool;
+#define true 1
+#define false 0
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
