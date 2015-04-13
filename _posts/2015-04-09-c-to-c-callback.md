@@ -38,7 +38,7 @@ typedef void (__stdcall * YourCallback)(int, int);
 We're going to make a function in C++ which takes in our C# callback and executes it.
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos hl_lines=2 %}
+{% highlight cpp linenos %}
 // this says that it will be exported
 #define DLL __declspec(dllexport)
 DLL void TakesInCallbackAndDoesStuff(YourCallback yourCallback) {
