@@ -58,6 +58,20 @@ override func tableView(tableView: UITableView,
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+override func tableView(tableView: UITableView,
+  commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+      forRowAtIndexPath indexPath: NSIndexPath) {
+
+    if editingStyle == UITableViewCellEditingStyle.Delete {
+      yourData.removeAtIndex(indexPath.row)
+      tableView.deleteRowsAtIndexPaths( [indexPath],
+                      withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
+  }
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <br />
 <h4>UITableViewDelegate: handles cell selection and modification</h4>

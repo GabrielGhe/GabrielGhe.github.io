@@ -190,6 +190,21 @@
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+<!-- Code _______________________________________-->
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="lineno"> 1</span> <span class="kr">override</span> <span class="k">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nl">tableView</span><span class="p">:</span> <span class="bp">UITableView</span><span class="p">,</span>
+<span class="lineno"> 2</span>   <span class="n">commitEditingStyle</span> <span class="nl">editingStyle</span><span class="p">:</span> <span class="n">UITableViewCellEditingStyle</span><span class="p">,</span>
+<span class="lineno"> 3</span>       <span class="n">forRowAtIndexPath</span> <span class="nl">indexPath</span><span class="p">:</span> <span class="bp">NSIndexPath</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span>     <span class="k">if</span> <span class="n">editingStyle</span> <span class="o">==</span> <span class="n">UITableViewCellEditingStyle</span><span class="p">.</span><span class="n">Delete</span> <span class="p">{</span>
+<span class="lineno"> 6</span>       <span class="n">yourData</span><span class="p">.</span><span class="n">removeAtIndex</span><span class="p">(</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">)</span>
+<span class="lineno"> 7</span>       <span class="n">tableView</span><span class="p">.</span><span class="n">deleteRowsAtIndexPaths</span><span class="p">(</span> <span class="p">[</span><span class="n">indexPath</span><span class="p">],</span>
+<span class="lineno"> 8</span>                       <span class="nl">withRowAnimation</span><span class="p">:</span> <span class="n">UITableViewRowAnimation</span><span class="p">.</span><span class="n">Automatic</span><span class="p">)</span>
+<span class="lineno"> 9</span>     <span class="p">}</span>
+<span class="lineno">10</span>   <span class="p">}</span></code></pre></div>
+
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
 <p><br /></p>
 <h4>UITableViewDelegate: handles cell selection and modification</h4>
 
