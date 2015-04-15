@@ -3,7 +3,7 @@ layout: post
 title: "C# To Remember"
 description: ""
 category: csharp
-tags: [string, tree, graph, sorting, bit manipulation, regex, hashmap, socket, file]
+tags: [string, tree, graph, sorting, bit manipulation, regex, dictionary, socket, file, list]
 ---
 {% include JB/setup %}
 
