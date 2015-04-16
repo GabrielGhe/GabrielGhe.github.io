@@ -23,10 +23,9 @@ This is a similar post to my JavaToRemember post but for C#.
 7.  [Combinations and Permutations](#combinations-and-permutations)
 8.  [Files](#files)
 9.  [Regex](#regex)
-10. [Formatting](#formatting)
-11. [Dictionary](#Dictionary)
-12. [HashSet](#hashset)
-13. [List](#List)
+10. [Dictionary](#dictionary)
+11. [HashSet](#hashset)
+12. [List](#List)
 
 
 <!-- 
@@ -418,7 +417,7 @@ public static void Swap<T>(T[] a, int i, int j)
 #########################################
 -->
 <br /><br /><br />
-<h3><a name="files"></a><a href="">11. Files</a></h3>
+<h3><a name="files"></a><a href="">8. Files</a></h3>
 
 Writing to a file.
 
@@ -441,5 +440,76 @@ Reading from a file
 {% highlight java linenos %}
 //read all the lines in a file
 string[] lines = File.ReadAllLines("path/to/myText.txt");
+{% endhighlight %}
+<!-- /Code -->
+
+
+
+<!-- 
+#########################################
+#
+#     Regex
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="regex"></a><a href="">9. Regex</a></h3>
+
+The full documentation can be found here [Docs](https://msdn.microsoft.com/en-us/library/az24scfc(v=vs.110).aspx)
+
+<!-- Code -->
+{% highlight csharp linenos %}
+string pattern = "a*b";
+
+//Replace
+Regex.Replace("gaaaabcde", pattern, String.Empty); // gcde
+
+foreach (Match match in Regex.Matches(input, pattern, RegexOptions.IgnoreCase))
+         Console.WriteLine("{0} (duplicates '{1}') at position {2}", 
+                           match.Value, match.Groups[1].Value, match.Index);
+{% endhighlight %}
+<!-- /Code -->
+
+
+<!-- 
+#########################################
+#
+#     Dictionary
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="dictionary"></a><a href="">10. Dictionary</a></h3>
+
+Dictionaries allow inserts, deletes and gets at O(1).
+
+<!-- Code -->
+{% highlight csharp linenos %}
+Dictionary<string, int> dict = new Dictionary<string, int>();
+dict.Add("a", 1); // { a:1 }
+dict.Add("b", 2); // { a:1, b:2 }
+dict.Add("c", 3); // { a:1, b:2, c:3 }
+
+// ["a", "b", "c"]
+foreach(var key in myDictionary.Keys) {
+    // do stuff with key
+}
+
+// [1, 2, 3]
+foreach(var value in myDictionary.Values) {
+  // do stuff with value
+}
+
+// KeyValuePair<string, int> item
+foreach(var pair in myDictionary) {
+  // do stuff with pair.Key
+  // do stuff with pair.Value
+}
+
+int value;
+dict.TryGetValue("a", out value);   // value = 1
+dict.ContainsKey("d");              // false
+dict.Remove("a");                    // { b:2, c:3 }
+dict.Clear();                        // {}
 {% endhighlight %}
 <!-- /Code -->
