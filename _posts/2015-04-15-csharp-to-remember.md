@@ -22,12 +22,11 @@ This is a similar post to my JavaToRemember post but for C#.
 6.  [Bit Manipulation](#bit-manipulation)
 7.  [Combinations and Permutations](#combinations-and-permutations)
 8.  [Files](#files)
-9.  [Sockets](#sockets)
-10. [Regex](#regex)
-11. [Formatting](#formatting)
-12. [Dictionary](#Dictionary)
-13. [HashSet](#hashset)
-14. [List](#List)
+9.  [Regex](#regex)
+10. [Formatting](#formatting)
+11. [Dictionary](#Dictionary)
+12. [HashSet](#hashset)
+13. [List](#List)
 
 
 <!-- 
@@ -257,9 +256,9 @@ class GraphNode{
   }
  
   /**
-   *  toString method
+   *  ToString method
    */
-  public String toString(){
+  public override string ToString(){
     return "value: "+ this.val; 
   }
 }
@@ -406,5 +405,41 @@ public static void Swap<T>(T[] a, int i, int j)
     a[i] = a[j];
     a[j] = t;
 }
+{% endhighlight %}
+<!-- /Code -->
+
+
+
+<!-- 
+#########################################
+#
+#     Files
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="files"></a><a href="">11. Files</a></h3>
+
+Writing to a file.
+
+<!-- Code -->
+{% highlight csharp linenos %}
+//Append
+using (StreamWriter w = File.AppendText(@"C:\path\to\myText.txt"))
+{
+  w.WriteLine("hello");
+}
+
+string[] lines = { "First line", "Second line", "Third line" };
+File.WriteAllLines(@"C:\Users\Public\TestFolder\WriteLines.txt", lines);
+{% endhighlight %}
+<!-- /Code -->
+
+Reading from a file
+
+<!-- Code -->
+{% highlight java linenos %}
+//read all the lines in a file
+string[] lines = File.ReadAllLines("path/to/myText.txt");
 {% endhighlight %}
 <!-- /Code -->
