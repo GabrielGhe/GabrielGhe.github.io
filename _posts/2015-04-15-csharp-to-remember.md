@@ -47,7 +47,7 @@ lst.Sort()                        // sorts a List in place
 Array.Sort<char>(array);          // sort an array
 list.Reverse();                   // reverses a List in place
 
-new string(char[] a)              // convert char[] to string
+string.Join("", char[] a)         // convert char[] to string
 "Hello"[int x]                    // get a char at the specific index
 "Hello".Length                    // string length
 {1,2,3,4,5}.Length                // array's size (not how to initialize array)
@@ -355,7 +355,7 @@ Here is a table of algorithms that do not use comparison
 #########################################
 -->
 <br /><br /><br />
-<h3><a name="bit-manipulation"></a><a href="">8. Bit Manipulation</a></h3>
+<h3><a name="bit-manipulation"></a><a href="">6. Bit Manipulation</a></h3>
 <p>Bit operators</p>
 
 | Operation name | C# symbol | Example | Result | Explanation                           |
@@ -365,3 +365,46 @@ Here is a table of algorithms that do not use comparison
 | XOR            | ^           | 15 ^ 5  | 10     | 1111 ^ 0101 = 1010                    |
 | Right Shift    | >>          | 7 >> 1  | 3      | 111 >> 1 = 011                        |
 | Not            | ~           | ~0      | -1     | ~000 = 111 which is 2's complement -1 |
+
+
+
+<!-- 
+#########################################
+#
+#     Combinations and Permutations
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="combinations-and-permutations"></a><a href="">7. Combinations and Permutations</a></h3>
+
+1. If the order doesn't matter, it is a Combination... 1234 same as 4321
+2. If the order matters, it is a Permutation... 1234 != 2134
+
+Permutation
+
+<!-- Code -->
+{% highlight csharp linenos %}
+public static void Perm(int[] list, int pos){
+  if (pos == list.Length)
+  {
+    Console.WriteLine( string.Join("", list));
+  }
+  else
+  {
+    for(int i=pos; i < list.Length; ++i){
+      Swap(list, i, pos);
+      Perm(list, pos + 1);
+      Swap(list, i, pos);
+    }
+  }
+}
+
+public static void Swap<T>(T[] a, int i, int j)
+{
+    T t = a[i];
+    a[i] = a[j];
+    a[j] = t;
+}
+{% endhighlight %}
+<!-- /Code -->
