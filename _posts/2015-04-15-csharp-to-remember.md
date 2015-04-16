@@ -189,3 +189,33 @@ public class Queue {
 {% endhighlight %}
 
 <!-- /Code -->
+
+
+<!-- 
+#########################################
+#
+#       Tree
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="tree"></a><a href="">3. Tree</a></h3>
+<p>The tree class here is for the binary tree</p>
+
+<!-- Code -->
+{% highlight csharp linenos %}
+class TreeNode {
+  int value;
+  TreeNode parent;
+  TreeNode left;
+  TreeNode right;
+}
+{% endhighlight %}
+<!-- /Code -->
+
+1. Binary Search Tree: for all nodes, left children <= current node <= right children
+2. Balanced vs. Unbalanced: In a balanced tree, the depth of the sibling tree's can differ max by 1
+3. Full Binary Tree: every node other than the leaves has two children.
+4. Perfect Binary Tree: a full binary tree + all leaves same depth + parents have 2 children
+5. Complete Binary Tree: a binary tree with only last lvl possibly incomplete. We add to lowest lvl and right most
+
