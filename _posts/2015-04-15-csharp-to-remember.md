@@ -26,6 +26,8 @@ This is a similar post to my JavaToRemember post but for C#.
 10. [Dictionary](#dictionary)
 11. [HashSet](#hashset)
 12. [List](#list)
+13. [Stack](#stack)
+14. [Queue](#queue)
 
 
 <!-- 
@@ -600,5 +602,59 @@ lst2 = lst2.OrderBy( x => x.Length).Reverse().ToList();
 // ["Honey", "Daisy", "Vush", "Gab"]
 
 int[] array = lst.ToArray();  // [1, 2, 3, 4, 5, 6]
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- 
+#########################################
+#
+#     Stack
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="stack"></a><a href="">13. Stack</a></h3>
+
+A stack is a FILO (first in, last out) data structure. You add to the back and remove from the back.
+
+<!-- Code _______________________________________-->
+{% highlight csharp linenos %}
+Stack<string> s = new Stack<string>();
+s.Push("One");          // ["One"]
+s.Push("Two");          // ["One", "Two"]
+s.Push("Three");        // ["One", "Two", "Three"]
+
+s.Pop();                // "Three"   s = ["One", "Two"]
+s.Peek();               // "Two"     s = ["One", "Two"]
+
+s.Count                 // 2
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- 
+#########################################
+#
+#     Queue
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="queue"></a><a href="">14. Queue</a></h3>
+
+A queue is a FIFO (first in, first out) data structure. You add to the back and remove from the front.
+
+<!-- Code _______________________________________-->
+{% highlight csharp linenos %}
+Queue<double> q = new Queue<double>();
+q.Enqueue(1.1);       // [1.1]
+q.Enqueue(2.2);       // [1.1, 2.2]
+q.Enqueue(3.3);       // [1.1, 2.2, 3.3]
+
+q.Dequeue();          // 1.1   q = [2.2, 3.3]
+q.Peek();             // 2.2   q = [2.2, 3.3]
+
+q.Count               // 2
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
