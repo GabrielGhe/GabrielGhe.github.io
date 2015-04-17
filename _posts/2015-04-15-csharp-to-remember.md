@@ -510,8 +510,8 @@ foreach(var pair in myDictionary) {
 int value;
 dict.TryGetValue("a", out value);   // value = 1
 dict.ContainsKey("d");              // false
-dict.Remove("a");                    // { b:2, c:3 }
-dict.Clear();                        // {}
+dict.Remove("a");                   // { b:2, c:3 }
+dict.Clear();                       // {}
 {% endhighlight %}
 <!-- /Code -->
 
