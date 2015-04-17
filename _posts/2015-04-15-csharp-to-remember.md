@@ -547,7 +547,7 @@ foreach(int val in nums) {
 // 1
 // 3
 
-nums.RemoveWhere(s => s % 2 == 1); // keep odd
+nums.RemoveWhere(s => s % 2 == 1); // remove odd
 
 int[] array = nums.ToArray();   // [1,3]
 List<int> list = hset.ToList(); // [1,3]
