@@ -48,7 +48,8 @@ list.Reverse();                   // reverses a List in place
 string.Join("", char[] a)         // convert char[] to string
 "Hello"[int x]                    // get a char at the specific index
 "Hello".Length                    // string length
-{1,2,3,4,5}.Length                // array's size (not how to initialize array)
+new int[]{1,2,3,4,5}.Length       // array's size (not how to initialize array)
+list.Count                        // List's size
 
 Char.IsLetter('a')                // true
 Char.IsDigit(5)                   // true
@@ -528,7 +529,7 @@ dict.Clear();                        // {}
 A HashSet is a dictionary that only stores keys. It doesn't allow for duplicates and only stores keys.
 
 <!-- Code _______________________________________-->
-{% highlight java linenos %}
+{% highlight csharp linenos %}
 HashSet<int> nums = new HashSet<int>();
 nums.Add(1);       // { 1 }
 nums.Add(2);       // { 1, 2 }
@@ -550,5 +551,54 @@ int[] array = nums.ToArray();   // [1,3]
 List<int> list = hset.ToList(); // [1,3]
 
 set.Clear();                    // {}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- 
+#########################################
+#
+#     List
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="list"></a><a href="">12. List</a></h3>
+
+
+The List is a very widely used datastructure in C#. It can insert, add, remove, binary search etc.
+
+<!-- Code _______________________________________-->
+{% highlight csharp linenos %}
+// List<int> lst = new List<int>{1, 2, 3, 4, 5};
+List<int> lst = new List<int>();
+lst.Add(1);       // [1]
+lst.Add(2);       // [1, 2]
+lst.Add(3);       // [1, 2, 3]
+lst.Add(4);       // [1, 2, 3, 4]
+lst.Add(5);       // [1, 2, 3, 4, 5]
+
+lst.AddRange(new int[]{-1});
+// [1, 2, 3, 4, 5, -1, -2]
+
+lst.Insert(0, 9); // [9, 1, 2, 3, 4, 5, -1]
+lst.InsertRange(0, new int[]{7, 9}); // [7, 8, 9, 1, 2, 3, 4, 5, -1]
+
+lst.RemoveAt(lst.Count-1);    // [7, 8, 9, 1, 2, 3, 4, 5]
+lst.RemoveRange(0, 3);        // [1, 2, 3, 4, 5]
+// RemoveRange(int index, int count)
+
+lst.Reverse();                // [5, 4, 3, 2, 1]
+lst.Sort();                   // [1, 2, 3, 4, 5]
+
+int idx = lst.BinarySearch(6);// -6
+if (idx < 0)                  // ~(-6) = 5 the location to insert
+  lst.Insert(~idx, 6);        // [1, 2, 3, 4, 5, 6]
+
+List<string> lst2 = new List<string>{"Gab", "Vush", "Daisy", "Honey"};
+lst2 = lst2.OrderBy( x => x.Length).Reverse().ToList();
+// ["Honey", "Daisy", "Vush", "Gab"]
+
+int[] array = lst.ToArray();  // [1, 2, 3, 4, 5, 6]
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
