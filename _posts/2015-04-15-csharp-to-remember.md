@@ -513,3 +513,42 @@ dict.Remove("a");                    // { b:2, c:3 }
 dict.Clear();                        // {}
 {% endhighlight %}
 <!-- /Code -->
+
+
+<!-- 
+#########################################
+#
+#     HashSet
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="hashset"></a><a href="">11. HashSet</a></h3>
+
+A HashSet is a dictionary that only stores keys. It doesn't allow for duplicates and only stores keys.
+
+<!-- Code _______________________________________-->
+{% highlight java linenos %}
+HashSet<int> nums = new HashSet<int>();
+nums.Add(1);       // { 1 }
+nums.Add(2);       // { 1, 2 }
+nums.Add(3);       // { 1, 2, 3 }
+
+nums.Contains(5);  // false
+nums.Contains(2);  // true
+nums.Remove(2);    // { 1, 3 }
+
+foreach(int val in nums) {
+    Console.WriteLine("{0} ", val);
+}
+// 1
+// 3
+
+nums.RemoveWhere(s => s % 2 == 1); // keep odd
+
+int[] array = nums.ToArray();   // [1,3]
+List<int> list = hset.ToList(); // [1,3]
+
+set.Clear();                    // {}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
