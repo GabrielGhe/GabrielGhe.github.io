@@ -25,7 +25,7 @@ This is a similar post to my JavaToRemember post but for C#.
 9.  [Regex](#regex)
 10. [Dictionary](#dictionary)
 11. [HashSet](#hashset)
-12. [List](#List)
+12. [List](#list)
 
 
 <!-- 
