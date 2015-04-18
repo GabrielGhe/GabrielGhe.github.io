@@ -488,6 +488,7 @@ Dictionaries allow inserts, deletes and gets at O(1).
 
 <!-- Code -->
 {% highlight csharp linenos %}
+// var table = new Dictionary<string, int>{ {"a",1}, {"b",2}, {"c",3}};
 Dictionary<string, int> dict = new Dictionary<string, int>();
 dict.Add("a", 1); // { a:1 }
 dict.Add("b", 2); // { a:1, b:2 }
@@ -538,6 +539,7 @@ A HashSet is a dictionary that only stores keys. It doesn't allow for duplicates
 
 <!-- Code _______________________________________-->
 {% highlight csharp linenos %}
+// var nums = new HashSet<int>{1, 2, 3};
 HashSet<int> nums = new HashSet<int>();
 nums.Add(1);       // { 1 }
 nums.Add(2);       // { 1, 2 }
@@ -578,7 +580,7 @@ The List is a very widely used datastructure in C#. It can insert, add, remove, 
 
 <!-- Code _______________________________________-->
 {% highlight csharp linenos %}
-// List<int> lst = new List<int>{1, 2, 3, 4, 5};
+// var lst = new List<int>{1, 2, 3, 4, 5};
 List<int> lst = new List<int>();
 lst.Add(1);       // [1]
 lst.Add(2);       // [1, 2]
