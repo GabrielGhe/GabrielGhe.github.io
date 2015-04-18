@@ -669,3 +669,24 @@ q.Peek();             // 2.2   q = [2.2, 3.3]
 q.Count               // 2
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- 
+#########################################
+#
+#     Random
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="random"></a><a href="">15. Random</a></h3>
+
+<!-- Code _______________________________________-->
+{% highlight csharp linenos %}
+Random r = new Random();
+r.Next();           // non negative random number
+r.Next(5);          // [0, 5[
+r.Next(0, 10);      // [0, 10[
+r.NextDouble();     // [0.0, 1.0[
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
