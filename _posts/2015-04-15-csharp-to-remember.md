@@ -613,6 +613,11 @@ lst2 = lst2.OrderBy( x => x.Length).Reverse().ToList();
 // ["Honey", "Daisy", "Vush", "Gab"]
 
 int[] array = lst.ToArray();  // [1, 2, 3, 4, 5, 6]
+
+// Enumerable.Range(int start, int count)
+foreach(var i in Enumerable.Range(0, lst.Count)) {
+    // i is the index
+}
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
