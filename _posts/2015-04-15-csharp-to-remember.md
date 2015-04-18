@@ -28,6 +28,7 @@ This is a similar post to my JavaToRemember post but for C#.
 12. [List](#list)
 13. [Stack](#stack)
 14. [Queue](#queue)
+15. [Random](#random)
 
 
 <!-- 
@@ -60,6 +61,8 @@ Char.IsWhiteSpace(' ')            // true
 
 Char.ToLower('A')                 // 'a'
 Char.IsUpper('a')                 // false
+
+Convert.ToString(23, 2)           // "10111"
 
 // Substring(int position, int length)
 "abcdef".Substring(1, 1)          // "b"
