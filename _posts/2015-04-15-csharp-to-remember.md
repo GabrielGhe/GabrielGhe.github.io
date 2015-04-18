@@ -493,13 +493,19 @@ dict.Add("a", 1); // { a:1 }
 dict.Add("b", 2); // { a:1, b:2 }
 dict.Add("c", 3); // { a:1, b:2, c:3 }
 
+// to go over keys or values, we first cache them in a List then
+// we can go over them and modify them. If we simply iterate over
+// myDictionary.Keys, we can't modify the dictionary
+
 // ["a", "b", "c"]
-foreach(var key in myDictionary.Keys) {
+List<string> keys = myDictionary.Keys;
+foreach(var key in keys) {
     // do stuff with key
 }
 
 // [1, 2, 3]
-foreach(var value in myDictionary.Values) {
+List<int> values =  myDictionary.Values;
+foreach(var value in values) {
   // do stuff with value
 }
 
