@@ -493,9 +493,9 @@ Dictionaries allow inserts, deletes and gets at O(1).
 {% highlight csharp linenos %}
 // var table = new Dictionary<string, int>{ {"a",1}, {"b",2}, {"c",3}};
 Dictionary<string, int> dict = new Dictionary<string, int>();
-dict.Add("a", 1); // { a:1 }
-dict.Add("b", 2); // { a:1, b:2 }
-dict.Add("c", 3); // { a:1, b:2, c:3 }
+dict["a"] = 1;    // { a:1 }
+dict["b"] = 2;    // { a:1, b:2 }
+dict["c"] = 3;    // { a:1, b:2, c:3 }
 
 // to go over keys or values, we first cache them in a List then
 // we can go over them and modify them. If we simply iterate over
