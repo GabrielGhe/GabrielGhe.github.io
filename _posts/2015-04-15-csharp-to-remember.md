@@ -613,6 +613,8 @@ lst2 = lst2.OrderBy( x => x.Length).Reverse().ToList();
 // ["Honey", "Daisy", "Vush", "Gab"]
 
 int[] array = lst.ToArray();  // [1, 2, 3, 4, 5, 6]
+Dictionary<int,int> dict = lst.ToDictionary(g => g, g => 0);
+// { 1:0, 2:0, 3:0, 4:0, 5:0, 6:0 }
 
 // Enumerable.Range(int start, int count)
 foreach(var i in Enumerable.Range(0, lst.Count)) {
