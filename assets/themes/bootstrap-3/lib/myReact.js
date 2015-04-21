@@ -11,7 +11,7 @@ var SearchPost = React.createClass({
   },
   render: function(){
       var tags = this.props.tags.split(" ").map(function(tag){
-          return (<a href={'/tags.html#'+ tag +'-ref'} className="label label-success">{ tag }</a>);
+          return (<a href={'/tags.html#'+ tag +'-ref'} className="label label-default">{ tag }</a>);
       });
 
       var iconStyle = {
@@ -27,7 +27,7 @@ var SearchPost = React.createClass({
               className={"searchElement" + this.props.isActive }>
 
               {/* Icon */}
-              <i className={"icon-" + this.props.category} style={iconStyle}></i>
+              <i className={"icon-" + this.props.category + " index-category-anchor"} style={iconStyle}></i>
 
               {/* Content */}
               <div>
@@ -179,7 +179,7 @@ var RandomPost = React.createClass({
 
         return (
             <li>
-                <i className={"icon-" + this.props.data.category} style={style}/>
+                <i className={"icon-" + this.props.data.category + " index-category-anchor"} style={style}/>
                 <a href={this.props.data.id}>
                   {this.props.data.title}
                 </a>
