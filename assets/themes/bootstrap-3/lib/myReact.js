@@ -33,10 +33,10 @@ var SearchPost = React.createClass({
               {/* Content */}
               <div>
                   <a href={this.props.url}>{this.props.title}</a>
-                  <a href={'/categories.html#' + this.props.category + '-ref'} className={"index-category-anchor"}>
-                      {this.props.category}
-                  </a>
                   <div>
+                      <a href={'/categories.html#' + this.props.category + '-ref'} className={"label label-primary"}>
+                          {this.props.category}
+                      </a>
                       {tags}
                   </div>
               </div>
