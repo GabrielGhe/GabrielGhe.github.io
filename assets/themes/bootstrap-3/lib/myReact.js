@@ -178,12 +178,11 @@ var RandomPost = React.createClass({
         };
 
         return (
-            <li>
+            <li style="margin-bottom:30px;">
                 <i className={"icon-" + this.props.data.category + " index-category-anchor"} style={style}/>
                 <a href={this.props.data.id}>
                   {this.props.data.title}
                 </a>
-                <hr />
             </li>
         )
     }
