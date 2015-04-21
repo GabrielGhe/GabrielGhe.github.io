@@ -132,7 +132,7 @@
 }
 
 .icon-microscope:before { content: "\f100"; }
-.icon-cplusplus:before { content: "\f101"; }
+.icon-cplusplus:before { content: "\f101"; color:purple; }
 .icon-wireless:before { content: "\f102"; }
 .icon-fire-alt:before { content: "\f103"; }
 .icon-mobile-device:before { content: "\f104"; }
@@ -140,8 +140,8 @@
 .icon-redhat:before { content: "\f106"; }
 .icon-freebsd:before { content: "\f107"; }
 .icon-heroku:before { content: "\f108"; }
-.icon-python:before { content: "\f109"; }
-.icon-java:before { content: "\f10a"; }
+.icon-python:before { content: "\f109"; color: darkblue; }
+.icon-java:before { content: "\f10a"; color:orange; }
 .icon-satellite:before { content: "\f10b"; }
 .icon-debian:before { content: "\f10c"; }
 .icon-grails:before { content: "\f10d"; }
@@ -167,7 +167,7 @@
 .icon-mysql-alt:before { content: "\f121"; }
 .icon-playframework-alt:before { content: "\f122"; }
 .icon-osx:before { content: "\f123"; }
-.icon-swift:before { content: "\f12d"; }
+.icon-swift:before { content: "\f12d"; color: chocolate; }
 .icon-database:before { content: "\f124"; }
 .icon-database-alt:before { content: "\f125"; }
 .icon-shell:before { content: "\f126"; }
@@ -184,7 +184,7 @@
 .icon-mariadb:before { content: "\f131"; }
 .icon-phone-retro:before { content: "\f132"; }
 .icon-phone-alt:before { content: "\f133"; }
-.icon-csharp:before { content: "\f134"; }
+.icon-csharp:before { content: "\f134"; color:green; }
 .icon-php:before { content: "\f135"; }
 .icon-postgres-alt:before { content: "\f136"; }
 .icon-html:before { content: "\f137"; }
@@ -204,7 +204,7 @@
 .icon-linux-mint:before { content: "\f145"; }
 .icon-dreamhost:before { content: "\f146"; }
 .icon-blackberry:before { content: "\f147"; }
-.icon-javascript:before { content: "\f148"; }
+.icon-javascript:before { content: "\f148"; color: goldenrod; }
 .icon-ubuntu:before { content: "\f149"; }
 .icon-php-alt:before { content: "\f14a"; }
 .icon-centos:before { content: "\f14b"; }
