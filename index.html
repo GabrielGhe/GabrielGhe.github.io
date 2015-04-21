@@ -7,7 +7,7 @@ layout: page
   {% for post in paginator.posts %}
     <li>
       <h3>
-        <a href="{{ BASE_PATH }}/categories.html#{{ post.category }}-ref" class="index-category-anchor"><i class="icon-{{ post.category }}" style="font-size:2em;color: darkgoldenrod;"></i></a>
+        <a href="{{ BASE_PATH }}/categories.html#{{ post.category }}-ref" class="index-category-anchor"><i class="icon-{{ post.category }}" style="font-size:2em;"></i></a>
         
         <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
       </h3>
