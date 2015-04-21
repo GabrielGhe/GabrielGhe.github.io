@@ -643,10 +643,13 @@ s.Push(Tuple.Create("One",1));    // [("One",1)]
 s.Push(Tuple.Create("Two", 2));   // [("One",1), ("Two",2)]
 s.Push(Tuple.Create("Three", 3)); // [("One",1), ("Two",2), ("Three",3)]
 
-s.Pop();                // ("Three",3) s = [("One",1), ("Two",2)]
+var t = s.Pop();        // ("Three",3) s = [("One",1), ("Two",2)]
 s.Peek();               // ("Two",2)   s = [("One",1), ("Two",2)]
 
 s.Count                 // 2
+
+t.Item1                 // "Three"
+t.Item2                 // 3
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
