@@ -638,13 +638,13 @@ A stack is a FILO (first in, last out) data structure. You add to the back and r
 
 <!-- Code _______________________________________-->
 {% highlight csharp linenos %}
-Stack<string> s = new Stack<string>();
-s.Push("One");          // ["One"]
-s.Push("Two");          // ["One", "Two"]
-s.Push("Three");        // ["One", "Two", "Three"]
+Stack<Tuple<string,int>> s = new Stack<Tuple<string,int>>();
+s.Push(Tuple.Create("One",1));    // [("One",1)]
+s.Push(Tuple.Create("Two", 2));   // [("One",1), ("Two",2)]
+s.Push(Tuple.Create("Three", 3)); // [("One",1), ("Two",2), ("Three",3)]
 
-s.Pop();                // "Three"   s = ["One", "Two"]
-s.Peek();               // "Two"     s = ["One", "Two"]
+s.Pop();                // ("Three",3) s = [("One",1), ("Two",2)]
+s.Peek();               // ("Two",2)   s = [("One",1), ("Two",2)]
 
 s.Count                 // 2
 {% endhighlight %}

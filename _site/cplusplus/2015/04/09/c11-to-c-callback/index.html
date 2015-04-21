@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>C++ to C# Callback</title>
+    <title>C++11 to C# Callback</title>
     <meta name="description" content="">
     <meta name="author" content="Gabriel G">
 
@@ -132,7 +132,7 @@
   <div class="col-md-9">
     <div class="page-header">
       <h1>
-        <i class="icon-cplusplus" style="font-size:2em"></i> C++ to C# Callback 
+        <i class="icon-cplusplus" style="font-size:2em"></i> C++11 to C# Callback 
     </h1>
     </div>
     <div class="date">
@@ -172,9 +172,9 @@ You can get more information about how to accomplish this task <a href="http://w
 
 <!-- Code _______________________________________-->
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="lineno"> 1</span> <span class="c1">// this says that it will be exported</span>
-<span class="lineno"> 2</span> <span class="hll"><span class="cp">#define DLL __declspec(dllexport)</span>
-</span><span class="lineno"> 3</span> <span class="n">DLL</span> <span class="k">void</span> <span class="nf">TakesInCallbackAndDoesStuff</span><span class="p">(</span><span class="n">YourCallback</span> <span class="n">yourCallback</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="lineno"> 1</span> <span class="c1">// this says that it will be exported</span>
+<span class="lineno"> 2</span> <span class="cp">#define DLL __declspec(dllexport)</span>
+<span class="lineno"> 3</span> <span class="n">DLL</span> <span class="kt">void</span> <span class="nf">TakesInCallbackAndDoesStuff</span><span class="p">(</span><span class="n">YourCallback</span> <span class="n">yourCallback</span><span class="p">)</span> <span class="p">{</span>
 <span class="lineno"> 4</span>   <span class="c1">// do stuff</span>
 <span class="lineno"> 5</span>   <span class="n">yourCallback</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param1</span><span class="p">);</span>
 <span class="lineno"> 6</span> <span class="p">}</span>
@@ -221,7 +221,7 @@ You can get more information about how to accomplish this task <a href="http://w
   
      
     	<li><a href="/categories.html#cplusplus-ref">
-    		cplusplus <span>4</span>
+    		cplusplus <span>5</span>
     	</a></li>
     
   
@@ -241,7 +241,7 @@ You can get more information about how to accomplish this task <a href="http://w
      
     	<li><a href="/tags.html#csharp-ref">csharp <span>2</span></a></li>
      
-    	<li><a href="/tags.html#cpp-ref">cpp <span>4</span></a></li>
+    	<li><a href="/tags.html#cpp11-ref">cpp11 <span>5</span></a></li>
      
     	<li><a href="/tags.html#callback-ref">callback <span>1</span></a></li>
      
@@ -257,11 +257,11 @@ You can get more information about how to accomplish this task <a href="http://w
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/cplusplus/2015/04/07/c-templates" title="C++: Templates">&laquo; Previous</a></li>
+      <li class="prev"><a href="/cplusplus/2015/04/07/c11-templates" title="C++11: Templates">&laquo; Previous</a></li>
     
       <li><a href="/archive.html">Archive</a></li>
     
-      <li class="next"><a href="/cplusplus/2015/04/10/c-casting" title="C++: Casting">Next &raquo;</a></li>
+      <li class="next"><a href="/cplusplus/2015/04/10/c11-casting" title="C++11: Casting">Next &raquo;</a></li>
     
     </ul>
     
