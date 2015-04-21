@@ -7,26 +7,20 @@ layout: page
   {% for post in paginator.posts %}
     <li>
       <h3>
-        <i class="icon-{{ post.category }}" style="font-size:2em"></i> <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        <a href="{{ BASE_PATH }}/categories.html#{{ post.category }}-ref" class="label label-primary">
+            <i class="icon-{{ post.category }}" style="font-size:2em"></i>
+        </a>
+        
+        <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
       </h3>
       <!-- Date -->
       <p class="date">
         {{ post.date | date: "%A, %B %e, %Y" }}
       </p>
       <!-- END Date -->
-      <!-- Category -->
-      <p>
-        <b>Category</b>:
-
-        <a href="{{ BASE_PATH }}/categories.html#{{ post.category }}-ref" class="label label-primary">
-            {{ post.category }}
-        </a>
-      </p>
-      <!-- END Category -->
       <!-- Tags -->
       <p>
         {% if post.tags.size > 0 %}
-          <b>Tags</b>:
           {% for tag in post.tags %}
             <a href="{{ BASE_PATH }}/tags.html#{{tag}}-ref" class="label label-success">{{ tag }}</a>
           {% endfor %}
