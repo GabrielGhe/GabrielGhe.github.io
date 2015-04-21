@@ -176,9 +176,13 @@ var RandomPost = React.createClass({
           fontSize: "2em",
           marginRight: "5px",
         };
+        
+        var liStyle = {
+          marginBottom: "30px"
+        };
 
         return (
-            <li style="margin-bottom:30px;">
+            <li style={liStyle}>
                 <i className={"icon-" + this.props.data.category + " index-category-anchor"} style={style}/>
                 <a href={this.props.data.id}>
                   {this.props.data.title}
