@@ -27,15 +27,14 @@ var SearchPost = React.createClass({
               className={"searchElement" + this.props.isActive }>
 
               {/* Icon */}
-              <i className={"icon-" + this.props.category + " index-category-anchor"} style={iconStyle}></i>
-
+              
+              <a href={'/categories.html#' + this.props.category + '-ref'} className={"label label-primary index-category-anchor"}>
+                  <i className={"icon-" + this.props.category} style={iconStyle}></i>
+              </a>
               {/* Content */}
               <div>
                   <a href={this.props.url}>{this.props.title}</a>
                   <div>
-                      <a href={'/categories.html#' + this.props.category + '-ref'} className="label label-primary">
-                          { this.props.category }
-                      </a>
                       {tags}
                   </div>
               </div>
@@ -183,9 +182,11 @@ var RandomPost = React.createClass({
 
         return (
             <li style={liStyle}>
-                <i className={"icon-" + this.props.data.category + " index-category-anchor"} style={style}/>
+                <a href={'/categories.html#' + this.props.data.category + '-ref'} className={"label label-primary index-category-anchor"}>
+                    <i className={"icon-" + this.props.data.category} style={style}></i>
+                </a>
                 <a href={this.props.data.id}>
-                  {this.props.data.title}
+                    {this.props.data.title}
                 </a>
             </li>
         )
