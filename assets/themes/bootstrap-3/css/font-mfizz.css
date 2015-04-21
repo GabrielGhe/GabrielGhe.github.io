@@ -167,7 +167,7 @@
 .icon-mysql-alt:before { content: "\f121"; }
 .icon-playframework-alt:before { content: "\f122"; }
 .icon-osx:before { content: "\f123"; }
-.icon-swift:before { content: "\f12d"; color: chocolate; }
+.icon-swift:before { content: "\f12d"; color: firebrick; }
 .icon-database:before { content: "\f124"; }
 .icon-database-alt:before { content: "\f125"; }
 .icon-shell:before { content: "\f126"; }
