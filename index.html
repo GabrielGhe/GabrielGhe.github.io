@@ -5,7 +5,7 @@ layout: page
 
 <ul class="posts">
   {% for post in paginator.posts %}
-    <li>
+    <li style="margin-bottom:40px">
       <h3>
         <a href="{{ BASE_PATH }}/categories.html#{{ post.category }}-ref" class="index-category-anchor"><i class="icon-{{ post.category }}" style="font-size:2em;"></i></a>
         
@@ -25,7 +25,6 @@ layout: page
         {% endif %}
       </p>
       <!-- END Tags -->
-      <hr>
     </li>
   {% endfor %}
 </ul>
