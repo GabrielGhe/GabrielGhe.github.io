@@ -20,8 +20,13 @@ img {
 .index-category-anchor {
     color:black;
     cursor:pointer;
-    padding: .2em .6em .3em;
+    padding: .2em 0 .3em;
     &:hover {
         color:gray;
     }
+}
+
+.posts .label {
+    margin-left:0;
+    margin-right: 3px;
 }
