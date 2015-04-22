@@ -25,11 +25,14 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-nerd-sq:before {
+.icon-gabrielghe-special:before {
   /* sq */
   content: "\e62a";
+}
+
+.icon-gabrielghe:before {
   /* non- sq */
-  /*content: "\e62b";*/
+  content: "\e62b";
 }
 
 .icon-c:before {
