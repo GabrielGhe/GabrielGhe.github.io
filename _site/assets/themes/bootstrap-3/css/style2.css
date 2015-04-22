@@ -27,3 +27,18 @@
 img {
   margin: 20px 0 20px 0;
   max-width: 100%; }
+
+.index-category-anchor {
+  color: black;
+  cursor: pointer;
+  padding: .2em 0 .3em;
+  text-decoration: none !important; }
+  .index-category-anchor:hover {
+    color: gray; }
+
+.posts .label {
+  margin-left: 0;
+  margin-right: 3px; }
+
+pre code {
+  color: white !important; }

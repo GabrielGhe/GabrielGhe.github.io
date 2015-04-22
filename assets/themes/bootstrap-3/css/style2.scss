@@ -21,6 +21,7 @@ img {
     color:black;
     cursor:pointer;
     padding: .2em 0 .3em;
+    text-decoration:none !important;
     &:hover {
         color:gray;
     }

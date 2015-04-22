@@ -19,7 +19,8 @@
     <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
     
     <!-- Custom styles -->
-    <link href="/assets/themes/bootstrap-3/css/font-mfizz.css" rel="stylesheet" type="text/css" media="all">
+    <!-- <link href="/assets/themes/bootstrap-3/css/font-mfizz.css" rel="stylesheet" type="text/css" media="all"> -->
+    <link href="/assets/themes/bootstrap-3/css/bitIcon.css" rel="stylesheet" type="text/css" media="all">
     <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
     <link href="/assets/themes/bootstrap-3/css/style2.css" rel="stylesheet" type="text/css" media="all">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -46,7 +47,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">GabrielGhe</a>
+          <a class="navbar-brand" href="/"></i>GabrielGhe</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -183,10 +184,15 @@
 <span class="lineno">28</span>     <span class="c1">// std::cout &lt;&lt; *it; ...</span>
 <span class="lineno">29</span> <span class="p">}</span>
 <span class="lineno">30</span> 
-<span class="lineno">31</span> <span class="c1">// indecies</span>
-<span class="lineno">32</span> <span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">size_type</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">33</span>     <span class="cm">/* std::cout &lt;&lt; someVector[i]; ... */</span>
-<span class="lineno">34</span> <span class="p">}</span></code></pre></div>
+<span class="lineno">31</span> <span class="c1">// Ranged for-loop</span>
+<span class="lineno">32</span> <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">item</span> <span class="p">:</span> <span class="n">g</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">33</span>     <span class="c1">// std::cout &lt;&lt; item; ....</span>
+<span class="lineno">34</span> <span class="p">}</span>
+<span class="lineno">35</span> 
+<span class="lineno">36</span> <span class="c1">// indecies</span>
+<span class="lineno">37</span> <span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">size_type</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">38</span>     <span class="cm">/* std::cout &lt;&lt; someVector[i]; ... */</span>
+<span class="lineno">39</span> <span class="p">}</span></code></pre></div>
 
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
