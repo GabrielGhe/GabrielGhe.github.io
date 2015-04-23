@@ -3,11 +3,6 @@
 /** @jsx React.DOM */
 
 var random_posts = [];
-var data = {
-  {% for post in site.posts %}
-    {% include custom/post.json %},
-  {% endfor %}
-};
 
 // init lunr
 var idx = lunr(function () {
