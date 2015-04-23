@@ -8,8 +8,7 @@ If you're forking the repo to use the blog as a template, make sure you remove e
 
 # Analytics
 
-Also make sure you remove the following code from `GabrielGhe.github.io/_includes/themes/bootstrap-3/default.html`.
-It's my Google Analytics script.
+Also make sure you remove the following code from `GabrielGhe.github.io/_includes/themes/bootstrap-3/default.html`. It's my Google Analytics script.
 
 ```html
 <script>
