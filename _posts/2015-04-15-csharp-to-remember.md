@@ -335,7 +335,7 @@ Here is a table of comparison sorting algorithms and their time complexity
 | Algorithm                 | Average Time | Worst Time | Space                  | Comments                |
 |---------------------------|--------------|------------|------------------------|-------------------------|
 | Bubble sort               | n^2          | n^2        | 1                      | It's easy to implement  |
-| Insertion sort            | m^2          | n^2        |                        |                         |
+| Insertion sort            | n^2          | n^2        |                        |                         |
 | Selection sort            | n^2          | n^2        |                        |                         |
 | Heap sort                 | nlogn        | nlogn      |                        |                         |
 | Merge sort                | nlogn        | nlogn      | a lot                  |                         |
