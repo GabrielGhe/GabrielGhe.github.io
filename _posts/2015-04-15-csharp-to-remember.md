@@ -276,7 +276,6 @@ Breath First Search (live implementation from MIT [here](http://www.youtube.com/
 
 {% highlight csharp linenos %}
 public static Node bfs(Node root, int value) {
-  // Queue is abstract, use an implementation of queue
   Queue<Node> q = new Queue<Node>();
   Node returnValue;
   q.Enqueue(root);
