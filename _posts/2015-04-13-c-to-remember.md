@@ -128,7 +128,7 @@ if (g)
 */
 int values[] = { 0, 1, 2, 3, 4 };
 int* ptr = values;          // pointing to first element (0)
-int* last = &values[4];     // pointing to last (5)
+int* last = &values[4];     // pointing to last (4)
 
 ++ptr;                      // pointing to second element (1)
 ptr += 3;                   // pointing to last element (4)
