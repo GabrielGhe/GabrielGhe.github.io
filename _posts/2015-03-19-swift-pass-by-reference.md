@@ -3,7 +3,7 @@ layout: post
 title: "Swift: Pass By Reference"
 description: ""
 category: swift
-tags: [swift, inout, reference]
+tags: [ios, inout, reference]
 ---
 {% include JB/setup %}
 
