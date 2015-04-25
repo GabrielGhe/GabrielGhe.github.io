@@ -106,11 +106,6 @@ Stack implementation using the Linked List data structure
 public class Stack{
   public Node top; 
   
-  /**
-   *  Default constructor
-   */
-  public Stack(){}    
-  
 
   /**
    *  Method that returns top node
@@ -118,7 +113,7 @@ public class Stack{
    */
   public Node Peek(){
     if(top != null){
-      return top;
+      return new Node(top.value);
     }
     return null;
   }
@@ -131,7 +126,7 @@ public class Stack{
     if(top == null){
       return null;
     } else {
-      Node temp = new Node(top.val);
+      Node temp = top;
       top = top.next;
       return temp;  
     }
@@ -181,8 +176,11 @@ public class Queue {
     if(first == null){
       return null;
     } else {
-      Node temp = new Node(first.val);
+      Node temp = first;
       first = first.next;
+      if (first == null) {
+          tail = null;
+      }
       return temp;
     } 
   }
