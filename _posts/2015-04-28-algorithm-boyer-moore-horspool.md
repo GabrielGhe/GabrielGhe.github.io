@@ -51,7 +51,7 @@ I wish I had more time to learn algorithms
 
 I wish I had more time to learn algorithms
                           learn
-                              |
+                          |||||
  */
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
