@@ -18,11 +18,59 @@ All is not lost, there is a derivation of Boyer-Moore which is easier to impleme
 <!-- Content -->
 <h3>Content</h3>
 
-Not commented code.
+The algorithm goes from the beginning to the end of the long text comparing from the back of the sub. 
+
+Let's see an example. Given the following code, this is what happens.
 
 <!-- Code _______________________________________-->
 {% highlight csharp linenos %}
-public static int BoyerMoore(string text, string sub) {
+/*
+I wish I had more time to learn algorithms
+learn
+    |
+
+I wish I had more time to learn algorithms
+     learn
+         |
+
+I wish I had more time to learn algorithms
+          learn
+              |
+
+I wish I had more time to learn algorithms
+               learn
+                   |
+
+I wish I had more time to learn algorithms
+                    learn
+                        |
+
+I wish I had more time to learn algorithms
+                         learn
+                             |
+
+I wish I had more time to learn algorithms
+                          learn
+                              |
+ */
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+
+Beautiful, isn't it?
+
+<!-- Code _______________________________________-->
+{% highlight csharp linenos %}
+
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+Not commented code. Bare with me, I will explain it below.
+
+<!-- Code _______________________________________-->
+{% highlight csharp linenos %}
+public static int BoyerMooreHorspool(string text, string sub) {
     int length = sub.Length;
     Dictionary<char, int> badTable = new Dictionary<char, int>();
     for (int i = 0; i < length; ++i) {
@@ -30,17 +78,75 @@ public static int BoyerMoore(string text, string sub) {
     }
     badTable[sub[length - 1]] = length;
 
-    int main_idx = length - 1;
-    int sub_idx = length - 1;
+    int mainIdx = length - 1;
+    int subIdx = length - 1;
 
-    while (main_idx < text.Length) {
-        if (text[main_idx] == sub[sub_idx]) {
-            int temp_main = main_idx;
-            int temp_sub = sub_idx;
-            while ((temp_main > 0 && ma))
+    while (mainIdx < text.Length) {
+        if (text[mainIdx] == sub[subIdx]) {
+            int tempMain = mainIdx;
+            int tempSub = subIdx;
+            while ((tempMain > 0 && mainIdx - tempMain) < (length - 1) && text[tempMain]) == sub[tempSub]) {
+                --tempMain;
+                --tempSub;
+            }
+            if ((mainIdx - tempMain) == (length - 1)) {
+                return temp;
+            }
+            if (badTable.ContainsKey(text[tempMain])) {
+                j += length;
+            } else {
+                j += length;
+            }
+        } else if (badTable.ContainsKey(text[mainIdx])) {
+            j += badTable[text[mainIdx]];
+        } else {
+            j += length;
         }
-
     }
+    return -1;
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+Here's the commented version.
+
+<!-- Code _______________________________________-->
+{% highlight csharp linenos %}
+public static int BoyerMooreHorspool(string text, string sub) {
+    int length = sub.Length;
+    Dictionary<char, int> badTable = new Dictionary<char, int>();
+    for (int i = 0; i < length; ++i) {
+        badTable[sub[i]] = length - i - 1;
+    }
+    badTable[sub[length - 1]] = length;
+
+    int mainIdx = length - 1;
+    int subIdx = length - 1;
+
+    while (mainIdx < text.Length) {
+        if (text[mainIdx] == sub[subIdx]) {
+            int tempMain = mainIdx;
+            int tempSub = subIdx;
+            while ((tempMain > 0 && mainIdx - tempMain) < (length - 1) && text[tempMain]) == sub[tempSub]) {
+                --tempMain;
+                --tempSub;
+            }
+            if ((mainIdx - tempMain) == (length - 1)) {
+                return temp;
+            }
+            if (badTable.ContainsKey(text[tempMain])) {
+                j += length;
+            } else {
+                j += length;
+            }
+        } else if (badTable.ContainsKey(text[mainIdx])) {
+            j += badTable[text[mainIdx]];
+        } else {
+            j += length;
+        }
+    }
+    return -1;
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
