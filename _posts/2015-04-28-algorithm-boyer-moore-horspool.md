@@ -20,7 +20,7 @@ All is not lost, there is a derivation of Boyer-Moore which is easier to impleme
 
 The algorithm goes from the beginning to the end of the long text comparing from the back of the sub. 
 
-Let's see an example. Given the following code, this is what happens.
+Let's see an example.
 
 <!-- Code _______________________________________-->
 {% highlight csharp linenos %}
