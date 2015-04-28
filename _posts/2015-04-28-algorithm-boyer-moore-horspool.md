@@ -10,7 +10,7 @@ tags: [logic, substring, search]
 <!-- Overview -->
 <h3>Overview</h3>
 
-Being able to search for a string in a larger string is very important in computer science. There are a number of applications, not the least of which is the `Ctrl+F` command that everyone is used to. [Boyer-Moore](http://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm) is an extremely fast algorithm for string search and it runs in O(n) time. The problem is the implementation of Boyer-Moore; it is very hard to implement. 
+Being able to search for a string in a larger string is very important in computer science. There are a number of applications, not the least of which is the `Ctrl+F` command that everyone is used to. [Boyer-Moore](http://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm) is an extremely fast algorithm for string search and it runs in O(n) time. The problem is that Boyer-Moore's implementation is not trivial.
 
 All is not lost, there is a derivation of Boyer-Moore which is easier to implement. It is called the [Boyer-Moore-Horspool](http://en.wikipedia.org/wiki/Boyer%E2%80%93Moore%E2%80%93Horspool_algorithm) algorithm. I will be going over the code for this algorithm in this post.
 
