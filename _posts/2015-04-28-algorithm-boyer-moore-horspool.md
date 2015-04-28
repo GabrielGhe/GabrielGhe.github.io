@@ -12,7 +12,7 @@ tags: [logic, substring, search]
 
 Being able to search for a string in a larger string is very important in computer science. There are a number of applications, not the least of which is the `Ctrl+F` command that everyone is used to. [Boyer-Moore](http://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm) is an extremely fast algorithm for string search and it runs in O(n) time. The problem is the implementation of Boyer-Moore; it is very hard to implement. 
 
-All is not lost, there is a derivation of Boyer-Moore which is easier to implement. It is called the Boyer-Moore-Horspool algorithm. I will be going over the code for this algorithm in this post. You can learn more about it [here](http://en.wikipedia.org/wiki/Boyer%E2%80%93Moore%E2%80%93Horspool_algorithm).
+All is not lost, there is a derivation of Boyer-Moore which is easier to implement. It is called the [Boyer-Moore-Horspool](http://en.wikipedia.org/wiki/Boyer%E2%80%93Moore%E2%80%93Horspool_algorithm) algorithm. I will be going over the code for this algorithm in this post.
 
 
 <!-- Content -->
@@ -58,92 +58,60 @@ I wish I had more time to learn algorithms
 
 
 
-Beautiful, isn't it?
+Beautiful, isn't it? How does it work? Well, it creates a dictionary mapping the characters in the substring to how much to skip ahead so that the characters align. At the penultimate step, it sees that r and n do not match, so it looks up r in the dictionary. It finds r which says to move over by 1. We then try to match the substring backwards again. This time, we succeed.
 
-<!-- Code _______________________________________-->
-{% highlight csharp linenos %}
 
-{% endhighlight %}
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
-
-Not commented code. Bare with me, I will explain it below.
+Here is the full implementation.
 
 <!-- Code _______________________________________-->
 {% highlight csharp linenos %}
 public static int BoyerMooreHorspool(string text, string sub) {
     int length = sub.Length;
+    // This is our step dictionary
     Dictionary<char, int> badTable = new Dictionary<char, int>();
     for (int i = 0; i < length; ++i) {
+        // this is how much we have to skip to get from the last char
+        // to each other char
         badTable[sub[i]] = length - i - 1;
     }
+    // the last character is always the length of the substring
     badTable[sub[length - 1]] = length;
 
-    int mainIdx = length - 1;
-    int subIdx = length - 1;
+    int mainIdx = length - 1; // pointer which will go over text
+    int subIdx = length - 1;  // pointer which will go over sub
 
+    // while the text pointer isn't at the end
     while (mainIdx < text.Length) {
+        int tempMain = mainIdx;
+
+        // we found a match!
         if (text[mainIdx] == sub[subIdx]) {
-            int tempMain = mainIdx;
             int tempSub = subIdx;
-            while ((tempMain > 0 && mainIdx - tempMain) < (length - 1) && text[tempMain]) == sub[tempSub]) {
+
+            // now try to go backwards and see 
+            // if the other characters match too
+            while ((tempMain > 0 && mainIdx - tempMain) < (length - 1)
+                    && text[tempMain]) == sub[tempSub]) {
                 --tempMain;
                 --tempSub;
             }
+
+            // all characters match, return the beginning of the match
             if ((mainIdx - tempMain) == (length - 1)) {
-                return temp;
+                return tempMain;
             }
-            if (badTable.ContainsKey(text[tempMain])) {
-                j += length;
-            } else {
-                j += length;
-            }
-        } else if (badTable.ContainsKey(text[mainIdx])) {
-            j += badTable[text[mainIdx]];
-        } else {
-            j += length;
         }
-    }
-    return -1;
-}
-{% endhighlight %}
-<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-
-Here's the commented version.
-
-<!-- Code _______________________________________-->
-{% highlight csharp linenos %}
-public static int BoyerMooreHorspool(string text, string sub) {
-    int length = sub.Length;
-    Dictionary<char, int> badTable = new Dictionary<char, int>();
-    for (int i = 0; i < length; ++i) {
-        badTable[sub[i]] = length - i - 1;
-    }
-    badTable[sub[length - 1]] = length;
-
-    int mainIdx = length - 1;
-    int subIdx = length - 1;
-
-    while (mainIdx < text.Length) {
-        if (text[mainIdx] == sub[subIdx]) {
-            int tempMain = mainIdx;
-            int tempSub = subIdx;
-            while ((tempMain > 0 && mainIdx - tempMain) < (length - 1) && text[tempMain]) == sub[tempSub]) {
-                --tempMain;
-                --tempSub;
-            }
-            if ((mainIdx - tempMain) == (length - 1)) {
-                return temp;
-            }
-            if (badTable.ContainsKey(text[tempMain])) {
-                j += length;
-            } else {
-                j += length;
-            }
-        } else if (badTable.ContainsKey(text[mainIdx])) {
-            j += badTable[text[mainIdx]];
+        // not all characters match, look if the
+        // non matching character is in our table
+        if (badTable.ContainsKey(text[tempMain])) {
+            // it's in our table, move the mainIdx
+            // forward by that number
+            mainIdx += badTable[text[tempMain]];
         } else {
-            j += length;
+            // otherwise, just move forward
+            // by the length of sub
+            mainIdx += length;
         }
     }
     return -1;
