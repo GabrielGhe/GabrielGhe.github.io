@@ -3,7 +3,7 @@ layout: post
 title: "Algorithm: Boyer Moore Horspool"
 description: ""
 category: gabrielghe
-tags: [logic, substring, search]
+tags: [algorithm, logic, substring, search, string, matching]
 ---
 {% include JB/setup %}
 
