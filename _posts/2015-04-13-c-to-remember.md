@@ -3,7 +3,7 @@ layout: post
 title: "C To Remember"
 description: ""
 category: c
-tags: [c, memory allocation]
+tags: [memory, struct, operator, pointer, array]
 ---
 {% include JB/setup %}
 
