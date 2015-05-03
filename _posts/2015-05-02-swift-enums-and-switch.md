@@ -105,3 +105,99 @@ ovenLight.next() // .Off
 <h4>Switch</h4>
 
 The switch statement is, by itself, powerful. Combined with the enum, it becomes amazing.
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+switch `value to consider` {
+    case `value 1`:
+        // do stuff
+    case `value 2`:
+        // do other stuff
+    case `value 3`:
+        // you guessed it, more stuff
+    default:
+        // none of the others matched
+}
+
+
+let ch: Character = "a"
+switch ch {
+    case "a", "A":
+        println("The character is `A`")
+
+    case "b":
+        fallthrough
+    case "B":
+        println("The character is 'B'")
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+It can also work with ranges.
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+let num:UInt = 3_000
+switch num {
+    case 0...9:
+        // single digit, no implicit fallthrough
+    case 10...99:
+        // two digits
+    case 100...999
+        // three digits
+    default:
+        // more than 3 digits
+
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+The switch statement can be used with tuples and have conditions.
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+let coor = (1, 1)
+switch coor {
+    case (0, 0):
+        println("Origin is at (0,0)")
+    case (_, 0):
+        println("Origin of (\(coor.0), 0) is on the x-axis")
+    case (0, _):
+        println("Origin of (0, \(coor.1)) is on the y-axis")
+    case (-2...2, -2...2):
+        println("Origin's x and y values are between -2 and 2")
+    default:
+        println("Dunno where origin is")
+}
+// labeled control statements
+coorLoop: while {
+    switch coor {
+        case (let x, 0):
+            println("The x value is \(x) while the y value is 0") 
+        case let (x, y) where x == y:
+            println("The x value is \(x) and the y value is \(y)")
+        case let (x, y) where x == -y:
+            println("The x value is \(x) and the y value is \(y)")
+            continue coorLoop
+        default:
+            break coorLoop
+    }   
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+When using the switch statement with enums, you get the following.
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
+switch productBarcode {
+    case .UPCA(let numberSystem, let manufacturer, let product, let check):
+        println("UPC-A: \(numberSystem), \(manufacturer), \(product), \(check).")
+    case .QRCode(let productCode):
+        println("QR code: \(productCode).")
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
