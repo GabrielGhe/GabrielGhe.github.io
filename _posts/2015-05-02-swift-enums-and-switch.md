@@ -3,7 +3,7 @@ layout: post
 title: "Swift: Enums and Switch"
 description: ""
 category: swift
-tags: [ios]
+tags: [ios, tuples, conditions, control flow]
 ---
 {% include JB/setup %}
 
