@@ -30,3 +30,17 @@ To do that, first go to the directory that holds the `Users`,`bin` and `usr` dir
 Now that you're there, create a symlink to sublime using the following command: `ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl`
 
 Congrats, sublime is now set up. You can also open your `.bash_profile` and put `export EDITOR='subl -w'` so that sublime becomes your default editor.
+
+<br />
+
+<!-- Git Autocomplete -->
+<h4>Git Autocomplete</h4>
+
+Next we need git autocomplete. The guide is perfect so just go [here](http://code-worrier.com/blog/autocomplete-git/) and follow the steps.
+
+<!-- Git Current Branch -->
+<h4>Git Current Branch</h4>
+
+We also need to know what git branch we're on (well... I need to). An awesome guide that allows you to do that already exists. Just go [here](http://code-worrier.com/blog/git-branch-in-bash-prompt/) and follow the steps.
+
+After everything, I modify the PS1 to look really cool. Open your bash profile (`subl ~/.bash_profile`) and add the following line of code at the end `PS1="e[32m&#92;]&#92;u:&#92;e[33m&#92;]&#92;w&#92;e[31m&#92;]&#92;$(__git_ps1) &#92;e[35m&#92;][&#92;t]&#92;e[37m&#92;]&#92;&#92;n&#92;$ "`. 
