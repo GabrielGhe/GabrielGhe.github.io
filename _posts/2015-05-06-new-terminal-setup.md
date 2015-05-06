@@ -38,6 +38,8 @@ Congrats, sublime is now set up. You can also open your `.bash_profile` and put 
 
 Next we need git autocomplete. The guide is perfect so just go [here](http://code-worrier.com/blog/autocomplete-git/) and follow the steps.
 
+<br />
+
 <!-- Git Current Branch -->
 <h4>Git Current Branch</h4>
 
