@@ -11,3 +11,23 @@ tags: [git, sublime text 2]
 <h3>Overview</h3>
 
 Getting a new computer is awesome, but you have to set up your work environment all over again. For macs, this is what I do to set up my terminal.
+
+
+<!-- Content -->
+<h3>Content</h3>
+
+1. I really like to modify files in sublime, so that's the first thing I get. I download it from [here](http://www.sublimetext.com/2)
+
+2. I have to set up the `subl` command in the terminal so that when I want to open a file or a directory, I simply run `subl filename`. 
+
+To do that, first go to the directory that holds the `Users`,`bin` and `usr` directories (just do `cd ..` until you hit it. 
+
+Now that you're there, create a symlink to sublime using the following command: `ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl`
+
+Congrats, sublime is now set up. You can also open your `.bash_profile` and put `export EDITOR='subl -w'` so that sublime becomes your default editor.
+
+3. Next we need git autocomplete. The guide is perfect so just go [here](http://code-worrier.com/blog/autocomplete-git/) and follow the steps.
+
+4. We also need to know what git branch we're on (well... I need to). An awesome guide that allows you to do that already exists. Just go [here](http://code-worrier.com/blog/git-branch-in-bash-prompt/) and follow the steps.
+
+5. After everything, I modify the PS1 to look really cool. Open your bash profile (`subl ~/.bash_profile`) and add the following line of code at the end `PS1="\e[32m\]\u:\e[33m\]\w\e[31m\]\$(__git_ps1) \e[35m\][\t]\e[37m\]\\n\$ "`. 
