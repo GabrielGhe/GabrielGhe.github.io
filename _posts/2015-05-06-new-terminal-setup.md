@@ -43,6 +43,4 @@ Next we need git autocomplete. The guide is perfect so just go [here](http://cod
 
 We also need to know what git branch we're on (well... I need to). An awesome guide that allows you to do that already exists. Just go [here](http://code-worrier.com/blog/git-branch-in-bash-prompt/) and follow the steps.
 
-After everything, I modify the PS1 to look really cool. Open your bash profile (`subl ~/.bash_profile`) and add the following line of code at the end.
-
-PS1="e[32m&#92;]&#92;u:&#92;e[33m&#92;]&#92;w&#92;e[31m&#92;]&#92;$(__git_ps1) &#92;e[35m&#92;][&#92;t]&#92;e[37m&#92;]&#92;&#92;n&#92;$ "
+After everything, I modify the PS1 to look really cool. Open your bash profile (`subl ~/.bash_profile`) and add the following [line](https://github.com/GabrielGhe/NodePractice) of code (it's at the end of the link) at the end of the `.bash_profile`.
