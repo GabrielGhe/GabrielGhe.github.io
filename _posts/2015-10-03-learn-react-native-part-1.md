@@ -2,8 +2,8 @@
 layout: post
 title: "Learn React-Native Part 1: Adding icons"
 description: ""
-category: swift
-tags: [ios, reactjs, ]
+category: javascript
+tags: [ios, react-native, react, swift, xcode]
 ---
 {% include JB/setup %}
 
@@ -35,9 +35,7 @@ Open the xcode project in `AwesomeProject/ios` folder.
 
 We download the icons npm module and link it to xcode.
 
-The guide is here to add the fonts and the guide to add a library is here.
-https://github.com/oblador/react-native-vector-icons
-http://facebook.github.io/react-native/docs/linking-libraries-ios.html#content
+You can see the [font repo here](https://github.com/oblador/react-native-vector-icons) and learn more about adding library's to react-native from [facebook's post](http://facebook.github.io/react-native/docs/linking-libraries-ios.html#content)
 
 
 <!-- Code _______________________________________-->
