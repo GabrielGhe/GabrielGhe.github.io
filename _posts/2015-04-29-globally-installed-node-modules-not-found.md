@@ -10,7 +10,7 @@ tags: [npm, nodejs, module]
 <!-- Overview -->
 <h3>Overview</h3>
 
-While trying out `React-Native`, I updated Node and installed `react-native-cli` globally. When I tried to run it, it said `command not found`. After quite a bit of digging and reinstalling node and npm, I found the solution.
+While trying out [React-Native](https://facebook.github.io/react-native/), I updated Node and installed [react-native-cli](https://www.npmjs.com/package/react-native-cli) globally. When I tried to run it, it said `command not found`. After quite a bit of digging and reinstalling node and npm, I found the solution.
 
 <!-- Content -->
 <h3>Content</h3>
