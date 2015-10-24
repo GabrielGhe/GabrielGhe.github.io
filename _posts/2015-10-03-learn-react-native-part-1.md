@@ -3,7 +3,7 @@ layout: post
 title: "Learn React-Native Part 1: Adding icons"
 description: ""
 category: javascript
-tags: [ios, react-native, react, swift, xcode]
+tags: [ios, react-native, react, swift, xcode, icons]
 ---
 {% include JB/setup %}
 
