@@ -21,7 +21,7 @@ Let's see what such a component looks like in react-native.
 
 <!-- Code _______________________________________-->
 {% highlight javascript linenos %}
-class MyComponent extends Component {
+class TwoTabComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -57,3 +57,11 @@ class MyComponent extends Component {
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+The `TwoTabComponent` will create a view with two tabs at the bottom of the screen. 
+
+When the user pressed on one of the tabs, the state changes to show the new view. Pressing the 'Home' button displays the `<Home />` control and pressing the `Settings` button displays the `<Settings />` control. Of course, both of those controls are created the same way we created TwoTabComponent (with a render function).
+
+![Images.xcassets]({{ ASSET_PATH }}images/2015-10-24-learn-react-native-part-4-state1.png)
+
+
+We initialize the state in the constructor with `this.state = { stateProperty: 'initialState' }`. To change the state, we have to call `this.setState({ stateProperty: 'newState' })`.
