@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Learn React Native Part 3: Images from XCode"
+title: "Learn React-Native Part 3: Images from XCode"
 description: ""
 category: javascript
 tags: [ios, react-native, react, swift, xcode, images]

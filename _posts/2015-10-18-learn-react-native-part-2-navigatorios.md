@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Learn React Native Part 2: NavigatorIOS"
+title: "Learn React-Native Part 2: NavigatorIOS"
 description: ""
 category: javascript
 tags: [ios, react-native, swift, xcode]
