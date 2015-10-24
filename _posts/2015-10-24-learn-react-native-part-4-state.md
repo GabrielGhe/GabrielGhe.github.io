@@ -17,7 +17,7 @@ Normally in a UIKit control, you would modify the appearance of the control or r
 
 What do we use state for? Why should you know how to use it? Well a great example is the NagivatorIOS which is based on [UINavigationController](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/). You can find out more about how to use the UINavigationController [here](https://developer.apple.com/library/prerelease/ios/referencelibrary/GettingStarted/DevelopiOSAppsSwift/Lesson8.html).
 
-Let's see what such a component looks like in react-native.
+Let's see what such a component looks like in react-native. 
 
 <!-- Code _______________________________________-->
 {% highlight javascript linenos %}
@@ -28,6 +28,32 @@ class MyComponent extends Component {
             selectedTab: 'home'
         };
     }
+
+    render() {
+        return (
+            <TabBarIOS
+              selectedTab={this.state.selectedTab}>
+                  <TabBarIOS.Item
+                    title="Home"
+                    selected={this.state.selectedTab === 'home'}
+                    onPress={() => {
+                        this.setState({ selectedTab: 'home' });
+                    }}>
+                      <Home />
+                  </TabBarIOS.Item>
+
+                  <TabBarIOS.Item
+                    title="Settings"
+                    selected={this.state.selectedTab === 'settings'}
+                    onPress={() => {
+                        this.setState({ selectedTab: 'settings' });
+                    }}>
+                      <Settings />
+                  </TabBarIOS.Item>
+            </TabBarIOS>
+        )
+    }
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
