@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn React Part 2: Render Gotchas"
-description: ""
+description: "A general rule of thumb for returning multiple elements from the `render` function is to wrap everything with a `<div>`. [Egghead Video](https://egghead.io/lessons/react-hello-world-first-component)."
 category: javascript
 tags: [reactjs]
 ---
@@ -10,7 +10,7 @@ tags: [reactjs]
 <!-- Overview -->
 <h3>Overview</h3>
 
-A general rule of thumb for returning multiple elements from the `render` function is to wrap everything with a `<div>`. [Egghead Video](https://egghead.io/lessons/react-hello-world-first-component)
+A general rule of thumb for returning multiple elements from the `render` function is to wrap everything with a `<div>`. Here's the [Egghead Video](https://egghead.io/lessons/react-hello-world-first-component) for you to follow along.
 
 <!-- Content -->
 <h3>Content</h3>

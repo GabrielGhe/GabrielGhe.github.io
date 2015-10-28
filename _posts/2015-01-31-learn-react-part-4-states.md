@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn React Part 4: States"
-description: ""
+description: "Properties are for data that is passed to components but doesn't change. If we want the component to change, we have to use states. Here's the [Egghead Video](https://egghead.io/lessons/react-state-basics) for you to follow along."
 category: javascript
 tags: [reactjs, state]
 ---
@@ -10,7 +10,7 @@ tags: [reactjs, state]
 <!-- Overview -->
 <h3>Overview</h3>
 
-Properties are for data that is passed to components but doesn't change. If we want the component to change, we have to use states. [Egghead Video](https://egghead.io/lessons/react-state-basics)
+Properties are for data that is passed to components but doesn't change. If we want the component to change, we have to use states. Here's the [Egghead Video](https://egghead.io/lessons/react-state-basics) for you to follow along.
 
 <!-- Content -->
 <h3>Content</h3>

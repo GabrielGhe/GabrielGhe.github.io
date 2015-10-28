@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sequences and Generators"
-description: ""
+description: "In swift, when we want to iterate over a sequence, we use a generator. It's not the same as a generator in python or in javascript. This post is all about how to create and use them. More information about them can be found [here](http://austinzheng.com/2015/01/24/swift-seq/?utm_source=Swift+Weekly&utm_campaign=63f62d065e-Swift_Weekly_8&utm_medium=email&utm_term=0_3c61623c17-63f62d065e-181458449)."
 category: swift
 tags: [ios, swift, generators, sequences]
 ---

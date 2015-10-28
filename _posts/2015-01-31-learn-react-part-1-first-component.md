@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn React Part 1: First Component"
-description: ""
+description: "This is part 1 of me learning ReactJS. I'm going to be following [this](https://egghead.io/lessons/react-hello-world-first-component) series while trying to master ReactJS."
 category: javascript
 tags: [reactjs, component]
 ---

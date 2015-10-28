@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn React Part 5: Refs"
-description: ""
+description: "A cool feature to be able to modify multiple things at once is `refs`. By placing a ref on html elements inside a component's render return, you can access them anywhere inside the component's methods. Here's the [Egghead Video](https://egghead.io/lessons/react-using-refs-to-access-components) for you to follow along."
 category: javascript
 tags: [reactjs, refs]
 ---
@@ -10,7 +10,7 @@ tags: [reactjs, refs]
 <!-- Overview -->
 <h3>Overview</h3>
 
-A cool feature to be able to modify multiple things at once is `refs`. By placing a ref on html elements inside a component's render return, you can access them anywhere inside the component's methods. [Egghead Video](https://egghead.io/lessons/react-using-refs-to-access-components)
+A cool feature to be able to modify multiple things at once is `refs`. By placing a ref on html elements inside a component's render return, you can access them anywhere inside the component's methods. Here's the [Egghead Video](https://egghead.io/lessons/react-using-refs-to-access-components) for you to follow along.
 
 <!-- Content -->
 <h3>Content</h3>

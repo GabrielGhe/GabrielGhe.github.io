@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn React Part 3: Properties"
-description: ""
+description: "Properties can get passed down from a component to it's children. Here's the [Egghead Video](https://egghead.io/lessons/react-introduction-to-properties) for you to follow along."
 category: javascript
 tags: [reactjs, property]
 ---
@@ -10,7 +10,7 @@ tags: [reactjs, property]
 <!-- Overview -->
 <h3>Overview</h3>
 
-Properties can get passed down from a component to it's children. [Egghead Video](https://egghead.io/lessons/react-introduction-to-properties)
+Properties can get passed down from a component to it's children. Here's the [Egghead Video](https://egghead.io/lessons/react-introduction-to-properties) for you to follow along.
 
 <!-- Content -->
 <h3>Content</h3>
