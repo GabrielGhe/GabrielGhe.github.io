@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Swift: Pass By Reference"
-description: ""
+description: "In some cases, you would like to pass a variable by reference. In Swift, we use the `inout` and the `&` keys.
+Here's an example of a generic swap."
 category: swift
 tags: [ios, inout, reference]
 ---

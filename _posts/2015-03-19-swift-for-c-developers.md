@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: for C# developers"
-description: ""
+description: "Here's a small [Swift vs C# comparison](http://swiftcomparsion.qiniudn.com/)."
 category: swift
 tags: [c#, comparison]
 ---
