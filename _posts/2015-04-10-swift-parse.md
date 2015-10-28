@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: Parse"
-description: ""
+description: "Parse is a database service for mobile owned by Facebook. This post will show you how easy it is to create a persistent cloud without writing a single line of code for the backend. You can get more information about Parse [here](http://blog.parse.com/2014/06/06/building-apps-with-parse-and-swift/)."
 category: swift
 tags: [ios, parse, facebook, persistance, database]
 ---

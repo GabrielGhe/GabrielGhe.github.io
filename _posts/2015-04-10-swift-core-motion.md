@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: Core Motion"
-description: ""
+description: "Many apple mobile devices have motion APIs. There are many APIs and they all use the `CMMotionManager` class. Usually you only have 1 instance of this class in a high level area like the AppDelegate. You can get more information about Core Motion [here](https://developer.apple.com/library/ios/documentation/CoreMotion/Reference/CMMotionManager_Class/)."
 category: swift
 tags: [ios, motion, accelerometer, gyro]
 ---
