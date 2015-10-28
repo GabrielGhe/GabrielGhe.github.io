@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Windows 8 development: navigate to a page"
-description: ""
+description: "In mobile apps, we often navigate to different pages. In this post, we will see how to do that on the windows phone. More information can be found [here](https://www.youtube.com/watch?v=kkUaC-sOJPQ)."
 category: csharp
 tags: [c#, windows, windows phone, navigation]
 ---

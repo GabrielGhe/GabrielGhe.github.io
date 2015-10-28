@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Windows 8 development: styling xaml"
-description: ""
+description: "In this post, I will be talking about how to style xaml controls. Similar to css, we can create styles that can be reused for multiple controls throughout our solution. More information can be found here [here](https://www.youtube.com/watch?v=97u6eB4X8yU&t=5860)."
 category: csharp
 tags: [c#, windows, windows phone, xaml, styling]
 ---
