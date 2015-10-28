@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: Add Shadow To UIButton"
-description: ""
+description: "Quick gist of how to add shadow to a UIButton"
 category: swift
 tags: [ios, button, shadow]
 ---

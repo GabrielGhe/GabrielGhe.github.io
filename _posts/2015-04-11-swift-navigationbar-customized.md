@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: UINavigationBar Customized"
-description: ""
+description: "The `UINavigationController` is widely used in iOS. We're going to look at how to customize one's `UINavigationBar`. You can find more information on both of these classes [here](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationBar_Class/index.html#//apple_ref/occ/cl/UINavigationBar)."
 category: swift
 tags: [ios, navigation, custom]
 ---

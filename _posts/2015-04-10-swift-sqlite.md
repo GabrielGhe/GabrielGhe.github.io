@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: SQLite"
-description: ""
+description: "When you want to persist data on a mobile device, you usually have to use its internal database. For iPhones and other Apple mobile devices, that's sqlite3. For this post, we'll look at the beautifully written `SwiftData` library found [here](https://github.com/ryanfowler/SwiftData) on github."
 category: swift
 tags: [ios, database, sqlite]
 ---
