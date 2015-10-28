@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "6.0 feature: Null Propogation"
-description: ""
+description: "C# 6.0 has some interesting new features. The feature discussed in this post is null propogation.
+Null propogation allows you to check if a property exists and if it does, execute code.
+More information can be found [here](http://www.volatileread.com/Wiki/Index?id=1075)."
 category: csharp
 tags: [c#, null propogation]
 ---

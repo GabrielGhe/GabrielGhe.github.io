@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "EcmaScript 6 feature: generators and iterators"
-description: ""
+description: "Javascript's new version (EcmaScript 6) has some amazing new features. The ones discussed in this post is iterators and generators.
+More information can be found [here](http://www.2ality.com/2013/06/iterators-generators.html)."
 category: javascript
 tags: [es6, iterator, generator, loop]
 ---

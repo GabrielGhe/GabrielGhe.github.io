@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "EcmaScript 6 feature: enhanced properties"
-description: ""
+description: "Javascript's new version (EcmaScript 6) has some amazing new features. The one discussed in this post is enhanced properties.
+More information can be found [here](http://www.2ality.com/2014/12/es6-oop.html)."
 category: javascript
 tags: [es6, property, deconstruct]
 ---

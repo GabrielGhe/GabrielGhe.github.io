@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "EcmaScript 6 feature: template strings"
-description: ""
+description: "Javascript's new version (EcmaScript 6) has some amazing new features. The one discussed in this post is template strings.
+Template strings are similar to string interpolation in swift and python. It uses backticks instead of double or single quotes.
+More information can be found [here](http://tc39wiki.calculist.org/es6/template-strings/)."
 category: javascript
 tags: [es6, string]
 ---

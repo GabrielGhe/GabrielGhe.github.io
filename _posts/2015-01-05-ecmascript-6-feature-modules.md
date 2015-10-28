@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "EcmaScript 6 feature: modules"
-description: ""
+description: "Javascript's new version (EcmaScript 6) has some amazing new features. The feature discussed in this post is the modules feature.
+Modules allow you to load functions from other js files and use them. In NodeJS, we use `modules.exports` to make a function or variable available to other files. The other files can then use `require('moduleName')` to access them.
+More information can be found [here](http://wiki.ecmascript.org/doku.php?id=harmony:modules)."
 category: javascript
 tags: [es6, module, export]
 ---
