@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "EcmaScript 6 feature: arrow"
-description: ""
 category: javascript
 tags: [es6, function]
+description: "Javascript's new version (EcmaScript 6) has some amazing new features. The one discussed in this post is the arrow symbol `=>`.
+The arrow symbol is used to create shorter functions and to fix the scoped `this`. More information can be found [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)."
 ---
 {% include JB/setup %}
 

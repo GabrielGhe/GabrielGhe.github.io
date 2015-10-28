@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn React-Native Part 4: State"
-description: ""
+description: "Normally in a UIKit control, you would modify the appearance of the control or replace the specified control with another control based on some business logic. In react-native, we display components. We can modify how the component is displayed based on it's state. Let's see how that works."
 category: javascript
 tags: [ios, react-native, react, swift, xcode, state]
 ---

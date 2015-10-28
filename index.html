@@ -11,6 +11,9 @@ layout: idx
         
         <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
       </h3>
+      <p>
+        {{ post.description | markdownify}}
+      </p>
       <!-- Date -->
       <p class="date">
         {{ post.date | date: "%A, %B %e, %Y" }}
