@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: Enums and Switch"
-description: ""
+description: "I'm sure most programmers know about [enums](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html) and [switchs](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html). The ones found in Swift are very interesting. They have some very useful features which I'll be talking about in this post."
 category: swift
 tags: [ios, tuples, conditions, control flow]
 ---

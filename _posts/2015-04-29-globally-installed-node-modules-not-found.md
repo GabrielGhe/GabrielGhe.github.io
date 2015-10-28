@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Globally Installed Node Modules Not Found"
-description: ""
+description: "While trying out [React-Native](https://facebook.github.io/react-native/), I updated Node and installed [react-native-cli](https://www.npmjs.com/package/react-native-cli) globally. When I tried to run it, it said `command not found`. After quite a bit of digging and reinstalling node and npm, I found the solution."
 category: javascript
 tags: [npm, nodejs, module]
 ---

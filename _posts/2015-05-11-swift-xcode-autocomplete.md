@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: XCode Autocomplete"
-description: ""
+description: "A small post about how to start up XCode's autocomplete"
 category: swift
 tags: [ios, xcode]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn React-Native Part 2: NavigatorIOS"
-description: ""
+description: "This is part 2 of me learning react-native. In this post, I will go over how to create a Navigation controller in react-native where it's called NavigatorIOS. If you haven't already, take a look at part 1 of this series."
 category: javascript
 tags: [ios, react-native, swift, xcode]
 ---
