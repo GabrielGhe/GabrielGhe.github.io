@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: Generics"
-description: ""
+description: "Generics are extremely useful in any programming language. This post is all about generics in swift as the title implies. You can find more information about swift generics [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179)."
 category: swift
 tags: [ios, generics]
 ---

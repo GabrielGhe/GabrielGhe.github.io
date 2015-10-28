@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: ViewController Lifecycle"
-description: ""
+description: "The lifecycle for a ViewController is as follows."
 category: swift
 tags: [ios, viewcontroller]
 ---

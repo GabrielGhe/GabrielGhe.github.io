@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: NSTimer"
-description: ""
+description: "When you want to run something every x amount of time, you use an NSTimer. It is like the `setInterval` or `setTimeout` function from Javascript. You can find more information on NSTimers [here](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSTimer_Class/)."
 category: swift
 tags: [ios, timer, setinterval]
 ---

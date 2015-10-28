@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: Closures"
-description: ""
+description: "Closures are awesome. You can do some powerful things with them, but they are dangerous sometimes. You can find more information about closures [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID94)."
 category: swift
 tags: [ios, closure, anonymous]
 ---

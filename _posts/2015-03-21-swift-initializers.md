@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: Initializers"
-description: ""
+description: "Initializers in Swift are a little different than the ones found in other classes. This post is all about the dreadful `init`. You can find more information on initialization [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html)."
 category: swift
 tags: [ios, init]
 ---

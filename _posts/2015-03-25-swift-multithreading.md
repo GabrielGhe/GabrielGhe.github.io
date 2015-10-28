@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: Multithreading"
-description: ""
+description: "Multithreading is a big part of Programming and you should know it well. You can find more information about multithreading [here](https://developer.apple.com/library/mac/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091-CH1-SW1)."
 category: swift
 tags: [ios, thread, parallel, background, concurrency]
 ---

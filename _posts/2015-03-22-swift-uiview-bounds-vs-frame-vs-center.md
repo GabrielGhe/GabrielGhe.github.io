@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: UIView Bounds vs Frame vs Center"
-description: ""
+description: "When developing for iOS, a lot of people confuse a UIView's `bounds`, `frame` and `center`. This post will illustrate their difference. The images are taken from [Stanford's cs193p class](http://web.stanford.edu/class/cs193p/cgi-bin/drupal/)."
 category: swift
 tags: [ios, bounds, center, frame, ui]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: Making a Protocol"
-description: ""
+description: "In the MVC design pattern, the model does not have access to the controller. But it has to let the controller know somehow that its data has changed. To do that it uses a `protocol`. A `protocol` is basically an `interface` in Java. Here's how you would use it in swift."
 category: swift
 tags: [ios, delegate, protocol]
 ---
