@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Algorithm: Boyer Moore Horspool"
-description: ""
+description: "Ever wonder how the `Ctrl+F` function works in browsers? It uses a string matching algorithm like `Boyer Moore Horspool`'s"
 category: gabrielghe
 tags: [algorithm, logic, substring, search, string, matching]
 ---
