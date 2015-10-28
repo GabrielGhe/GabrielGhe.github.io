@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn Node Part 7: Browserify"
-description: ""
+description: "NodeJS has the most amazing package manager, npm that allows you to install modules easily. After installing a module, you can simply require it by doing require('moduleName'). Wouldn't it be great if you could do that on the client side too? Using browserify, you can. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server14Browserify)."
 category: javascript
 tags: [nodejs, grunt, bower, browserify]
 ---
@@ -10,9 +10,7 @@ tags: [nodejs, grunt, bower, browserify]
 <!-- Overview -->
 <h3>Overview</h3>
 
-NodeJS has the most amazing package manager, npm that allows you to install modules easily. After installing a module, you can simply require it by doing require('moduleName'). Wouldn't it be great if you could do that on the client side too? Using browserify, you can.
-
-You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server14Browserify).
+NodeJS has the most amazing package manager, npm that allows you to install modules easily. After installing a module, you can simply require it by doing require('moduleName'). Wouldn't it be great if you could do that on the client side too? Using browserify, you can. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server14Browserify).
 
 <h3>Installation</h3>
 

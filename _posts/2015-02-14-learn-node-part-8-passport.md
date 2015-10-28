@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn Node Part 8: Passport"
-description: ""
+description: "If you ever wondered how people use the <b>Sign in with Google</b> way of logging in, here's how. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server15Passport)."
 category: javascript
 tags: [nodejs, passportjs]
 ---
