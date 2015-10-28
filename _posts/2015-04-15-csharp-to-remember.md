@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "C# To Remember"
-description: ""
+description: "This is a similar post to my JavaToRemember post but for C#."
 category: csharp
 tags: [string, tree, graph, sorting, bit manipulation, regex, dictionary, file, list, hashset]
 ---

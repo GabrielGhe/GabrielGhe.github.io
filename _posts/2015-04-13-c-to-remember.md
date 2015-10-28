@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "C To Remember"
-description: ""
+description: "C is used almost everywhere, enough said. This is a short overview of the language. To run a C file, you frist compile the file into an object file and then the linker links it to any other compiled file that it needs and creates an executable."
 category: c
 tags: [memory, struct, operator, pointer, array]
 ---
