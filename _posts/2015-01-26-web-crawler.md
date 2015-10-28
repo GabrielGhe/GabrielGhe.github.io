@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Web Crawler"
-description: ""
+description: "This post is about web crawling and scraping in python. The modules we will need are `requests` and `BeautifulSoup`. More information can be found [here for requests](http://docs.python-requests.org/en/latest/) and [here for BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/)."
 category: python
 tags: [python, beautifulsoup, requests, crawler, scraper]
 ---

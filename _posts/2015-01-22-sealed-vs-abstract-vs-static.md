@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sealed vs Abstract vs Static"
-description: ""
+description: "Here's a small table that shows the difference between abstract, sealed and static classes. See the example below. More info can be found [here](http://stackoverflow.com/questions/16217313/static-vs-sealed-class-difference)."
 category: csharp
 tags: [c#, sealed, abstract, static]
 ---

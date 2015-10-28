@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Generators"
-description: ""
+description: "In python, it's common to see something like `for _ in range(10)`. This says loop 10 but it also creates a list of 10 elements. If you replace the 10 with 1000000, it will create a very large list and take up all the memory for nothing. Instead, you could use a generator. A generator is like a pause and continue on a method and it improves the space complexity of your code. More information about generators can be found [here](https://wiki.python.org/moin/Generators)."
 category: python
 tags: [generator]
 ---
@@ -10,7 +10,7 @@ tags: [generator]
 <!-- Overview -->
 <h3>Overview</h3>
 
-In python, it's common to see something like `for _ in range(10)`. This says loop 10 but it also creates a list of 10 elements. If you replace the 10 with 1000000, it will create a very large list and take up all the memory for nothing. Instead, you could use a generator. A generator is like a pause and continue on a method and it improves the space complexity of your code. More information about generators can be found [here](https://wiki.python.org/moin/Generators)
+In python, it's common to see something like `for _ in range(10)`. This says loop 10 but it also creates a list of 10 elements. If you replace the 10 with 1000000, it will create a very large list and take up all the memory for nothing. Instead, you could use a generator. A generator is like a pause and continue on a method and it improves the space complexity of your code. More information about generators can be found [here](https://wiki.python.org/moin/Generators).
 
 A generator comprehension is the lazy version of a list comprehension.
 It is just like a list comprehension except that it returns an iterator instead of the list ie an object with a next() method that will yield the next element.

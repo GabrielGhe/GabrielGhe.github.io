@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Reflection"
-description: ""
+description: "Reflection is the ability to make modifications at runtime by making use of introspection. Type Introspection is the ability to inspect the code in the system and see object types. C#'s reflectin is beautiful. See the example below. More info can be found [here](https://msdn.microsoft.com/en-us/library/ms173183.aspx)."
 category: csharp
 tags: [c#, reflection]
 ---

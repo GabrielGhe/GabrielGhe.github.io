@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Task Parallel Library"
-description: ""
+description: "Parallel programming is very important to know and C# does it so well. This post is all about the `System.Threading` namespace. More information can be found [here](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task%28v=vs.110%29.aspx)."
 category: csharp 
 tags: [c#, parallel, task, threading, concurrency]
 ---
