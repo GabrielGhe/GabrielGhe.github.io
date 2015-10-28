@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn Node Part 4: Angular Minification"
-description: ""
+description: "Angularjs is a great framework. The problem is that minification is a bit more complicated because of angular's dependency injection. This project shows how you can minify an angular app. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server11AngularMin)."
 category: javascript
 tags: [nodejs, angularjs, minification]
 ---
@@ -10,9 +10,7 @@ tags: [nodejs, angularjs, minification]
 <!-- Overview -->
 <h3>Overview</h3>
 
-Angularjs is a great framework. The problem is that minification is a bit more complicated because of angular's dependency injection. This project shows how you can minify an angular app.
-
-You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server11AngularMin).
+Angularjs is a great framework. The problem is that minification is a bit more complicated because of angular's dependency injection. This project shows how you can minify an angular app. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server11AngularMin).
 
 <h4>Installation</h4>
 

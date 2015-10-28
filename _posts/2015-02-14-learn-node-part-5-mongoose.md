@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn Node Part 5: Mongoose"
-description: ""
+description: "One of the most popular NoSQL databases is MongoDB. It's great to use with node for any project and npm has a great module called mongoose to make things even easier. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server12Mongoose)."
 category: javascript
 tags: [nodejs, mongodb, mongoose]
 ---
@@ -10,9 +10,7 @@ tags: [nodejs, mongodb, mongoose]
 <!-- Overview -->
 <h3>Overview</h3>
 
-One of the most popular NoSQL databases is MongoDB. It's great to use with node for any project and npm has a great module called mongoose to make things even easier.
-
-You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server12Mongoose).
+One of the most popular NoSQL databases is MongoDB. It's great to use with node for any project and npm has a great module called mongoose to make things even easier. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server12Mongoose).
 
 <h3>Installation</h3>
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn Node Part 3: Grunt"
-description: ""
+description: "[Grunt](http://gruntjs.com) is amazing! It automates tasks for you in the most amazing way. It allows you to run tests, minify css/js files, combine js files and much much more."
 category: javascript
 tags: [nodejs, npm, grunt]
 ---

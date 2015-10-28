@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn Node Part 6: Mocha Testing"
-description: ""
+description: "On the client side, you have Karma for unit testing. On the server side, there's Mocha. This example project will demonstrate how to use mocha efficiently. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server13MochaTesting)."
 category: javascript
 tags: [nodejs, mochajs, chai, supertest, grunt]
 ---
@@ -10,9 +10,7 @@ tags: [nodejs, mochajs, chai, supertest, grunt]
 <!-- Overview -->
 <h3>Overview</h3>
 
-On the client side, you have Karma for unit testing. On the server side, there's Mocha. This example project will demonstrate how to use mocha efficiently.
-
-You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server13MochaTesting).
+On the client side, you have Karma for unit testing. On the server side, there's Mocha. This example project will demonstrate how to use mocha efficiently. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server13MochaTesting).
 
 <h3>Installation</h3>
 

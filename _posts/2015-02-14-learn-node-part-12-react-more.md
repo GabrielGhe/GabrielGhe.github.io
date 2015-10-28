@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn Node Part 12: React More"
-description: ""
+description: "If you haven't already, look at how to initialize React [here](/javascript/2015/02/14/learn-node-part-11-basic-react/). You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server19ReactMore)."
 category: javascript
 tags: [nodejs, expressjs, react, components]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn Node Part 2: Less"
-description: ""
+description: "Css is awesome, but it has a lot of limitations. For example, lets say that you have 1 color that you place everywhere (brand color). If you wanted to change this color, you would either go through each css file looking for it with control+f/cmd+f or you would do a find and replace. That's very inefficient. Less allows you to code css like a programming language. How does it work?"
 category: javascript
 tags: [nodejs, less, npm, express]
 ---
