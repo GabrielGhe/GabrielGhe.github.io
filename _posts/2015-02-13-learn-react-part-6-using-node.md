@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn React Part 6: using Node"
-description: ""
+description: "This is the old way of using Browserify with React and Node. To see the new version, look at [Using React with Grunt and Browserify](/javascript/2015/03/02/using-react-with-grunt-and-browserify/)."
 category: javascript
 tags: [react, nodejs, browserify, reactify, watchify, less, express]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn Node Part 10: AngularJS"
-description: ""
+description: "AngularJS is amazing but I realized that I don't actually have a guide on how to use it from scratch... So here we go. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server17Angular)."
 category: javascript
 tags: [nodejs, angularjs, bower]
 ---
@@ -10,8 +10,7 @@ tags: [nodejs, angularjs, bower]
 <!-- Overview -->
 <h3>Overview</h3>
 
-AngularJS is amazing but I realized that I don't actually have a guide on how to use it from scratch... So here we go.
-You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server17Angular)
+AngularJS is amazing but I realized that I don't actually have a guide on how to use it from scratch... So here we go. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server17Angular).
 
 
 <h3>Installation</h3>

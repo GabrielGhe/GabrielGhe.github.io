@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Express 3 vs Express 4"
-description: ""
+description: "This post is all about the differences between Express v3 and v4. You can find more information [here](http://expressjs.com/guide/migrating-4.html)."
 category: javascript
 tags: [expressjs, nodejs, web]
 ---
@@ -10,7 +10,7 @@ tags: [expressjs, nodejs, web]
 <!-- Overview -->
 <h3>Overview</h3>
 
-This post is all about the differences between Express v3 and v4. You can find more information [here](http://expressjs.com/guide/migrating-4.html)
+This post is all about the differences between Express v3 and v4. You can find more information [here](http://expressjs.com/guide/migrating-4.html).
 
 
 

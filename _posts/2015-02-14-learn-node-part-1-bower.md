@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Learn Node Part 1: Bower"
-description: ""
+description: "NodeJS has the amazing npm, which is one of my favorite package managers. It handles all your modules
+neatly inside the package.json file. This is great for the server side, but what about the client side? That's where bower comes in handy."
 category: javascript 
 tags: [nodejs, bowerjs, npm]
 ---

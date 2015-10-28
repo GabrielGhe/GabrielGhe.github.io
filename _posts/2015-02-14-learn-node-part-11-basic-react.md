@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn Node Part 11: Basic React"
-description: ""
+description: "I've heard some nice things about Facebook's ReactJS Framework. So here's how to setup React with Node. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server18React).g"
 category: javascript
 tags: [nodejs, express, react, bower]
 ---
@@ -10,7 +10,7 @@ tags: [nodejs, express, react, bower]
 <!-- Overview -->
 <h3>Overview</h3>
 
-I've heard some nice things about Facebook's ReactJS Framework. So here's how to setup React with Node. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server18React)
+I've heard some nice things about Facebook's ReactJS Framework. So here's how to setup React with Node. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server18React).
 
 <!-- Code _______________________________________-->
 {% highlight bash linenos %}
