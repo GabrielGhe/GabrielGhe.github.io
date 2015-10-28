@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Regular Expressions"
-description: ""
+description: "In this post, I will be talking about python's regular expression module called `re`. I'll mainly give examples. More information can be found here [here](https://developers.google.com/edu/python/regular-expressions)."
 category: python
 tags: [python, regex]
 ---

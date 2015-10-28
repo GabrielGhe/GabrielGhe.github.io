@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python: File Input and Output"
-description: ""
+description: "This post is about file io in python. More information can be found [here](https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files)."
 category: python
 tags: [io, file]
 ---

@@ -1,11 +1,16 @@
 ---
 layout: post
 title: "Python Generating primes"
-description: ""
+description: "This is a cool little way to generate primes in python using [the sieve of eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)."
 category: python
 tags: [primes]
 ---
 {% include JB/setup %}
+
+<!-- Overview -->
+<h3>Overview</h3>
+
+This is a cool little way to generate primes in python using the [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
 
 Code without comments
 
