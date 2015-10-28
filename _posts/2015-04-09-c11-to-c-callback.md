@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "C++11 to C# Callback"
-description: ""
+description: "Sometimes you need/have to use C++ together with C#. Normally you would create a class in C++ and export it as a dll which you would use in C#.
+Other times you would want to execute some C# code when something happens in C++. This post will go step by step showing you how to pass in a C# callback to C++ to be executed.
+You can get more information about how to accomplish this task [here](http://www.codeproject.com/Tips/318140/How-to-make-a-callback-to-Csharp-from-C-Cplusplus)."
 category: cplusplus
 tags: [csharp, cpp11, callback, export]
 ---
