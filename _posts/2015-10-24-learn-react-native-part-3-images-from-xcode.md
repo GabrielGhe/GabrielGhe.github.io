@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn React-Native Part 3: Images from XCode"
-description: ""
+description: "This is part 3 of me learning react-native. I'm going to go over how to use images that you have set in XCode in the `Images.xcassets` file."
 category: javascript
 tags: [ios, react-native, react, swift, xcode, images]
 ---
