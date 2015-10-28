@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "UITableView and UISearchBar"
-description: ""
+description: "While working on an iOS app, I needed to have a TableView that was searchable. After looking it up, I found out that
+I could use a Table View and add a Search Bar and Search Display."
 category: swift
 tags: ["ios", "ui"]
 ---

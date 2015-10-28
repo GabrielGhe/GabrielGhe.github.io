@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn React-Native Part 1: Adding icons"
-description: ""
+description: "This is part 1 of me learning react-native. These are the steps necessary to build an iOS react-native app."
 category: javascript
 tags: [ios, react-native, react, swift, xcode, icons]
 ---
