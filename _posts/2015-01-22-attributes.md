@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Attributes"
-description: ""
+description: "Attributes can be used to add more information about a particular class in C#. This is an example (and code) of where you would use one. More info can be found [here](https://msdn.microsoft.com/en-us/library/aa288059.aspx)."
 category: csharp
 tags: [c#, attributes]
 ---
