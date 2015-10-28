@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: UIView Animation 2"
-description: ""
+description: "This is part 2 of the animations post. In this post, we will look at how to add special animations to views. Like when you slide from the bottom of an iPhone and the menu appears with a small bounce."
 category: swift
 tags: [ios, animation, uiview]
 ---

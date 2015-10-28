@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: UIView Animation"
-description: ""
+description: "Animations and transitions are extremely important in iOS development. That's why you have to know them (I feel like I say that a lot...)! You can find more information about animations [here](http://www.raywenderlich.com/76200/basic-uiview-animation-swift-tutorial)."
 category: swift
 tags: [ios, animation, uiview]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift: UITableView"
-description: ""
+description: "TableViews are used everywhere in iOS dev which is why you have to know it. You can find more information about UITableViews [here](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableView_Class/)."
 category: swift
 tags: [ios, table]
 ---
