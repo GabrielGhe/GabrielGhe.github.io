@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn React Part 7: using Node and Socket.io"
-description: ""
+description: "This is Part 2 of my using Node and React series. We're going to continue where we left off in [Part 1](/javascript/2015/02/13/learn-react-part-6-using-node/)."
 category: javascript
 tags: [react, nodejs, browserify, reactify, watchify, less, express, socketio]
 ---

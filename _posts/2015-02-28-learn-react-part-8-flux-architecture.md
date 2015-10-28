@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Learn React Part 8: Flux Architecture"
-description: ""
+description: "Flux is a type of web application architecture that plays nicely with React's unidirectional data flow. You can find all the information from this post and a lot more in the [Full Stack Flux](https://www.youtube.com/watch?v=KtmjkCuV-EU) video and the [HTMLDevConf React Flux](https://www.youtube.com/watch?v=Bic_sFiaNDI) video. The images are from both those videos, the creators own all the rights to them."
 category: javascript
 tags: [reactjs, flux]
 ---

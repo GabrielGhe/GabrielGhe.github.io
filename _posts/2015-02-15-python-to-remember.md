@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python To Remember"
-description: ""
+description: "Everything you need to know about python in 5 minutes"
 category: python
 tags: [string, array, dictionary, set, hash]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Continuous Development in Node.js"
-description: ""
+description: "This post is all about continuous development using NodeJS and Express 4. I'm going to be basing this post off of [this blog post](http://ponyfoo.com/articles/continuous-development-in-nodejs)."
 category: javascript
 tags: [nodejs, watch, livereload, express]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "JavaScript to Remember"
-description: ""
+description: "Everything you need to know about javascript in 5 minutes"
 category: javascript
 tags: [callbacks, promises, context]
 ---
