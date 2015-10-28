@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Move to another ViewController Programmatically"
-description: ""
+description: "So you have a ViewController in your storyboard and you want to be able to display it from code but don't know how. The answer is the `presentViewController` function."
 category: swift
 tags: ["ios", "ui", "viewcontroller", "animation"]
 ---

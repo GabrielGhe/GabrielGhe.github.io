@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "UIView Transitions"
-description: ""
+description: "In this post, I'll show you how to transition between 2 UIViews on tap in swift."
 category: swift
 tags: [ios, ui, transition]
 ---
@@ -10,7 +10,7 @@ tags: [ios, ui, transition]
 <!-- Overview -->
 <h3>Overview</h3>
 
-In this post, I'll show you how to transition between 2 views on click. 
+In this post, I'll show you how to transition between 2 UIViews on tap in swift.
 
 {% highlight swift linenos %}
 // ### in viewDidLoad ###

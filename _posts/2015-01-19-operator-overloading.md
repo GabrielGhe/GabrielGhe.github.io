@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Operator overloading"
-description: ""
+description: "This is how you overload an operator. More info can be found [here](http://msdn.microsoft.com/en-us/library/aa288467(v=vs.71).aspx).g"
 category: csharp
 tags: [c#, csharp, operator]
 ---
