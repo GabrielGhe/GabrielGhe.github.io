@@ -41,6 +41,6 @@ $(function() {
     };
   });
   
-  React.render(<SearchBar lunr={idx} posts={data} />, document.getElementById('searchbar'));
-  React.render(<RandomPostList posts={random_posts} />, document.getElementById('random_posts'));
+  React.render(React.createElement(SearchBar, { lunr: idx, posts: data }), document.getElementById('searchbar'));
+  React.render(React.createElement(RandomPostList, { posts: random_posts }), document.getElementById('random_posts'));
 });
