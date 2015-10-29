@@ -35,3 +35,12 @@ img {
 pre code {
     color:white !important;
 }
+
+.navbar {
+    position:fixed !important;
+    z-index:3;
+}
+
+.container {
+    padding-top:70px;
+}
