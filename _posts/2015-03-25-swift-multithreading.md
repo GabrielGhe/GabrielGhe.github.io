@@ -17,7 +17,7 @@ Multithreading is a big part of Programming and you should know it well. You can
 
 Multithreading in iOS is done with "queues". Functions and closures are placed in a queue and then pulled off the queue to execute on an associated thread.
 
-There is a special queue called the `main queue`. All UI interections MUST happen on this queue only. You should put all non-UI activity that is time consuming a queue other than the `main queue` so that you have a responsive UI (should also consider an ActivityIndicator/spinning wheel thingy).
+There is a special queue called the `main queue`. All UI interections MUST happen on this queue only. You should put all non-UI activity that is time consuming on a queue other than the `main queue` so that you have a responsive UI (should also consider an ActivityIndicator/spinning wheel thingy).
 
 There are 2 ways to do multithreading.
 
@@ -68,7 +68,7 @@ let queue = dispatch_get_global_queue(qos, 0)
 
 <h4>Javascript's setTimeout</h4>
 
-You can also do a `setTimeout` from javascript. I really recommend creating a helped method for this one because it looks horrible.
+You can also do a `setTimeout` from javascript. As in, you can dispatch a function call after a certain interval. I really recommend creating a helped method for this one because it doesn't look very nice.
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos %}
