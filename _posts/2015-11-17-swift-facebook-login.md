@@ -31,8 +31,6 @@ Add the Facebook SDK to your Xcode Project like [this](https://developers.facebo
 ![Drop]({{ ASSET_PATH }}images/2015-11-17-swift-facebook-login1.gif)
 
 
-
-
 <br /><br /><br />
 <!-- Step 3 -->
 <h4>Step 3</h4>
