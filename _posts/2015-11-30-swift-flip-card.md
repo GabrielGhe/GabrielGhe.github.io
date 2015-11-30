@@ -122,7 +122,7 @@ func tapped() {
     
     UIView.transitionFromView(showingSide, 
             toView: hiddenSide,
-            duration: 0.5,
+            duration: 0.7,
             options: UIViewAnimationOptions.TransitionFlipFromRight,
             completion: nil)
     
@@ -153,7 +153,7 @@ class ViewController: UIViewController {
         let height = self.view.frame.height * 0.8
         let rect = CGRectMake(0, 0, width, height)
         
-        let singleTap = UITapGestureRecognizer(target: self, action: Selector("tapped"))
+        let singleTap = UITapGestureRecognizer(target: self, action: "tapped")
         singleTap.numberOfTapsRequired = 1
         
         front = UIImageView(frame: rect)
@@ -178,7 +178,7 @@ class ViewController: UIViewController {
         
         UIView.transitionFromView(showingSide, 
                 toView: hiddenSide, 
-                duration: 1,
+                duration: 0.7,
                 options: UIViewAnimationOptions.TransitionFlipFromRight,
                 completion: nil)
         
