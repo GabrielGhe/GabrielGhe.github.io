@@ -67,6 +67,20 @@ class ViewController: UIViewController {
         cardView.center = view.center
     }
 }
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+![Just a card]({{ ASSET_PATH }}images/2015-11-30-swift-flip-card1.png)
+
+
+
+<!-- Step 3 -->
+<h4>Step 3</h4>
+
+We are displaying a card, but we need to flip it.
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos %}
 
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
