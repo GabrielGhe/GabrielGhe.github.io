@@ -172,7 +172,11 @@ class ViewController: UIViewController {
             (showingSide, hiddenSide) = (back, front)
         }
         
-        UIView.transitionFromView(showingSide, toView: hiddenSide, duration: 1, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+        UIView.transitionFromView(showingSide, 
+                toView: hiddenSide, 
+                duration: 1,
+                options: UIViewAnimationOptions.TransitionFlipFromRight,
+                completion: nil)
         
         showingBack = !showingBack
     }
