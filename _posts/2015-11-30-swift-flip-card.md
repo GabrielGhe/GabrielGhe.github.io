@@ -120,7 +120,11 @@ func tapped() {
         (showingSide, hiddenSide) = (back, front)
     }
     
-    UIView.transitionFromView(showingSide, toView: hiddenSide, duration: 0.5, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+    UIView.transitionFromView(showingSide, 
+            toView: hiddenSide,
+            duration: 0.5,
+            options: UIViewAnimationOptions.TransitionFlipFromRight,
+            completion: nil)
     
     showingBack = !showingBack
 }
