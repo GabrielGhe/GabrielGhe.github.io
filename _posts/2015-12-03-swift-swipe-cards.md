@@ -65,7 +65,7 @@ Let's start off simple.
 <!-- Step 1 -->
 <h4>Step 1</h4>
 
-We add a `UIPanGestureRecognizer`.
+We add a `UIPanGestureRecognizer` on line 9 and 10. The method `panGestureRecognized` on line 21 will handle what happens when the user tries to swipe.
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos=table %}
