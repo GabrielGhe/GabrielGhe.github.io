@@ -47,5 +47,62 @@ pre code {
 }
 
 .hll {
-    background-color: black;
+    background-color: teal;
+}
+
+
+
+table.highlighttable {
+  overflow-x:auto;
+  display:block;
+  margin-bottom:20px;
+  border-collapse: collapse;
+}
+
+table.highlighttable td.code {
+  width:100%;
+}
+
+pre {
+  border: none;
+}
+
+.linenodiv pre code {
+    color:black !important;
+}
+
+pre code {
+    color:white;
+    white-space: pre;
+    word-wrap: initial;
+}
+
+p > code {
+  display: inline-block;
+  background: #f8f8f8;
+  line-height: 1.42em;
+  color: black;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 0.4em;
+  -moz-border-radius: 0.4em;
+  -ms-border-radius: 0.4em;
+  -o-border-radius: 0.4em;
+  border-radius: 3px;
+  padding: 0 3px;
+  margin: 0px 1px 0px 1px;
+}
+
+.highlighttable pre {
+  margin:0px;
+  border: none;
+}
+
+.highlighttable .linenos pre {
+  color: #4a4a40;
+  background: #e7e7e1;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.highlighttable .code pre {
+  border-radius: 0px 10px 10px 0px;
 }

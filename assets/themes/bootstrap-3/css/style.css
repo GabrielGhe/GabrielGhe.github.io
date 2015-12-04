@@ -128,18 +128,8 @@ a.label {
   margin-bottom:30px;
 }
 
-.post-full table,
-.post-full td,
-.post-full th {
-  padding-right:15px;
-}
-
 .post-full tr:nth-child(even) {
   background-color: #eee;
-}
-
-.highlight {
-  margin:0px 0px 40px 0px;
 }
 
 .random-enter {

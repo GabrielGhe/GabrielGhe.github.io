@@ -28,7 +28,7 @@ There are 3 components that people seem to be using.
 Let's start off simple.
 
 <!-- Code _______________________________________-->
- {% highlight swift linenos%}
+ {% highlight swift linenos=table %}
  class ViewController: UIViewController {
 
     var cardView:UIView!
@@ -68,7 +68,7 @@ Let's start off simple.
 We add a `UIPanGestureRecognizer`.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos hl_lines="9 10"%}
+{% highlight swift linenos=table hl_lines="9 10"%}
 class ViewController: UIViewController {
 
     var cardView:UIView!
@@ -124,7 +124,7 @@ The function `updateCardViewWithDistances` will update the rotation based on how
 It will also scale the view down for added effect.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table %}
 func updateCardViewWithDistances(xDistance:CGFloat, _ yDistance:CGFloat) {
     let rotationStrength = min(xDistance / 320, 1)
     let fullCircle = (CGFloat)(2*M_PI)
@@ -152,7 +152,7 @@ func updateCardViewWithDistances(xDistance:CGFloat, _ yDistance:CGFloat) {
 The function `resetViewPositionAndTransformations` will reset the center and transform back to normal.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table %}
 func resetViewPositionAndTransformations() {
     UIView.animateWithDuration(0.2, animations: {
         self.cardView.center = self.originalPoint;
@@ -169,7 +169,7 @@ func resetViewPositionAndTransformations() {
  ![Swipe]({{ ASSET_PATH }}images/2015-12-03-swift-swipe-cards.gif)
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table %}
 class ViewController: UIViewController {
 
     var cardView:UIView!
