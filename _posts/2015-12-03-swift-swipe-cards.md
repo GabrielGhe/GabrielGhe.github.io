@@ -65,7 +65,7 @@ Let's start off simple.
 <!-- Step 1 -->
 <h4>Step 1</h4>
 
-We add a `UIPanGestureRecognizer`.
+We add a `UIPanGestureRecognizer` which you can see by the highlighted code.
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos=table hl_lines="9 10"%}
