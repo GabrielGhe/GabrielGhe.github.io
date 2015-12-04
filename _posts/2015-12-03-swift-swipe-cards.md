@@ -28,7 +28,7 @@ There are 3 components that people seem to be using.
 Let's start off simple.
 
 <!-- Code _______________________________________-->
- {% highlight swift linenos hl_lines="1 2 3"%}
+ {% highlight swift linenos%}
  class ViewController: UIViewController {
 
     var cardView:UIView!
@@ -68,7 +68,7 @@ Let's start off simple.
 We add a `UIPanGestureRecognizer`.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos hl_lines="9 10"%}
 class ViewController: UIViewController {
 
     var cardView:UIView!
