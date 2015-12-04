@@ -28,7 +28,7 @@ There are 3 components that people seem to be using.
 Let's start off simple.
 
 <!-- Code _______________________________________-->
- {% highlight swift linenos %}
+ {% highlight swift linenos hl_lines="1 2 3"%}
  class ViewController: UIViewController {
 
     var cardView:UIView!
