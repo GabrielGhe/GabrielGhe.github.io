@@ -22,7 +22,7 @@ There is a special queue called the `main queue`. All UI interections MUST happe
 There are 2 ways to do multithreading.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 let queue = NSOperationQueue()
 queue.addOperationWithBlock {
     // do something in the background
@@ -37,7 +37,7 @@ queue.addOperationWithBlock {
 
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 dispatch_async(queue) {
     // do something in the background
@@ -59,7 +59,7 @@ When using the second option, you can use different priorities.
 4. `QOS_CLASS_BACKGROUND`: user not concerned with this
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 let qos = Int(QOS_CLASS_USER_INTERACTIVE.value)
 let queue = dispatch_get_global_queue(qos, 0)
 {% endhighlight %}
@@ -71,7 +71,7 @@ let queue = dispatch_get_global_queue(qos, 0)
 You can also do a `setTimeout` from javascript. As in, you can dispatch a function call after a certain interval. I really recommend creating a helped method for this one because it doesn't look very nice.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 let delayInSeconds = 25.0
 let delay = Int64(delayInSeconds * Double(NSEC_PER_MSEC))
 let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, delay)
@@ -85,7 +85,7 @@ dispatch_after(dispatchTime, dispatch_get_main_queue()) {
 <h4>Synchronization</h4>
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func synchronized(lock: AnyObject, closure: () -> ()) {
     objc_sync_enter(lock)
     closure()

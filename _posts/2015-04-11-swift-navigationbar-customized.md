@@ -17,7 +17,7 @@ The `UINavigationController` is widely used in iOS. We're going to look at how t
 <h3>Content</h3>
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
 

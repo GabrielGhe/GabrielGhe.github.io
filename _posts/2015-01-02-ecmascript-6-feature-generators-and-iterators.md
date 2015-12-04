@@ -24,7 +24,7 @@ More information can be found [here](http://www.2ality.com/2013/06/iterators-gen
 Iterators allow you to go through every element inside an abstract data type the same way without having to know how it's been implemented. Java has the Iterable interface which forces you to implement the `next()` and `hasNext()` methods. ES6 has only 1
 method, `next()` that has 2 return values.
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // Not at the end
 return { done:false, value:"returnValue" };
 
@@ -34,7 +34,7 @@ return { done:true, value:"optionalEndValue" };
 
 To iterate over an object, you need the `next()` method and you need your object to be iterable. To make your object iterable you do the following.
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 class MyObject {
   ...
   [Symbol.iterator](){
@@ -47,7 +47,7 @@ class MyObject {
 
 Now that you have the iterator, you want to iterate over its elements. To do this, we use es6's new `for ... of` loop.
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 for (let value of iterable) {
   console.log(value);
 }
@@ -65,7 +65,7 @@ for (let [index, value] of someArray.entries() ) {
 Generators are functions that allow you to pause and resume. They use the `yield` key instead of the `return` key.
 When the generator is called the first time, it runs until it hits the first `yield` and then stops. When called again, it will run until the next `yield`. It will continue this way until it finishes. Generators in python work the same way. That's because ES6 got them from Python.
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 function* generatorFib(){
   prev = 0;
   curr = 1;
@@ -96,7 +96,7 @@ fibs.next(); // { done:true }
 
 We can also iterate through a generator
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 for (let fib of fibs) {
   console.log(fib);
 }

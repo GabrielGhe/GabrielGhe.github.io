@@ -16,7 +16,7 @@ The spread operator `[0, ...a, 5, 6]` where `a = [1, 2, 3, 4]` allows you to spr
 <h3>Examples</h3>
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 function aFunction(x, y, z) {
     console.log(`${x} ${y} ${z}`); // "0 1 2"
 }
@@ -28,7 +28,7 @@ aFunction(...args);
 
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 var arr1 = [0, 1, 2];
 var arr2 = [3, 4, 5];
 arr1.push(...arr2); // [0, 1, 2, 3, 4, 5]

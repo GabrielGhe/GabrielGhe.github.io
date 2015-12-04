@@ -22,7 +22,7 @@ You can get more information about how to accomplish this task [here](http://www
 In C#, declare a delegate which takes in 2 ints and returns nothing. Here we're declaring the callback signature.
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 [UnmanagedFunctionPointer(CallingConvention.StdCall)]
 delegate void YourCallback(int, int);
 {% endhighlight %}
@@ -31,7 +31,7 @@ delegate void YourCallback(int, int);
 In your C++ code, also define the same signature for the callback.
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 // YourCallback is now a function that takes in 2 ints and returns void
 typedef void (__stdcall * YourCallback)(int, int);
 {% endhighlight %}
@@ -40,7 +40,7 @@ typedef void (__stdcall * YourCallback)(int, int);
 We're going to make a function in C++ which takes in our C# callback and executes it.
 
 <!-- Code _______________________________________-->
-{% highlight cpp linenos %}
+{% highlight cpp linenos=table  %}
 // this says that it will be exported
 #define DLL __declspec(dllexport)
 DLL void TakesInCallbackAndDoesStuff(YourCallback yourCallback) {
@@ -61,7 +61,7 @@ extern "C" __declspec(dllexport) void __stdcall TakesInCallbackAndDoesStuff(Your
 Now that we have the function in C++ that will do stuff and execute our callback when it's done, we have to make a callback in C#.
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 YourCallback callback =
     (intParam1, intParam2) =>
     {
@@ -73,7 +73,7 @@ YourCallback callback =
 All that's left is to send our callback to the C++ function from our C# code.
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 TakesInCallbackAndDoesStuff(callback);
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->

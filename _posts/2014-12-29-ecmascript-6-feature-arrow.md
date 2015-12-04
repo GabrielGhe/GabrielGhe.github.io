@@ -20,7 +20,7 @@ The arrow symbol is used to create shorter functions and to fix the scoped `this
 <!-- Shorter functions -->
 The arrow symbol can help shorten functions.
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 var dogs = [
   "Jake",
   "Daisy",
@@ -37,7 +37,7 @@ var length2 = dogs.map( s => s.length );
 <!-- Scoped this -->
 It can also help with the scoped `this` variable.
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // Before 1
 function Dog1(){
   var that = this; // We have to cache 'this'
@@ -67,7 +67,7 @@ function Dog3(){
 <!-- Examples -->
 <h3>Examples</h3>
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 var biggestNum = (a, b) => (a > b)? a : b;
 biggestNum(4, 5);   // 5
 biggestNum(10, 2);  // 10

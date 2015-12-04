@@ -22,7 +22,7 @@ We're going to set up a React server using browserify, EJS, Express and Less.
 <h4>Install</h4>
 
 <!-- Code -->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### in terminal ###
 npm install -g express@3.4.8
 express -e -c less
@@ -35,7 +35,7 @@ On `line 2`, we set the express version to 3.4.8. This is because the express ge
 Next, we're going to install all our fun modules.
 
 <!-- Code -->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### in terminal ###
 npm install --save browserify reactify socket.io uglify-js
 {% endhighlight %}
@@ -44,7 +44,7 @@ npm install --save browserify reactify socket.io uglify-js
 You can find out more about each module or try to look it up on this site. This is what your `package.json` should look like.
 
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 {
   "name": "application-name",
   "version": "0.0.1",
@@ -93,7 +93,7 @@ You can find out more about each module or try to look it up on this site. This 
 Now that we have everything we need, we have to set up react. Lets set up `./views/index.ejs`.
 
 <!-- Code -->
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -114,7 +114,7 @@ Next we have to setup `./client.js` that will be transformed into `build.min.js`
 
 
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 /** @jsx React.DOM */
 
 var React = require('react');
@@ -126,7 +126,7 @@ React.render(<MyApp />, document.getElementById('my-app'));
 We're still missing our `MyApp` component. Let's build it.
 
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 /** @jsx React.DOM */
 
 var React = require('react');

@@ -18,7 +18,7 @@ In the MVC design pattern, the model does not have access to the controller. But
 **Protocol**
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 // can only be implemented by a class
 protocol FaceViewDataSource: class {
     func smilinessForFaceView(sender: FaceView) -> Double
@@ -29,7 +29,7 @@ protocol FaceViewDataSource: class {
 **View**
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class FaceView: UIView {
     ...
 
@@ -48,7 +48,7 @@ class FaceView: UIView {
 **Controller/Model**
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class HappinessController: UIViewController, FaceViewDataSource {
     // outlet to the UIView inside the controller
     @IBOutlet weak var faceView: FaceView! {

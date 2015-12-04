@@ -24,7 +24,7 @@ Second, we have to change the update function. Notice that we say `this.refs.*.g
 
 Third, we have to change the input to type range and we have to add `ref="red"` (or another string) to each input.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <script type="text/jsx">
     /*** @jsx React.DOM */
     var App = React.createClass({
@@ -67,7 +67,7 @@ Third, we have to change the input to type range and we have to add `ref="red"` 
 
 Next, we should move the input into its own component. On `line 36`, we move the input into a component called `Slider`. We give it a ref of `range`. On `line 12 - 15`, we access each component's `refs.range` to get the value.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <script type="text/jsx">
     /*** @jsx React.DOM */
     var App = React.createClass({

@@ -18,7 +18,7 @@ Being able to add images is essential to any app. This post will show how to add
 <h3>Content</h3>
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 // after adding the image to Assets.xcassets
 var image = UIImage(named: "pig")
 var imageView = UIImageView(image: image)

@@ -14,7 +14,7 @@ This is Part 2 of my using Node and React series. We're going to continue where 
 
 
 <!-- Code -->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 .
 ├── app.js
 ├── client.js
@@ -45,7 +45,7 @@ This is Part 2 of my using Node and React series. We're going to continue where 
 The first thing we need to do is add the `socket.io` library in our client.
 
 <!-- Code -->
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <!-- in ./views/index.ejs -->
 <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
 {% endhighlight %}
@@ -54,7 +54,7 @@ The first thing we need to do is add the `socket.io` library in our client.
 Now on the server side we're going to setup `socket.io`.
 
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 /* in ./app.js */
 
 // at the end of the file
@@ -68,7 +68,7 @@ Now we have to write how socket.io handles messages.
 
 
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 /* in ./routes/socketHandler.js */
 "use strict";
 
@@ -111,7 +111,7 @@ We have to add 2 methods:
 `getInitialState` - as the name implies, it returns the initial state
 
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 /** @jsx React.DOM */
 
 var React = require('react');
@@ -146,7 +146,7 @@ module.exports = MyApp = React.createClass({
 </h4>
 
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 /** @jsx React.DOM */
 
 var React = require('react');
@@ -173,7 +173,7 @@ module.exports = MyAppList = React.createClass({
 </h4>
 
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 /** @jsx React.DOM */
 
 var React = require('react');

@@ -15,7 +15,7 @@ Attributes can be used to add more information about a particular class in C#. T
 <!-- Assigning -->
 <h3>Assigning</h3>
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 // Lets create an attribute that only works on classes that are used for databases
 [System.AttributeUsage(System.AttributeTargets.Class)]
 public class DatabaseAttribute : Attribute {
@@ -43,7 +43,7 @@ public class MongoDB {
 <!-- Retrieving -->
 <h3>Retrieving</h3>
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 // Given the code above
 
 public class GetAttributeClass {
@@ -68,7 +68,7 @@ public class GetAttributeClass {
 <!-- Cool Applications of Attributes -->
 <h3>Cool Applications of Attributes</h3>
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public class NoAttribute {
   
 }

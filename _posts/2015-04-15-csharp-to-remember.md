@@ -42,7 +42,7 @@ This is a similar post to my JavaToRemember post but for C#.
 <h3><a name="string"></a><a href="">1. String</a></h3>
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 "Hello".ToCharArray()             // ['H', 'e', 'l', 'l', 'o']
 lst.Sort()                        // sorts a List in place
 Array.Sort<char>(array);          // sort an array
@@ -86,7 +86,7 @@ Convert.ToString(23, 2)           // "10111"
 The node class which is the "element" of a linked list
 
 <!-- Code -->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public class Node {
   public int val;
   public Node next;
@@ -102,7 +102,7 @@ public class Node {
 Stack implementation using the Linked List data structure
 
 <!-- Code -->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public class Stack{
   public Node top; 
   
@@ -150,7 +150,7 @@ public class Stack{
 Queue implementation using the Linked List data structure
 
 <!-- Code -->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public class Queue {
   public Node first;
   public Node last;
@@ -202,7 +202,7 @@ public class Queue {
 <p>The tree class here is for the binary tree</p>
 
 <!-- Code -->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 class TreeNode {
   int value;
   TreeNode parent;
@@ -235,7 +235,7 @@ Graphs are used for many things, such as Networking and games.The 2 most famous 
 GraphNode
 
 <!-- Code -->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 class GraphNode{ 
   int val;
   GraphNode next;
@@ -272,7 +272,7 @@ class GraphNode{
 Breath First Search (live implementation from MIT [here](http://www.youtube.com/watch?v=s-CYnVz-uh4&t=2055))
 
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public static Node bfs(Node root, int value) {
   Queue<Node> q = new Queue<Node>();
   Node returnValue;
@@ -295,7 +295,7 @@ public static Node bfs(Node root, int value) {
 Depth First Search (live implementation from MIT [here](http://www.youtube.com/watch?v=AfSk24UTFS8&t=250))
   
 <!-- Code -->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public static Node dfs(Node root, int value) {
   Stack<Node> s = new Stack<Node>();
   Node returnValue;
@@ -385,7 +385,7 @@ Here is a table of algorithms that do not use comparison
 Permutation
 
 <!-- Code -->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public static void Perm(int[] list, int pos){
   if (pos == list.Length)
   {
@@ -425,7 +425,7 @@ public static void Swap<T>(T[] a, int i, int j)
 Writing to a file.
 
 <!-- Code -->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 //Append
 using (StreamWriter w = File.AppendText(@"C:\path\to\myText.txt"))
 {
@@ -440,7 +440,7 @@ File.WriteAllLines(@"C:\Users\Public\TestFolder\WriteLines.txt", lines);
 Reading from a file
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 //read all the lines in a file
 string[] lines = File.ReadAllLines("path/to/myText.txt");
 {% endhighlight %}
@@ -461,7 +461,7 @@ string[] lines = File.ReadAllLines("path/to/myText.txt");
 The full documentation can be found here [Docs](https://msdn.microsoft.com/en-us/library/az24scfc(v=vs.110).aspx)
 
 <!-- Code -->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 string pattern = "a*b";
 
 //Replace
@@ -487,7 +487,7 @@ foreach (Match match in Regex.Matches(input, pattern, RegexOptions.IgnoreCase))
 Dictionaries allow inserts, deletes and gets at O(1).
 
 <!-- Code -->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 // var table = new Dictionary<string, int>{ {"a",1}, {"b",2}, {"c",3}};
 Dictionary<string, int> dict = new Dictionary<string, int>();
 dict["a"] = 1;    // { a:1 }
@@ -538,7 +538,7 @@ dict.Clear();                       // {}
 A HashSet is a dictionary that only stores keys. It doesn't allow for duplicates and only stores keys.
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 // var nums = new HashSet<int>{1, 2, 3};
 HashSet<int> nums = new HashSet<int>();
 nums.Add(1);       // { 1 }
@@ -579,7 +579,7 @@ set.Clear();                    // {}
 The List is a very widely used datastructure in C#. It can insert, add, remove, binary search etc.
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 // var lst = new List<int>{1, 2, 3, 4, 5};
 List<int> lst = new List<int>();
 lst.Add(1);       // [1]
@@ -634,7 +634,7 @@ foreach(var i in Enumerable.Range(0, lst.Count)) {
 A stack is a FILO (first in, last out) data structure. You add to the back and remove from the back.
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 Stack<Tuple<string,int>> s = new Stack<Tuple<string,int>>();
 s.Push(Tuple.Create("One",1));    // [("One",1)]
 s.Push(Tuple.Create("Two", 2));   // [("One",1), ("Two",2)]
@@ -664,7 +664,7 @@ t.Item2                 // 3
 A queue is a FIFO (first in, first out) data structure. You add to the back and remove from the front.
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 Queue<double> q = new Queue<double>();
 q.Enqueue(1.1);       // [1.1]
 q.Enqueue(2.2);       // [1.1, 2.2]
@@ -689,7 +689,7 @@ q.Count               // 2
 <h3><a name="random"></a><a href="">15. Random</a></h3>
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 Random r = new Random();
 r.Next();           // non negative random number
 r.Next(5);          // [0, 5[

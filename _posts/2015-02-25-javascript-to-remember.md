@@ -29,7 +29,7 @@ tags: [callbacks, promises, context]
 <br /><br /><br />
 <h3><a name="string"></a><a href="">1. String</a></h3>
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 "A string  "
 .toLowerCase()        // "a string  "
 .toUpperCase()        // "A STRING  "
@@ -73,7 +73,7 @@ tags: [callbacks, promises, context]
 Callbacks are a big part of javascript.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 function callFuncOnFive(cb){
   return cb(5);
 }
@@ -100,7 +100,7 @@ console.log(returnedValue); // 25 (5*5)
 Promises allow you to flatten a callback pyramid
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 //using callbacks
 function one() {
   function two() {
@@ -120,7 +120,7 @@ promiseOne()
 A popular promise library for nodejs is [Q](https://github.com/kriskowal/q)
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 //it allows you to do many awesome things like
 var Q = require("q");
 
@@ -184,7 +184,7 @@ Q({ x:5 })
 Javascript hoists variable declarations
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 function blah() {
   var a = 1;
 }
@@ -201,7 +201,7 @@ function sameBlah() {
 It also hoists up function declarations
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 function outerFunc() {
   //How did it work?? I called innerFunc before initialization it!
   innerFunc();
@@ -227,7 +227,7 @@ function outerFunc() {
 <h4>Bind method</h4>
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 //instead of doing something like this
 obj = {
 ...
@@ -272,7 +272,7 @@ obj = {
 Sorting in javascript is easy
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 var sorted = [4, 3, 5, 2, 1].sort(function(a, b) {
   return a-b;
 });
@@ -362,7 +362,7 @@ Bit operators
 <h3><a name="math"></a><a href="">7. Math</a></h3>
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 var x = Math.random() // float [0, 1[
 Math.floor((Math.random() * 100) + 1); // int [1, 100[
 {% endhighlight %}

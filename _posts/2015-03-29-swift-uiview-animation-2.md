@@ -18,7 +18,7 @@ This is part 2 of the animations post. In this post, we will look at how to add 
 Create a `UIDynamicAnimator`
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 var animator = UIDynamicAnimator(referenceView: UIView)
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
@@ -27,7 +27,7 @@ var animator = UIDynamicAnimator(referenceView: UIView)
 Add `UIDynamicBehavior`s to it (gravity, collisions etc.)
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 let gravity = UIGravityBehavior()
 animator.addBehavior(gravity)
 let collider = UICollisionBehavior()
@@ -39,7 +39,7 @@ animator.addBehavior(collider)
 Add `UIDynamicItems` (usually UIViews) to the UIDynamicBehaviors.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 let item1: UIDynamicItem = ... // usually a UIView
 let item2: UIDynamicItem = ... // usually a UIView
 
@@ -55,7 +55,7 @@ gravity.addItem(item2)
 The `UIDynamicItem` protocol looks like this. `UIView` implements this protocol and if you change center or transform while the animator is running, you must call `this method in UIDynamicAnimator: `func updateItemUsingCurrentState(item: DynamicItem)`
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 protocol UIDynamicItem {
     var bounds: CGRect { get }
     var center: CGPoint { get set }
@@ -69,7 +69,7 @@ protocol UIDynamicItem {
 <h3>UIGravityBehavior</h3>
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 var angle: CGFloat      // in radians; 0 is to the right; positive numbers are counter-clockwise
 var magniture: CGFloat  // 1.0 is 1000 points/s/s
 {% endhighlight %}
@@ -79,7 +79,7 @@ var magniture: CGFloat  // 1.0 is 1000 points/s/s
 <h3>UIAttachmentBehavior</h3>
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 init(item: UIDynamicItem, attachedToAnchor: CGPoint)
 init(item: UIDynamicItem, attachedToItem: UIDynamicItem)
 init(item: UIDynamicItem, offsetFromCenter: CGPoint, attachedToItem/Anchor...)
@@ -93,7 +93,7 @@ var anchorPoint: CGPoint
 <h3>UICollisionBehavior</h3>
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 var collisionMode: UICollisionBehaviorMode // .Items, .Boundaries, .Everything
 // with .Items, any items you add to a UICollisionBehavior will bounce off of each other
 // with .Boundaries, then you add UIBezierPath boundaries for items to bounce off of
@@ -109,7 +109,7 @@ var translatesReferenceBoundsIntoBoundary: Bool // referencesView's edges
 <h3>Example</h3>
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class DropItBehavior: UIDynamicBehavior {
     let gravity = UIGravityBehavior()
     lazy var collider: UICollisionBehavior {
@@ -149,7 +149,7 @@ class DropItBehavior: UIDynamicBehavior {
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class DropBlockViewController: UIViewController {
     @IBOutlet weak var gameView: UIView!
     var dropsPerRow = 10

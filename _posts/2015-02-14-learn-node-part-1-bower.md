@@ -18,7 +18,7 @@ That's where bower comes in handy. BowerJS manages your client side dependencies
 
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 # once you install npm ... first, in your command line
 $ npm install -g bower
 $ touch .bowerrc
@@ -27,7 +27,7 @@ $ touch bower.json
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // in .bowerrc
 {
   //where do you want the bower components to be stored
@@ -48,7 +48,7 @@ $ touch bower.json
 After that, you can simply add components by doing the following in your command line.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 bower install jquery
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->

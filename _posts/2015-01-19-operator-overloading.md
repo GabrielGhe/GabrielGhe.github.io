@@ -15,7 +15,7 @@ This is how you overload an operator. More info can be found [here](http://msdn.
 <!-- Normal -->
 <h3>Normal</h3> 
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public class Complex {
     public static Complex operator +(Complex c1, Complex c2) 
     {
@@ -44,7 +44,7 @@ class Test {
 <!-- Implicit and Explicit -->
 <h3>Implicit and Explicit</h3>
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public class MyObject {
     // Implicit conversion from MyObject to string. Maps true to 
     // "MyObject.Truthy" and false to "MyObject.Falsy"

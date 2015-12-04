@@ -17,7 +17,7 @@ If you ever wondered how people use the <b>Sign in with Google</b> way of loggin
 Step 1
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### Command Line ###
 
 # Get the right packages
@@ -29,7 +29,7 @@ npm install --save passport-google
 Step 2
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in app.js ###
 
 // At the top
@@ -44,7 +44,7 @@ app.use(app.router);  // has to be before this line
 Step 3
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in config/passport-config.js ###
 
 var passport = require('passport')
@@ -78,7 +78,7 @@ passport.use(new GoogleStrategy({
 Step 4
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in app.js ###
 
 // at the bottom

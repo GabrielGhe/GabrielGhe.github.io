@@ -23,7 +23,7 @@ A lot of middleware was removed and placed into their own modules so that they c
 <h4>Express 3</h4>
 
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // package.json (Express 3.0)
 {
   "name": "old-express",
@@ -36,7 +36,7 @@ A lot of middleware was removed and placed into their own modules so that they c
 <!-- /Code -->
 
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // server.js (Express 3.0)
 var express = require('express');
 var app     = express();
@@ -75,7 +75,7 @@ Here's a list of middleWare that was turned into separate modules.
 <h4>Express 4</h4>
 
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // package.json (Express 4.0)
 {
   "name": "new-express",
@@ -91,7 +91,7 @@ Here's a list of middleWare that was turned into separate modules.
 <!-- /Code -->
 
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // server.js (Express 4.0)
 var express        = require('express');
 var morgan         = require('morgan');
@@ -118,7 +118,7 @@ console.log('Server started on port 3000');         // shoutout to the user
 <!-- Express 3-->
 <h4>Express 3</h4>
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // (Express 3.0)
 app.get('/dogs', function(req, res, next) {
     // do stuff
@@ -133,7 +133,7 @@ app.post('/dogs', function(req, res, next) {
 <!-- Express 4-->
 <h4>Express 4</h4>
 <!-- Code -->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // (Express 4.0)
 app.route('/dogs')
     .get(function(req, res, next) {

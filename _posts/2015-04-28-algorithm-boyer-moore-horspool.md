@@ -23,7 +23,7 @@ The algorithm goes from the beginning to the end of the long text comparing from
 Let's see an example.
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 /*
 I wish I had more time to learn algorithms
 learn
@@ -64,7 +64,7 @@ Beautiful, isn't it? How does it work? Well, it creates a dictionary mapping the
 Here is the full implementation.
 
 <!-- Code _______________________________________-->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public static int BoyerMooreHorspool(string text, string sub) {
     int length = sub.Length;
     // This is our step dictionary

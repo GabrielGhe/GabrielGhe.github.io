@@ -13,7 +13,7 @@ tags: [nodejs, express, react, bower]
 I've heard some nice things about Facebook's ReactJS Framework. So here's how to setup React with Node. You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server18React).
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### in shell ###
 
 # look at my bower tutorial on how to setup bower
@@ -27,7 +27,7 @@ $ bower install --save react
 React's syntax is really verbose, so they use [JSX](http://facebook.github.io/react/docs/jsx-in-depth.html). Manually compiling jsx is a pain so we're going to use express-jsx which compiles the jsx in real time. Lets start.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in app.js ###
 
 // add near the top
@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 Now we're going to modify the ejs file and make it use react.
 
 <!-- Code _______________________________________-->
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <!-- ### in index.ejs ### -->
 
 <div id="test"></div>
@@ -55,7 +55,7 @@ Now we're going to modify the ejs file and make it use react.
 Remember that when test.js is requested, express-jsx middleware will look for a matching .jsx file. This means we need a test.jsx file.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in test.jsx ###
 
 /** @jsx React.DOM */

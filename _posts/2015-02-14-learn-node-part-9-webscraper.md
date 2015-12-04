@@ -17,7 +17,7 @@ Initially I wanted to scrape a school site for class schedules using the node mo
 Step 1
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### Command Line ###
 
 # Get the right packages
@@ -30,7 +30,7 @@ npm install --save-dev grunt-mocha-webdriver
 Step 2
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in Gruntfile.js ###
 
 module.exports = function(grunt) {
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
 Step 3
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in scrape/index.js ###
 
 // declare a simple mocha test
@@ -81,7 +81,7 @@ describe("Scraping", function() {
 Step 4
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in scrape/index.js ###
 
 var jsCode = "console.log('this will execute in the browser')";

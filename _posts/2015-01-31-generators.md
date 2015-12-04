@@ -17,7 +17,7 @@ It is just like a list comprehension except that it returns an iterator instead 
 
 Imagine you want to sum up all the numbers from 0 to 1000000. It would look something like this.
 
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 def firstn(n):
      num, nums = 0, []
      while num < n:
@@ -30,7 +30,7 @@ sum_of_first_n = sum(firstn(1000000))
 
 The equivilant generator will look like this.
 
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 def firstn(n):
     num = 0
     while num < n:
@@ -42,7 +42,7 @@ sum_of_first_n = sum(firstn(1000000))
 
 You can also create generator comprehensions.
 
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 # normal list comprehension
 my_list = [1, 3, 5, 9, 2, 6]
 filtered_list = [item for item in my_list if item > 3]

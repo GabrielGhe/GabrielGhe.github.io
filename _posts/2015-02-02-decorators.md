@@ -12,7 +12,7 @@ tags: [decorator]
 
 Decorators allow you to modify a function when it gets called. It's used for things like memoization that keeps track of return statements. You can find more information [here](http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/).
 
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 def makebold(fn):
     return lambda: "<b>" + fn() + "</b>"
 

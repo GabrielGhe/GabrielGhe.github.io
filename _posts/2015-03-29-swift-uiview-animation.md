@@ -21,7 +21,7 @@ Animations and transitions are extremely important in iOS development. That's wh
 This function only works with the alpha, frame and transform props of a UIView. You can use this to fade in, rotate the view or the size.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class UIView {
     class func animateWithDuration(duration: NSTimeInterval,
                                       delay: NSTimeInterval,
@@ -45,7 +45,7 @@ When done, remove myView from view hierarchy if the fade completed.
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 /*
 UIViewAnimationOptions
 
@@ -71,7 +71,7 @@ UIViewAnimationOptions
 This one allows you to make an entire view modification at once.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class UIView {
     class func transitionWithView(view: UIView,
                               duration: NSTimeInterval,

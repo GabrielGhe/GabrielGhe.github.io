@@ -16,7 +16,7 @@ When you want to run something every x amount of time, you use an NSTimer. It is
 <h3>Content</h3>
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 /*
 class func scheduledTimerWithInterval(
     _ seconds: NSTimeInterval,

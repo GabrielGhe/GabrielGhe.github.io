@@ -19,7 +19,7 @@ Reflection is the ability to make modifications at runtime by making use of intr
 Given
 
 <!-- Code -->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public class BaseClass {
     // ...
 }
@@ -39,7 +39,7 @@ You can do the following
 
 
 <!-- Code -->
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public class Instantiator {
     public static void InstantiateITest() {
         var instances = from t in Assembly.GetExecutingAssembly().GetTypes()  // Get every class

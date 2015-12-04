@@ -19,7 +19,7 @@ Generics are extremely useful in any programming language. This post is all abou
 **Class**
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 struct Stack<T> {
     var items = [T]()
     mutating func push(item: T) {
@@ -36,7 +36,7 @@ struct Stack<T> {
 **Methods/Functions**
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func swapTwoValues<T>(inout a: T, inout b: T) {
     let temporaryA = a
     a = b
@@ -49,7 +49,7 @@ func swapTwoValues<T>(inout a: T, inout b: T) {
 **Type Constraints**
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func allItemsMatch<C1: Container, C2: Container 
     where C1.ItemType == C2.ItemType, C1.ItemType: Equatable>
     (someContainer: C1, anotherContainer: C2) -> Bool {

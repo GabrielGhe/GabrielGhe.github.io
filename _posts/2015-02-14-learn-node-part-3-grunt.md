@@ -20,7 +20,7 @@ You can find more information [here](https://github.com/GabrielGhe/NodePractice/
 Step 1
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### Terminal ###
 
 # Get the right packages
@@ -37,7 +37,7 @@ npm install --save-dev grunt-contrib-cssmin
 Step 2
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### Command Line ###
 
 # Create a Gruntfile.js
@@ -48,7 +48,7 @@ touch Gruntfile.js
 Step 3
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in Gruntfile.js ###
 
 module.exports = function(grunt) {
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
 Step 4
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in Gruntfile.js ###
 
 // The initConfig would look something like this

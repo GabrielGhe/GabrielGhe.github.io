@@ -18,7 +18,7 @@ Gestures are a big part of mobile development. This post is all about how to add
 **Pan Gesture**
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 @IBOutlet weak var pannableView: UIView {
     didSet {
         // the ':' means that the method pan will be called with an argument
@@ -42,7 +42,7 @@ func pan(gesture: UIPanGestureRecognizer) {
 **Pinch**
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 @IBOutlet weak var pinchableView: UIView {
     didSet {
         let recognizer = UIPinchGestureRecognizer(target: self, action: "pinch:")
@@ -66,7 +66,7 @@ func pinch(gesture: UIPinchGestureRecognizer) {
 **Rotate**
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 @IBOutlet weak var rotatableView: UIView {
     didSet {
         let recognizer = UIRotationGestureRecognizer(target: self, action: "rotate:")
@@ -84,7 +84,7 @@ func rotate(gesture: UIRotationGestureRecognizer) {
 **Swipe**
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 @IBOutlet weak var swipableView: UIView {
     didSet {
         let recognizer = UISwipeGestureRecognizer(target: self, action: "swipe:")
@@ -102,7 +102,7 @@ func swipe(gesture: UISwipeGestureRecognizer) {
 **Tap**
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 @IBOutlet weak var tapableView: UIView {
     didSet {
         let recognizer = UITapGestureRecognizer(target: self, action: "tap:")

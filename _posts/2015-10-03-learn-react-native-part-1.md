@@ -19,7 +19,7 @@ This is part 1 of me learning react-native. These are the steps necessary to bui
 <h4>Step 1</h4>
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 $ npm install -g react-native-cli
 $ react-native init AwesomeProject
 {% endhighlight %}
@@ -39,14 +39,14 @@ You can see the [font repo here](https://github.com/oblador/react-native-vector-
 
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 $ npm install --save react-native-vector-icons
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 'use strict';
 
 var React = require('react-native');

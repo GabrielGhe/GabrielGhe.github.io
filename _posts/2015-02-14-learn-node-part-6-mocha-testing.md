@@ -17,7 +17,7 @@ On the client side, you have Karma for unit testing. On the server side, there's
 Step 1
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### Command Line ###
 
 # Get the right packages
@@ -40,7 +40,7 @@ npm install --save-dev supertest-as-promised
 Step 2
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### Command Line ###
 
 # Create a Gruntfile.js
@@ -51,7 +51,7 @@ touch Gruntfile.js
 Step 3
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in Gruntfile.js ###
 
 module.exports = function(grunt) {
@@ -77,7 +77,7 @@ module.exports = function(grunt) {
 Step 4
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in app.js ###
 
 // At the end of the file add this line
@@ -89,7 +89,7 @@ module.exports = app;
 Step 5
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in test/myTest.js ###
 
 // Get the app and create a new supertest
@@ -130,7 +130,7 @@ describe('This is a test suite', function(){
 Step 6
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in test/myTest.js ###
 
 // A test would look like this

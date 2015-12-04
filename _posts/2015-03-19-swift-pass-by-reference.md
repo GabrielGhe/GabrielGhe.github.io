@@ -15,7 +15,7 @@ In some cases, you would like to pass a variable by reference. In Swift, we use 
 Here's an example of a generic swap.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 var lucky = 7
 var unlucky = 13
 

@@ -17,7 +17,7 @@ More information can be found [here](http://code.tutsplus.com/articles/use-ecmas
 <!-- Details -->
 <h3>Details</h3>
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // OLD CLASS
 var MyObject = function(params){
   this.p1 = params.p1;
@@ -44,7 +44,7 @@ class MyObject {
 <!-- Examples -->
 <h3>Examples</h3>
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // Getters and Setters
 class Person {
   constructor(name){

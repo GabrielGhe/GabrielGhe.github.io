@@ -22,7 +22,7 @@ We create a Nav component which has a NavigatorIOS as it's child view. The impor
 We can now import `Nav` and use it as a child component.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 'use strict';
 
 var React = require('react-native');
@@ -73,7 +73,7 @@ module.exports = Nav;
 Ok, we have our initial view, but how to do navigate to the next view? The `InitialView` component gets props passed in and inside those props, `NavigatorIOS` passes the navigator object. This object has push, pop and other methods which you can find out more [here](https://facebook.github.io/react-native/docs/navigatorios.html#content). Notice how we use `this.props` to navigate to the next view.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 'use strict';
 
 var React = require('react-native');

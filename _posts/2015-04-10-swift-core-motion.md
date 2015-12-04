@@ -19,7 +19,7 @@ Many apple mobile devices have motion APIs. There are many APIs and they all use
 Check availability first. deviceMotion checks for all others.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 import CoreMotion
 var motionManager = CMMotionManager()
 
@@ -33,7 +33,7 @@ isCoreMotionAvailable = motionManager.deviceMotionAvailable
 Is the hardware active?
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 var motionManager = CMMotionManager()
 
 var isHardwareActive = motionManager.accelerometerActive
@@ -46,7 +46,7 @@ isHardwareActive = motionManager.deviceMotionActive
 The hardware is on, start looking for updates.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 var motionManager = CMMotionManager()
 
 motionManager.startAccelerometerUpdatesToQueue(queue: NSOperationQueue(), withHandler: {
@@ -65,7 +65,7 @@ startDeviceMotionUpdatesToQueue()
 Stop looking for updates.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 var motionManager = CMMotionManager()
 
 motionManager.stopAccelerometerUpdates()

@@ -15,7 +15,7 @@ Css is awesome, but it has a lot of limitations. For example, lets say that you 
 You can find more information [here](https://github.com/GabrielGhe/NodePractice/tree/master/Server9Less).
 
 <!-- Code _______________________________________-->
-{% highlight css linenos %}
+{% highlight css linenos=table  %}
 @myColor: blue;
 body {
   color:red;
@@ -51,14 +51,14 @@ body p {
 <h4>Installation</h4>
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 # To install less in your express app
 npm install less-middleware
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // inside your app.js
 var lessMiddleware = require('less-middleware');
 app.use(lessMiddleware(__dirname + '/public'));

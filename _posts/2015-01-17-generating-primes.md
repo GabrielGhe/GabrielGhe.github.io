@@ -14,7 +14,7 @@ This is a cool little way to generate primes in python using the [Sieve of Erato
 
 Code without comments
 
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 def generatePrime(n):
     sieve = [True] * n
     for i in xrange(3, int(n**0.5)+1, 2):
@@ -25,7 +25,7 @@ def generatePrime(n):
 
 Code with comments
 
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 def generatePrime(n):
     # create list of booleans length n
     sieve = [True] * n
@@ -42,7 +42,7 @@ def generatePrime(n):
 
 Step by Step. We will use the index number instead of boolean for clarification.
 
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 # Given parameter 30
 
 # initial sieve

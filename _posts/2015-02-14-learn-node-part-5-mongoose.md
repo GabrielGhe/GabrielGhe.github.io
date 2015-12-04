@@ -16,7 +16,7 @@ One of the most popular NoSQL databases is MongoDB. It's great to use with node 
 
 Step 1
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### in the command line ###
 
 # install mongodb using homebrew
@@ -35,7 +35,7 @@ npm install --save mongoose
 
 Step 2
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in app.js ###
 ...
 
@@ -57,7 +57,7 @@ var app = express();
 Step 3
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in model/testModel.js ###
 
 var mongoose = require('mongoose');
@@ -79,7 +79,7 @@ module.exports = mongoose.model('testModel', testModelSchema, 'testModel');
 Step 4
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // Now you can require the model
 var testModel = require("./model/testModel");
 

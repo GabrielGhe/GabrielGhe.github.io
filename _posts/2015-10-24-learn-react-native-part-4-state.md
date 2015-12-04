@@ -20,7 +20,7 @@ What do we use state for? Why should you know how to use it? Well a great exampl
 Let's see what such a component looks like in react-native. 
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 class TwoTabComponent extends Component {
     constructor(props) {
         super(props);

@@ -16,7 +16,7 @@ AngularJS is amazing but I realized that I don't actually have a guide on how to
 <h3>Installation</h3>
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### in shell ###
 express -e 
 npm install -g bower
@@ -26,7 +26,7 @@ touch bower.json
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // in .bowerrc
 {
   //where do you want the bower components to be stored
@@ -46,7 +46,7 @@ touch bower.json
 Install angular and it's dependencies
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 bower install --save angular
 bower install --save angular-route
 {% endhighlight %}
@@ -55,7 +55,7 @@ bower install --save angular-route
 We add the files to the ejs view... add them in the head tag or at the end of the body tag. We also add the ng-app attribute to the body (or anywhere else) and the ng-view attribute to allow us to use partials.
 
 <!-- Code _______________________________________-->
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <!-- ### in views/index.ejs ### -->
 <head>
   <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
@@ -71,7 +71,7 @@ We add the files to the ejs view... add them in the head tag or at the end of th
 We now need to start our angular app in javascript.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in public/javascripts/index.js ###
 
 // create angular app
@@ -102,7 +102,7 @@ MyApp.config(["$routeProvider", "$locationProvider",
 We now need to add controllers that will handle what happens when someone goes to one of those routes
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in public/javascripts/index.js ###
 
 //at the bottom of the file add...
@@ -115,7 +115,7 @@ MyApp.controller("homeCtrl", ["$scope", function($scope) {
 Ok we have everything set up, but we don't have a partial to display, what's in home.html?
 
 <!-- Code _______________________________________-->
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <!-- ### in public/partials/home.html ### -->
 
 <p>This is the home partial that will display for the home route '/'</p>

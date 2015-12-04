@@ -21,7 +21,7 @@ More information can be found [here](http://www.volatileread.com/Wiki/Index?id=1
 
 Using the `?` symbol, we can see if the preceding variable holds a null. If it does, the chain stops and the value returned is null.
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 // Before
 if (obj != null && obj.children != null) {
   obj.children.Add( new Child() );

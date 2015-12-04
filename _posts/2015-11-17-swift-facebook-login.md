@@ -45,7 +45,7 @@ Add the Facebook SDK to your Xcode Project like [this](https://developers.facebo
     - `{your-app-name}` with the `Display Name` you configured in the [app dashboard](https://developers.facebook.com/apps).
 
 <!-- Code _______________________________________-->
-{% highlight xml linenos %}
+{% highlight xml linenos=table  %}
 <key>CFBundleURLTypes</key>
 <array>
   <dict>
@@ -87,7 +87,7 @@ Supply Facebook with your Bundle Identifier
 Now to the fun part. This is this code that will display the button.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit

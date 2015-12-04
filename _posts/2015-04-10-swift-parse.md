@@ -21,7 +21,7 @@ You first need the bridging header. So create an objective-c `.m` file of any na
 Add the following import into the briding header so that you can use those them in swift.
 
 <!-- Code _______________________________________-->
-{% highlight c++ linenos %}
+{% highlight c++ linenos=table  %}
 #import <Parse/Parse.h>
 // or #import <ParseOSX/ParseOSX.h>
 {% endhighlight %}
@@ -30,7 +30,7 @@ Add the following import into the briding header so that you can use those them 
 Now that you have the library, you can use it in Swift. To add an object and save it.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 var honeyObject = PFObject(className: "Dogs")
 honeyObject.setObject(2, forKey: "age")
 honeyObject.setObject("Honey", forKey: "dogName")
@@ -49,7 +49,7 @@ honeyObject.saveInBackgroundWithBlock {
 If you want to retrieve it, you do the following.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 var query = PFQuery(className: "Dogs")
 query.getObjectInBackgroundWithId(honeyObject.objectId) {
     (honeyObjectAgain: PFObject!, error: NSError!) -> Void in

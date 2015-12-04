@@ -15,7 +15,7 @@ In this post, I will be talking about how to style xaml controls. Similar to css
 <!-- Local -->
 <h3>Local Style</h3>
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <Page.Resources>
   <SolidColorBrush x:Key="MyBrush" Color="Brown" />
 </Page.Resources>
@@ -33,7 +33,7 @@ We first create a `<Page.Resources>` element. Inside we create a `<SolidColorBru
 
 The style above can be applied to anything and it's simple. Let's create a more complicated style that can be applied only to buttons.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <Page.Resources>
   <Style TargetType="Button" x:Key="MyButtonStyle">
     <Setter Property="Background" Value="Blue" />
@@ -58,7 +58,7 @@ Keep in mind that if we now apply `Background="Green"` to the Button *directly*,
 
 The code above (Local) works only on the page where the `<Style>` was declared. To create a style which can be used anywhere, we have to create an `<Application.Resources>` tag inside `App.xaml`.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <Application.Resources>
   <Style TargetType="Button" x:Key="MyButtonStyle">
     <Setter Property="Background" Value="Blue" />
@@ -75,7 +75,7 @@ The code above (Local) works only on the page where the `<Style>` was declared. 
 
 On the windows phone, people can set their own colors and backgrounds. By going in `Settings`, they can set specific themes that apply to tiles and to apps that take advantage of these settings. Let's change the `Background` to the background chosen by the user in his settings.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <Application.Resources>
   <Style TargetType="Button" x:Key="MyButtonStyle">
     <Setter Property="Background" Value="{ThemeResource PhoneAccentBrush}" />

@@ -21,7 +21,7 @@ I'll first show the final code, then break it up into parts.
 
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 'use strict';
 
 var React = require('react-native');
@@ -96,7 +96,7 @@ module.exports = ListTest;
 This is the only confusing part in my opinion. This is what our data looks like. We have an array of strings for our sectionIds and they map to rows in the `rowsBySection` object. I believe that the rest of the code is pretty self explanatory.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 var sections = ["SectionTitle1", "SectionTitle2"]
 var rowsBySection = {
     SectionTitle1: ["sec1 row1", "sec1 row2"],

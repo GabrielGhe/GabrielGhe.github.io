@@ -17,7 +17,7 @@ Parallel programming is very important to know and C# does it so well. This post
 
 How do we make a line of code execute in the background on a separate thread?
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 class Program {
     public static void Main(string[] args) {
         // Start task with the constructor
@@ -54,7 +54,7 @@ Other Task 2 stopping.
 
 Given the code above, how do we wait on the main thread until all the tasks are done?
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public static void Main(string[] args) {
     var t1 = Task.Factory.StartNew( () => DoWork(1, 1000) );
     var t2 = Task.Factory.StartNew( () => DoWork(2, 1200) );

@@ -24,7 +24,7 @@ You start off with a `UITableView` or `UITableViewController`. The 2 protocols t
 You can find more information about the protocol [here]((https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDataSource_Protocol/index.html)).
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return myData.count // default is 1
 }
@@ -32,7 +32,7 @@ func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func tableView(tableView: UITableView, 
     numberOfRowsInSection section: Int) 
                         -> Int {
@@ -42,7 +42,7 @@ func tableView(tableView: UITableView,
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func tableView(tableView: UITableView, 
   cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
@@ -57,7 +57,7 @@ func tableView(tableView: UITableView,
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func tableView(tableView: UITableView,
   commitEditingStyle editingStyle: UITableViewCellEditingStyle,
       forRowAtIndexPath indexPath: NSIndexPath) {
@@ -77,7 +77,7 @@ func tableView(tableView: UITableView,
 There are too many to show here, but you can look them up. You can find them all [here](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html). One important event is the `didSelectRowAtIndexPath`.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func tableView(sender: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     // do stuff with indexPath.row and indexPath.section
 }
@@ -91,7 +91,7 @@ func tableView(sender: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPa
 If you also embed the UITableView inside of a UINavigationController, you can navigate to a new UIView when selecting a row. After you `control+drag` from the prototype/static cell to the new view, you can name the segue to know which row fired the event. Everytime you click a row, `prepareForSegue` is called, where you can handle the segue.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 // sender is what launched the event (can be UITableViewCell or UIButton)
 func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
     if let identifier = segue.identifier {
@@ -116,7 +116,7 @@ func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
 If you make a custom `UITableViewCell` and want to have the height be dynamic. You can do the following in `viewDidLoad`.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func viewDidLoad() {
     super.viewDidLoad()
     tableView.estimatedRowHeight = tableView.rowHeight

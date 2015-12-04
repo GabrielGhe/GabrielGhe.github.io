@@ -12,7 +12,7 @@ tags: ["ios", "ui", "viewcontroller", "animation"]
 
 So you have a ViewController in your storyboard and you want to be able to display it from code but don't know how. The answer is the `presentViewController` function.
 
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 // we have to get the controller
 // Make sure you add an Identified to your controller
 // in the storyboard

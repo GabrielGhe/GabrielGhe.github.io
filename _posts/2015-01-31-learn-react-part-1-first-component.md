@@ -18,7 +18,7 @@ This is part 1 of me learning ReactJS. I'm going to be following [this](https://
 <!-- Step 1 -->
 <h4>Step 1</h4>
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -36,7 +36,7 @@ We start off with a simple html page.
 <!-- Step 2 -->
 <h4>Step 2</h4>
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -56,7 +56,7 @@ Now we add the `react.js` and the `JSXTransformer.js` scripts. The `JSXTransform
 <!-- Step 3 -->
 <h4>Step 3</h4>
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <html lang="en">
   <head>
       <meta charset="UTF-8">
@@ -81,7 +81,7 @@ The `<h1>Hello World</h1>` is just plain html. The Transformer will turn it into
 <!-- Step 4 -->
 <h4>Step 4</h4>
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <html lang="en">
   <head>
       <meta charset="UTF-8">

@@ -15,7 +15,7 @@ In this post, I will be talking about python's regular expression module called 
 <!-- Examples -->
 <h3>Examples</h3>
 
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 import re
 
 # look for 'thing' in the string 'that thing'

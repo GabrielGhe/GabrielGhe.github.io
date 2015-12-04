@@ -21,7 +21,7 @@ Simply download the `SwiftData.swift` file and copy it into your project. You al
 To create a new table.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 if let err = SD.createTable("Cities", 
     withColumnNamesAndTypes: [
      "Name": .StringVal,
@@ -39,7 +39,7 @@ if let err = SD.createTable("Cities",
 To delete a table.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 let err = SD.deleteTable("TableName")
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
@@ -48,7 +48,7 @@ let err = SD.deleteTable("TableName")
 To find all tables.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 let (tables, err) = SD.existingTables()
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
@@ -56,7 +56,7 @@ let (tables, err) = SD.existingTables()
 To insert.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 //from user input
 let name: String = //user input
 let population: Int = //user input
@@ -77,7 +77,7 @@ if let err = SD.executeChange(
 To query a table.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 let (resultSet, err) = SD.executeQuery("SELECT * FROM Cities")
 if err != nil {
     //there was an error during the query, handle it here

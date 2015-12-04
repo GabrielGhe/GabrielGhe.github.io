@@ -17,7 +17,7 @@ This post is all about continuous development using NodeJS and Express 4. I'm go
 <h3>Step 1: Installation</h3>
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 # global
 npm install -g express
 npm install -g express-generator
@@ -52,7 +52,7 @@ npm install --save-dev grunt-concurrent
 The directory should look like this:
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 .
 ├── Gruntfile.js
 ├── app.js
@@ -78,7 +78,7 @@ The directory should look like this:
 <h3>Step 2: Setup</h3>
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in Gruntfile.js ###
 'use strict';
 

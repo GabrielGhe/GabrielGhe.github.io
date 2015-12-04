@@ -12,7 +12,7 @@ tags: [c#, sealed, abstract, static]
 
 Here's a small table that shows the difference between abstract, sealed and static classes. See the example below. More info can be found [here](http://stackoverflow.com/questions/16217313/static-vs-sealed-class-difference).
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 /*
 +-------------------------+--------+--------+--------+----------+
 |       Class Type        | normal | static | sealed | abstract |

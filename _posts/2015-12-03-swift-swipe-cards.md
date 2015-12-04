@@ -68,7 +68,7 @@ Let's start off simple.
 We add a `UIPanGestureRecognizer`.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos=table hl_lines="9 10"%}
+{% highlight swift linenos=table %}
 class ViewController: UIViewController {
 
     var cardView:UIView!

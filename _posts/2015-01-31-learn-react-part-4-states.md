@@ -20,7 +20,7 @@ Properties are for data that is passed to components but doesn't change. If we w
 
 To use state we have to add the `getInitialState` function to our component on `line 5`. In the `render` function, we have to change `this.props.txt` to the state version `this.state.txt` on `line 10`.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <script type="text/jsx">
     /*** @jsx React.DOM */
     var App = React.createClass({
@@ -47,7 +47,7 @@ To use state we have to add the `getInitialState` function to our component on `
 
 We can now modify the state and have the component rerender by updating the `txt` property of the state.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <script type="text/jsx">
     /*** @jsx React.DOM */
     var App = React.createClass({
@@ -78,7 +78,7 @@ We can now modify the state and have the component rerender by updating the `txt
 
 Here's an example of how to use states to display the color of a div based on the rgb.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <script>
 var App = React.createClass({
     getInitialState:function(){

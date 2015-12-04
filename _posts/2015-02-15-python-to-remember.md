@@ -29,7 +29,7 @@ Example code can be found [here](https://github.com/GabrielGhe/CoderbyteChalleng
 <br /><br /><br />
 <h3><a name="arrays"></a><a href="">1. Arrays</a></h3>
 <!-- Code _______________________________________-->
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 x = list("4321")  # ["4", "3", "2", "1"]
 x.append("val1")  # ["4", "3", "2", "1", "val1"]
 x.pop()           # ["4", "3", "2", "1"]
@@ -56,7 +56,7 @@ sorted(y, key = len, reverse = True)  # ['efgh', 'cde', 'ab', 'ij']
 <br /><br /><br />
 <h3><a name="dicts"></a><a href="">2. Dicts</a></h3>
 <!-- Code _______________________________________-->
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 dic = {"y": 6, "x": 5}
 dic.keys()         # ["y", "x"]
 dic.values()       # [6, 5]
@@ -78,7 +78,7 @@ dict( [("hello",1), ("thing",2), ("yay", 3)] )
 <br /><br /><br />
 <h3><a name="numbers"></a><a href="">3. Numbers</a></h3>
 <!-- Code _______________________________________-->
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 int("4")          # 4
 "{0:b}".format(4) # '101'
 2**3              # 8 (2^3)
@@ -96,7 +96,7 @@ int("4")          # 4
 <br /><br /><br />
 <h3><a name="probability"></a><a href="">4. Probability</a></h3>
 <!-- Code _______________________________________-->
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 import itertools
 
 itertools.combinations(array,x)  # array choose x
@@ -119,7 +119,7 @@ for comb in itertools.permutations(array,x):
 <br /><br /><br />
 <h3><a name="string"></a><a href="">5. String</a></h3>
 <!-- Code _______________________________________-->
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 x = raw_input()  # "A bcdefg  "
 
 len(x)      # 10
@@ -152,7 +152,7 @@ x.split()       # ["A", "bcdefg"]
 <br /><br /><br />
 <h3><a name="other"></a><a href="">6. Other</a></h3>
 <!-- Code _______________________________________-->
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 # ternery
 5 if booleanValue else 6  # (booleanValue)? 5 : 6;
 

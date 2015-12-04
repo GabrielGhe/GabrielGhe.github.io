@@ -23,7 +23,7 @@ C is used almost everywhere, enough said. This is a short overview of the langua
 <h4>Hello World</h4>
 
 <!-- Code _______________________________________-->
-{% highlight c linenos %}
+{% highlight c linenos=table  %}
 #include <stdio.h>
 
 void hello()
@@ -44,7 +44,7 @@ int main()
 <h4>Variables</h4>
 
 <!-- Code _______________________________________-->
-{% highlight c linenos %}
+{% highlight c linenos=table  %}
 // only accessible to functions of the same file
 static int s_i = 3;
 
@@ -71,7 +71,7 @@ values[0] = 6                       // [6, 2, 3, 4, 5]
 <h4>Operators</h4>
 
 <!-- Code _______________________________________-->
-{% highlight c linenos %}
+{% highlight c linenos=table  %}
 /* Precedence of Operators
 
 Operator        Operation           Associativity
@@ -99,7 +99,7 @@ Operator        Operation           Associativity
 <h4>Pointers</h4>
 
 <!-- Code _______________________________________-->
-{% highlight c linenos %}
+{% highlight c linenos=table  %}
 /* INIT POINTER
 p is a pointer to int and is initialized with address of apples
 */
@@ -151,7 +151,7 @@ printf("%d\n", convert(34));
 <h4>Structures</h4>
 
 <!-- Code _______________________________________-->
-{% highlight c linenos %}
+{% highlight c linenos=table  %}
 typedef struct
 {
     float red;
@@ -168,7 +168,7 @@ color my_color = { 1, 0, 0, 1 }; // red
 <h4>Memory</h4>
 
 <!-- Code _______________________________________-->
-{% highlight c linenos %}
+{% highlight c linenos=table  %}
 #include <stdlib.h>
 
 /* malloc
@@ -201,7 +201,7 @@ free(c);
 <h4>BONUS: quicksort</h4>
 
 <!-- Code _______________________________________-->
-{% highlight c linenos %}
+{% highlight c linenos=table  %}
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

@@ -20,7 +20,7 @@ This is part 3 of me learning react-native. I'm going to go over how to use imag
 Create a new image set called nameOfImage(if you don't know how, [here](http://stackoverflow.com/questions/19441935/use-of-xcassets)'s a guide) and then use the name to require that image.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 <Image source={require('image!nameOfImage')} />
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->

@@ -21,7 +21,7 @@ Let's take the facebook chat as the example. If we wanted to get the number of u
 ![Chat Notification]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture2.png)
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 var unreadMessageCounts = {};
 function onNewMessage(msg){
     // increment the old count and cache the new count
@@ -37,7 +37,7 @@ This is nice and all, but what happens if we want to know how many threads have 
 ![Structure]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture.png)
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 var unreadMessageCounts = {};
 var unreadThreadCount = 0;
 
@@ -81,7 +81,7 @@ There is a clean way to handle this issue. Using a unidirectional data flow. Flu
 `Action Creator`: methods that create Actions, they become the API.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in FooActionCreator.js ###
 
 var AppDispatcher = require('../AppDispatcher');
@@ -108,7 +108,7 @@ module.exports = {
 `Dispatcher`: It's basically a registry of callbacks. The Flux dispatcher is a singleton. Payload is an Action. Primary API: dispatch(), register(), waitFor()
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in AppDispatcher.js ###
 
 var Dispatcher = require('Flux.Dispatcher');
@@ -124,7 +124,7 @@ module.exports = new Dispatcher();
 `Store`: Each store is a singleton. Holds the data. Only way into the store is through the callback from the Dispatcher. Only has getters, no setters. It emits "I changed" events when the state changes.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in FooStore ###
 
 var _dispatchToken;
@@ -176,7 +176,7 @@ module.exports = new FooStore();
 We fist create our ControllerView which retrieves the data from the Store.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in FooControllerView.react.js ###
 
 var React = require('react');
@@ -212,7 +212,7 @@ module.exports = FooControllerView;
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 render: function(){
     var messageListItems = this.state.messages.map(message => {
         return (
@@ -237,7 +237,7 @@ render: function(){
 We now have to create FooChild which will display each message.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in FooChild.react.js ###
 
 var React = require('react');

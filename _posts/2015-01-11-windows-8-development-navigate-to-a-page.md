@@ -19,13 +19,13 @@ We will have `MainPage` which will have a button whos click event takes us to a 
 
 MainPage xaml will have a button that will take you to the next page.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
   <Button Content="Go to Page2" onClick="Button_Click" />
 {% endhighlight %}
 
 The click event for that button will look like this.
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 // MainPage
 private void Button_Click(object sender, RoutedEventArgs e) {
   Frame.Navigate(typeof(Page2), "This is extra data that I'm sending to Page2");
@@ -34,7 +34,7 @@ private void Button_Click(object sender, RoutedEventArgs e) {
 
 On Page2, we can get the parameters passed when we changed pages in the `OnNavigatedTo` method.
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 // Page2
 protected override void OnNavigatedTo(NavigationEventArgs e) {
   Console.WriteLine( e.Parameter.ToString() );

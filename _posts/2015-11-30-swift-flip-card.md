@@ -21,7 +21,7 @@ I've implemented a card flip in javascript, jquery, angularjs but now that I've 
 We first need to create the variables for the views.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class ViewController: UIViewController {
     var cardView: UIView!
     var front: UIImageView!
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 We then need to actually create the views.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class ViewController: UIViewController {
 
     var cardView: UIView!
@@ -82,7 +82,7 @@ We are displaying a card, but we need to flip it.
 To do that, we add a UITapGestureRecognizer
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -112,7 +112,7 @@ override func viewDidLoad() {
 We also need to create the tapped function. Which will use the `UIView.transitionFromView` method.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func tapped() {
     var showingSide = front
     var hiddenSide = back
@@ -138,7 +138,7 @@ func tapped() {
 <h4>End Result</h4>
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class ViewController: UIViewController {
 
     var cardView: UIView!

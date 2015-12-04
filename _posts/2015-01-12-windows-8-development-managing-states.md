@@ -19,7 +19,7 @@ There are 2 very important methods to know about: `OnLaunched` and `OnSuspending
 
 Inside `OnLaunched`, we will add the following line of code.
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 ManagingState.Common.SuspensionManager.RegisterFrame(appFrame, "appFrame");
 {% endhighlight %}
 
@@ -29,7 +29,7 @@ ManagingState.Common.SuspensionManager.RegisterFrame(appFrame, "appFrame");
 
 In `OnSuspending`, we have to save the state.
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 // make sure you add async to the method signature
 await ManagingState.Common.SuspensionManager.SaveAsync();
 {% endhighlight %}
@@ -40,7 +40,7 @@ await ManagingState.Common.SuspensionManager.SaveAsync();
 
 We also need to restore our state, we do this again in `OnLaunched`. A bit lower than the code we wrote to register the frame, we will check if the app was terminated and restore the state if it was.
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 // make sure you add async to the method signature again
 await ManagingState.Common.SuspensionManager.RestoreAsync();
 {% endhighlight %}
@@ -56,14 +56,14 @@ Above we saved what Frame or Page the user was on, but what if we want to store 
 
 Save the state.
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 Windows.Storage.ApplicationDataContainer localStorage = Windows.Storage.ApplicationData.Current.LocalSettings;
 localStorage.Values["someKey"] = "I'm saving this text for later";
 {% endhighlight %}
 
 Restore the state in `NavigationHelper_LoadState` (it will be there if you chose `BasicPage`).
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 // Again we get the storage
 Windows.Storage.ApplicationDataContainer localStorage = Windows.Storage.ApplicationData.Current.LocalSettings;
 
@@ -77,14 +77,14 @@ if ( localStorage.Values.ContainsKey("someKey") ) {
 The other way to save Application state (which is much easier) is with `NavigationHelper_SaveState` and `NavigationHelper_LoadState`.
 
 Save State.
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 e.PageState["someKey"] = "I'm saving this text for later";
 {% endhighlight %}
 
 ![Results]({{ ASSET_PATH }}images/2015-01-12-windows-8-development-managing-states-5.png)
 
 Load State.
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 if ( e.PageState != null && e.PageState.ContainsKey("someKey") ) {
   myLocalVariable = e.PageState["someKey"].toString();
 }

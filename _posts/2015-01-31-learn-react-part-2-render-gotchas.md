@@ -19,7 +19,7 @@ If you try to add multiple html tags in the return statement, the web app will b
 
 The way to fix things is to wrap everything in a `<div />` tag.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <!doctype html>
 <html lang="en">
     <head>

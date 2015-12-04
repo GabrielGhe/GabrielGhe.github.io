@@ -17,7 +17,7 @@ NodeJS has the most amazing package manager, npm that allows you to install modu
 Step 1
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### Command Line ###
 
 # Get the right packages
@@ -36,7 +36,7 @@ npm install --save-dev grunt-browserify
 Step 2
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### Command Line ###
 
 # Create a Gruntfile.js
@@ -49,7 +49,7 @@ touch .bowerrc
 Step 3
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in bower.json ###
 {
     "name": "Server14Browserify",
@@ -67,7 +67,7 @@ Step 3
 Step 4
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in package.json ###
 
 // add the following
@@ -80,7 +80,7 @@ Step 4
 Step 5
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in Gruntfile.js ###
 
 module.exports = function(grunt) {
@@ -110,7 +110,7 @@ module.exports = function(grunt) {
 Step 6
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in public/javascripts/index.js ###
 
 // you can now require node modules or bower modules, or even other js files
@@ -128,7 +128,7 @@ console.log(unique(data));
 Step 7
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### in Command Line ###
 
 # running this will generate a build.js file
@@ -143,7 +143,7 @@ grunt
 After installing the modules you want to use (using bower or npm), you simply require them in your file
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in public/javascripts/index.js ###
 
 var unique = require('uniq');               // node module
@@ -161,7 +161,7 @@ console.log("'sayMyName', own module", sayMyName());
 To make your own file into a module, you use module.exports like you would in node
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in public/javascripts/sayMyName.js ###
 
 module.exports = function(){

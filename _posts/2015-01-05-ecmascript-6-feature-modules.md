@@ -23,7 +23,7 @@ Lets start out by creating a module `cat` that has 2 functions it exports: `bite
 
 <b>cat.js</b>
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 function bite(victim){
   return `*cat bit ${victim}*`;
   // notice the use of backtick and ${} for string templating
@@ -39,14 +39,14 @@ export { bite, distract as lookCute }
 
 <b>app1.js</b>
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 import { lookCute } from 'cat';
 console.log( lookCute() );
 {% endhighlight %}
 
 <b>app2.js</b>
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 import { bite, lookCute } from 'cat';
 console.log( lookCute() );  // "awww, that kitten is so cute"
 console.log( bite('Tom') ); // "*cat bit Tom*"
@@ -56,7 +56,7 @@ console.log( bite('Tom') ); // "*cat bit Tom*"
 
 <b>exporter1.js</b>
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 export function blah(){
   return 'blah';
 }
@@ -69,7 +69,7 @@ export { aFunc }
 
 <b>importer1.js</b>
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 import { blah, aFunc } from 'exporter1';
 aFunc();
 console.log( blah() );
@@ -79,7 +79,7 @@ console.log( blah() );
 
 <b>exporter2.js</b>
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 export default function(){
   return "this is all I'm exporting";
 }
@@ -87,7 +87,7 @@ export default function(){
 
 <b>importer2.js</b>
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 import randomName from 'exporter2';
 randomName(); // when you import a default function, you choose the name
 {% endhighlight %}

@@ -20,7 +20,7 @@ More information can be found [here](http://www.2ality.com/2014/12/es6-oop.html)
 <!-- Shorthands -->
 Property shorthands
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 let name = "Jim";
 let age = 21;
 let person = { name, age }; // { name: "Jim", age: 21 }
@@ -29,7 +29,7 @@ let person = { name, age }; // { name: "Jim", age: 21 }
 <!-- Deconstructing -->
 Deconstructing
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 let person = { name: "Jim", age: 21 };
 let { name, age } = person;
 console.log(name);  // Jim
@@ -39,7 +39,7 @@ console.log(age);   // 21
 <!-- Computed keys -->
 Computed Property Keys
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // Before
 var key = "myKey";
 var obj = {};

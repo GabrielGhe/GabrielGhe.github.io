@@ -16,7 +16,7 @@ If you haven't already, look at how to initialize React [here](/javascript/2015/
 React works with reusable components. They are similar to AngularJS directives in a way. We're going to be creating a person list.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in first.jsx ###
 
 /** @jsx React.DOM */
@@ -73,7 +73,7 @@ React.renderComponent(<PersonApp data={data} />, document.getElementById('first'
 We created a PersonApp which has data. The PersonApp then creates a PersonList which displays a Person for every object in the data array. React uses this.props to access attributes on the component (like first, last and data). Lets remove data because it's static.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in first.jsx ###
 
 // first remove the data array.
@@ -110,7 +110,7 @@ React.renderComponent(<PersonApp />, document.getElementById('first'));
 It looks good but it would be nice to change the state of first and last when their associated input changes.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in first.jsx ###
 
 var PersonApp = React.createClass({
@@ -144,7 +144,7 @@ var PersonApp = React.createClass({
 The state changes but we're not modifying the data array inside the state. We want to add the new person object to the array. We're going to accomplish this by adding an onSubmit event and handler to PersonApp.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in first.jsx ###
 
 var PersonApp = React.createClass({

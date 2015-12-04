@@ -17,7 +17,7 @@ If we want to set up a fast way to develop React web apps, we have to be able to
 <h3>Step 1: Installation</h3>
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 # ### in Terminal ###
 npm install --save react
 
@@ -41,7 +41,7 @@ touch Gruntfile.js
 <h3>Step 2: Setup</h3>
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in Gruntfile.js ###
 
 module.exports = function(grunt){
@@ -120,7 +120,7 @@ module.exports = function(grunt){
 With this setup, we can add jsx and js files. Your directory (at the beginning... it shouldn't look this way) will look like this. 
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 .
 ├── Gruntfile.js
 ├── app.js
@@ -146,7 +146,7 @@ With this setup, we can add jsx and js files. Your directory (at the beginning..
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in test.jsx ###
 
 /** @jsx React.DOM */
@@ -164,7 +164,7 @@ module.exports = Test;
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in driver.jsx ###
 
 /** @jsx React.DOM */

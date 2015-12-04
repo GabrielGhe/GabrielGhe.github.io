@@ -17,7 +17,7 @@ Angularjs is a great framework. The problem is that minification is a bit more c
 Step 1
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### Command Line ###
 
 # Get the dependencies
@@ -33,7 +33,7 @@ npm install --save-dev grunt-contrib-uglify
 Step 2
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in public/javascripts/index.js ###
 
 // Make sure that your angular syntax is like this
@@ -48,7 +48,7 @@ MyApp.controller("ThingController", ["$scope",
 Step 3
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 // ### in Gruntfile.js ###
 "use strict";
 
@@ -85,7 +85,7 @@ module.exports = function(grunt){
 Step 4
 
 <!-- Code _______________________________________-->
-{% highlight bash linenos %}
+{% highlight bash linenos=table  %}
 ### Command Line ###
 $ grunt
 {% endhighlight %}

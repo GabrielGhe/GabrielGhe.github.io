@@ -12,7 +12,7 @@ tags: [ios, ui, transition]
 
 In this post, I'll show you how to transition between 2 UIViews on tap in swift.
 
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 // ### in viewDidLoad ###
 
 let container = UIView()
@@ -42,7 +42,7 @@ Ok, now we need to animate on click for it to look like this.
 
 ![Results]({{ ASSET_PATH }}images/2015-01-18-uiview-transitions.gif)
 
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 // ### in click event ###
 
 // create a tuple to hold the views

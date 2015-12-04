@@ -21,7 +21,7 @@ I'm sure most programmers know about [enums](https://developer.apple.com/library
 First, let's talk about enumerations in swift. They are declared in the following way.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 enum DogBreed {
     case Yorkie
     case Maltese
@@ -39,7 +39,7 @@ enum JavascriptFrameworks {
 To set an enum to a variable, you do the following. Once the variable knows that it will be holding DogBreed's, you don't have to specify the enum, just the type.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 var myDogsBreed = DogBreed.Yorkie
 myDogBreed = .Husky
 {% endhighlight %}
@@ -49,7 +49,7 @@ myDogBreed = .Husky
 One cool thing about swift's enums is that you can have associate more information with a particular type.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 enum BarCode {
     case UPCA(Int, Int, Int, Int)
     case QRCode(String)
@@ -64,7 +64,7 @@ productBarcode = .QRCode("ABCDEFGHIJKLMNOP")
 You can also set raw values to an enum's types.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 enum Planet: Int {
     case Mercury = 1, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
 }
@@ -78,7 +78,7 @@ let possiblePlanet:Planet? = Planet(rawValue: 7)
 Enums can have methods, but like structs they need the `mutating` keyword in front of the method if it modifies the state of the enum.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 enum TriStateSwitch {
     case Off, Low, High
     mutating func next() {
@@ -107,7 +107,7 @@ ovenLight.next() // .Off
 The switch statement is, by itself, powerful. Combined with the enum, it becomes amazing.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 switch `value to consider` {
     case `value 1`:
         // do stuff
@@ -137,7 +137,7 @@ switch ch {
 It can also work with ranges.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 let num:UInt = 3_000
 switch num {
     case 0...9:
@@ -157,7 +157,7 @@ switch num {
 The switch statement can be used with tuples and have conditions.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 let coor = (1, 1)
 switch coor {
     case (0, 0):
@@ -192,7 +192,7 @@ coorLoop: while {
 When using the switch statement with enums, you get the following.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 switch productBarcode {
     case .UPCA(let numberSystem, let manufacturer, let product, let check):
         println("UPC-A: \(numberSystem), \(manufacturer), \(product), \(check).")

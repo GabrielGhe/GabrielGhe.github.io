@@ -46,7 +46,7 @@ Credits to [source article](http://www.programcreek.com/2012/11/top-10-algorithm
 <h3><a name="string"></a><a href="">1. String</a></h3>
 
 <!-- Code _______________________________________-->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 "Hello".toCharArray()             // ['H', 'e', 'l', 'l', 'o']
 Collections.sort(List lst)        // sorts a List in place
 Arrays.sort(T[] array)            // sort an array
@@ -84,7 +84,7 @@ Character.isUpperCase('a')        // false
 The node class which is the "element" of a linked list
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 class Node {
   int val;
   Node next;
@@ -100,7 +100,7 @@ class Node {
 Stack implementation using the Linked List data structure
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 class Stack{
   Node top; 
   
@@ -153,7 +153,7 @@ class Stack{
 Queue implementation using the Linked List data structure
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 class Queue {
   Node first, last;
   
@@ -200,7 +200,7 @@ class Queue {
 <p>The tree class here is for the binary tree</p>
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 class TreeNode {
   int value;
   TreeNode parent;
@@ -232,7 +232,7 @@ Graphs are used for many things, such as Networking and games.The 2 most famous 
 GraphNode
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 class GraphNode{ 
   int val;
   GraphNode next;
@@ -269,7 +269,7 @@ class GraphNode{
 Breath First Search (live implementation from MIT [here](http://www.youtube.com/watch?v=s-CYnVz-uh4&t=2055))
 
 
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 public static Node bfs(Node root, int value) {
   // Queue is abstract, use an implementation of queue
   Queue<Node> q = new Queue<Node>();
@@ -293,7 +293,7 @@ public static Node bfs(Node root, int value) {
 Depth First Search (live implementation from MIT [here](http://www.youtube.com/watch?v=AfSk24UTFS8&t=250))
   
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 public static Node dfs(Node root, int value) {
   Stack<Node> s = new Stack<Node>();
   Node returnValue;
@@ -358,7 +358,7 @@ Here is a table of algorithms that do not use comparison
 Fibonacci using bad recursion
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 public static int fib(int n){
   if(n <= 1)
     return n;         //base case
@@ -371,7 +371,7 @@ public static int fib(int n){
 Fibonacci using tail recursion
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 public static int fibHelper(int start, int end, int prev, int current){
   if(start == end)
     return current;
@@ -391,7 +391,7 @@ public static int fib(int n){
 Fibonacci using iteration
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 public static int fib(int n) {
   if (n <= 1){
     return n;
@@ -431,7 +431,7 @@ Dynamic programming is a technique for solving problems with the following prope
 The problem of climbing steps perfectly fit those 4 properties. Therefore, it can be solve by using dynamic programming.
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 public static int[] Steps = new int[100];
  
 public static int f3(int n) {
@@ -480,7 +480,7 @@ public static int f3(int n) {
 There are 50 people in a room, what’s the probability that two people have the same birthday? (Ignoring the fact of leap year, i.e., 365 day every year)
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 public static double caculateProbability(int n){
   double x = 1; 
  
@@ -510,7 +510,7 @@ public static double caculateProbability(int n){
 Permutation
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 public static void perm(int[] list, int pos){
   if (pos == list.length) {
     System.out.println( Arrays.toString(list) );
@@ -545,7 +545,7 @@ public static final <T> void swap (T[] a, int i, int j) {
 Writing to a file.
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 //java7... appends to file
 try(Formatter f = new Formatter("myText.txt")) {
   f.format("this is output text", null);
@@ -569,7 +569,7 @@ try {
 Reading from a file
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 //read all the lines in a file
 try(Scanner scan = new Scanner(new File("myText.txt") ) ){
   ArrayList<String> x = new ArrayList<String>();
@@ -595,7 +595,7 @@ try(Scanner scan = new Scanner(new File("myText.txt") ) ){
 Server that listens for a connection, writes the date and closes connection
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 //Server
 ServerSocket listener = new ServerSocket(9090);
 try {
@@ -644,7 +644,7 @@ try{
 The full documentation can be found here [Docs](http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html)
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 //Long way, that can be reused
 Pattern p = Pattern.compile("a*b");
 Matcher m = p.matcher("aaaab");
@@ -902,7 +902,7 @@ Full article can be found [here](http://examples.javacodegeeks.com/core-java/lan
 </table>
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 // Padding left
 System.out.printf("%10s %10s\n", "hello", "world");
 
@@ -950,7 +950,7 @@ he wo
 </table>
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 // Padding left
 System.out.printf("%10d %10d\n", 12345, 54321);
 
@@ -998,7 +998,7 @@ System.out.printf("%010d %010d\n", 12345, 54321);
 </table>
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 // Padding left
 System.out.printf("%14f %14f\n", 123.456789, 987.654321);
 
@@ -1038,7 +1038,7 @@ The synchronized HashMap is the ConcurrentHashMap<Key,Value> which is in java.ut
 Source: [here](http://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable)
 
 <!-- Code -->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 Map<String, Integer> map = new HashMap<>();
 map.put("a", 1); // { a:1 }
 map.put("b", 2); // { a:1, b:2 }
@@ -1066,7 +1066,7 @@ map.clear();     // {}
 A HashSet is a dictionary that only stores keys. It doesn't allow for duplicates and only stores keys.
 
 <!-- Code _______________________________________-->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 Set<Integer> set = new HashSet<>();
 set.add(1);       // { 1 }
 set.add(2);       // { 1, 2 }
@@ -1101,7 +1101,7 @@ set.clear();      // {}
 Deques implement the interfaces of both Stacks and Queues. They are great for both.
 
 <!-- Code _______________________________________-->
-{% highlight java linenos %}
+{% highlight java linenos=table  %}
 Deque<Integer> deque = new ArrayDeque<>();
 deque.add(5);         // [5]
 deque.addFirst(2);    // [2,5]

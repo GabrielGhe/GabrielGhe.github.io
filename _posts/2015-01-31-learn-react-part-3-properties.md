@@ -22,7 +22,7 @@ Properties can get passed down from a component to it's children. Here's the [Eg
 
 You can pass data to your component using properties. We added `txt` prop.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -61,7 +61,7 @@ You can pass data to your component using properties. We added `txt` prop.
 
 You can also specify the props that you're expecting using the `propTypes` property. By default, a propType is optional; however, if you add `cat: React.PropTypes.number.isRequired` then React will complain because it's not one of the properties of App. If we add cat to the app initialization on `line 17`, it will work.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <script type="text/jsx">
     /*** @jsx React.DOM */
     var App = React.createClass({
@@ -90,7 +90,7 @@ You can also specify the props that you're expecting using the `propTypes` prope
 You can define the default properties for any component using the `getDefaultProps` property on the component.
 Which means the code below will work even though we don't have `cat` and `txt` on on App initialization on `line 23`.
 
-{% highlight html linenos %}
+{% highlight html linenos=table  %}
 <script type="text/jsx">
     /*** @jsx React.DOM */
     var App = React.createClass({

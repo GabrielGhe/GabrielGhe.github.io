@@ -18,7 +18,7 @@ Initializers in Swift are a little different than the ones found in other classe
 There are 2 kinds of inits: designated init and convenience init.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class MyClass {
     var instanceVariable:Int
 
@@ -32,7 +32,7 @@ class MyClass {
 In an init, you must initialize all your properties. This includes constants (that use `let`) and optionals. Optionals can have a value of `nil` so they are initialized by default.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class MyClass {
     let constantVar:String
     var optionalVar:String?
@@ -57,7 +57,7 @@ A `designated init` must call `super.init` before assigning a value to an inheri
 
 A `convenience init` must call a designated init of its own class (can't call `super.init`).
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class Food {
     var name: String
     init(name: String) {
@@ -75,7 +75,7 @@ A `convenience init` must call a `designated init` before it can set any propert
 
 A `convenience init` can call a `designated init` indirectly (through another `convenience init`)
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class RecipeIngredient: Food {
     var quantity: Int
     init(name: String, quantity: Int) {
@@ -97,7 +97,7 @@ class RecipeIngredient: Food {
 If you inherit from a class and provide no inits. You inherit all the super class' inits.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class ShoppingListItem: RecipeIngredient {
     var purchased = false
     var description: String {
@@ -118,7 +118,7 @@ class ShoppingListItem: RecipeIngredient {
 You can force a subclass to override a super class' initializer by adding `required` in front.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class SomeClass {
     required init() {
         // initializer implementation goes here
@@ -141,7 +141,7 @@ class SomeSubclass: SomeClass {
 An initializer can fail and return nil. Why would we do this? Here's one example.
 
 <!-- Code _______________________________________-->
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 let image = UIImage(named: "imageName") //image is an (UIImage?)
 
 if let otherImage = UIImage(named: "imageName") {

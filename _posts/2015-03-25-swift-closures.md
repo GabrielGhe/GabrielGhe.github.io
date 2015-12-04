@@ -18,7 +18,7 @@ Closures are awesome. You can do some powerful things with them, but they are da
 Here's an example where the closure will create a memory leak.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class Person {
     var batmanSong = {} // () -> ()
     var sing(value: String) {
@@ -44,7 +44,7 @@ class Person {
 The problem is that `self` has a reference to `batmanSong` and `batmanSong` has a reference to `self`. To fix this problem, you just say that `batmanSong` shouldn't keep a reference to `self`.
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 batmanSong = { [unowned self] in
     na += "Na"
     self.sing(na + batman)

@@ -11,7 +11,7 @@ tags: [ios, button, shadow]
 <h3>Content</h3>
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func viewDidLoad() {
     super.viewDidLoad()
 

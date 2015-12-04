@@ -12,7 +12,7 @@ tags: [python, beautifulsoup, requests, crawler, scraper]
 
 This post is about web crawling and scraping in python. The modules we will need are `requests` and `BeautifulSoup`. More information can be found [here for requests](http://docs.python-requests.org/en/latest/) and [here for BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/).
 
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 # first we need the 2 modules
 import requests
 from bs4 import BeautifulSoup

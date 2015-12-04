@@ -38,7 +38,7 @@ Note: Search Bar and Search Display is 1 control.
 Now we need the implementation. Create a file that is a subclass of UIViewController and add the following protocols.
 
 <!-- Code -->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 class YourViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate
 {% endhighlight %}
 <!-- END Code -->
@@ -46,7 +46,7 @@ class YourViewController: UIViewController, UITableViewDataSource, UITableViewDe
 We have to implement the following functions now.
 
 <!-- Code -->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 // How many rows to display
 func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
 
@@ -69,7 +69,7 @@ func searchDisplayController(controller: UISearchDisplayController!, shouldReloa
 <h3>TableView functions</h3>
 
 <!-- Code -->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
   if (tableView == self.searchDisplayController?.searchResultsTableView) {
       return searchResults.count
@@ -109,7 +109,7 @@ the one from our main tableView.
 <h3>SearchBar functions</h3>
 
 <!-- Code -->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
   filterContentForSearchText(searchString)
   return true

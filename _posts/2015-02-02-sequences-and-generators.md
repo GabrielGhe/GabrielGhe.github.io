@@ -17,7 +17,7 @@ In swift, when we want to iterate over a sequence, we use a generator. It's not 
 
 In swift, like in all languages, we can iterate over a collection using a `for each` or better named `for in` in swift.
 
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 // array
 for item in ["first", "second", "third"] {
     println(item)
@@ -47,7 +47,7 @@ for i in 0..<3 {
 
 This works for built in types but how can we use the `for..in` with our own classes? We have to add the `SequenceType` protocol to our class.
 
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 // Initial attempt
 extension Cats : SequenceType {
     func generate() -> Generator {
@@ -58,7 +58,7 @@ extension Cats : SequenceType {
 
 We have to return a Generator. A Generator has to conform to the `GeneratorType` protocol which has only one method, `next()`.
 
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 struct List<T> : GeneratorType {
   var currentNode : List<T>
 

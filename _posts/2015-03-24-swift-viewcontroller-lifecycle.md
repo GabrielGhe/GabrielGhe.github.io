@@ -29,7 +29,7 @@ The lifecycle for a ViewController is as follows.
 <h4>Lifecycle Methods</h4>
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 override func viewDidLoad() {
     // call super's version at beginning or end
     super.viewDidLoad()
@@ -42,7 +42,7 @@ override func viewDidLoad() {
 
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 func viewWillAppear(animated: Bool) {
     // every time the view gets displayed
     // geometry is set (bounds)
@@ -53,7 +53,7 @@ func viewDidAppear(animated: Bool)
 
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     // clean up stuff
@@ -65,7 +65,7 @@ func viewDidDisappear(animated: Bool)
 
 
 <!-- Code _______________________________________-->
-{% highlight swift linenos %}
+{% highlight swift linenos=table  %}
 // your geometry has changed (rotate)
 func viewWillLayoutSubviews()
 func viewDidLayoutSubviews()

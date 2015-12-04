@@ -17,7 +17,7 @@ This is how you extend a class that already exists and that you don't have acces
 
 First declare a static class, then create a static method that has `this` in front of the first parameter... Done!
 
-{% highlight csharp linenos %}
+{% highlight csharp linenos=table  %}
 public class Extensions {
     public static void SayHello(this Person person) {
         Console.WriteLine("Hello, my name is {0} and I'm {1}", person.Name, person.Age);

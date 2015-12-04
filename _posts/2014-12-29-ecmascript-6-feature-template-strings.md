@@ -19,7 +19,7 @@ More information can be found [here](http://tc39wiki.calculist.org/es6/template-
 <!-- Examples -->
 <h3>Examples</h3>
 
-{% highlight javascript linenos %}
+{% highlight javascript linenos=table  %}
 var first = "Jake"
   , last = "Daisy";
 

@@ -12,7 +12,7 @@ tags: [io, file]
 
 This post is about file io in python. More information can be found [here](https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files).
 
-{% highlight python linenos %}
+{% highlight python linenos=table  %}
 # reading a file in 1 shot
 with open('filename.txt', 'r') as file:
     content = file.read()
