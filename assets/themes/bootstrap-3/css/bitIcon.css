@@ -25,149 +25,26 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-gabrielghe-special:before {
-  /* sq */
-  content: "\e62a";
-}
-
+.icon-gabrielghe-special:before {/* sq */content: "\e62a";}
 .icon-gabrielghe:before {/* non- sq */content: "\e62b";}
 .icon-c:before          {/* sq */content: "\e600";/* non- sq *//*content: "\e601";*/}
 .icon-cplusplus:before  {/* sq */content: "\e602";/* non- sq *//*content: "\e603";*/color: #8d3375;}
 .icon-csharp:before     {/* sq */content: "\e604";/* non- sq *//*content: "\e605";*/color: #2c8741;}
-.icon-css-sq:before     {/* sq */content: "\e606";/* non- sq *//*content: "\e607";*/}
-.icon-css3-sq:before    {/* sq */
-	content: "\e608";
-}
-
-.icon-css3:before {
-	content: "\e609";
-}
-
-.icon-haskell-sq:before {
-	content: "\e60a";
-}
-
-.icon-haskell:before {
-	content: "\e60b";
-}
-
-.icon-html-sq:before {
-	content: "\e60c";
-}
-
-.icon-html:before {
-	content: "\e60d";
-}
-
-.icon-html5-sq:before {
-	content: "\e60e";
-}
-
-.icon-html5:before {
-	content: "\e60f";
-}
-
-.icon-java:before {
-  /* sq */
-  content: "\e610";
-  /* non- sq */
-	/*content: "\e611";*/
-  color: #e76f00;
-}
-
-.icon-java-alt:before {
-  /* sq */
-  content: "\e612";
-  /* non- sq */
-	/*content: "\e613";*/
-  color: #e76f00;
-}
-
-.icon-javascript:before {
-  /* sq */
-  content: "\e614";
-	/* non- sq */
-  /*content: "\e615";*/
-  color: #f0db4f;
-}
-
-.icon-mysql-sq:before {
-	content: "\e616";
-}
-
-.icon-mysql:before {
-	content: "\e617";
-}
-
-.icon-node-sq:before {
-	content: "\e618";
-}
-
-.icon-node:before {
-	content: "\e619";
-}
-
-.icon-objc-sq:before {
-	content: "\e61a";
-}
-
-.icon-objc:before {
-	content: "\e61b";
-}
-
-.icon-perl-sq:before {
-	content: "\e61c";
-}
-
-.icon-perl:before {
-	content: "\e61d";
-}
-
-.icon-php-sq:before {
-	content: "\e61e";
-}
-
-.icon-php:before {
-	content: "\e61f";
-}
-
-.icon-python:before {
-  /* sq */
-  content: "\e620";
-  /* non- sq */
-	/*content: "\e621";*/
-  color: #3776ab;
-}
-
-.icon-rails-sq:before {
-	content: "\e622";
-}
-
-.icon-rails:before {
-	content: "\e623";
-}
-
-.icon-ruby-sq:before {
-	content: "\e624";
-}
-
-.icon-ruby:before {
-	content: "\e625";
-}
-
-.icon-scala-sq:before {
-	content: "\e626";
-}
-
-.icon-scala:before {
-	content: "\e627";
-}
-
-.icon-swift:before {
-  /* sq */
-  content: "\e628";
-  /* non- sq */
-	/*content: "\e629";*/
-  color: #fe6635;
-}
-
+.icon-css:before        {/* sq */content: "\e606";/* non- sq *//*content: "\e607";*/}
+.icon-css3:before       {/* sq */content: "\e608";/* non- sq *//*content: "\e609";*/}
+.icon-haskell:before    {/* sq */content: "\e60a";/* non- sq *//*content: "\e60b";*/}
+.icon-html:before       {/* sq */content: "\e60c";/* non- sq *//*content: "\e60d";*/}
+.icon-html5:before      {/* sq */content: "\e60e";/* non- sq *//*content: "\e60f";*/}
+.icon-java:before       {/* sq */content: "\e610";/* non- sq *//*content: "\e611";*/color: #e76f00;}
+.icon-java-alt:before   {/* sq */content: "\e612";/* non- sq *//*content: "\e613";*/color: #e76f00;}
+.icon-javascript:before {/* sq */content: "\e614";/* non- sq *//*content: "\e615";*/color: #f0db4f;}
+.icon-mysql:before      {/* sq */content: "\e616";/* non- sq *//*content: "\e617";*/}
+.icon-node:before       {/* sq */content: "\e618";/* non- sq *//*content: "\e619";*/}
+.icon-objc:before       {/* sq */content: "\e61a";/* non- sq *//*content: "\e61b";*/}
+.icon-perl:before       {/* sq */content: "\e61c";/* non- sq *//*content: "\e61d";*/}
+.icon-php:before        {/* sq */content: "\e61e";/* non- sq *//*content: "\e61f";*/}
+.icon-python:before     {/* sq */content: "\e620";/* non- sq *//*content: "\e621";*/color: #3776ab;}
+.icon-rails:before      {/* sq */content: "\e622";/* non- sq *//*content: "\e623";*/}
+.icon-ruby:before       {/* sq */content: "\e624";/* non- sq *//*content: "\e625";*/}
+.icon-scala:before      {/* sq */content: "\e626";/* non- sq *//*content: "\e627";*/}
+.icon-swift:before      {/* sq */content: "\e628";/* non- sq *//*content: "\e629";*/color: #fe6635;}
