@@ -30,43 +30,12 @@
   content: "\e62a";
 }
 
-.icon-gabrielghe:before {
-  /* non- sq */
-  content: "\e62b";
-}
-
-.icon-c:before {
-  /* sq */
-  content: "\e600";
-  /* non- sq */
-	/*content: "\e601";*/
-}
-
-.icon-cplusplus:before {
-  /* sq */
-  content: "\e602";
-  /* non- sq */
-	/*content: "\e603";*/
-  color: #8d3375;
-}
-
-.icon-csharp:before {
-  /* sq */
-  content: "\e604";
-  /* non- sq */
-	/*content: "\e605";*/
-  color: #2c8741;
-}
-
-.icon-css-sq:before {
-	content: "\e606";
-}
-
-.icon-css:before {
-	content: "\e607";
-}
-
-.icon-css3-sq:before {
+.icon-gabrielghe:before {/* non- sq */content: "\e62b";}
+.icon-c:before          {/* sq */content: "\e600";/* non- sq *//*content: "\e601";*/}
+.icon-cplusplus:before  {/* sq */content: "\e602";/* non- sq *//*content: "\e603";*/color: #8d3375;}
+.icon-csharp:before     {/* sq */content: "\e604";/* non- sq *//*content: "\e605";*/color: #2c8741;}
+.icon-css-sq:before     {/* sq */content: "\e606";/* non- sq *//*content: "\e607";*/}
+.icon-css3-sq:before    {/* sq */
 	content: "\e608";
 }
 

@@ -26,39 +26,19 @@
 }
 
 .icon-amazon:before{content:'\0041'; color: #ff9900;}
-.icon-blank-sq:before{content:'\0043';}
-.icon-c:before{content:'\0044'; color: #67b1e0;}
 .icon-christmas:before{content:'\0045'; color: #D7000C;}
-.icon-cpp:before{content:'\0046'; color: #8d3375;}
-.icon-csharp:before{content:'\0047'; color: #2c8741;}
 .icon-css:before{content:'\0048'; color: #e06f09;}
 .icon-css3:before{content:'\0049'; color: #1572b6;}
 .icon-facebook:before{content:'\004A'; color: #3b5998;}
 .icon-github:before{content:'\004B'; background-color: #ff9900;}
 .icon-google:before{content:'\004C'; color: #a4c639;}
-.icon-halloween:before{content:'\004D'; color: #ff9100;}
-.icon-haskell:before{content:'\004E'; color: #999999;}
-.icon-html:before{content:'\004F'; color: #8a7967;}
-.icon-html5:before{content:'\0050'; color: #e75227;}
-.icon-java:before{content:'\0051'; color: #e76f00;}
-.icon-javascript:before{content:'\0052'; color: #f0db4f;}
+.icon-halloween:before{content:'\004D'; color: #ff9100;}}
 .icon-less:before{content:'\0053'; color: #1b3559;}
 .icon-microsoft:before{content:'\0054'; color: #00bcf2;}
 .icon-music:before{content:'\0055'; color: #fc8229;}
-.icon-mysql:before{content:'\0056'; color: #00618a;}
-.icon-node:before{content:'\0057'; color: #8cc84b;}
-.icon-objc:before{content:'\0058'; color: #4392fa;}
-.icon-perl:before{content:'\0059'; color: #41436d;}
-.icon-php:before{content:'\005A'; color: #6082bb;}
-.icon-python:before{content:'\0061'; color: #3776ab;}
-.icon-rails:before{content:'\0062'; color: #a1262e;}
 .icon-reading:before{content:'\0063'; color: #cc7a00;}
-.icon-ruby:before{content:'\0067'; color: #b40f01;}
-.icon-sass:before{content:'\0068'; color: #cd669a;}
-.icon-scala:before{content:'\0069'; color: #be1902;}
 .icon-script:before{content:'\006A'; color: #a71930;}
 .icon-shell:before{content:'\006B'; color: #062f3c;}
-.icon-swift:before{content:'\006C'; color: #fe6635;}
 .icon-travel:before{content:'\006D'; color: #6caddf;}
 .icon-university:before{content:'\006E'; color: #444444;}
 .icon-apple:before{content:'\006F'; color: #999999;}
