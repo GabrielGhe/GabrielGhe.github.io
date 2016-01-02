@@ -60,7 +60,7 @@ Arrays.toString(char[] a)         // convert to string
 Character.isLetter('a')           // true
 Character.isDigit(5)              // true
 Character.isLetterOrDigit('a')    // true
-Character.isWhiteSpace(' ')       // true
+Character.isWhitespace(' ')       // true
 
 Character.toLowerCase('A')        // 'a'
 Character.isUpperCase('a')        // false
