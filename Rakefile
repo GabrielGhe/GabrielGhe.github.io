@@ -71,6 +71,12 @@ task :post do
     post.puts "tags: #{tags}"
     post.puts "---"
     post.puts "{% include JB/setup %}"
+    post.puts ""
+    post.puts "<!-- Overview -->"
+    post.puts "<h3>Overview</h3>"
+    post.puts ""
+    post.puts "<!-- Content -->"
+    post.puts "<h3>Content</h3>"
   end
 end # task :post
 
@@ -103,6 +109,12 @@ task :hidden do
     post.puts "tags: #{tags}"
     post.puts "---"
     post.puts "{% include JB/setup %}"
+    post.puts ""
+    post.puts "<!-- Overview -->"
+    post.puts "<h3>Overview</h3>"
+    post.puts ""
+    post.puts "<!-- Content -->"
+    post.puts "<h3>Content</h3>"
   end
 end # task :post
 
