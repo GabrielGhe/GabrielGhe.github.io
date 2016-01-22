@@ -159,7 +159,7 @@ x.split()       # ["A", "bcdefg"]
 {% highlight python linenos=table hl_lines="" %}
 import re
 
-pattern = r'\d{3}-\d{3}-\d{4}'
+pattern = r'(\d{3})-\d{3}-\d{4}'
 text = "Hello, my name is Goku. My number is 811-910-9324. My son's number is 643-948-2345"
 
 phoneNumRegex = re.compile(pattern)
@@ -168,6 +168,7 @@ print(matches.group())              #"811-910-9324"
 
 matches = re.search(pattern, text)
 print(matches.group())              #"811-910-9324"
+print(matches.group(0))             #["811", "643"] because we put parenthesis around the first \d
 
 phoneNumRegex.findAll(text)         #["811-910-9324", "643-948-2345"]
 re.findAll(pattern, text)           #["811-910-9324", "643-948-2345"]
