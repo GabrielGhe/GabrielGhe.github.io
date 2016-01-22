@@ -17,7 +17,9 @@ Example code can be found [here](https://github.com/GabrielGhe/CoderbyteChalleng
 3.  [Numbers](#numbers)
 4.  [Probability](#probability)
 5.  [String](#string)
-6.  [Other](#other)
+6.  [Regex](#regex)
+7.  [Other](#other)
+
 
 <!-- 
 #########################################
@@ -142,6 +144,37 @@ x.split()       # ["A", "bcdefg"]
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
+
+
+<!-- 
+#########################################
+#
+#   Regex
+#
+#########################################
+-->
+<br /><br /><br />
+<h3><a name="regex"></a><a href="">6. Regex</a></h3>
+<!-- Code _______________________________________-->
+{% highlight python linenos=table hl_lines="" %}
+import re
+
+pattern = r'\d{3}-\d{3}-\d{4}'
+text = "Hello, my name is Goku. My number is 811-910-9324. My son's number is 643-948-2345"
+
+phoneNumRegex = re.compile(pattern)
+matches = phoneNumRegex.search(text)
+print(matches.group())              #"811-910-9324"
+
+matches = re.search(pattern, text)
+print(matches.group())              #"811-910-9324"
+
+phoneNumRegex.findAll(text)         #["811-910-9324", "643-948-2345"]
+re.findAll(pattern, text)           #["811-910-9324", "643-948-2345"]
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
 <!-- 
 #########################################
 #
@@ -150,7 +183,7 @@ x.split()       # ["A", "bcdefg"]
 #########################################
 -->
 <br /><br /><br />
-<h3><a name="other"></a><a href="">6. Other</a></h3>
+<h3><a name="other"></a><a href="">7. Other</a></h3>
 <!-- Code _______________________________________-->
 {% highlight python linenos=table  %}
 # ternery
