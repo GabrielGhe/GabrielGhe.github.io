@@ -31,7 +31,7 @@ The sequence `B -> C -> D -> G` is the longest common subsequence. Those charact
 <!-- Solution -->
 <h3>Solution</h3>
 
-The longest common subsequence is a dynamic programming question. I will make another post about how to approach and solve dynamic programming questions in another post. It's important to note that there are 4 parts to a dynamic programming solution.
+The longest common subsequence is a dynamic programming question. I will make another post about how to approach and solve dynamic programming questions in another post.
 
 One of the ways to solve a dynamic programming question is by first building a table bottom up with the solutions to the subproblems and then building the solution from the table.
 
