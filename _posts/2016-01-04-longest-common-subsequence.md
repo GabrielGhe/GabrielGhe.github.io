@@ -83,7 +83,7 @@ We know that the Longest Common Subsequence has a length of 4. The reason why a 
 
 ![Solution]({{ ASSET_PATH }}images/2016-01-04-longest-common-subsequence3.gif)
 
-Given our table we will use the following rules to generate the solution.
+Given our table, we will use the following rules to generate the solution.
 
 1. Start at the bottom right corner, the largest value.
 2. If `firstString.charAt(row)` is the same as `secondString.charAt(col)`, then we add the letter to the front of our solution, go to the top right corner
