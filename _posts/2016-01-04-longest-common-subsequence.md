@@ -51,7 +51,7 @@ int[][] table = new int[rows][cols];
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-This is how we're going to populate the table. List all the other dynamic programming problems, we use the precomputed values to compute the next value.
+This is how we're going to populate the table. Like all the other dynamic programming problems, we use the precomputed values to compute the next value.
 
 <!-- Code _______________________________________-->
 {% highlight java linenos=table %}
