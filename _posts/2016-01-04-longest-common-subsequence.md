@@ -3,7 +3,7 @@ layout: post
 title: "Longest Common Subsequence"
 description: "The longest common subsequence is an old algorithm problems. You might ask yourself what applications it might have. Well 2 very important applications of the LCS are file comparison and molecular biology. Read on to find out how it works. You can also look at the [wiki](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem) and the [visualization tool](http://www.cs.usfca.edu/~galles/visualization/DPLCS.html) to better understand."
 category: university
-tags: [string, sequence, algorithm, substring, logic]
+tags: [string, sequence, algorithm, substring, logic, dynamic programming]
 ---
 {% include JB/setup %}
 
