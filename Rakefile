@@ -75,6 +75,8 @@ task :post do
     post.puts "<!-- Overview -->"
     post.puts "<h3>Overview</h3>"
     post.puts ""
+    post.puts "{{ page.description }}"
+    post.puts ""
     post.puts "<!-- Content -->"
     post.puts "<h3>Content</h3>"
   end
@@ -112,6 +114,8 @@ task :hidden do
     post.puts ""
     post.puts "<!-- Overview -->"
     post.puts "<h3>Overview</h3>"
+    post.puts ""
+    post.puts "{{ page.description }}"
     post.puts ""
     post.puts "<!-- Content -->"
     post.puts "<h3>Content</h3>"
