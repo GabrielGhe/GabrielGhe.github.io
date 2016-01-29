@@ -12,6 +12,8 @@ tags: [python, regex, scraping, clipboard]
 <!-- Overview -->
 <h3>Overview</h3>
 
+ ![Clipboard]({{ ASSET_PATH }}images/2016-01-29-scraping-phone-numbers-from-the-clipboard.jpg)
+
 {{ page.description }}
 
 <!-- Content -->
