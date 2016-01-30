@@ -20,6 +20,9 @@ Usage:
 {% if site.JB.categories_list.provider == "custom" %}
   {% include custom/categories_list %}
 {% else %}
+  <li><a href="{{ BASE_PATH }}{{ site.JB.categories_path }}">
+    all <span>{{ site.posts.size }}</span>
+  </a></li>
   {% if categories_list.first[0] == null %}
     {% for category in categories_list %} 
     	<li><a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category }}-ref">
