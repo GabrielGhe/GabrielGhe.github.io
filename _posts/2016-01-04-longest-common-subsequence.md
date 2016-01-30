@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Longest Common Subsequence"
-description: "The longest common subsequence is an old algorithm problems. You might ask yourself what applications it might have. Well 2 very important applications of the LCS are file comparison and molecular biology. Read on to find out how it works. You can also look at the [wiki](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem) and the [visualization tool](http://www.cs.usfca.edu/~galles/visualization/DPLCS.html) to better understand."
+description: "The longest common subsequence is an old algorithm problem. You might ask yourself what applications it might have. Well 2 very important applications of the LCS are file comparison and molecular biology. Read on to find out how it works. You can also look at the [wiki](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem) and the [visualization tool](http://www.cs.usfca.edu/~galles/visualization/DPLCS.html) to better understand."
 category: university
-tags: [string, sequence, algorithm, substring, logic, dynamic programming]
+tags: [string, sequence, algorithm, substring, logic, dynamic programming, java]
 ---
 {% include JB/setup %}
 
@@ -16,7 +16,7 @@ The longest common subsequence is an old algorithm problems. You might ask yours
 <!-- Content -->
 <h3>Content</h3>
 
-What is the longest common subsequence? Given 2 strings, the LCS finds the ordered sequence of characters that is common to both strings, appear in the same order but are not necessarily contiguous. Here's an example.
+What is the longest common subsequence? Given 2 strings, the LCS finds the longest ordered sequence of characters that is common to both strings, appear in the same order but are not necessarily contiguous. Here's an example.
 
 sequence X: ABCDEFG
 sequence Y: BCDGK
@@ -31,7 +31,7 @@ The sequence `B -> C -> D -> G` is the longest common subsequence. Those charact
 <!-- Solution -->
 <h3>Solution</h3>
 
-The longest common subsequence is a dynamic programming question. I will make another post about how to approach and solve dynamic programming questions in another post.
+The longest common subsequence is a dynamic programming question. I will make another post about how to approach and solve dynamic programming questions in another post. The solution runs in O(n^2)
 
 One of the ways to solve a dynamic programming question is by first building a table bottom up with the solutions to the subproblems and then building the solution from the table.
 
