@@ -234,7 +234,7 @@ a.label {
 .lineno::-moz-selection {background-color: transparent;}/* Mozilla specific */
 .lineno::selection {background-color: transparent;} /* Other major browsers */
 
-.highlight .lineno { color: #ccc; display:inline-block; padding: 0 5px; border-right:1px solid #ccc; }
+.highlight .lineno { display:inline-block; }
 .highlight pre code.console { color:#666; background-color: black; padding: inherit;}
 .highlight pre code.console .go { color: #bbb; }
 .highlight pre code.console .gp { color: #999; }

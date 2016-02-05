@@ -100,13 +100,17 @@ p > code {
   border: none;
 }
 
-.highlight .lineno {
+.highlight .gutter {
+  border-right:1px solid #ccc;
+  padding: 8px;
+  color: #999 !important;
+  background: #e7e7e1;
   border-radius: 10px 0px 0px 10px;
 }
 
 .highlight .code {
   border-radius: 0px 10px 10px 0px;
-  padding-left:10px;
+  padding: 8px;
   background: #49483e url('monokaibg.jpg') top left; color:white;
   width:100%;
 }
