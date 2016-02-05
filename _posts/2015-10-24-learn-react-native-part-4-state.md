@@ -61,7 +61,7 @@ The `TwoTabComponent` will create a view with two tabs at the bottom of the scre
 
 When the user pressed on one of the tabs, the state changes to show the new view. Pressing the 'Home' button displays the `<Home />` control and pressing the `Settings` button displays the `<Settings />` control. Of course, both of those controls are created the same way we created TwoTabComponent (with a render function).
 
-![Images.xcassets]({{ ASSET_PATH }}/images/2015-10-24-learn-react-native-part-4-state1.png)
+![Images.xcassets]({{ ASSET_PATH }}/../images/2015-10-24-learn-react-native-part-4-state1.png)
 
 
 We initialize the state in the constructor with `this.state = { stateProperty: 'initialState' }`. To change the state, we have to call `this.setState({ stateProperty: 'newState' })`.

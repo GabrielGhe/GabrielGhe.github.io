@@ -29,7 +29,7 @@ For this post, I will be using OSX (if you bug me, I'll make one for windows and
 
 This is the end result.
 
-![End Result]({{ ASSET_PATH }}/images/2016-02-04-web-automation-with-selenium.gif)
+![End Result]({{ ASSET_PATH }}/../images/2016-02-04-web-automation-with-selenium.gif)
 
 Now that we have that boilerplate out of the way, we can code. The script below is commented and self explanitory. Run it to see what it does live!
 

@@ -19,13 +19,13 @@ I could use a Table View and add a Search Bar and Search Display.
 
 TableView will display the data, we just have to supply the functions that tell the table view what to show.
 
-![TableView]({{ ASSET_PATH }}/images/1.png)
+![TableView]({{ ASSET_PATH }}/../images/1.png)
 
 The Search Bar doesn't do anything except alert us when the search query was changed... We have to implement
 the search functionality ourselves. The search display is the dropdown that appears with suggestions once you type something
 in the search bar.
 
-![Search Display]({{ ASSET_PATH }}/images/2.png)
+![Search Display]({{ ASSET_PATH }}/../images/2.png)
 
 <!-- Directions -->
 <h3>Directions</h3>

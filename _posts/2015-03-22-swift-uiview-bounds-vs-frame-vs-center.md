@@ -18,6 +18,6 @@ When developing for iOS, a lot of people confuse a UIView's `bounds`, `frame` an
 
 `center`: The UIView's center relative to its superview. To get center of your own view, you do `convertPoint(center, fromView: superview)`
 
-![Results]({{ ASSET_PATH }}/images/2015-03-22-swift-uiview-bounds-vs-frame-vs-center1.png)
+![Results]({{ ASSET_PATH }}/../images/2015-03-22-swift-uiview-bounds-vs-frame-vs-center1.png)
 
-![Results]({{ ASSET_PATH }}/images/2015-03-22-swift-uiview-bounds-vs-frame-vs-center2.png)
+![Results]({{ ASSET_PATH }}/../images/2015-03-22-swift-uiview-bounds-vs-frame-vs-center2.png)

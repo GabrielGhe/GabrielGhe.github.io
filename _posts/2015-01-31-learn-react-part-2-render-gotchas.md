@@ -50,4 +50,4 @@ The way to fix things is to wrap everything in a `<div />` tag.
 
 OUTPUT:
 
-![Results]({{ ASSET_PATH }}/images/2015-01-31-learn-react-part-2-render-gotchas.png)
+![Results]({{ ASSET_PATH }}/../images/2015-01-31-learn-react-part-2-render-gotchas.png)

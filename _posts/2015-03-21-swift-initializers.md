@@ -69,7 +69,7 @@ class Food {
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
-![Results]({{ ASSET_PATH }}/images/2015-03-21-swift-initializers1.png)
+![Results]({{ ASSET_PATH }}/../images/2015-03-21-swift-initializers1.png)
 
 A `convenience init` must call a `designated init` before it can set any property values.
 
@@ -88,7 +88,7 @@ class RecipeIngredient: Food {
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
-![Results]({{ ASSET_PATH }}/images/2015-03-21-swift-initializers2.png)
+![Results]({{ ASSET_PATH }}/../images/2015-03-21-swift-initializers2.png)
 
 
 <!-- Inherited Init -->
@@ -109,7 +109,7 @@ class ShoppingListItem: RecipeIngredient {
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-![Results]({{ ASSET_PATH }}/images/2015-03-21-swift-initializers3.png)
+![Results]({{ ASSET_PATH }}/../images/2015-03-21-swift-initializers3.png)
 
 
 <!-- Required Init -->

@@ -21,7 +21,7 @@ What is the longest common subsequence? Given 2 strings, the LCS finds the longe
 sequence X: ABCDEFG
 sequence Y: BCDGK
 
-![Example Sequence]({{ ASSET_PATH }}/images/2016-01-04-longest-common-subsequence.png)
+![Example Sequence]({{ ASSET_PATH }}/../images/2016-01-04-longest-common-subsequence.png)
 
 The sequence `B -> C -> D -> G` is the longest common subsequence. Those characters appear in both strings in that order.
 
@@ -69,7 +69,7 @@ for (int row=1; row < rows; ++row) {
 
 This generates the following table.
 
-![Table]({{ ASSET_PATH }}/images/2016-01-04-longest-common-subsequence2.png)
+![Table]({{ ASSET_PATH }}/../images/2016-01-04-longest-common-subsequence2.png)
 
 We know that the Longest Common Subsequence has a length of 4. The reason why a cell would increase in value is because there was a char in the first string that matched a char in the second string as defined by our variable 'sameCharacters';
 
@@ -81,7 +81,7 @@ We know that the Longest Common Subsequence has a length of 4. The reason why a 
 <!-- Generating the solution from the table -->
 <h4>Generating the solution from the table</h4>
 
-![Solution]({{ ASSET_PATH }}/images/2016-01-04-longest-common-subsequence3.gif)
+![Solution]({{ ASSET_PATH }}/../images/2016-01-04-longest-common-subsequence3.gif)
 
 Given our table, we will use the following rules to generate the solution.
 

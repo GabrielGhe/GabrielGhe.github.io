@@ -29,7 +29,7 @@ In this post, I will be talking about how to style xaml controls. Similar to css
 
 We first create a `<Page.Resources>` element. Inside we create a `<SolidColorBrush>` that we can reuse by using it's key, `MyBrush`. To use it, we have to use the following syntax: `"{StaticResource MyBrush}"`.
 
-![Results]({{ ASSET_PATH }}/images/2015-01-11-windows-8-development-styling-xaml-1.png)
+![Results]({{ ASSET_PATH }}/../images/2015-01-11-windows-8-development-styling-xaml-1.png)
 
 The style above can be applied to anything and it's simple. Let's create a more complicated style that can be applied only to buttons.
 
@@ -49,7 +49,7 @@ The style above can be applied to anything and it's simple. Let's create a more 
 
 Keep in mind that if we now apply `Background="Green"` to the Button *directly*, it will take precedence over the style. Even if we bind a color to it.
 
-![Results]({{ ASSET_PATH }}/images/2015-01-11-windows-8-development-styling-xaml-2.png)
+![Results]({{ ASSET_PATH }}/../images/2015-01-11-windows-8-development-styling-xaml-2.png)
 
 <br /><br /><br />
 
@@ -87,5 +87,5 @@ On the windows phone, people can set their own colors and backgrounds. By going 
 
 We use the device menu to change the accent color to yellow and we change the theme to `Light`.
 
-![Results]({{ ASSET_PATH }}/images/2015-01-11-windows-8-development-styling-xaml-4.png)
-![Results]({{ ASSET_PATH }}/images/2015-01-11-windows-8-development-styling-xaml-3.png)
+![Results]({{ ASSET_PATH }}/../images/2015-01-11-windows-8-development-styling-xaml-4.png)
+![Results]({{ ASSET_PATH }}/../images/2015-01-11-windows-8-development-styling-xaml-3.png)

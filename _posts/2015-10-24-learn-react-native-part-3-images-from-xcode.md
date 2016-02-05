@@ -15,7 +15,7 @@ This is part 3 of me learning react-native. I'm going to go over how to use imag
 <!-- Content -->
 <h3>Content</h3>
 
-![Images.xcassets]({{ ASSET_PATH }}/images/2015-10-24-learn-react-native-part-3-images-from-xcode1.png)
+![Images.xcassets]({{ ASSET_PATH }}/../images/2015-10-24-learn-react-native-part-3-images-from-xcode1.png)
 
 Create a new image set called nameOfImage(if you don't know how, [here](http://stackoverflow.com/questions/19441935/use-of-xcassets)'s a guide) and then use the name to require that image.
 
