@@ -17,6 +17,9 @@ tags: [web, script, automation, scraper]
 <!-- Content -->
 <h3>Content</h3>
 
+<!-- Setup -->
+<h4>Setup</h4>
+
 You can navigate to [the selenium page](http://selenium-python.readthedocs.org/getting-started.html) for more information on the API.  
 
 For this post, I will be using OSX (if you bug me, I'll make one for windows and linux).
@@ -27,11 +30,20 @@ For this post, I will be using OSX (if you bug me, I'll make one for windows and
 
 3. We also need the chome webdriver to actually connect to chrome and automate it. You can easily install it with homebrew using `brew install chromedriver`.
 
-This is the end result.
+<!-- Plan -->
+<h4>Plan</h4>
 
-![End Result]({{ ASSET_PATH }}/../images/2016-02-04-web-automation-with-selenium.gif)
+![Plan]({{ ASSET_PATH }}/../images/2016-02-04-web-automation-with-selenium.gif)
 
-Now that we have that boilerplate out of the way, we can code. The script below is commented and self explanitory. Run it to see what it does live!
+1. Go to `www.google.com`
+2. Type `GabrielGhe` in the searchbox
+3. Go to `GabrielGhe.github.io`
+4. Type `java` in the searchbox
+
+<!-- Code -->
+<h4>Code</h4>
+
+We can code now that we know what we want to achieve. The gist below does what's being displayed in the gif above. Run it yourself to see it live in action!
 
 <!-- Code _______________________________________-->
 {% highlight python linenos=table %}
