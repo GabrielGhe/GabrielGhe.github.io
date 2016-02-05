@@ -51,8 +51,6 @@ We can code now that we know what we want to achieve. The gist below does what's
 <!-- Code _______________________________________-->
 {% highlight python linenos=table %}
 import time
-import selenium
-
 from selenium import webdriver
 
 WAIT_TIME = 3
