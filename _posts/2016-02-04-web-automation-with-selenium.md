@@ -30,18 +30,21 @@ For this post, I will be using OSX (if you bug me, I'll make one for windows and
 
 3. We also need the chome webdriver to actually connect to chrome and automate it. You can easily install it with homebrew using `brew install chromedriver`.
 
+
 <!-- Plan -->
 <h4>Plan</h4>
-
-![Plan]({{ ASSET_PATH }}/../images/2016-02-04-web-automation-with-selenium.gif)
 
 1. Go to `www.google.com`
 2. Type `GabrielGhe` in the searchbox
 3. Go to `GabrielGhe.github.io`
 4. Type `java` in the searchbox
 
+This is how what it should look like at the end.
+![Plan]({{ ASSET_PATH }}/../images/2016-02-04-web-automation-with-selenium.gif)
+
+
 <!-- Code -->
-<h4>Code</h4>
+<h3>Code</h3>
 
 We can code now that we know what we want to achieve. The gist below does what's being displayed in the gif above. Run it yourself to see it live in action!
 
@@ -75,7 +78,6 @@ time.sleep(WAIT_TIME)
 gabrielghe_search_box = driver.find_element_by_id('q')
 gabrielghe_search_box.send_keys('java')
 time.sleep(WAIT_TIME)
-
 
 # Quit after 3 seconds
 time.sleep(WAIT_TIME)
