@@ -17,6 +17,8 @@ tags: [web, script, automation, scraper]
 <!-- Content -->
 <h3>Content</h3>
 
+![End Result]({{ ASSET_PATH }}images/2016-02-04-web-automation-with-selenium.gif)
+
 You can navigate to [the selenium page](http://selenium-python.readthedocs.org/getting-started.html) for more information on the API.  
 
 For this post, I will be using OSX (if you bug me, I'll make one for windows and linux).
