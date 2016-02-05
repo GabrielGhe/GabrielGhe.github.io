@@ -24,11 +24,11 @@ You can navigate to [the selenium page](http://selenium-python.readthedocs.org/g
 
 For this post, I will be using OSX (if you bug me, I'll make one for windows and linux).
 
-1. Install pip, open your terminal and enter `sudo easy_install pip`.
+1. Install pip by opening your terminal and entering `sudo easy_install pip`.
 
 2. Install selenium by typing `pip install selenium` in the terminal.
 
-3. We also need the chome webdriver to actually connect to chrome and automate it. You can easily install it with homebrew using `brew install chromedriver`.
+3. We also need the chome webdriver to actually connect to chrome and automate it. You can easily install it with [homebrew](http://brew.sh/) using `brew install chromedriver`.
 
 
 <!-- Plan -->
