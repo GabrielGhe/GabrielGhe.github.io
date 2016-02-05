@@ -17,8 +17,6 @@ tags: [web, script, automation, scraper]
 <!-- Content -->
 <h3>Content</h3>
 
-![End Result]({{ ASSET_PATH }}images/2016-02-04-web-automation-with-selenium.gif)
-
 You can navigate to [the selenium page](http://selenium-python.readthedocs.org/getting-started.html) for more information on the API.  
 
 For this post, I will be using OSX (if you bug me, I'll make one for windows and linux).
@@ -28,6 +26,10 @@ For this post, I will be using OSX (if you bug me, I'll make one for windows and
 2. Install selenium by typing `pip install selenium` in the terminal.
 
 3. We also need the chome webdriver to actually connect to chrome and automate it. You can easily install it with homebrew using `brew install chromedriver`.
+
+This is the end result.
+
+![End Result]({{ ASSET_PATH }}images/2016-02-04-web-automation-with-selenium.gif)
 
 Now that we have that boilerplate out of the way, we can code. The script below is commented and self explanitory. Run it to see what it does live!
 
