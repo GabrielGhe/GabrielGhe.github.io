@@ -23,11 +23,11 @@ There are several ways to compute the longest increasing subsequence. The [solut
 
 You use the [Longest Common Subsequence]({% post_url 2016-01-04-longest-common-subsequence %}). You send in your word along with the sorted version of your word to the LCS method. Let's see an example using the word "testing" and the sorted version "eginstt".
 
-![Example]({{ ASSET_PATH }}images/2016-01-30-longest-increasing-subsequence.png)
+![Example]({{ ASSET_PATH }}/images/2016-01-30-longest-increasing-subsequence.png)
 
 
 The LCS will build the table shown above. We build a solution the same way we did in the [LCS post]({% post_url 2016-01-04-longest-common-subsequence %}). 
 
-![solution]({{ ASSET_PATH }}images/2016-01-30-longest-increasing-subsequence2.gif)
+![solution]({{ ASSET_PATH }}/images/2016-01-30-longest-increasing-subsequence2.gif)
 
 This returns the LIS "ein". 

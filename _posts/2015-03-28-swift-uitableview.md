@@ -127,5 +127,5 @@ func viewDidLoad() {
 
 If you want to have a "pull to refresh", you can add the refresh control on the TableView. In the inspector, you can set refreshing to Enabled and modify the refresh control from the left side menu in the storyboard.
 
-![Image of refreshing]({{ ASSET_PATH }}images/2015-03-28-swift-uitableview.png)
+![Image of refreshing]({{ ASSET_PATH }}/images/2015-03-28-swift-uitableview.png)
 

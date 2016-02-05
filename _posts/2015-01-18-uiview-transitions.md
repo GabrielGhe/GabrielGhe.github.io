@@ -40,7 +40,7 @@ self.container.addSubview(self.redSquare)
 
 Ok, now we need to animate on click for it to look like this.
 
-![Results]({{ ASSET_PATH }}images/2015-01-18-uiview-transitions.gif)
+![Results]({{ ASSET_PATH }}/images/2015-01-18-uiview-transitions.gif)
 
 {% highlight swift linenos=table  %}
 // ### in click event ###

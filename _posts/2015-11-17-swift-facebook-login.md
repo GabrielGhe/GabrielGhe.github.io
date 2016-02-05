@@ -28,7 +28,7 @@ Download the [Facebook SDK](https://origincache.facebook.com/developers/resource
 
 Add the Facebook SDK to your Xcode Project like [this](https://developers.facebook.com/docs/ios/getting-started/#addSDK). Make sure to uncheck "Copy items if needed".
 
-![Drop]({{ ASSET_PATH }}images/2015-11-17-swift-facebook-login1.gif)
+![Drop]({{ ASSET_PATH }}/images/2015-11-17-swift-facebook-login1.gif)
 
 
 <br /><br /><br />

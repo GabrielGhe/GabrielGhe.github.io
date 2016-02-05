@@ -23,7 +23,7 @@ Inside `OnLaunched`, we will add the following line of code.
 ManagingState.Common.SuspensionManager.RegisterFrame(appFrame, "appFrame");
 {% endhighlight %}
 
-![Results]({{ ASSET_PATH }}images/2015-01-12-windows-8-development-managing-states-1.png)
+![Results]({{ ASSET_PATH }}/images/2015-01-12-windows-8-development-managing-states-1.png)
 
 <br /><br /><br />
 
@@ -34,7 +34,7 @@ In `OnSuspending`, we have to save the state.
 await ManagingState.Common.SuspensionManager.SaveAsync();
 {% endhighlight %}
 
-![Results]({{ ASSET_PATH }}images/2015-01-12-windows-8-development-managing-states-2.png)
+![Results]({{ ASSET_PATH }}/images/2015-01-12-windows-8-development-managing-states-2.png)
 
 <br /><br /><br />
 
@@ -45,7 +45,7 @@ We also need to restore our state, we do this again in `OnLaunched`. A bit lower
 await ManagingState.Common.SuspensionManager.RestoreAsync();
 {% endhighlight %}
 
-![Results]({{ ASSET_PATH }}images/2015-01-12-windows-8-development-managing-states-3.png)
+![Results]({{ ASSET_PATH }}/images/2015-01-12-windows-8-development-managing-states-3.png)
 
 <br /><br /><br />
 
@@ -81,7 +81,7 @@ Save State.
 e.PageState["someKey"] = "I'm saving this text for later";
 {% endhighlight %}
 
-![Results]({{ ASSET_PATH }}images/2015-01-12-windows-8-development-managing-states-5.png)
+![Results]({{ ASSET_PATH }}/images/2015-01-12-windows-8-development-managing-states-5.png)
 
 Load State.
 {% highlight csharp linenos=table  %}
@@ -89,6 +89,6 @@ if ( e.PageState != null && e.PageState.ContainsKey("someKey") ) {
   myLocalVariable = e.PageState["someKey"].toString();
 }
 {% endhighlight %}
-![Results]({{ ASSET_PATH }}images/2015-01-12-windows-8-development-managing-states-4.png)
+![Results]({{ ASSET_PATH }}/images/2015-01-12-windows-8-development-managing-states-4.png)
 
 

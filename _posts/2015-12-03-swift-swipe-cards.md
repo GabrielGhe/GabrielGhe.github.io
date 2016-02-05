@@ -60,7 +60,7 @@ Let's start off simple.
  {% endhighlight %}
  <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^--> 
 
- ![Initial]({{ ASSET_PATH }}images/2015-12-03-swift-swipe-cards.png)
+ ![Initial]({{ ASSET_PATH }}/images/2015-12-03-swift-swipe-cards.png)
 
 <!-- Step 1 -->
 <h4>Step 1</h4>
@@ -166,7 +166,7 @@ func resetViewPositionAndTransformations() {
 <!-- Result -->
 <h4>Result</h4>
 
- ![Swipe]({{ ASSET_PATH }}images/2015-12-03-swift-swipe-cards.gif)
+ ![Swipe]({{ ASSET_PATH }}/images/2015-12-03-swift-swipe-cards.gif)
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos=table %}

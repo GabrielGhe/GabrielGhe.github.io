@@ -111,4 +111,4 @@ We now create a component called `App`. You create a component using `React.crea
 
 OUTPUT:
 
-![Results]({{ ASSET_PATH }}images/2015-01-31-learn-react-part-1-first-component.png)
+![Results]({{ ASSET_PATH }}/images/2015-01-31-learn-react-part-1-first-component.png)

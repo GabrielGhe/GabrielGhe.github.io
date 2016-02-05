@@ -18,7 +18,7 @@ Flux is a type of web application architecture that plays nicely with React's un
 
 Let's take the facebook chat as the example. If we wanted to get the number of unread messages for each thread (unread messages per person).
 
-![Chat Notification]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture2.png)
+![Chat Notification]({{ ASSET_PATH }}/images/2015-02-28-learn-react-part-8-flux-architecture2.png)
 
 <!-- Code _______________________________________-->
 {% highlight javascript linenos=table  %}
@@ -34,7 +34,7 @@ function onNewMessage(msg){
 
 This is nice and all, but what happens if we want to know how many threads have unread messages (number of conversations that have unread messages)? We would have to update our code.
 
-![Structure]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture.png)
+![Structure]({{ ASSET_PATH }}/images/2015-02-28-learn-react-part-8-flux-architecture.png)
 
 <!-- Code _______________________________________-->
 {% highlight javascript linenos=table  %}
@@ -71,7 +71,7 @@ Some people use pub/sub which is nice... until you want the models to get the da
 
 There is a clean way to handle this issue. Using a unidirectional data flow. Flux's architecture looks something like this.
 
-![Notification]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture3.png)
+![Notification]({{ ASSET_PATH }}/images/2015-02-28-learn-react-part-8-flux-architecture3.png)
 
 
 
@@ -170,7 +170,7 @@ module.exports = new FooStore();
 <br />
 `Views`: Tree of react components. The components near the top of the tree listen for store changes. When there's a store change, they query the store for new data and pass it down to children.
 
-![Lifecycles]({{ ASSET_PATH }}images/2015-02-28-learn-react-part-8-flux-architecture4.png)
+![Lifecycles]({{ ASSET_PATH }}/images/2015-02-28-learn-react-part-8-flux-architecture4.png)
 
 <br />
 We fist create our ControllerView which retrieves the data from the Store.

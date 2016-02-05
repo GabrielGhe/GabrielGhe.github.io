@@ -70,7 +70,7 @@ class ViewController: UIViewController {
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-![Just a card]({{ ASSET_PATH }}images/2015-11-30-swift-flip-card1.png)
+![Just a card]({{ ASSET_PATH }}/images/2015-11-30-swift-flip-card1.png)
 
 
 
@@ -193,4 +193,4 @@ class ViewController: UIViewController {
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 
-![End Result]({{ ASSET_PATH }}images/2015-11-30-swift-flip-card.gif)
+![End Result]({{ ASSET_PATH }}/images/2015-11-30-swift-flip-card.gif)

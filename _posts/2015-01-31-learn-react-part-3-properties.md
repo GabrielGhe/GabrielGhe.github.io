@@ -52,7 +52,7 @@ You can pass data to your component using properties. We added `txt` prop.
 </html>
 {% endhighlight %}
 
-![Results]({{ ASSET_PATH }}images/2015-01-31-learn-react-part-3-properties.png)
+![Results]({{ ASSET_PATH }}/images/2015-01-31-learn-react-part-3-properties.png)
 
 <br />
 
