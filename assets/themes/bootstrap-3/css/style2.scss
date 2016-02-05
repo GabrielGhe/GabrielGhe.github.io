@@ -104,7 +104,10 @@ p > code {
   border-radius: 10px 0px 0px 10px;
 }
 
-.highlight .code pre {
+.highlight .code {
   border-radius: 0px 10px 10px 0px;
   padding-left:10px;
+  background: #49483e url('monokaibg.jpg') top left; color:white;
+  width:100%;
 }
+
