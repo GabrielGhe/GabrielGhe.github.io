@@ -69,10 +69,6 @@ pre {
   border-radius: 10px 10px 10px 10px;
 }
 
-.lineno {
-    color:black !important;
-}
-
 pre code {
     color:white;
     white-space: pre;
@@ -94,14 +90,17 @@ p > code {
   margin: 0px 1px 0px 1px;
 }
 
+.highlight {
+  margin-bottom:30px;
+}
+
 .highlight pre {
   margin:0px;
+  padding:3px;
   border: none;
 }
 
 .highlight .lineno {
-  color: #4a4a40;
-  background: #e7e7e1;
   border-radius: 10px 0px 0px 10px;
 }
 

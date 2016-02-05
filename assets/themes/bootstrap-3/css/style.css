@@ -124,10 +124,6 @@ a.label {
   color:#999;
 }
 
-.post-full table {
-  margin-bottom:30px;
-}
-
 .post-full tr:nth-child(even) {
   background-color: #eee;
 }
