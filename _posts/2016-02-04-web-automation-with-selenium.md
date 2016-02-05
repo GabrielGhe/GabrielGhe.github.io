@@ -28,7 +28,7 @@ For this post, I will be using OSX (if you bug me, I'll make one for windows and
 
 2. Install selenium by typing `pip install selenium` in the terminal.
 
-3. We also need the chome webdriver to actually connect to chrome and automate it. You can easily install it with [homebrew](http://brew.sh/) using `brew install chromedriver`.
+3. We also need the chome webdriver to actually connect to chrome and automate it. You can easily install it with [homebrew](http://brew.sh/) typing `brew install chromedriver` in the terminal.
 
 
 <!-- Plan -->
