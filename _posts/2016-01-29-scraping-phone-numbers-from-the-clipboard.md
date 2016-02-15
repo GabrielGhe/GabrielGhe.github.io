@@ -5,7 +5,7 @@ description: "
 If you ever had to extract a lot of content from a pdf or a website and wanted a faster way to do it, this is it. In this post, I'm going to use python's [pyperclip](https://pypi.python.org/pypi/pyperclip) and [re](https://docs.python.org/2/library/re.html) modules to extract the phone numbers from some text that I've copied to the clipboard.
 "
 category: python
-tags: [python, regex, scraping, clipboard]
+tags: [regex, scraping, clipboard]
 ---
 {% include JB/setup %}
 
