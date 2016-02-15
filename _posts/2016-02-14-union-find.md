@@ -85,6 +85,6 @@ public Node<T> union(Node<T> first, Node<T> second) {
 
 
 <!-- Kruskal's Algorithm In Action -->
-<h4>[Kruskal's Algorithm In Action](http://www.cs.usfca.edu/~galles/visualization/Kruskal.html)</h4>
+<h4>Kruskal's Algorithm In Action</h4>
 
-![Kruskal's]({{ ASSET_PATH }}/../images/2016-02-14-union-find3.gif)
+[![Kruskal's]({{ ASSET_PATH }}/../images/2016-02-14-union-find3.gif)](http://www.cs.usfca.edu/~galles/visualization/Kruskal.html)
