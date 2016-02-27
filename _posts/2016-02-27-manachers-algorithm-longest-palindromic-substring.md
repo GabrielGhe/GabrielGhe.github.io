@@ -2,7 +2,7 @@
 layout: post
 title: "Manacher's Algorithm: Longest Palindromic Substring"
 description: "
-One of the most interesting algorithms is to find the longest palindromic substring in O(n) time. A palindrome is a string that is the same when reversed. For example, `Dr. Awkward` is a palindrome. If we remove non alphanumeric characters and make each character lower case, it becomes `drawkward` which is the same when reversed. For more information, you can look at [Manacher's Algorithm wiki page](https://en.wikipedia.org/wiki/Longest_palindromic_substring).
+One of the most interesting algorithms is to find the longest palindromic substring in O(n) time. A palindrome is a string that is the same when reversed. For example, `Dr. Awkward` is a palindrome. If we remove non alphanumeric characters and make each character lower case, it becomes `drawkward` which is the same thing spelled backwards. For more information, you can look at [Manacher's Algorithm wiki page](https://en.wikipedia.org/wiki/Longest_palindromic_substring).
 "
 category: university
 tags: [algorithm, string, palindrome, substring, linear]
