@@ -78,7 +78,7 @@ public int manachers(String s) {
             palins[i] = Math.min(distanceFromBoundary, mirrorValue);
         }
 
-        while (doCharsNextToIndexMatch(processedArray, palins, i)) {
+        while (canGrowPalindrome(processedArray, palins, i)) {
             expandPalindromeAtIndex(palins, i);
             biggest = Math.max(palins[i], biggest);
         }
@@ -96,7 +96,7 @@ public int manachers(String s) {
  * [$, #, a, #, b, #, a, #, @]
  * [0, 0, 1, 0, 1, 0, 0, 0, 0]
  */
-private boolean doCharsNextToIndexMatch(char[] arr, int[] palins, int center) {
+private boolean canGrowPalindrome(char[] arr, int[] palins, int center) {
     char left = arr[center + (1 + palins[center])];
     char right = arr[center - (1 + palins[center])];
     return left == right;
