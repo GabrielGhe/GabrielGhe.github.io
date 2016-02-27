@@ -24,7 +24,13 @@ Below is a video that explains the algorithm very well, but I made a quick summa
 <!-- Summary -->
 <h3>Summary</h3>
 
-The reason why the [less efficient algorithm](http://www.geeksforgeeks.org/longest-palindromic-substring-set-2/) runs in O(n^2) time is because we have to expand the palindrome from length = 0 for every single character in the string. That's the only thing stopping us from reaching O(n).
+[![Animated]({{ ASSET_PATH }}/../images/2016-02-27-manachers-algorithm-longest-palindromic-substring7.gif)](http://tarokuriyama.com/projects/palindrome2.php)
+
+The reason why the [less efficient algorithm](http://www.geeksforgeeks.org/longest-palindromic-substring-set-2/) on the left runs in O(n^2) time is because we have to expand the palindrome from length = 0 for every single character in the string. That's the only thing stopping us from reaching the algorithm on the right which runs in O(n). 
+
+The animation is made by [Taro Kuriyama](http://tarokuriyama.com/index.php) who makes amazing visualizations. Click the animation to go to his own blog post about palindromes.
+
+
 
 ![Odd Palindrome]({{ ASSET_PATH }}/../images/2016-02-27-manachers-algorithm-longest-palindromic-substring1.png)
 
