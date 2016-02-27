@@ -2,7 +2,7 @@
 layout: post
 title: "Manacher's Algorithm: Longest Palindromic Substring"
 description: "
-One of the most interesting algorithms is to find the longest palindromic substring in O(n) time. A palindrome is a string that is the same when reversed. For example, `Dr. Awkward` is a palindrome. If we remove non alphanumeric characters and make each character lower case, it becomes `drawkward` which is the same when reversed. For more information, you can look at [Manacher's Algorithm wiki page](https://en.wikipedia.org/wiki/Longest_palindromic_substring).
+One of the most interesting algorithms is to find the longest palindromic substring in O(n) time. A palindrome is a string that is the same when reversed. For example, `Dr. Awkward` is a palindrome. If we remove non alphanumeric characters and make each character lower case, it becomes `drawkward` which is the same thing spelled backwards. For more information, you can look at [Manacher's Algorithm wiki page](https://en.wikipedia.org/wiki/Longest_palindromic_substring).
 "
 category: university
 tags: [algorithm, string, palindrome, substring, linear]
@@ -31,6 +31,7 @@ The reason why the [less efficient algorithm](http://www.geeksforgeeks.org/longe
 The animation is made by [Taro Kuriyama](http://tarokuriyama.com/index.php) who makes amazing visualizations. Click the animation to go to his own blog post about palindromes.
 
 <br /><br />
+
 
 ![Odd Palindrome]({{ ASSET_PATH }}/../images/2016-02-27-manachers-algorithm-longest-palindromic-substring1.png)
 
@@ -84,7 +85,7 @@ public int manachers(String s) {
             palins[i] = Math.min(distanceFromBoundary, mirrorValue);
         }
 
-        while (doCharsNextToIndexMatch(processedArray, palins, i)) {
+        while (canGrowPalindrome(processedArray, palins, i)) {
             expandPalindromeAtIndex(palins, i);
             biggest = Math.max(palins[i], biggest);
         }
@@ -102,7 +103,7 @@ public int manachers(String s) {
  * [$, #, a, #, b, #, a, #, @]
  * [0, 0, 1, 0, 1, 0, 0, 0, 0]
  */
-private boolean doCharsNextToIndexMatch(char[] arr, int[] palins, int center) {
+private boolean canGrowPalindrome(char[] arr, int[] palins, int center) {
     char left = arr[center + (1 + palins[center])];
     char right = arr[center - (1 + palins[center])];
     return left == right;
