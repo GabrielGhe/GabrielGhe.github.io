@@ -60,6 +60,7 @@ So we need two rules for finding ?.
 <!-- Code _______________________________________-->
 {% highlight java linenos=table %}
 public int manachers(String s) {
+    // [$, #, a, #, b, #, a, #, @]
     char[] processedArray = processString(s);
     int[] palins = new int[processedArray.length];
     int c = 0;  // center
