@@ -30,7 +30,7 @@ The reason why the [less efficient algorithm](http://www.geeksforgeeks.org/longe
 
 The animation is made by [Taro Kuriyama](http://tarokuriyama.com/index.php) who makes amazing visualizations. Click the animation to go to his own blog post about palindromes.
 
-
+<br /><br />
 
 ![Odd Palindrome]({{ ASSET_PATH }}/../images/2016-02-27-manachers-algorithm-longest-palindromic-substring1.png)
 
