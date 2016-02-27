@@ -2,7 +2,7 @@
 layout: post
 title: "Union Find"
 description: "
-[The Union-Find Disjoint Set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) is very interesting. It is used for percolation. The UFDS is used to model several disjoint (not connected) sets and is in the domain of percolation theory. It allows you to find if an object is in the same set as another and which set an object should be or is in. This has some very cool and useful applications like [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm) to find the minimum spanning tree of a graph. It can also be used social networks in the form of friend circles.
+[The Union-Find Disjoint Set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure) is very interesting. The UFDS is used to model several disjoint (not connected) sets and is in the domain of percolation theory. It allows you to find if an object is in the same set as another and which set an object should be or is in. This has some very cool and useful applications like [Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm) to find the minimum spanning tree of a graph. It can also be used social networks in the form of friend circles.
 "
 category: university
 tags: [graph, search, union, tree, algorithm]

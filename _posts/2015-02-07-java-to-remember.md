@@ -68,6 +68,7 @@ Character.isUpperCase('a')        // false
 "abcdef".substring(1, 2)          // "b"
 "abcdef".substring(1, 5)          // "bcde"
 "abcdef".substring(3)             // "def"
+"   abcde   ".trim()              // "abcde"
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
