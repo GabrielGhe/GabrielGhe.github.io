@@ -78,10 +78,7 @@ public int manachers(String s) {
 
         while (doCharsNextToIndexMatch(processedArray, palins, i)) {
             expandPalindromeAtIndex(palins, i);
-        }
-
-        if (palins[i] > biggest) {
-            biggest = palins[i];
+            biggest = Math.max(palins[i], biggest);
         }
 
         if (currentPalinPassedRightBoundary(i, palins, r)) {
