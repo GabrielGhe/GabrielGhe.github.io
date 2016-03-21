@@ -39,7 +39,7 @@ For this post, I will be using OSX (if you bug me, I'll make one for windows and
 3. Go to `GabrielGhe.github.io`
 4. Type `java` in the searchbox
 
-This is how what it should look like at the end.
+This is what it should look like at the end.
 ![Plan]({{ ASSET_PATH }}/../images/2016-02-04-web-automation-with-selenium.gif)
 
 
