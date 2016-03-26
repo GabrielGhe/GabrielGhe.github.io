@@ -284,3 +284,13 @@ body {
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+
+
+<!-- Conclusion -->
+<h3>Conclusion</h3>
+
+To build the js, write `npm run build` in the terminal. To start the page, write `npm run start` in the terminal.
+
+![Title]({{ ASSET_PATH }}/../images/2016-03-26-learn-react-v2-webpack.png)
