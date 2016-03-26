@@ -2,7 +2,7 @@
 layout: post
 title: "Learn React v2: Webpack"
 description: "
-I made several posts on react, but the web has changed a lot over the past year and I needed to make an updated post on how to Javascript. The two things that have changed Javascript are [Babel](https://babeljs.io/)(Lets you write [ES6] (https://nodejs.org/en/docs/es6/) and ES7 code) and [Webpack](https://webpack.github.io/docs/what-is-webpack.html) (Which bundles modules and loads them for you at the right time). I'm going to go over how to use Babel and Webpack together with React. This post is just a short summary of [this amazing post](http://survivejs.com/webpack_react/webpack_and_react/) and [the source code](https://github.com/survivejs/webpack_react/tree/master/project_source/03_webpack_and_react/kanban_app)g. 
+I made several posts on react, but the web has changed a lot over the past year and I needed to make an updated post on how to Javascript. The two things that have changed Javascript are [Babel](https://babeljs.io/)(Lets you write [ES6](https://nodejs.org/en/docs/es6/) and ES7 code) and [Webpack](https://webpack.github.io/docs/what-is-webpack.html) (Which bundles modules and loads them for you at the right time). I'm going to go over how to use Babel and Webpack together with React. This post is just a short summary of [this amazing post](http://survivejs.com/webpack_react/webpack_and_react/) and [the source code](https://github.com/survivejs/webpack_react/tree/master/project_source/03_webpack_and_react/kanban_app). 
 "
 category: javascript
 tags: [react, webpack, babel, modules, bundle]
