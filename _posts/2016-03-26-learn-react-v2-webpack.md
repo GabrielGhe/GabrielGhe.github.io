@@ -42,6 +42,7 @@ curl -L https://www.npmjs.com/install.sh | sh
 
 # babel-loader lets you work with babel and webpack nicely
 npm i babel-{loader,core} --save-dev
+npm i react react-dom --save-dev
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
