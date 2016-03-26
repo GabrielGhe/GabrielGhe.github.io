@@ -17,7 +17,26 @@ tags: [react, webpack, babel, modules, bundle]
 <!-- Content -->
 <h3>Content</h3>
 
+The end structure will look like this:
 
+<!-- Code _______________________________________-->
+{% highlight bash linenos=table %}
+node_modules
+app
+    components
+        App.jsx
+        MyText.jsx
+    index.css
+    index.jsx
+build
+    bundle.js
+    index.html
+.babelrc
+package.json
+webpack.config.js
+
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 <!-- package.json -->
 <h4>package.json</h4>
@@ -42,7 +61,11 @@ curl -L https://www.npmjs.com/install.sh | sh
 
 # babel-loader lets you work with babel and webpack nicely
 npm i babel-{loader,core} --save-dev
-npm i react react-dom --save-dev
+
+npm i react react-dom --save
+npm i webpack webpack-dev-server webpack-merge --save-dev
+
+npm i css-loader style-loader --save-dev
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
@@ -57,6 +80,14 @@ Now we have to configure Webpack to do things in `webpack.config.js`.
 <!-- Code _______________________________________-->
 {% highlight javascript linenos=table %}
 'use strict';
+
+const path = require('path');
+const merge = require('webpack-merge');
+
+const PATHS = {
+  app: path.join(__dirname, 'app'),
+  build: path.join(__dirname, 'build')
+};
 
 const common = {
   entry: {
@@ -88,6 +119,8 @@ const common = {
     ]
   }
 };
+
+module.exports = merge(common, {});
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
@@ -202,3 +235,52 @@ export default () => <div>My random note</div>;
 
 <b>app/index.jsx</b>
 
+<!-- Code _______________________________________-->
+{% highlight javascript linenos=table %}
+import './index.css';
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App.jsx';
+
+ReactDOM.render(<App />, document.getElementById('app'));
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+
+
+<!-- Index.html -->
+<h4>Index.html</h4>
+
+<!-- Code _______________________________________-->
+{% highlight html linenos=table %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>React1</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="./bundle.js"></script>
+  </body>
+</html>
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+
+
+
+<!-- Index.css -->
+<h4>Index.css</h4>
+
+<!-- Code _______________________________________-->
+{% highlight css linenos=table %}
+body {
+  background-color:lightgrey;
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
