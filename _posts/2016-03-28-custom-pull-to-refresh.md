@@ -23,3 +23,31 @@ After following that post, you should have this.
 
 ![Inital view]({{ ASSET_PATH }}/../images/2016-03-28-custom-pull-to-refresh.png)
 
+In the UITableViewController, we're going to add a [UIRefreshControl](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIRefreshControl_class/).
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos=table %}
+var refreshControl: UIRefreshControl!
+
+override func viewDidLoad() {
+  ...
+  refreshControl = createRefreshControl()
+  self.tableView.addSubview(refreshControl)
+  ...
+}
+
+func createRefreshControl() {
+  let refreshControl = UIRefreshControl()
+  refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+  return refreshControl
+}
+
+func refresh(refreshControl: UIRefreshControl) {
+  refreshControl.endRefreshing()
+} 
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+Which will give you this.
+
+![Pull to Refresh 1]({{ ASSET_PATH }}/../images/2016-03-28-custom-pull-to-refresh.gif)
