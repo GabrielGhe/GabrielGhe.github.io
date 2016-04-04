@@ -5,7 +5,7 @@ description: "
 The new `guard` keyword allows us to solve one of the most important parts of coding: preconditions. Its addition to the Swift language was welcomed with open arms. I'll explain how it works in this post and you'll quickly understand why it's so great. 
 "
 category: swift 
-tags: [guard, preconditions]
+tags: [ios, apple, guard, preconditions]
 ---
 {% include JB/setup %}
 
