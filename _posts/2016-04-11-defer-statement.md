@@ -21,6 +21,41 @@ Here's the scenario. You want to open a file and write some text to it then clos
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos=table %}
+func writeStatus() {
+  let file = openFile()
+  
+  let networkStatusOptional = fetchNetworkStatus()
+  if let networkStatus = networkStatusOptional {
+    file.write(networkStatus)
+  }
 
+  closeFile(file)
+}
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+This works fine, except if there's an exception. Another thing that's bad about this snippet is that the method could be very long (if you've read [Clean Code](https://www.amazon.ca/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882), you won't have this problem) and you have to place the closeFile call at the end.
+
+Here is the Swift 2.0 approach:
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos=table %}
+func writeStatus() {
+  let file = openFile()
+  defer { closeFile(file) }
+  
+  let networkStatusOptional = fetchNetworkStatus()
+  guard networkStatus != nil else { return }
+  file.write(networkStatus)
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+The code is cleaner, easier to understand and there is no pyramid of doom. If you haven't already, you should read my post on the [guard statement]({% post_url 2016-04-04-guard-statement %}).
+
+
+
+
+<!-- Order of operations -->
+<h3>Order of operations</h3>
+
