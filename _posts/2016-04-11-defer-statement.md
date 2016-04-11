@@ -74,4 +74,4 @@ func secondCall() {
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-The order of the print statements will be <b>1 2 4 3 5<b/>. The defer statement is called right before the method exits even though it's not the last line in the method.
+The order of the print statements will be <b>1 2 4 3 5</b>. The defer statement is called right before the method exits even though it's not the last line in the method.
