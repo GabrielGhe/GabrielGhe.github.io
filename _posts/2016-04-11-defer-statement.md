@@ -55,7 +55,23 @@ The code is cleaner, easier to understand and there is no pyramid of doom. If yo
 
 
 
-
 <!-- Order of operations -->
 <h3>Order of operations</h3>
 
+<!-- Code _______________________________________-->
+{% highlight swift linenos=table %}
+func firstCall() {
+  print("1")
+  secondCall()
+  print("5")
+}
+
+func secondCall() {
+  print("2")
+  defer { print("3") }
+  print("4")
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+The order of the print statements will be <b>1 2 4 3 5<b/>. The defer statement is called right before the method exits even though it's not the last line in the method.
