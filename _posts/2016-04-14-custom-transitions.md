@@ -176,6 +176,9 @@ class CustomPresentation: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) 
       -> NSTimeInterval {}
+
+    func handleAnimationFinish(transitionContext: UIViewControllerContextTransitioning, 
+      toView: UIView, fromView: UIView) {}
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {}
     
@@ -184,9 +187,6 @@ class CustomPresentation: NSObject, UIViewControllerAnimatedTransitioning {
     func addDepthDownToAnimation() -> CATransform3D {}
     
     func addDepthDownFromAnimation() -> CATransform3D {}
-
-    handleAnimationFinish(transitionContext: UIViewControllerContextTransitioning, 
-      toView: UIView, fromView: UIView) {}
 }
 enum ZPositions: CGFloat {
     case Spatial = 300
@@ -213,7 +213,112 @@ Now let's add all the rest of the code for this class.
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos=table %}
+import UIKit
+import Foundation
 
+class CustomPresentation: NSObject, UIViewControllerAnimatedTransitioning {
+    
+    private let scale = UIScreen.mainScreen().scale
+    private let identity = CATransform3DIdentity
+    private var distance: CGFloat {
+        return ZPositions.Distance.rawValue
+    }
+    private var spatial: CGFloat {
+        return ZPositions.Spatial.rawValue
+    }
+    var reverse: Bool = false
+    
+    
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+        return 2.0
+    }
+    
+    
+    func handleAnimationFinish(transitionContext: UIViewControllerContextTransitioning, toView: UIView, fromView: UIView) {
+        if transitionContext.transitionWasCancelled() {
+            toView.removeFromSuperview()
+            toView.layer.removeAllAnimations()
+        } else {
+            fromView.removeFromSuperview()
+            fromView.layer.removeAllAnimations()
+        }
+        transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+    }
+    
+    
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView()
+        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        let toView = toViewController.view
+        let fromView = fromViewController.view
+        
+        // add animation to view
+        toView.layer.transform = addDepthDownToAnimation()
+        
+        // initially hide view and rasterize
+        toView.alpha = 0.0
+        rasterize(withLayer: toView.layer)
+        
+        // add both subviews and show only one of them depending on reverse
+        containerView?.addSubview(toView)
+        containerView?.addSubview(fromView)
+        containerView?.sendSubviewToBack(reverse == true ? fromView : toView)
+        
+        // change zPosition depending on which view should be displayed
+        fromView.layer.zPosition = reverse ? -spatial : spatial
+        toView.layer.zPosition = reverse ? spatial : -spatial
+        
+        UIView.animateWithDuration(transitionDuration(transitionContext), delay: 0.0, options: .CurveEaseOut, animations: { [weak self] in
+            guard let weakSelf = self else { return }
+            
+            // add animation
+            fromView.layer.transform = weakSelf.addDepthDownFromAnimation()
+            
+            // initially hide view and rasterize
+            fromView.alpha = 0.0
+            weakSelf.rasterize(withLayer: fromView.layer)
+            
+            // reset transform
+            toView.layer.transform = CATransform3DIdentity
+            toView.alpha = 1.0
+            
+        }, completion: { finished in
+            self.handleAnimationFinish(transitionContext, toView:toView, fromView:fromView)
+        })
+    }
+    
+    
+    func rasterize(withLayer layer: CALayer) {
+        layer.contentsScale = scale
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale
+    }
+    
+    
+    func addDepthDownToAnimation() -> CATransform3D {
+        let toViewZ: CGFloat = reverse ? distance : -distance
+        
+        var rotationAndPerspectiveTransform: CATransform3D = CATransform3DIdentity
+        rotationAndPerspectiveTransform.m34 = 1.0 / -500.0
+        rotationAndPerspectiveTransform = CATransform3DTranslate(rotationAndPerspectiveTransform, 0.0, 0.0, toViewZ)
+        return rotationAndPerspectiveTransform
+    }
+    
+    
+    func addDepthDownFromAnimation() -> CATransform3D {
+        let fromViewZ: CGFloat = reverse ? -distance : distance
+        
+        var rotationAndPerspectiveTransform: CATransform3D = CATransform3DIdentity
+        rotationAndPerspectiveTransform.m34 = 1.0 / -500.0
+        rotationAndPerspectiveTransform = CATransform3DTranslate(rotationAndPerspectiveTransform, 0.0, 0.0, fromViewZ)
+        return rotationAndPerspectiveTransform
+    }
+}
+enum ZPositions: CGFloat {
+    case Spatial = 300
+    case Distance = 150
+}
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
