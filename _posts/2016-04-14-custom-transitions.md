@@ -338,6 +338,12 @@ enum ZPositions: CGFloat {
 <!-- In Action -->
 <h4>In Action</h4>
 
+This is what your storyboard looks like.
+
+![Storyboard]({{ ASSET_PATH }}/../images/2016-04-14-custom-transitions.png)
+
+
+
 
 
 <!-- References -->
