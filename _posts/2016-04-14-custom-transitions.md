@@ -229,12 +229,15 @@ class CustomPresentation: NSObject, UIViewControllerAnimatedTransitioning {
     var reverse: Bool = false
     
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?)
+        -> NSTimeInterval {
         return 2.0
     }
     
     
-    func handleAnimationFinish(transitionContext: UIViewControllerContextTransitioning, toView: UIView, fromView: UIView) {
+    func handleAnimationFinish(transitionContext: UIViewControllerContextTransitioning,
+                               toView: UIView,
+                               fromView: UIView) {
         if transitionContext.transitionWasCancelled() {
             toView.removeFromSuperview()
             toView.layer.removeAllAnimations()
@@ -248,8 +251,10 @@ class CustomPresentation: NSObject, UIViewControllerAnimatedTransitioning {
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView()
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        let toViewController = transitionContext
+          .viewControllerForKey(UITransitionContextToViewControllerKey)!
+        let fromViewController = transitionContext
+          .viewControllerForKey(UITransitionContextFromViewControllerKey)!
         let toView = toViewController.view
         let fromView = fromViewController.view
         
@@ -269,7 +274,10 @@ class CustomPresentation: NSObject, UIViewControllerAnimatedTransitioning {
         fromView.layer.zPosition = reverse ? -spatial : spatial
         toView.layer.zPosition = reverse ? spatial : -spatial
         
-        UIView.animateWithDuration(transitionDuration(transitionContext), delay: 0.0, options: .CurveEaseOut, animations: { [weak self] in
+        UIView.animateWithDuration(transitionDuration(transitionContext),
+                                   delay: 0.0,
+                                   options: .CurveEaseOut,
+                                   animations: { [weak self] in
             guard let weakSelf = self else { return }
             
             // add animation
@@ -284,7 +292,9 @@ class CustomPresentation: NSObject, UIViewControllerAnimatedTransitioning {
             toView.alpha = 1.0
             
         }, completion: { finished in
-            self.handleAnimationFinish(transitionContext, toView:toView, fromView:fromView)
+            self.handleAnimationFinish(transitionContext,
+                toView:toView,
+                fromView:fromView)
         })
     }
     
@@ -301,7 +311,8 @@ class CustomPresentation: NSObject, UIViewControllerAnimatedTransitioning {
         
         var rotationAndPerspectiveTransform: CATransform3D = CATransform3DIdentity
         rotationAndPerspectiveTransform.m34 = 1.0 / -500.0
-        rotationAndPerspectiveTransform = CATransform3DTranslate(rotationAndPerspectiveTransform, 0.0, 0.0, toViewZ)
+        rotationAndPerspectiveTransform = CATransform3DTranslate(
+            rotationAndPerspectiveTransform, 0.0, 0.0, toViewZ)
         return rotationAndPerspectiveTransform
     }
     
@@ -311,7 +322,8 @@ class CustomPresentation: NSObject, UIViewControllerAnimatedTransitioning {
         
         var rotationAndPerspectiveTransform: CATransform3D = CATransform3DIdentity
         rotationAndPerspectiveTransform.m34 = 1.0 / -500.0
-        rotationAndPerspectiveTransform = CATransform3DTranslate(rotationAndPerspectiveTransform, 0.0, 0.0, fromViewZ)
+        rotationAndPerspectiveTransform = CATransform3DTranslate(
+            rotationAndPerspectiveTransform, 0.0, 0.0, fromViewZ)
         return rotationAndPerspectiveTransform
     }
 }
