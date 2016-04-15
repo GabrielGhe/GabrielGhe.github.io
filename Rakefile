@@ -81,6 +81,9 @@ task :post do
     post.puts ""
     post.puts "<!-- Content -->"
     post.puts "<h3>Content</h3>"
+    post.puts ""
+    post.puts "<!-- References -->"
+    post.puts "<h3>References</h3>"
   end
 end # task :post
 
