@@ -67,6 +67,7 @@ Here's the breakdown of each method.
 - `initializeGestureRecognizer`: This overrides the default UIPanRecognizer from Apple which lets you swipe to the left instead of pressing the back button.
 
 
+
 Now let's add all the rest of the code for this class.
 
 <!-- Code _______________________________________-->
@@ -90,7 +91,7 @@ class CustomInteraction: UIPercentDrivenInteractiveTransition {
         initializeGestureRecognizer(viewController.view)
     }
     
-    
+
     private func initializeGestureRecognizer(view: UIView) {
         view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "handlePan:"))
     }
@@ -106,7 +107,7 @@ class CustomInteraction: UIPercentDrivenInteractiveTransition {
             handlePanBegan(location)
         case .Changed:
             handlePanChanged(viewTranslation)
-        case .Cancelled:
+        case .Cancelled, .Ended:
             handlePanCancelled(gestureRecognizer)
         default:
             break
@@ -148,6 +149,74 @@ enum PercentageValues: CGFloat {
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+
+<!-- CustomPresentation -->
+<h4>CustomPresentation</h4>
+
+<!-- TODO: description of what CustomInteraction does -->
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos=table %}
+import UIKit
+import Foundation
+
+class CustomPresentation: NSObject, UIViewControllerAnimatedTransitioning {
+    
+    private let scale = UIScreen.mainScreen().scale
+    private let identity = CATransform3DIdentity
+    private var distance: CGFloat {
+        return ZPositions.Distance.rawValue
+    }
+    private var spatial: CGFloat {
+        return ZPositions.Spatial.rawValue
+    }
+    var reverse: Bool = false
+    
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) 
+      -> NSTimeInterval {}
+    
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {}
+    
+    func rasterize(withLayer layer: CALayer) {}
+    
+    func addDepthDownToAnimation() -> CATransform3D {}
+    
+    func addDepthDownFromAnimation() -> CATransform3D {}
+
+    handleAnimationFinish(transitionContext: UIViewControllerContextTransitioning, 
+      toView: UIView, fromView: UIView) {}
+}
+enum ZPositions: CGFloat {
+    case Spatial = 300
+    case Distance = 150
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+
+Here's the breakdown of each method.
+
+- `transitionDuration`: How long the transition will take.
+
+- `animateTransition`: What the animation will be. (most of the code is here)
+
+- `rasterize`: Makes the animation display match the resolution of the device.
+
+- `addDepthDownToAnimation`: This is where the transition happens, it actually uses the Z-axis to animate and adds depth. Without this, you wouldn't see the animation.
+
+
+
+Now let's add all the rest of the code for this class.
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos=table %}
+
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
 
 <!-- References -->
 <h3>References</h3>
