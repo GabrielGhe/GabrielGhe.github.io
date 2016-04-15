@@ -344,6 +344,49 @@ This is what your storyboard looks like.
 
 ![Files]({{ ASSET_PATH }}/../images/2016-04-14-custom-transitions2.png)
 
+To use the two classes that we created, add them at the top of your MainViewController class.
+Make sure your MainViewController implements `UINavigationControllerDelegate`.
+
+<!-- Code _______________________________________-->
+{% highlight swift linenos=table %}
+import UIKit
+
+class MainViewController: UIViewController, UINavigationControllerDelegate {
+    let presenting = CustomPresentation()
+    let interaction = CustomInteraction()
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.delegate = self
+    }
+
+    
+    func navigationController(navigationController: UINavigationController,
+                              animationControllerForOperation operation:
+                                    UINavigationControllerOperation,
+                              fromViewController fromVC: UIViewController,
+                                toViewController toVC: UIViewController) ->
+                            UIViewControllerAnimatedTransitioning? {
+        if operation == .Push {
+            interaction.attachToViewController(toVC)
+        }        
+        presenting.reverse = operation == .Pop
+        return presenting
+    }
+
+    
+    func navigationController(navigationController: UINavigationController,
+                              interactionControllerForAnimationController animationController:
+                                UIViewControllerAnimatedTransitioning) ->
+                                UIViewControllerInteractiveTransitioning? {
+        return interaction.transitionInProgress ? interaction : nil
+    }
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
 
 
 <!-- References -->
