@@ -17,6 +17,10 @@ tags: [ios, animation, transition, navigation]
 <!-- Content -->
 <h3>Content</h3>
 
+We're going to create the following effect when we interact with a NavigationController.
+
+![Final effect]({{ ASSET_PATH }}/../images/2016-04-14-custom-transitions.gif)
+
 We're going to create two classes: CustomInteraction and CustomPresentation.
 In XCode go to `File -> New -> File -> Source -> Swift file`.
 
