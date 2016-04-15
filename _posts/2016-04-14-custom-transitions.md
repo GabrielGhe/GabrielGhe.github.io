@@ -23,7 +23,7 @@ In XCode go to `File -> New -> File -> Source -> Swift file`.
 <!-- CustomInteraction -->
 <h4>CustomInteraction</h4>
 
-<!-- TODO: description of what CustomInteraction does -->
+Attaches to a navigation controller and listens for a gesture (we override default return gesture)
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos=table %}
@@ -155,7 +155,7 @@ enum PercentageValues: CGFloat {
 <!-- CustomPresentation -->
 <h4>CustomPresentation</h4>
 
-<!-- TODO: description of what CustomInteraction does -->
+Animation that is performed when transitioning. We attach this to the navigation controller.
 
 <!-- Code _______________________________________-->
 {% highlight swift linenos=table %}
@@ -333,6 +333,11 @@ enum ZPositions: CGFloat {
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<!-- In Action -->
+<h4>In Action</h4>
+
 
 
 <!-- References -->
