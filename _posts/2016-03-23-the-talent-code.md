@@ -17,6 +17,8 @@ tags: []
 <!-- Content -->
 <h3>Content</h3>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hL3cIM4hfBk" frameborder="0" allowfullscreen></iframe>
+
 While some people may have a natural talent. That talent is useless in the long run. The secret to becoming skilled at something is a neural insulator called myelin. In our brains, we have neurons that have nerve fibers. These fibers send signals to other neurons and that's what tells our body to move or speak or dance. 
 
 Myelin wraps around these fibers and makes them faster, more precise and efficient. The more we perform a task, the more myelin is wrapped around those fibers. A pianist or tennis player has a large amount of myelin wrapped around the fibers he/she uses most.
