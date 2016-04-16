@@ -146,5 +146,3 @@ func loadCustomRefreshContents() {
 The end result is this.
 
 ![End Result]({{ ASSET_PATH }}/../images/2016-03-28-custom-pull-to-refresh2.gif)
-
-Of course, it still needs work since it looks a bit glitchy when it first appears and disappears. I'll cover that in part 2.
