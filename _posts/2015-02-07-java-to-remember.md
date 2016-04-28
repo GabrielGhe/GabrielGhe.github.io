@@ -894,7 +894,7 @@ Full article can be found [here](http://examples.javacodegeeks.com/core-java/lan
   </tr>
   <tr>
     <td>%-6s</td>
-    <td>will print the string as it is. If the string has less than 6 characters, the output will be padded on the left.</td>
+    <td>will print the string as it is. If the string has less than 6 characters, the output will be padded on the right.</td>
   </tr>
   <tr>
     <td>%.8s</td>
