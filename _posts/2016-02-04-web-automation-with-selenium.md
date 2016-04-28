@@ -5,7 +5,7 @@ description: "
 Web automation is a powerful tool. Devs mainly use it for UI testing, but there are a ton of other applications! In this post, I'll be showing you how to automate your chrome browser in python using [Selenium](http://www.seleniumhq.org/projects/webdriver/).
 "
 category: python
-tags: [web, script, automation, scraper]
+tags: [web, script, automation, scraper, osx, mac]
 ---
 {% include JB/setup %}
 

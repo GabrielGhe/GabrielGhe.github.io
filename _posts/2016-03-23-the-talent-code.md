@@ -5,7 +5,7 @@ description: "
 I recently read a book by Daniel Coyle called [The Talent Code](https://www.amazon.ca/The-Talent-Code-Greatness-Grown/dp/055380684X). It talks about the famous 10000 hour rule to mastering a skill and how to achieve those 10000s efficiently. This post will summarize the 3 steps needed to have the perfect session.
 "
 category: reading
-tags: []
+tags: [books, productivity, ambition, life]
 ---
 {% include JB/setup %}
 
