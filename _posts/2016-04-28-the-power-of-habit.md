@@ -14,6 +14,8 @@ tags: [books, productivity, ambition, life]
 
 {{ page.description }}
 
+
+
 <!-- Content -->
 <h3>Content</h3>
 
@@ -24,11 +26,19 @@ tags: [books, productivity, ambition, life]
 
 All habits can be broken down into 3 parts. 
 
-- Habits are triggered by </b>cues</b>
+- Habits are triggered by <b>cues</b>
 - Which activate a <b>routine</b>
+- Ending with a <b>reward</b>
+
+If you don't trigger the cue, then you don't perform the habit. So you want to avoid triggering the bad cues and find ways to trigger the good cues more often.
 
 
+<!-- Lesson 2 -->
+<h4>Lesson 2</h4>
 
+All cues fall into 1 of 5 categories.
+
+- 
 
 <!-- References -->
 <h3>References</h3>
