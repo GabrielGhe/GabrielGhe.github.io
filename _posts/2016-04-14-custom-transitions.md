@@ -339,8 +339,8 @@ enum ZPositions: CGFloat {
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 
-<!-- In Action -->
-<h4>In Action</h4>
+<!-- Storyboard -->
+<h4>Storyboard</h4>
 
 This is what your storyboard looks like.
 
