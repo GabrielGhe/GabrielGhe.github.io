@@ -38,7 +38,16 @@ If you don't trigger the cue, then you don't perform the habit. So you want to a
 
 All cues fall into 1 of 5 categories.
 
-- 
+- Time
+- Location
+- Last Action
+- Emotion (state)
+- Others (and their actions)
+
+
+<!-- Lesson 3 -->
+<h4>Lesson 3</h4>
+
 
 <!-- References -->
 <h3>References</h3>
