@@ -2,10 +2,6 @@
 
 If you find the content useful, star the repo so that it gets more coverage.
 
-# Existing posts
-
-If you're forking the repo to use the blog as a template, make sure you remove everything from _posts.
-
 # Analytics
 
 Also make sure you remove the following code from `GabrielGhe.github.io/_includes/themes/bootstrap-3/default.html`. It's my Google Analytics script.
