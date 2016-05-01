@@ -56,8 +56,10 @@ Instead of doing work and thinking that people will go on my blog simply because
 Both me and a designer friend want to build an app, but we want to work alone. I might build a very functional app that looks ugly while he might build a beautiful app that does nothing. By working together, we can build something that neither of us could have created alone. It doesn't work with everyone, but it's good to work with others if the opportunity presents itself.
 
 
+<!-- Habit 7: Sharpen the saw -->
+<h4>Habit 7: Sharpen the saw</h4>
 
-<h4>Habit 7: Shar</h4>
+We always look for tips and tricks to get ahead, but sometimes we just need to sit down and do work. A pianist doesn't think about getting tips and tricks in order to become amazing. He/She spends hours every day perfecting her skills. We can't cut down a tree with a rusty saw, but sharpening the saw takes time. We still need to sharpen the saw.
 
 <!-- References -->
 <h3>References</h3>
