@@ -27,9 +27,9 @@ This sort works very well for lists of numbers that are within a specific range.
 {% highlight python linenos=table %}
 list = [1, 2, 6, 3, 3, 7, 8]
 
-newList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] //10 elements
+newList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] #10 elements
 
-for listIndex in range(10): //[0, 10[
+for listIndex in range(10): #[0, 10[
     # get what the value is at position listIndex
     newListIndex = list[listIndex]
 
