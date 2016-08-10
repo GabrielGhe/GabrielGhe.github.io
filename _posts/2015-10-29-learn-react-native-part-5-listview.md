@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Learn React Native Part 5: ListView"
+title: "Learn React-Native Part 5: ListView"
 description: "This post is all about creating a `ListView` using <b>react-native</b>. We'll look at rows and sections. You can find more information about the `ListView` component [here](https://facebook.github.io/react-native/docs/listview.html)."
 category: javascript
 tags: [ios, list, rows, sections, react, swift, xcode]
