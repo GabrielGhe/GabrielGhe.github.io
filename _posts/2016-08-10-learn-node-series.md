@@ -2,7 +2,7 @@
 layout: post
 title: "Learn Node Series"
 description: "
-I realized that I've written many posts on node so I'm making this post which links to each one in the right order.
+I realized that I've written many posts on node so here are all the posts in the right order!
 "
 category: javascript
 tags: [nodejs]
