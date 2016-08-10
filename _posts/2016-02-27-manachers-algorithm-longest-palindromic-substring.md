@@ -70,32 +70,45 @@ So we need two rules for finding ?.
 {% highlight java linenos=table %}
 public int manachers(String s) {
     // [$, #, a, #, b, #, a, #, @]
-    char[] processedArray = processString(s);
-    int[] palins = new int[processedArray.length];
-    int c = 0;  // center
-    int r = 0;  // right boundary
+    char[] processed = processString(a);
+    int[] palins = new int[processed.length];
+    int c = 0; // center
+    int r = 0; // right bound
+    
     int biggest = 0;
-
-    for (int i=1; i < processedArray.length-1; ++i) {
+    int biggestCenter = 0;
+    
+    for (int i = 1; i < processed.length - 1; ++i) {
         int mirror = getMirrorIndex(c, i);
-
+        
         if (isIndexWithinRightBoundary(i, r)) {
-            int distanceFromBoundary = r-i;
+            int distanceFromBoundary = r - i;
             int mirrorValue = palins[mirror];
             palins[i] = Math.min(distanceFromBoundary, mirrorValue);
         }
-
-        while (canGrowPalindrome(processedArray, palins, i)) {
+        
+        while (canGrowPalindrome(processed, palins, i)) {
             expandPalindromeAtIndex(palins, i);
-            biggest = Math.max(palins[i], biggest);
+            if (palins[i] > biggest) {
+                biggest = palins[i];
+                biggestCenter = i;
+            }
         }
-
+        
         if (currentPalinPassedRightBoundary(i, palins, r)) {
-            c = i;              // new center
-            r = i + palins[i];  // new boundary
+            c = i;
+            r = i + palins[i];
         }
     }
-    return biggest;
+    // or return biggest to get the length of the longest palindrome
+    return getPalindrome(biggest, biggestCenter, a);
+}
+
+public String getPalindrome(int len, int pos, String s) {
+    pos = pos/2;
+    pos -= len/2;
+    pos -= (len % 2 == 1) ? 1 : 0;
+    return s.substring(pos, pos + len);
 }
 
 /**
@@ -109,6 +122,7 @@ private boolean canGrowPalindrome(char[] arr, int[] palins, int center) {
     return left == right;
 }
 
+
 /**
  *     l <=     c     => r
  * [$, #, a, #, b, #, a, #, @]
@@ -118,7 +132,7 @@ private void expandPalindromeAtIndex(int[] palins, int index) {
     ++palins[index];
 }
 
-private boolean currentPalindomePassedRightBoundary(int index, int[] palins, rightBoundary) {
+private boolean currentPalinPassedRightBoundary(int index, int[] palins, int rightBoundary) {
     int newBoundary = index + palins[index];
     return newBoundary > rightBoundary;
 }
@@ -128,7 +142,7 @@ private boolean isIndexWithinRightBoundary(int index, int rightBoundary) {
 }
 
 private int getMirrorIndex(int center, int index) {
-    return 2*c - i;
+    return 2*center - index;
 }
 
 private char[] processString(String s) {
