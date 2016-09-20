@@ -547,22 +547,12 @@ Writing to a file.
 
 <!-- Code -->
 {% highlight java linenos=table  %}
-//java7... appends to file
-try(Formatter f = new Formatter("myText.txt")) {
-  f.format("this is output text", null);
+//java8 writing to file
+try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath), 
+        StandardCharsets.UTF_8)) {
+    writer.write("line");
 } catch(IOException ioe){
   ioe.printStackTrace();
-}
-
-//older java
-Formatter f;
-try {
-  f = new Formatter("myText.txt");
-  f.format("this is output text", null);
-} catch(IOException ioe){
-  ioe.printStackTrace();
-} finally {
-  f.close();
 }
 {% endhighlight %}
 <!-- /Code -->
@@ -571,14 +561,11 @@ Reading from a file
 
 <!-- Code -->
 {% highlight java linenos=table  %}
-//read all the lines in a file
-try(Scanner scan = new Scanner(new File("myText.txt") ) ){
-  ArrayList<String> x = new ArrayList<String>();
-  while(scan.hasNext()){
-    x.add(scan.nextLine());
-  }
-} catch (FileNotFoundException e) {
-  e.printStackTrace();
+//java8 read all the lines in a file
+try (BufferedReader br = Files.newBufferedReader(Paths.get(filePath))) {
+    list = br.lines().collect(Collectors.toList());
+} catch (IOException e) {
+    e.printStackTrace();
 }
 {% endhighlight %}
 <!-- /Code -->
