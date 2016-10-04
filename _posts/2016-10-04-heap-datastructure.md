@@ -71,14 +71,14 @@ Let's say we add a `node X` with value 15.
 
 ![Binary tree]({{ ASSET_PATH }}/../images/2016-10-04-heap-datastructure6.png)
 
-We violated the heap property. The parent with value 8 has a child with a value of 15. To maintain the heap property, we swap them or bubble up.
+We violated the heap property (the value of the parent must be bigger than the values of its children). The parent with value 8 has a child with a value of 15. To maintain the heap property, we swap them or bubble up.
 
 
 <br/><br/>
 
 ![Binary tree]({{ ASSET_PATH }}/../images/2016-10-04-heap-datastructure7.png)
 
-The property is still violated so we must swap or bubble up again. Now we're done. We don't need to look on the left side because that side was already correct.
+The property is still violated so we must swap or bubble up again. We're done. We don't need to look on the left side because that side was already correct.
 
 
 
