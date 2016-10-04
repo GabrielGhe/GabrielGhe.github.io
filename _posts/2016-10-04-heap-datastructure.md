@@ -2,7 +2,7 @@
 layout: post
 title: "Heap Data Structure"
 description: "
-You're a doctor at a hospital's ER and you have many patients to see. There are too many patients to see, so you decide to make a queue program. The patients put in their names in the program and they get added to the end of the queue.
+You're a doctor at a hospital's ER and you have many patients to see. There are too many patients to see, so you decide to make a queue program. The patients put their name in the program and they get added to the end of the queue.
 
 <br /><br />
 
