@@ -45,13 +45,13 @@ There are two types of heaps: a min-heap and a max-heap.
 
 ![Binary tree]({{ ASSET_PATH }}/../images/2016-10-04-heap-datastructure3.png)
 
-In a max-heap, the parent node must have a higher value than its two children nodes. 
+In a max-heap, the parent node must have a higher value than its two child nodes. 
 
 <br/><br/>
 
 ![Binary tree]({{ ASSET_PATH }}/../images/2016-10-04-heap-datastructure4.png)
 
-In a min-heap, the parent node must have a lower value than its two children nodes.
+In a min-heap, the parent node must have a lower value than its two child nodes.
 
 
 
