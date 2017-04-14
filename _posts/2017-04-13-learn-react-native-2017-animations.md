@@ -53,29 +53,31 @@ Next we'll create the skeleton of the class which will display the button. No fa
 <!-- Code _______________________________________-->
 {% highlight javascript linenos=table %}
 class AnimatedButton extends Component {
-  constructor() {
-    super();
-    this.state = {
-      textComplete: ''
+    constructor() {
+        super();
+        this.state = {
+            textComplete: '',
+            buttonWidth: 0,
+            buttonHeight: 0
+        }
     }
-  }
   
-  render(): ReactElement {
-    return (
-      <View>
-        <TouchableWithoutFeedback>
-          <View style={styles.button} >
-              <Animated.View style={styles.animatedFill} />
-              <Text style={styles.text}>Press And Hold Me</Text>
-          </View>
-        </TouchableWithoutFeedback>
+    render(): ReactElement {
+        return (
+            <View>
+                <TouchableWithoutFeedback>
+                    <View style={styles.button} >
+                        <Animated.View style={styles.animatedFill} />
+                        <Text style={styles.text}>Press And Hold Me</Text>
+                    </View>
+                </TouchableWithoutFeedback>
         
-        <View>
-          <Text>{this.state.textComplete}</Text>
-        </View>
-      </View>
-    )
-  }
+                <View>
+                    <Text>{this.state.textComplete}</Text>
+                </View>
+            </View>
+        )
+    }
 }
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
@@ -86,26 +88,26 @@ We also need the style.
 <!-- Code _______________________________________-->
 {% highlight javascript linenos=table %}
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  button: {
-    padding: 10,
-    borderWidth: 3,
-    borderColor: '#111'
-  },
-  text: {
-    backgroundColor: 'transparent',
-    color: '#111'
-  },
-  animatedFill: {
-    position: 'absolute',
-    top: 0,
-    left: 0
-  }
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    button: {
+        padding: 10,
+        borderWidth: 3,
+        borderColor: '#111'
+    },
+    text: {
+        backgroundColor: 'transparent',
+        color: '#111'
+    },
+    animatedFill: {
+        position: 'absolute',
+        top: 0,
+        left: 0
+    }
 });
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
@@ -124,7 +126,9 @@ constructor() {
     super();
     this.state = {
         textComplete: '',
-        pressAction: new Animated.Value(0)
+        pressAction: new Animated.Value(0),
+        buttonWidth: 0,
+        buttonHeight: 0
     }
 }
   
@@ -192,9 +196,226 @@ render(): ReactElement {
 {% endhighlight %}
 <!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
-<h4>Link to demo</h4>
 
-The best way to learn is to play around with the code, so here's a [link to a demo](https://snack.expo.io/HJmyPdapl).
+We need to know the width and height of the button, so we'll get them at runtime.
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos=table %}
+getButtonWidthLayout(e) {
+    this.setState({
+        buttonWidth: e.nativeEvent.layout.width - 6,
+        buttonHeight: e.nativeEvent.layout.height - 6
+    });
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+Now we need to animate when the button is clicked. We do this using styles.
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos=table %}
+getProgressStyles() {
+    var width = this.state.pressAction.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, this.state.buttonWidth]
+    });
+    var animatedColor = this.state.pressAction.interpolate({
+        inputRange: [0, 1],
+        outputRange: COLORS
+    });
+
+    return {
+        width: width,
+        height: this.state.buttonHeight,
+        backgroundColor: animatedColor
+    }
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+The final render function will look like this.
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos=table %}
+render(): ReactElement {
+    return (
+      <View style={styles.container}>     
+            <TouchableWithoutFeedback 
+                onPressIn={this.handlePressIn.bind(this)} 
+                onPressOut={this.handlePressOut.bind(this)}
+            >
+                <View style={styles.button} 
+                onLayout={this.getButtonWidthLayout.bind(this)}>
+
+                    <Animated.View style={[
+                      styles.animatedFill,
+                      this.getProgressStyles()]} />
+                    
+                    <Text style={styles.text}>Press And Hold Me</Text>
+
+                </View>
+            </TouchableWithoutFeedback>
+
+            <View>
+                <Text>{this.state.textComplete}</Text>
+            </View>
+       </View>
+    );
+}
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+
+
+<h4>Code</h4>
+
+<!-- Code _______________________________________-->
+{% highlight javascript linenos=table %}
+// ----------------------------------
+// IMPORTS
+// ----------------------------------
+
+import React, { Component } from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Animated,
+  TouchableWithoutFeedback
+} from 'react-native';
+
+var ACTION_TIMER = 2;
+var COLORS = ['rgb(255,255,255)', 'rgb(111,235,62)']
+
+// ----------------------------------
+// CLASSES
+// ----------------------------------
+
+export default class App extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <AnimatedButton />
+      </View>
+    );
+  }
+}
+
+class AnimatedButton extends Component {
+  constructor() {
+    super();
+    this.state = {
+      textComplete: '',
+      pressAction: new Animated.Value(0)
+    }
+  }
+  
+  componentDidMount() {
+    this._value = 0;
+    this.state.pressAction.addListener(
+      (v) => this._value = v.value
+    );
+  }
+  
+  handlePressIn() {
+    Animated.timing(this.state.pressAction, {
+      duration: ACTION_TIMER,
+      toValue: 11
+    }).start(this.animationActionComplete.bind(this));
+  }
+  
+  handlePressOut() {
+    Animated.timing(this.state.pressAction, {
+      duration: this._value * ACTION_TIMER
+    }).start();
+  }
+  
+  animationActionComplete() {
+    var message = '';
+    if (this._value === 1) {
+      message = 'You held it long enough!';
+    }
+    this.setState({ textComplete: message });
+  }
+  
+  getButtonWidthLayout(e) {
+    this.setState({
+        buttonWidth: e.nativeEvent.layout.width - 6,
+        buttonHeight: e.nativeEvent.layout.height - 6
+    });
+  }
+  
+  getProgressStyles() {
+    var width = this.state.pressAction.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, this.state.buttonWidth]
+    });
+    var animatedColor = this.state.pressAction.interpolate({
+        inputRange: [0, 1],
+        outputRange: COLORS
+    });
+
+    return {
+        width: width,
+        height: this.state.buttonHeight,
+        backgroundColor: animatedColor
+    }
+  }
+  
+  render(): ReactElement {
+    return (
+      <View style={styles.container}>
+            <TouchableWithoutFeedback 
+                onPressIn={this.handlePressIn.bind(this)} 
+                onPressOut={this.handlePressOut.bind(this)}
+            >
+                <View style={styles.button} 
+                onLayout={this.getButtonWidthLayout.bind(this)}>
+                    <Animated.View style={[
+                      styles.animatedFill,
+                      this.getProgressStyles()]} />
+                    <Text style={styles.text}>Press And Hold Me</Text>
+                </View>
+            </TouchableWithoutFeedback>
+            <View>
+                <Text>{this.state.textComplete}</Text>
+            </View>
+       </View>
+    );
+  }
+}
+
+
+// ----------------------------------
+// STYLES
+// ----------------------------------
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  button: {
+    padding: 10,
+    borderWidth: 3,
+    borderColor: '#111'
+  },
+  text: {
+    backgroundColor: 'transparent',
+    color: '#111'
+  },
+  animatedFill: {
+    position: 'absolute',
+    top: 0,
+    left: 0
+  }
+});
+
+{% endhighlight %}
+<!-- /Code ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
 
 
 
