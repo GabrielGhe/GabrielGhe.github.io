@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Valentine's Day</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --rose: #c9566e;
+      --rose-light: #e8a0b2;
+      --rose-dark: #8b2942;
+      --cream: #fdf6f0;
+      --gold: #c9a84c;
+      --gold-light: #e8d59e;
+      --text: #3a2434;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* ---- floating background photos ---- */
+    .bg-photos {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bg-photo {
+      position: absolute;
+      border-radius: 16px;
+      overflow: hidden;
+      opacity: 0;
+      box-shadow: 0 4px 24px rgba(139,41,66,.08);
+      pointer-events: none;
+      transition: none;
+    }
+    .bg-photo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: saturate(.4) brightness(1.02);
+    }
+    @keyframes photoFloat {
+      0%   { opacity: 0; transform: translateY(20px) rotate(var(--rot-start)) scale(.95); }
+      12%  { opacity: var(--peak-opacity); }
+      88%  { opacity: var(--peak-opacity); }
+      100% { opacity: 0; transform: translateY(-20px) rotate(var(--rot-end)) scale(1); }
+    }
+
+    /* soft overlay to keep text readable */
+    .bg-photos::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(253,246,240,.15) 0%, rgba(253,246,240,.5) 80%);
+      pointer-events: none;
+    }
+
+    /* ---- floating hearts ---- */
+    .hearts-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .floating-heart {
+      position: absolute;
+      bottom: -60px;
+      opacity: 0;
+      animation: floatUp linear infinite;
+      color: var(--rose-light);
+      filter: drop-shadow(0 0 2px rgba(201,86,110,.25));
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 0; }
+      10%  { opacity: .4; }
+      90%  { opacity: .25; }
+      100% { transform: translateY(-110vh) rotate(40deg) scale(.6); opacity: 0; }
+    }
+
+    /* ---- lily SVG decorations ---- */
+    .lily {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* ---- main single-page layout ---- */
+    .page {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      gap: .6rem;
+    }
+
+    .page h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--rose-dark);
+      letter-spacing: .02em;
+      line-height: 1.15;
+      opacity: 0;
+      animation: fadeSlideIn 1.2s ease-out .3s forwards;
+      text-shadow: 0 1px 12px rgba(253,246,240,.9);
+    }
+    .page h1 .heart-icon {
+      display: inline-block;
+      color: var(--rose);
+      animation: heartbeat 1.6s ease-in-out infinite;
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14%      { transform: scale(1.15); }
+      28%      { transform: scale(1); }
+      42%      { transform: scale(1.12); }
+      56%      { transform: scale(1); }
+    }
+
+    /* ---- divider ---- */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      width: 100%;
+      max-width: 350px;
+      opacity: 0;
+      animation: fadeSlideIn 1s ease-out .7s forwards;
+    }
+    .divider .line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* ---- valentine card ---- */
+    .valentine-card {
+      position: relative;
+      max-width: 620px;
+      width: 100%;
+      padding: 2.5rem 2rem 2rem;
+      border: 1px solid var(--gold-light);
+      border-radius: 20px;
+      background: rgba(253,246,240,.8);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      opacity: 0;
+      animation: fadeSlideIn 1s ease-out 1s forwards;
+    }
+    .valentine-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.6rem);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--rose-dark);
+      margin-bottom: .3rem;
+    }
+    .lily-row {
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      margin: 1rem 0;
+    }
+
+    /* ---- buttons ---- */
+    .btn-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.2rem;
+      position: relative;
+      min-height: 70px;
+    }
+
+    .yes-btn {
+      padding: 1rem 3.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-style: italic;
+      color: #fff;
+      background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 28px rgba(139,41,66,.3);
+      transition: transform .3s ease, box-shadow .3s ease;
+      animation: yesGlow 2s ease-in-out infinite;
+    }
+    .yes-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 36px rgba(139,41,66,.45);
+    }
+    @keyframes yesGlow {
+      0%, 100% { box-shadow: 0 6px 28px rgba(139,41,66,.3); }
+      50% { box-shadow: 0 6px 40px rgba(201,86,110,.5), 0 0 60px rgba(201,86,110,.15); }
+    }
+
+    .no-btn {
+      padding: .15rem .5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .5rem;
+      color: #ccc;
+      background: transparent;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      cursor: pointer;
+      position: relative;
+      animation: runAway 2.5s ease-in-out infinite;
+      transition: transform .1s ease;
+      white-space: nowrap;
+    }
+    @keyframes runAway {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      15%  { transform: translate(15px, -10px) rotate(6deg); }
+      30%  { transform: translate(-12px, 8px) rotate(-4deg); }
+      45%  { transform: translate(10px, 12px) rotate(5deg); }
+      60%  { transform: translate(-16px, -6px) rotate(-7deg); }
+      75%  { transform: translate(8px, -14px) rotate(3deg); }
+      90%  { transform: translate(-10px, 5px) rotate(-5deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+
+    .celebration {
+      display: none;
+      margin-top: 1rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--rose);
+      font-style: italic;
+      animation: fadeSlideIn .6s ease-out forwards;
+    }
+
+    /* ---- footer ---- */
+    .footer-text {
+      font-size: .85rem;
+      color: var(--rose-light);
+      opacity: 0;
+      animation: fadeSlideIn 1s ease-out 1.4s forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- floating background photos -->
+  <div class="bg-photos" id="bgPhotos"></div>
+
+  <!-- floating hearts -->
+  <div class="hearts-container" id="hearts"></div>
+
+  <!-- all content on one page -->
+  <main class="page">
+    <!-- decorative lilies in corners -->
+    <svg class="lily" style="top:5%;left:3%;width:80px;opacity:.16;transform:rotate(-20deg)" viewBox="0 0 100 140" fill="none">
+      <path d="M50 140 C50 90 10 80 5 40 C0 10 30 0 50 30 C70 0 100 10 95 40 C90 80 50 90 50 140Z" fill="#fff" stroke="#c9a84c" stroke-width="1"/>
+      <path d="M50 140 C50 90 30 85 20 50" stroke="#c9a84c" stroke-width=".8" fill="none"/>
+      <path d="M50 140 C50 90 70 85 80 50" stroke="#c9a84c" stroke-width=".8" fill="none"/>
+    </svg>
+    <svg class="lily" style="top:6%;right:4%;width:70px;opacity:.16;transform:rotate(25deg)" viewBox="0 0 100 140" fill="none">
+      <path d="M50 140 C50 90 10 80 5 40 C0 10 30 0 50 30 C70 0 100 10 95 40 C90 80 50 90 50 140Z" fill="#fff" stroke="#c9a84c" stroke-width="1"/>
+      <path d="M50 140 C50 90 30 85 20 50" stroke="#c9a84c" stroke-width=".8" fill="none"/>
+      <path d="M50 140 C50 90 70 85 80 50" stroke="#c9a84c" stroke-width=".8" fill="none"/>
+    </svg>
+    <svg class="lily" style="bottom:5%;left:5%;width:65px;opacity:.12;transform:rotate(15deg)" viewBox="0 0 100 140" fill="none">
+      <path d="M50 140 C50 90 10 80 5 40 C0 10 30 0 50 30 C70 0 100 10 95 40 C90 80 50 90 50 140Z" fill="#fff" stroke="#c9a84c" stroke-width="1"/>
+    </svg>
+    <svg class="lily" style="bottom:6%;right:3%;width:75px;opacity:.12;transform:rotate(-18deg)" viewBox="0 0 100 140" fill="none">
+      <path d="M50 140 C50 90 10 80 5 40 C0 10 30 0 50 30 C70 0 100 10 95 40 C90 80 50 90 50 140Z" fill="#fff" stroke="#c9a84c" stroke-width="1"/>
+    </svg>
+
+    <h1>Happy Valentine's Day, Booboo <span class="heart-icon">&hearts;</span></h1>
+
+    <div class="divider">
+      <span class="line"></span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#c9a84c"/></svg>
+      <span class="line"></span>
+    </div>
+
+    <div class="valentine-card">
+      <!-- lily decorations on card -->
+      <svg class="lily" style="top:-26px;left:18px;width:52px;transform:rotate(-15deg)" viewBox="0 0 100 140" fill="none">
+        <path d="M50 140 C50 90 10 80 5 40 C0 10 30 0 50 30 C70 0 100 10 95 40 C90 80 50 90 50 140Z" fill="#fff" stroke="#c9a84c" stroke-width="1.2"/>
+        <path d="M50 140 C50 90 30 85 20 50" stroke="#c9a84c" stroke-width=".8" fill="none"/>
+        <path d="M50 140 C50 90 70 85 80 50" stroke="#c9a84c" stroke-width=".8" fill="none"/>
+        <circle cx="50" cy="35" r="4" fill="#e8d59e"/>
+      </svg>
+      <svg class="lily" style="top:-22px;left:58px;width:40px;transform:rotate(10deg)" viewBox="0 0 100 140" fill="none">
+        <path d="M50 140 C50 90 10 80 5 40 C0 10 30 0 50 30 C70 0 100 10 95 40 C90 80 50 90 50 140Z" fill="#fff" stroke="#c9a84c" stroke-width="1.2"/>
+        <circle cx="50" cy="35" r="4" fill="#e8d59e"/>
+      </svg>
+      <svg class="lily" style="top:-24px;right:22px;width:48px;transform:rotate(20deg)" viewBox="0 0 100 140" fill="none">
+        <path d="M50 140 C50 90 10 80 5 40 C0 10 30 0 50 30 C70 0 100 10 95 40 C90 80 50 90 50 140Z" fill="#fff" stroke="#c9a84c" stroke-width="1.2"/>
+        <path d="M50 140 C50 90 30 85 20 50" stroke="#c9a84c" stroke-width=".8" fill="none"/>
+        <circle cx="50" cy="35" r="4" fill="#e8d59e"/>
+      </svg>
+      <svg class="lily" style="top:-20px;right:60px;width:38px;transform:rotate(-8deg)" viewBox="0 0 100 140" fill="none">
+        <path d="M50 140 C50 90 10 80 5 40 C0 10 30 0 50 30 C70 0 100 10 95 40 C90 80 50 90 50 140Z" fill="#fff" stroke="#c9a84c" stroke-width="1.2"/>
+        <circle cx="50" cy="35" r="4" fill="#e8d59e"/>
+      </svg>
+      <!-- bottom lilies -->
+      <svg class="lily" style="bottom:-24px;left:32%;width:44px;transform:rotate(180deg) scaleX(-1)" viewBox="0 0 100 140" fill="none">
+        <path d="M50 140 C50 90 10 80 5 40 C0 10 30 0 50 30 C70 0 100 10 95 40 C90 80 50 90 50 140Z" fill="#fff" stroke="#c9a84c" stroke-width="1.2"/>
+        <circle cx="50" cy="35" r="4" fill="#e8d59e"/>
+      </svg>
+      <svg class="lily" style="bottom:-26px;right:32%;width:48px;transform:rotate(175deg)" viewBox="0 0 100 140" fill="none">
+        <path d="M50 140 C50 90 10 80 5 40 C0 10 30 0 50 30 C70 0 100 10 95 40 C90 80 50 90 50 140Z" fill="#fff" stroke="#c9a84c" stroke-width="1.2"/>
+        <circle cx="50" cy="35" r="4" fill="#e8d59e"/>
+      </svg>
+
+      <h2>Will You Be My Valentine?</h2>
+
+      <div class="btn-row">
+        <button class="yes-btn" id="yesBtn" onclick="sayYes()">Yes &hearts;</button>
+        <button class="no-btn" id="noBtn">no</button>
+      </div>
+
+      <p class="celebration" id="celebration">Yay, mine, gimme! &hearts;</p>
+    </div>
+
+    <p class="footer-text">&hearts; Valentine's Day 2026 &hearts;</p>
+  </main>
+
+  <script>
+    // ---- floating background photos ----
+    const bgContainer = document.getElementById('bgPhotos');
+    // auto-detect images: tries 1.png, 2.png, ... until one fails to load
+    const images = [];
+    let probeIndex = 1;
+    function probeImages() {
+      return new Promise(resolve => {
+        function tryNext() {
+          const img = new Image();
+          img.onload = () => {
+            images.push('images/' + probeIndex + '.png');
+            probeIndex++;
+            tryNext();
+          };
+          img.onerror = () => resolve();
+          img.src = 'images/' + probeIndex + '.png';
+        }
+        tryNext();
+      });
+    }
+    // positions: desktop uses edges, mobile uses top/bottom only
+    const isMobile = window.innerWidth <= 700;
+    const positions = isMobile ? [
+      { top: '1%',  left: '5%',  w: 160 },
+      { top: '2%',  right: '5%', w: 150 },
+      { top: '1%',  left: '35%', w: 140 },
+      { bottom: '1%', left: '5%', w: 155 },
+      { bottom: '2%', right: '5%', w: 145 },
+      { bottom: '1%', left: '30%', w: 150 },
+    ] : [
+      { top: '1%',  left: '0%',  w: 500 },
+      { top: '2%',  right: '0%', w: 480 },
+      { bottom: '1%', left: '1%', w: 470 },
+      { bottom: '2%', right: '0%', w: 490 },
+      { top: '25%', left: '0%',  w: 460 },
+      { top: '22%', right: '0%', w: 475 },
+      { top: '52%', left: '0%',  w: 450 },
+      { top: '50%', right: '1%', w: 465 },
+    ];
+
+    let photoIndex = 0;
+    function spawnPhoto() {
+      const pos = positions[Math.floor(Math.random() * positions.length)];
+      const src = images[photoIndex % images.length];
+      photoIndex++;
+
+      const div = document.createElement('div');
+      div.className = 'bg-photo';
+      div.style.width = pos.w + 'px';
+      if (pos.top) div.style.top = pos.top;
+      if (pos.bottom) div.style.bottom = pos.bottom;
+      if (pos.left) div.style.left = pos.left;
+      if (pos.right) div.style.right = pos.right;
+
+      const rotStart = (Math.random() - .5) * 8;
+      const rotEnd = rotStart + (Math.random() - .5) * 6;
+      const peakOpacity = .55 + Math.random() * .2;
+      const duration = 7 + Math.random() * 4;
+
+      div.style.setProperty('--rot-start', rotStart + 'deg');
+      div.style.setProperty('--rot-end', rotEnd + 'deg');
+      div.style.setProperty('--peak-opacity', peakOpacity);
+      div.style.animation = `photoFloat ${duration}s ease-in-out forwards`;
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = '';
+      div.appendChild(img);
+      bgContainer.appendChild(div);
+
+      setTimeout(() => div.remove(), duration * 1000 + 100);
+    }
+
+    // wait for image detection, then spawn photos staggered
+    probeImages().then(() => {
+      if (images.length === 0) return;
+      spawnPhoto();
+      setInterval(spawnPhoto, 3000);
+      setTimeout(() => setInterval(spawnPhoto, 3500), 1500);
+    });
+
+    // ---- floating hearts ----
+    const heartsEl = document.getElementById('hearts');
+    const heartChars = ['\u2665', '\u2764', '\u2661'];
+    function spawnHeart() {
+      const el = document.createElement('span');
+      el.className = 'floating-heart';
+      el.textContent = heartChars[Math.floor(Math.random() * heartChars.length)];
+      el.style.left = Math.random() * 100 + '%';
+      el.style.fontSize = (14 + Math.random() * 20) + 'px';
+      el.style.animationDuration = (8 + Math.random() * 10) + 's';
+      el.style.animationDelay = (Math.random() * 2) + 's';
+      heartsEl.appendChild(el);
+      setTimeout(() => el.remove(), 20000);
+    }
+    setInterval(spawnHeart, 900);
+    for (let i = 0; i < 6; i++) setTimeout(spawnHeart, i * 400);
+
+    // ---- no button runs away ----
+    const noBtn = document.getElementById('noBtn');
+    noBtn.addEventListener('mouseover', () => {
+      const x = (Math.random() - .5) * 250;
+      const y = (Math.random() - .5) * 120;
+      noBtn.style.animation = 'none';
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+      setTimeout(() => { noBtn.style.animation = ''; }, 800);
+    });
+
+    // ---- yes button burst ----
+    function burstHearts() {
+      const btn = document.getElementById('yesBtn');
+      const rect = btn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+
+      for (let i = 0; i < 50; i++) {
+        const el = document.createElement('span');
+        el.textContent = heartChars[Math.floor(Math.random() * heartChars.length)];
+        el.style.position = 'fixed';
+        el.style.left = cx + 'px';
+        el.style.top = cy + 'px';
+        el.style.fontSize = (16 + Math.random() * 22) + 'px';
+        el.style.color = `hsl(${340 + Math.random() * 40}, ${60 + Math.random() * 30}%, ${50 + Math.random() * 20}%)`;
+        el.style.pointerEvents = 'none';
+        el.style.zIndex = '100';
+        el.style.opacity = '1';
+        el.style.transition = 'none';
+
+        const angle = Math.random() * Math.PI * 2;
+        const dist = 120 + Math.random() * 280;
+        const dx = Math.cos(angle) * dist;
+        const dy = Math.sin(angle) * dist;
+        const dur = 800 + Math.random() * 600;
+
+        document.body.appendChild(el);
+
+        requestAnimationFrame(() => {
+          el.style.transition = `transform ${dur}ms cubic-bezier(.15,.8,.3,1), opacity ${dur}ms ease-out`;
+          el.style.transform = `translate(${dx}px, ${dy}px) scale(${.5 + Math.random() * .8}) rotate(${(Math.random() - .5) * 90}deg)`;
+          el.style.opacity = '0';
+        });
+
+        setTimeout(() => el.remove(), dur + 50);
+      }
+    }
+
+    function sayYes() {
+      burstHearts();
+      document.getElementById('celebration').style.display = 'block';
+      document.getElementById('yesBtn').textContent = '\u2665 \u2665 \u2665';
+      noBtn.style.display = 'none';
+      for (let i = 0; i < 30; i++) setTimeout(spawnHeart, i * 80);
+    }
+  </script>
+</body>
+</html>
